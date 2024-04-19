@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EuroMillions.API", "EuroMillions.API", "{F91430F7-1487-4724-A5FD-E440FFDDA07F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EuroMillions.Application", "EuroMillions.Application", "{CFBC1A5F-836F-4E59-A97B-45390BF8B5A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EuroMillions.Data", "EuroMillions.Data", "{B5E493B4-E511-47DF-969F-2A011968850A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EuroMillions.Gateway", "EuroMillions.Gateway", "{45394188-3878-4387-B135-1AD0452043B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.API", "EuroMillions.API\EuroMillions.API.csproj", "{D2A04441-C35E-4B35-BFAD-F980A3787138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.Gateway", "EuroMillions.Gateway\EuroMillions.Gateway.csproj", "{278FDF84-28F9-4CB5-AD71-68E5276AD63F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.Data", "EuroMillions.Data\EuroMillions.Data.csproj", "{03646ACA-E4C1-4B92-834C-F7C4475E16C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.Application", "EuroMillions.Application\EuroMillions.Application.csproj", "{70A07A50-AFA2-44DC-BFAE-34EF879F7B0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2A04441-C35E-4B35-BFAD-F980A3787138} = {F91430F7-1487-4724-A5FD-E440FFDDA07F}
+		{278FDF84-28F9-4CB5-AD71-68E5276AD63F} = {45394188-3878-4387-B135-1AD0452043B6}
+		{03646ACA-E4C1-4B92-834C-F7C4475E16C3} = {B5E493B4-E511-47DF-969F-2A011968850A}
+		{70A07A50-AFA2-44DC-BFAE-34EF879F7B0E} = {CFBC1A5F-836F-4E59-A97B-45390BF8B5A8}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2A04441-C35E-4B35-BFAD-F980A3787138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A04441-C35E-4B35-BFAD-F980A3787138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A04441-C35E-4B35-BFAD-F980A3787138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A04441-C35E-4B35-BFAD-F980A3787138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{278FDF84-28F9-4CB5-AD71-68E5276AD63F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{278FDF84-28F9-4CB5-AD71-68E5276AD63F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{278FDF84-28F9-4CB5-AD71-68E5276AD63F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{278FDF84-28F9-4CB5-AD71-68E5276AD63F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03646ACA-E4C1-4B92-834C-F7C4475E16C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03646ACA-E4C1-4B92-834C-F7C4475E16C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03646ACA-E4C1-4B92-834C-F7C4475E16C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03646ACA-E4C1-4B92-834C-F7C4475E16C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A07A50-AFA2-44DC-BFAE-34EF879F7B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A07A50-AFA2-44DC-BFAE-34EF879F7B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A07A50-AFA2-44DC-BFAE-34EF879F7B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A07A50-AFA2-44DC-BFAE-34EF879F7B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
