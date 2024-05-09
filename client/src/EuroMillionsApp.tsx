@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import './App.css'
 
 function EuroMillionsApp() {
-  const [count] = useState(0)
+  const [count, setCount] = useState(0)
 
   return (
-    "Hello World" + {count}
+    <>
+      Hello World !
+      {count}
+      <button onClick={() => setCount(count+1)}>ADD</button>
+    </>
   );
 }
 
