@@ -1,0 +1,11 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: var(--main-color);
+}
+
+.HeaderComponent {
+    color: white;
+    align-content: center;
+}

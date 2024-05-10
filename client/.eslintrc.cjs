@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, esnext: true },
+  env: { browser: true},
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',

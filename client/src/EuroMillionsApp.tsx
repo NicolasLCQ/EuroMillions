@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import {useState} from 'react'
 
 function EuroMillionsApp() {
-  const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0)
 
-  return (
-    <>
-      Hello World !
-      {count}
-      <button onClick={() => setCount(count+1)}>ADD</button>
-    </>
-  );
+	return (
+		<div className="EuroMillionsApp">
+			Hello World !<br/>
+			{count}<br/>
+			<button onClick={() => setCount(count + 1)}>ADD</button>
+		</div>
+	);
 }
 
 export default EuroMillionsApp
