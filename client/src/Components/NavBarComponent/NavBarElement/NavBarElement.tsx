@@ -1,4 +1,5 @@
 import {NavLink} from "react-router-dom";
+import "./NavBarElement.css";
 
 export interface INavBarComponentProps {
 	text: string;
@@ -7,6 +8,6 @@ export interface INavBarComponentProps {
 
 export default function NavBarElement(props: INavBarComponentProps) {
 	return (
-			<NavLink to={props.link}>{props.text}</NavLink>
+			<NavLink className="NavBarElement" to={props.link}>{props.text}</NavLink>
 	);
 }
