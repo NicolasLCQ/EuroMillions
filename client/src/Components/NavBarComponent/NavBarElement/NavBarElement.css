@@ -6,4 +6,9 @@
     border-color: skyblue;
     font-weight: bold;
     color: var(--main-color);
+    text-decoration: none;
+}
+
+.active{
+    background: var(--main-background);
 }
