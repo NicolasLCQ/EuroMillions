@@ -1,5 +1,5 @@
 import './Header.css';
-import packageJson from '../../../package.json';
+import packageJson from '../../../../package.json';
 
 export default function Header() {
 	return (
