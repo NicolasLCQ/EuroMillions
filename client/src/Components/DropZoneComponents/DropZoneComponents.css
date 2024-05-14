@@ -1,0 +1,10 @@
+.DropZone{
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--main-color);
+    border-radius: 2px;
+    width: 50%;
+    min-height: 200px;
+    text-align: center;
+    align-content: center;
+}

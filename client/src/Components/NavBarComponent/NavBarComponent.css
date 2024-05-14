@@ -1,9 +1,0 @@
-.NavBar {
-    display: flex;
-    flex-direction: row;
-    background: var(--second-background);
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2%;
-}

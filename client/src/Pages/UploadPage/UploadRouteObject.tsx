@@ -1,7 +1,7 @@
 import {RouteObject} from "react-router-dom";
-import EuroMillionsApp from "./EuroMillionsApp.tsx";
+import UploadPage from "./UploadPage.tsx";
 
 export const uploadRouteObject: RouteObject = {
 	path: "/upload",
-	element: <EuroMillionsApp/>
+	element: <UploadPage/>
 }

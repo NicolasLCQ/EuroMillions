@@ -1,5 +1,5 @@
-import NavBarComponent from "../../../Components/NavBarComponent/NavBarComponent.tsx";
-import {INavBarComponentProps} from "../../../Components/NavBarComponent/NavBarElement/NavBarElement.tsx";
+import NavBarComponent from "../../../Components/NavBarComponents/NavBarComponent.tsx";
+import {INavBarComponentProps} from "../../../Components/NavBarComponents/NavBarElements/NavBarElement.tsx";
 
 const NavBarInformations:INavBarComponentProps[] = [
 	{

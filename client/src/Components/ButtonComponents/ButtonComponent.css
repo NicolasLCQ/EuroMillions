@@ -1,0 +1,5 @@
+.ButtonComponents{
+    width: 10%;
+    background: var(--second-background);
+    padding: 5px;
+}
