@@ -1,0 +1,5 @@
+.Title{
+    font-weight: bold;
+    font-size: var(--title-size);
+    margin-bottom: 5px;
+}

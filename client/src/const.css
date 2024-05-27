@@ -2,5 +2,8 @@
     --main-background: #376D98;
     --second-background: #79A9CE;
     --main-font-color: #000000;
+    --second-font-color: var(--second-background);
     --main-color: var(--second-background);
+    --title-size: 40px;
+    --text-size: 18px;
 }
