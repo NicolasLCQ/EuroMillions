@@ -1,26 +1,41 @@
-import {useDropzone} from 'react-dropzone';
 import "./DropZoneComponents.css";
+import {useDropzone} from "react-dropzone";
+import {useCallback, useState} from "react";
 
-export default function DropZoneComponents(){
-	const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone({accept: {'csv': []}})
+interface DropZoneComponentsProps {
+	classname?: string
+}
 
-	const files = acceptedFiles.map(file => (
-		<li key={file.name}>
-			{file.name} - {file.size} bytes
-		</li>
-	));
+export default function DropZoneComponents(props:DropZoneComponentsProps) {
+	const [files, setFiles] = useState([]);
+
+	const handleInput = useCallback(acceptedFiles => {
+		console.log(acceptedFiles);
+		setFiles([
+			...files,
+			...acceptedFiles.map(acceptedFile => {
+				acceptedFile.preview = URL.createObjectURL(acceptedFile);
+				return acceptedFile;
+			})
+		]);
+	}, [files])
+
+	const {getRootProps, getInputProps} = useDropzone(
+		{
+			accept:{
+				"text/csv" : ['.csv']
+			},
+			onDrop: handleInput
+		}
+	);
 
 	return (
-		<div className="DropZone" {...getRootProps()}>
-			<input {...getInputProps()} />
-			{
-				isDragActive ?
-					<p>Drop the files here ...</p> :
-					<p>Drag 'n' drop some files here, or click to select files</p>
-			}
-			<aside>
-				<ul>{files}</ul>
-			</aside>
-		</div>
+		<>
+			<div {...getRootProps({className: props.classname})}>
+				<input {...getInputProps()}/>
+				{files.length == 0 && <p className='DragInformation'>Drag 'n' drop some files here, or click to select files</p>}
+				{files.length > 0 && files.map(file => <img className='Preview' src={file.preview} alt={file.name} onLoad={() => { URL.revokeObjectURL(file.preview) }}/>)}
+			</div>
+		</>
 	)
 }
