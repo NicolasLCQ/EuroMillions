@@ -7,11 +7,12 @@ export interface DropZoneContainerProps {
 }
 
 export default function DropZoneContainer(props: DropZoneContainerProps) {
-	const {files, addFiles} = useContext(UploadPageContext)
+	const {files, addFiles, removeFile} = useContext(UploadPageContext)
 
 	return (
 		<div className={props.className ?? "DropZoneContainer"}>
-			<DropZoneComponent classname="DropZoneComponent" files={files} handleAdd={addFiles}/>
+			<DropZoneComponent classname="DropZoneComponent" files={files} handleAdd={addFiles}
+			                   handleDelete={removeFile}/>
 		</div>
 	)
 }
