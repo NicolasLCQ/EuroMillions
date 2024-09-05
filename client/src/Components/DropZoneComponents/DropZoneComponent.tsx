@@ -24,25 +24,24 @@ export default function DropZoneComponent({classname, files, handleAdd, handleDe
 	const dragInformationsItem = <p className='DragInformation'>Drag 'n' drop some files here, or click to select
 		files</p>;
 
-	const fileListItem = <div className="FileList">
+	const fileListItem = <aside className="FileListSection">
 		{files
 			.map(file =>
 				<FileComponent className="FileComponent" file={file} handleDelete={handleDelete}
-				               key={file?.name}/>
+				               key={file.name}/>
 			)
 		}
-	</div>;
+	</aside>;
 
 	return (
-		<>
-			<div {...getRootProps({className: classname ?? "DropZone"})}>
+		<div className={classname ??"DropZoneComponent"}>
+			<div {...getRootProps({className: "DropZoneSection"})}>
 				<input {...getInputProps()}/>
-				{files.length === 0 && dragInformationsItem}
+				{dragInformationsItem}
 			</div>
-			<div>
-				{files.length > 0 && fileListItem}
-			</div>
-		</>
+			{files?.length > 0 && fileListItem}
+
+		</div>
 
 	)
 }

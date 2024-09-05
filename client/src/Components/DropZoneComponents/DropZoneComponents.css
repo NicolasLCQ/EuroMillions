@@ -1,4 +1,9 @@
-.DropZone{
+.DropZoneComponent{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.DropZoneSection{
     border-width: 3px;
     border-style: solid;
     border-color: var(--main-color);
@@ -8,10 +13,10 @@
     align-content: center;
 }
 
-.DragInformation{
-    text-align: center;
+.FileListSection{
+
 }
 
-.Preview{
-    align-content: start;
+.DragInformation{
+    text-align: center;
 }
