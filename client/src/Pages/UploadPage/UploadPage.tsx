@@ -20,7 +20,6 @@ function UploadPage() {
 				<br/>
 			</TextComponent>
 			<DropZoneContainer className="DropZone"/>
-			{/*<DropZoneComponent classname="DropZone"/>*/}
 			<ButtonComponents text="submit"/>
 		</div>
 	);
