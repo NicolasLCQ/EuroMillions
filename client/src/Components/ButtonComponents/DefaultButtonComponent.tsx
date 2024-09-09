@@ -1,4 +1,4 @@
-import './ButtonComponent.css';
+import './DefaultButtonComponent.css';
 
 interface ButtonComponentsProps {
 	text?: string

@@ -1,7 +1,7 @@
-import NavBarComponent from "../../../Components/NavBarComponents/NavBarComponent.tsx";
 import {INavBarComponentProps} from "../../../Components/NavBarComponents/NavBarElements/NavBarElement.tsx";
+import NavBarComponent from "../../../Components/NavBarComponents/NavBarComponent.tsx";
 
-const NavBarInformations:INavBarComponentProps[] = [
+const NavBarInformations: INavBarComponentProps[] = [
 	{
 		text: "Tirages",
 		link: "/draws"
@@ -17,7 +17,7 @@ const NavBarInformations:INavBarComponentProps[] = [
 ]
 
 export default function NavBar() {
-	return(
+	return (
 		<NavBarComponent textAndLinks={NavBarInformations} />
 	)
 }
