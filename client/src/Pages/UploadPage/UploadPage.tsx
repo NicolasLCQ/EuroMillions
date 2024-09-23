@@ -1,8 +1,7 @@
 import './UploadPage.css';
-import ButtonComponents from "../../Components/ButtonComponents/DefaultButtonComponent.tsx";
 import TittleComponent from "../../Components/TextComponents/TittleComponent/TittleComponent.tsx";
 import TextComponent from '../../Components/TextComponents/TextComponent/TextComponent.tsx';
-import DropZoneContainer from "./DropZoneContainer/DropZoneContainer.tsx";
+import DropZoneContainer from "./Containers/DropZoneContainer.tsx";
 
 
 function UploadPage() {
@@ -20,7 +19,6 @@ function UploadPage() {
 				<br/>
 			</TextComponent>
 			<DropZoneContainer className="DropZone"/>
-			<ButtonComponents text="submit"/>
 		</div>
 	);
 }

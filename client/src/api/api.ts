@@ -1,4 +1,4 @@
-const baseUrl = process.env.API_URL;
+const baseUrl = "https://localhost:3001";//process.env.API_URL;
 
 class EuroMillionsAPI {
 
