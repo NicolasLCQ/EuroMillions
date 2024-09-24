@@ -9,7 +9,6 @@ interface ButtonComponentsProps {
 
 export default function ButtonComponents(props: ButtonComponentsProps) {
 
-
 	return (
 		<button className={props.classname??"ButtonComponents"} onClick={props.onClick}>{props.children}</button>
 	)
