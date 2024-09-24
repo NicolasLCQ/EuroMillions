@@ -12,10 +12,10 @@ class EuroMillionsAPI {
 		});
 	}
 
-	public async Post<Type>(url: string, body: Type): Promise<Response | Error> {
+	public async Post(url: string, body:FormData): Promise<Response | Error> {
 		return fetch(`${baseUrl}${url}`, {
 			method: 'POST',
-			body: JSON.stringify(body),
+			body: body,
 		}).then((response: Response) => {
 			return response.json();
 		}).catch((error: Error) => {
@@ -25,3 +25,5 @@ class EuroMillionsAPI {
 }
 
 export const euroMillionsAPI:EuroMillionsAPI = new EuroMillionsAPI();
+
+//euroMillionsAPI.Post<File[]>(files)
