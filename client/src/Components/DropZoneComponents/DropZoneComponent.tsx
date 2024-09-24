@@ -9,14 +9,27 @@ interface DropZoneComponentsProps {
 	handleDelete: (file: File) => void,
 }
 
+
+
 export default function DropZoneComponent({classname, files, handleAdd, handleDelete}: DropZoneComponentsProps) {
+
+	function noDoubleValidator(file:File){
+		if(files.map(f => f.name).includes(file.name)){
+			return {
+				code: "file-already-added",
+				message: `${file}: already added`,
+			}
+		}
+		return null;
+	}
 
 	const {getRootProps, getInputProps} = useDropzone(
 		{
 			accept: {
 				"text/csv": ['.csv']
 			},
-			onDrop: handleAdd,
+			onDrop: (files) => handleAdd(files),
+			validator: (file) => noDoubleValidator(file)
 
 		}
 	);
