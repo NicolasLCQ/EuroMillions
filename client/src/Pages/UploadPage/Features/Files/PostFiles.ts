@@ -1,5 +1,8 @@
 import {euroMillionsAPI} from "../../../../api/api.ts";
 
 export const postFiles = (files: File[]) => {
-	euroMillionsAPI.Post<File[]>("/upload/postFiles", files)
+	const body = new FormData();
+	files.forEach(f => {body.append('file', f);});
+
+	euroMillionsAPI.Post("/upload/postFiles", body);
 }
