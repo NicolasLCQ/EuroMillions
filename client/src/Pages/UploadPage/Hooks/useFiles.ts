@@ -1,7 +1,7 @@
 import {useState} from "react";
 
-export const useFiles = () =>{
-	const [files, setFiles] = useState([]);
+export const useFiles = () => {
+	const [files, setFiles] = useState<File[]>([]);
 
 	const addFiles = (newFiles) => {
 		setFiles([
@@ -18,7 +18,7 @@ export const useFiles = () =>{
 		setFiles([]);
 	}
 
-	return{
+	return {
 		files,
 		addFiles,
 		removeFile,
