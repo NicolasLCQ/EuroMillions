@@ -3,6 +3,8 @@ using EuroMillions.API.Routes;
 
 namespace EuroMillions.API;
 
+using Resources;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -11,6 +13,8 @@ public class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddTransient<UploadRessource>();
 
         WebApplication app = builder.Build();
 
