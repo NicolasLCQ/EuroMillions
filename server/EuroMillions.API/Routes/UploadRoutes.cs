@@ -9,8 +9,5 @@ public static class UploadRoutes
         uploadGroup.MapPost("/history_files/post", NotImplementedYet);
     }
 
-    static async Task<IResult> NotImplementedYet()
-    {
-        return TypedResults.Ok("Not Implemented Yet");
-    }
+    private static async Task<IResult> NotImplementedYet() => TypedResults.Ok("Not Implemented Yet");
 }

@@ -12,9 +12,16 @@ public class Draw
 
     public Draw(Number number1, Number number2, Number number3, Number number4, Number number5, Star star1, Star star2)
     {
-
         // Validation des nombres pour éviter les doublons
-        var numbers = new HashSet<int> { number1, number2, number3, number4, number5 };
+        HashSet<int>? numbers = new HashSet<int>
+        {
+            number1,
+            number2,
+            number3,
+            number4,
+            number5
+        };
+
         if (numbers.Count != 5)
         {
             throw new ArgumentException("Les numéros doivent être uniques.");
