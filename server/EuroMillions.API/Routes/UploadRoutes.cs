@@ -8,9 +8,10 @@ public static class UploadRoutes
 {
     public static void UseUploadRoutes(this IEndpointRouteBuilder app)
     {
-        RouteGroupBuilder uploadGroup = app.MapGroup("/upload");
+        RouteGroupBuilder? uploadGroup = app
+            .MapGroup("/upload")
+            .DisableAntiforgery();
 
-        uploadGroup.MapPost("/history_files/post",//body temp
-            ([FromServices] UploadRessource manager, [FromBody] List<List<byte>> files) => manager.NotImplementedYet());
+        uploadGroup.MapPost("/history_files", ([FromServices] UploadRessource manager, [FromForm] IFormFileCollection files) => manager.UplaodFilesAsync(files));
     }
 }
