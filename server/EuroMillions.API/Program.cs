@@ -3,27 +3,15 @@ using EuroMillions.API.Routes;
 
 namespace EuroMillions.API;
 
-using Resources;
-
 public class Program
 {
     public static void Main(string[] args)
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
-
-        builder.Services.AddCors(options =>
-        {
-            options.AddPolicy("AllowFrontEnd",
-                policy =>
-                {
-                    policy.WithOrigins("http://localhost:3000");
-                });
-        });
-
-        builder.Services.AddTransient<UploadRessource>();
+        builder.AddConfiguration();
+        builder.DefineCorsPolicies();
+        builder.AddTransients();
 
         WebApplication app = builder.Build();
 
@@ -33,8 +21,7 @@ public class Program
         }
 
         app.UseUploadRoutes();
-
-        app.UseCors("AllowFrontEnd");
+        app.UseCorsPolicies();
         app.UseHttpsRedirection();
         app.Run();
     }
