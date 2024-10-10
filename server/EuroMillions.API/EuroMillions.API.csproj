@@ -12,8 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Models\Configuration\"/>
-        <Folder Include="Models\Upload\"/>
+        <Folder Include="Models\" />
     </ItemGroup>
 
 </Project>
