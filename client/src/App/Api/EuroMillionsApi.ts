@@ -1,6 +1,11 @@
 const baseUrl = import.meta.env.VITE_API_URL;
 
-class EuroMillionsAPI {
+export interface IEuroMillionsAPI {
+	Get: <Type>(url: string) => Promise<Type | Error>,
+	Post: (url: string, body: FormData) => Promise<Response | Error>
+}
+
+class EuroMillionsAPI implements IEuroMillionsAPI{
 
 	public async Get<Type>(url: string): Promise<Type | Error> {
 		return (

@@ -1,18 +1,19 @@
 import {INavBarComponentProps} from "../../../Components/NavBarComponents/NavBarElements/NavBarElement.tsx";
 import NavBarComponent from "../../../Components/NavBarComponents/NavBarComponent.tsx";
+import uploadRouteObject from "../../UploadPage/UploadRouteObject.tsx";
 
 const NavBarInformations: INavBarComponentProps[] = [
 	{
 		text: "Tirages",
-		link: "/draws"
+		link: ""
 	},
 	{
 		text: "Statistiques",
-		link: "/statistics"
+		link: ""
 	},
 	{
 		text: "Upload",
-		link: "/upload"
+		link: uploadRouteObject.path
 	}
 ]
 

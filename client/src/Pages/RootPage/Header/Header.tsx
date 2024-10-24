@@ -6,7 +6,7 @@ export default function Header() {
 		<div className="Header">
 			<div className="HeaderComponent">
 				<div className="HeaderLogo">
-					<img src="/FDJLogo.png" alt="FDJLogo"/>
+					<img src="/images/FDJLogo.png" alt="FDJLogo"/>
 				</div>
 			</div>
 			<div className="HeaderComponent">

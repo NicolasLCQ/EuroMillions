@@ -1,4 +1,4 @@
-import {euroMillionsAPI} from "../../../../api/api.ts";
+import {euroMillionsAPI} from "../../../../App/Api/EuroMillionsApi.ts";
 
 export const postFiles = async(files: File[]) => {
 	const body = new FormData();
