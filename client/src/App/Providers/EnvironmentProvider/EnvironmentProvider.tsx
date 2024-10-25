@@ -1,7 +1,5 @@
 import { createContext } from "react";
-import {IEnvVariablesType} from "./EnvVariables/EnvVariables.ts";
-
-const ENV = import.meta.env;
+import {IEnvVariablesType, mappedEnvVariables} from "./EnvVariables/EnvVariables.ts";
 
 export interface IEnvironmentContextProps {
 	useEnvVariables: () => IEnvVariablesType;
@@ -13,18 +11,12 @@ const EnvironmentContext = createContext<IEnvironmentContextProps>({
 
 export interface IEnvironmentProviderProps {
 	children: React.ReactNode;
+	mapedEnvVariables: IEnvVariablesType;
 }
 
-const EnvironmentProvider = ({children}:IEnvironmentProviderProps) => {
+const EnvironmentProvider = ({children, mapedEnvVariables=mappedEnvVariables }:IEnvironmentProviderProps) => {
 
-	const useEnvVariables = () => {
-		return {
-			env: ENV.MODE,
-			api: {
-				baseURL: ENV.VITE_API_URL
-			}
-		}
-	};
+	const useEnvVariables = () => mapedEnvVariables;
 
 	return (
 		<EnvironmentContext.Provider value={{useEnvVariables}}>
