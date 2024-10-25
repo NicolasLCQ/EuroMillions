@@ -1,5 +1,7 @@
 namespace EuroMillions.API.Configuration;
 
+using Resources;
+
 public static class Configuration
 {
     public static void AddConfiguration(this IHostApplicationBuilder builder)
@@ -14,8 +16,5 @@ public static class Configuration
         app.UseSwaggerUI();
     }
 
-    public static void AddTransients(this IHostApplicationBuilder builder)
-    {
-        // builder.Services.AddTransient<>():
-    }
+    public static void AddTransients(this IHostApplicationBuilder builder) => builder.Services.AddTransient<UploadRessource>();
 }

@@ -14,6 +14,7 @@ export default function DropZoneContainer(props: DropZoneContainerProps) {
 	const fileMutation = useMutation({
 		mutationFn: (f: File[]) => postFiles(f),
 		onSuccess: clearFiles,
+		onError: e => console.log(e)
 	});
 
 	return (

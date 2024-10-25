@@ -5,7 +5,6 @@ import DropZoneContainer from "./Containers/DropZoneContainer.tsx";
 
 
 function UploadPage() {
-
 	return (
 		<div className="UploadPage">
 			<TittleComponent className="Title">You can upload the files from FDJ EuroMillions on this
