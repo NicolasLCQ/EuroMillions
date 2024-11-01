@@ -1,0 +1,9 @@
+services:
+  mysql:
+    build:
+      context: database
+      dockerfile: MySql-Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3002:3306"
