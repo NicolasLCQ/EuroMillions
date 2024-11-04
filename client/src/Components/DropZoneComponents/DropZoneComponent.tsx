@@ -1,6 +1,7 @@
 import "./DropZoneComponents.css";
 import {useDropzone} from "react-dropzone";
 import FileComponent from "./FileComponents/FileComponent.tsx";
+import React from "react";
 
 interface DropZoneComponentsProps {
 	classname?: string,
@@ -11,8 +12,7 @@ interface DropZoneComponentsProps {
 
 
 
-export default function DropZoneComponent({classname, files, handleAdd, handleDelete}: DropZoneComponentsProps) {
-
+const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({classname, files, handleAdd, handleDelete}: DropZoneComponentsProps) => {
 	function noDoubleValidator(file:File){
 		if(files.map(f => f.name).includes(file.name)){
 			return {
@@ -34,16 +34,10 @@ export default function DropZoneComponent({classname, files, handleAdd, handleDe
 		}
 	);
 
-	const dragInformationsItem = <p className='DragInformation'>Drag 'n' drop some files here, or click to select
-		files</p>;
+	const dragInformationsItem = <p className='DragInformation'>Drag 'n' drop some files here, or click to select files</p>;
 
 	const fileListItem = <aside className="FileListSection">
-		{files
-			.map(file =>
-				<FileComponent className="FileComponent" file={file} handleDelete={handleDelete}
-				               key={file.name}/>
-			)
-		}
+		{files.map(file => <FileComponent className="FileComponent" file={file} handleDelete={handleDelete} key={file.name}/>)}
 	</aside>;
 
 	return (
@@ -58,3 +52,5 @@ export default function DropZoneComponent({classname, files, handleAdd, handleDe
 
 	)
 }
+
+export default DropZoneComponent;

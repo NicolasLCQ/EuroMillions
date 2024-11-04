@@ -1,42 +1,16 @@
-import {useEnvVariables} from "../Hooks/EnvironmentVariablesHooks/EnvironmentVariablesHooks.tsx";
+import ApiGetFunction from "App/Api/ApiCalls/ApiGetFunction.ts";
+import ApiPostFunction from "App/Api/ApiCalls/ApiPostFunction.ts";
 
 interface IUseEuroMillionsApiType{
-		Get: <Type>(url: string) => Promise<Type | Error>,
-		Post: (url: string, body: FormData) => Promise<Response | Error>
+	Get: <Type>(url: string) => Promise<Type | Error>,
+	Post: (url: string, body: FormData) => Promise<Response | Error>
 }
 
 const useEuroMillionsApi: () => IUseEuroMillionsApiType = () => {
-	const baseUrl = useEnvVariables().api.baseURL;
-
-	const Get = async <Type>(url: string): Promise<Type | Error> => {
-
-		const httpResponse = await fetch(`${baseUrl}${url}`,{
-			method: 'GET'
-		});
-
-		if(httpResponse.ok){
-			return await httpResponse.json();
-		}
-
-		return await httpResponse.json() as Error;
-	}
-
-	const Post = async (url: string, body: FormData): Promise<Response | Error> =>{
-		const httpResponse =await fetch(`${baseUrl}${url}`, {
-			method: 'POST',
-			body: body,
-		})
-
-		if(httpResponse.ok) {
-			return await httpResponse.json();
-		}
-
-		return await httpResponse.json() as Error;
-	}
 
 	return {
-		Get,
-		Post
+		Get:ApiGetFunction,
+		Post:ApiPostFunction
 	};
 }
 

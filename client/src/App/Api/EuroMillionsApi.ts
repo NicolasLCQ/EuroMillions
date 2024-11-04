@@ -1,10 +1,11 @@
+/*
 const baseUrl = import.meta.env.VITE_API_URL;
 
 export interface IEuroMillionsAPI {
 	Get: <Type>(url: string) => Promise<Type | Error>,
 	Post: (url: string, body: FormData) => Promise<Response | Error>
 }
-
+//TODO : get rid of heritage
 class EuroMillionsAPI implements IEuroMillionsAPI{
 
 	public async Get<Type>(url: string): Promise<Type | Error> {
@@ -26,3 +27,4 @@ class EuroMillionsAPI implements IEuroMillionsAPI{
 }
 
 export const euroMillionsAPI: EuroMillionsAPI = new EuroMillionsAPI();
+*/

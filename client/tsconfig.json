@@ -20,7 +20,12 @@
     "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths":{
+      "App/*": ["./src/App/*"],
+      "Components/*": ["./src/Components/*"],
+      "Pages/*": ["./src/Pages/*"]
+    }
   },
   "include": [
     "src"

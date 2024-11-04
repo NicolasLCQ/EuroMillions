@@ -1,5 +1,5 @@
 import './DefaultButtonComponent.css';
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
 
 interface ButtonComponentsProps {
 	classname?: string;
@@ -7,9 +7,11 @@ interface ButtonComponentsProps {
 	onClick: () => void;
 }
 
-export default function ButtonComponents(props: ButtonComponentsProps) {
+const ButtonComponents : React.FC<ButtonComponentsProps> = (props: ButtonComponentsProps) => {
 
 	return (
 		<button className={props.classname??"ButtonComponents"} onClick={props.onClick}>{props.children}</button>
 	)
 }
+
+export default ButtonComponents;
