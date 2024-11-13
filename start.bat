@@ -1,0 +1,1 @@
+docker-compose -f EuroMillions-compose.yml up -d
