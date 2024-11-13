@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.API", "EuroMillions.API\EuroMillions.API.csproj", "{0B291E03-A9CD-4DA4-ADCB-087B6EB32BF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.Gateway", "EuroMillions.Gateway\EuroMillions.Gateway.csproj", "{CB91C041-44CE-4C42-9788-45C44BB4D2BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.Infrastructure", "EuroMillions.Infrastructure\EuroMillions.Infrastructure.csproj", "{CB91C041-44CE-4C42-9788-45C44BB4D2BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroMillions.Data", "EuroMillions.Data\EuroMillions.Data.csproj", "{155B5EF5-7515-43D4-88C0-F39F55B0FA6D}"
 EndProject

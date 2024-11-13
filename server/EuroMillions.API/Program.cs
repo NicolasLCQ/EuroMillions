@@ -11,6 +11,7 @@ public class Program
 
         builder.AddConfiguration();
         builder.DefineCorsPolicies();
+
         builder.AddTransients();
 
         WebApplication app = builder.Build();
@@ -20,7 +21,9 @@ public class Program
             app.UseDevelopmentConfiguration();
         }
 
+        //Routes
         app.UseUploadRoutes();
+
         app.UseCorsPolicies();
         app.UseHttpsRedirection();
         app.Run();

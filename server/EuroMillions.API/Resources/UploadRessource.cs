@@ -11,6 +11,4 @@ public class UploadRessource
 
         return Results.Ok(files.Select(file => file.FileName));
     }
-
-    public async Task<IResult> NotImplementedYet() => TypedResults.Ok("Not Implemented Yet");
 }
