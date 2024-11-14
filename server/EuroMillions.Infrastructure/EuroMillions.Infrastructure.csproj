@@ -16,8 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Helpers\" />
+        <Folder Include="Helpers\"/>
         <Folder Include="Repositories\"/>
+        <Folder Include="WebServices\"/>
     </ItemGroup>
 
 </Project>

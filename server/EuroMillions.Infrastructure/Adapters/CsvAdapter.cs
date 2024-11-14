@@ -1,6 +1,6 @@
-namespace EuroMillions.Gateway.WebServices;
+namespace EuroMillions.Gateway.Adapters;
 
-public class FileWs
+public class CsvAdapter
 {
     //https://joshclose.github.io/CsvHelper/examples/reading/reading-multiple-data-sets/
 }
