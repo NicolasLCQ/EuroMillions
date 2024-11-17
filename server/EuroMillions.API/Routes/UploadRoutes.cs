@@ -10,6 +10,6 @@ public static class UploadRoutes
     {
         RouteGroupBuilder? uploadGroup = app.MapGroup("/upload");
         uploadGroup.DisableAntiforgery();
-        uploadGroup.MapPost("/history_files", ([FromServices] UploadRessource uploadRessource, [FromForm] IFormFileCollection files) => uploadRessource.UplaodFilesAsync(files));
+        uploadGroup.MapPost("/history_files", ([FromServices] UploadRessource uploadRessource, [FromForm] IFormFileCollection files) => uploadRessource.UploadFilesAsync(files));
     }
 }

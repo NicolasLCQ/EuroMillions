@@ -2,6 +2,7 @@ namespace EuroMillions.Data.Models;
 
 public class Draw
 {
+    // public int Id { get; set; }
     public Ball Ball1 { get; private set; }
     public Ball Ball2 { get; private set; }
     public Ball Ball3 { get; private set; }

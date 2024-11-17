@@ -4,7 +4,6 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>EuroMillions.Gateway</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,9 +17,13 @@
 
     <ItemGroup>
         <Folder Include="Helpers\"/>
-        <Folder Include="Mappers\" />
         <Folder Include="Repositories\"/>
         <Folder Include="WebServices\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj" />
+      <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj" />
     </ItemGroup>
 
 </Project>

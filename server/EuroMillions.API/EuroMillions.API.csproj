@@ -15,4 +15,9 @@
         <Folder Include="Models\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj" />
+      <ProjectReference Include="..\EuroMillions.Infrastructure\EuroMillions.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
