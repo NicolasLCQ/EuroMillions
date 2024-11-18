@@ -1,9 +1,10 @@
 ﻿namespace EuroMillions.Infrastructure.Mappers.CsvMapper;
 
 using CsvHelper.Configuration;
-using Data.Models;
 
-public sealed class CsvDrawMap : ClassMap<Draw>
+using Models.csv;
+
+public sealed class CsvDrawMap : ClassMap<CsvDrawModel>
 {
     public CsvDrawMap()
     {

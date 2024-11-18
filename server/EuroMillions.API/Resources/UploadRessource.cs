@@ -13,6 +13,7 @@ public class UploadRessource(IDrawServices drawServices)
         }
 
         drawServices.AddDrawsFromCsvFiles(files.Select(f => f.OpenReadStream()));
+
         return Results.Ok(files.Select(file => file.FileName));
     }
 }

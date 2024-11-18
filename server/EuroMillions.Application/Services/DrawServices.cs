@@ -8,12 +8,9 @@ using Interfaces.Services;
 
 public class DrawServices(ICsvAdapter csvAdapter) : IDrawServices
 {
-    public async void AddDrawsFromCsvFiles(IEnumerable<Stream> fileStreams)
-    {
-        fileStreams.SelectMany(fileStream => csvAdapter
-                        .ExtractEuroMillionDrawFromStream(fileStream))
-                        .ToList()
-                        .ForEach(draw => Console.WriteLine(draw)
-                    );
-    }
+    public async void AddDrawsFromCsvFiles(IEnumerable<Stream> fileStreams) =>
+        fileStreams
+            .SelectMany(fileStream => csvAdapter.ExtractEuroMillionDrawFromFileAsStream(fileStream))
+            .ToList()
+            .ForEach(draw => Console.WriteLine(draw));
 }
