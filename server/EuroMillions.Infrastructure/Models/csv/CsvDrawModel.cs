@@ -4,6 +4,9 @@ using Data.Models;
 
 public class CsvDrawModel
 {
+    public int YearDrawNumber { get; set; }
+    public DateTime DrawDate { get; set; }
+
     public int Ball1 { get; set; }
     public int Ball2 { get; set; }
     public int Ball3 { get; set; }

@@ -10,6 +10,7 @@ using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 using Data.Models;
 
 using Mappers.CsvMapper;
+using Mappers.ModelMappers;
 
 using Models.csv;
 
@@ -29,9 +30,6 @@ public class CsvAdapter : ICsvAdapter
         using CsvReader csv = new(reader, _csvConfiguration);
 
         csv.Context.RegisterClassMap<CsvDrawMap>();
-        List<CsvDrawModel> r = csv.GetRecords<CsvDrawModel>().ToList();
-        var cc = csv.ColumnCount;
-        var hr = csv.HeaderRecord;
-        return new List<Draw>();
+        return csv.GetRecords<CsvDrawModel>().Select(draw => draw.ToEntity()).ToList();
     }
 }
