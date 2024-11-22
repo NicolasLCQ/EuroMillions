@@ -1,1 +1,1 @@
-docker-compose -f EuroMillions-compose.yml down
+docker-compose -f EuroMillions-compose.yml down -v --remove-orphans

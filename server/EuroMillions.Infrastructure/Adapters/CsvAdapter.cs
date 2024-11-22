@@ -24,7 +24,7 @@ public class CsvAdapter : ICsvAdapter
         _csvConfiguration = new CsvConfiguration(CultureInfo.InvariantCulture) { NewLine = "\n", Delimiter = ";", HasHeaderRecord = true };
     }
 
-    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream)
+    public IEnumerable<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream)
     {
         using StreamReader reader = new(csvReportFileStream);
         using CsvReader csv = new(reader, _csvConfiguration);

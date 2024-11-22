@@ -4,5 +4,5 @@ using Data.Models;
 
 public interface ICsvAdapter
 {
-    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream);
+    public IEnumerable<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream);
 }
