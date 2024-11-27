@@ -9,7 +9,8 @@ public class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-        builder.AddConfiguration();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
         builder.DefineCorsPolicies();
 
         builder.AddTransients();
@@ -18,7 +19,8 @@ public class Program
 
         if (app.Environment.IsDevelopment())
         {
-            app.UseDevelopmentConfiguration();
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
 
         //Routes
