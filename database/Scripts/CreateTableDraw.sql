@@ -2,7 +2,7 @@ USE DB_EUROMILLIONS;
 
 CREATE TABLE IF NOT EXISTS T_DRAW
 (
-    ID               int      not null,
+    ID               int      PRIMARY KEY not null AUTO_INCREMENT,
     YEAR_DRAW_NUMBER int      not null,
     DRAW_DATE             DATETIME not null,
     BALL_ONE         int      not null,

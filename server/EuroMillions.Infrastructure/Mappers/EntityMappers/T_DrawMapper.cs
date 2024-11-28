@@ -8,7 +8,6 @@ public static class T_DrawMapper
 {
     public static T_DRAW FromModel(this T_DRAW tDraw, Draw draw)
     {
-        tDraw.ID = draw.Id ?? default;
         tDraw.YEAR_DRAW_NUMBER = draw.YearDrawNumber;
         tDraw.DRAW_DATE = draw.DrawDate;
         tDraw.BALL_ONE = draw.Ball1;
@@ -22,5 +21,5 @@ public static class T_DrawMapper
         return tDraw;
     }
 
-    public static Draw ToModel(this T_DRAW tDraw) => new(tDraw.BALL_ONE, tDraw.BALL_TWO, tDraw.BALL_THREE, tDraw.BALL_FOUR, tDraw.BALL_FIVE, tDraw.STAR_ONE, tDraw.STAR_TWO);
+    public static Draw ToModel(this T_DRAW tDraw) => new(tDraw.ID, tDraw.YEAR_DRAW_NUMBER, tDraw.DRAW_DATE, tDraw.BALL_ONE, tDraw.BALL_TWO, tDraw.BALL_THREE, tDraw.BALL_FOUR, tDraw.BALL_FIVE, tDraw.STAR_ONE, tDraw.STAR_TWO);
 }

@@ -44,7 +44,7 @@ public class Draw
         Star2 = star2;
     }
 
-    public Draw(int yearDrawNumber, DateTime drawDate, Ball ball1, Ball ball2, Ball ball3, Ball ball4, Ball ball5, Star star1, Star star2)
+    public Draw(int id, int yearDrawNumber, DateTime drawDate, Ball ball1, Ball ball2, Ball ball3, Ball ball4, Ball ball5, Star star1, Star star2)
     {
         HashSet<int>? balls = new()
         {
@@ -73,6 +73,7 @@ public class Draw
         Star1 = star1;
         Star2 = star2;
 
+        Id = id;
         YearDrawNumber = yearDrawNumber;
         DrawDate = drawDate;
     }
