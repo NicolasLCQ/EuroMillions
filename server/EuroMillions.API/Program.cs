@@ -3,6 +3,10 @@ using EuroMillions.API.Routes;
 
 namespace EuroMillions.API;
 
+using Infrastructure.Context;
+
+using Microsoft.EntityFrameworkCore;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -11,7 +15,20 @@ public class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.DefineCorsPolicies();
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowConsumers",
+                policy =>
+                {
+                    policy.WithOrigins(builder.Configuration["AllowedConsumers"]!.Split(","));
+                });
+        });
+
+        builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
+        {
+            optionBuilder.UseMySql(builder.Configuration.GetConnectionString("EuroMillionsDb"), ServerVersion.Parse("9.1.0-mysql"));
+        });
 
         builder.AddTransients();
 
@@ -26,7 +43,7 @@ public class Program
         //Routes
         app.UseUploadRoutes();
 
-        app.UseCorsPolicies();
+        app.UseCors("AllowConsumers");
         app.UseHttpsRedirection();
         app.Run();
     }

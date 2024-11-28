@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EuroMillions.Infrastructure.Entities;
 
-[Keyless]
 [Table("T_DRAW")]
 public partial class T_DRAW
 {
+    [Key]
     public int ID { get; set; }
 
     public int YEAR_DRAW_NUMBER { get; set; }

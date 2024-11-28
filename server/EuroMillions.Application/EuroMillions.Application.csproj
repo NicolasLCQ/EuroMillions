@@ -7,13 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Interfaces\Infrastructure\Repositories\" />
-        <Folder Include="Interfaces\Infrastructure\WebServices\" />
+        <Folder Include="Interfaces\Infrastructure\WebServices\"/>
         <Folder Include="Managers\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj" />
+        <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj"/>
     </ItemGroup>
 
 </Project>

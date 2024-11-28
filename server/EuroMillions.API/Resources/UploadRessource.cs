@@ -12,7 +12,7 @@ public class UploadRessource(IDrawServices drawServices)
             return Results.BadRequest("No files provided");
         }
 
-        drawServices.AddDrawsFromCsvFiles(files.Select(f => f.OpenReadStream()));
+        await drawServices.AddDrawsFromCsvFilesAsync(files.Select(f => f.OpenReadStream()));
 
         return Results.Ok(files.Select(file => file.FileName));
     }

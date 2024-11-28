@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CsvHelper" Version="33.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+        <PackageReference Include="CsvHelper" Version="33.0.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -17,13 +17,12 @@
 
     <ItemGroup>
         <Folder Include="Helpers\"/>
-        <Folder Include="Repositories\"/>
         <Folder Include="WebServices\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj" />
-      <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj" />
+        <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj"/>
+        <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj"/>
     </ItemGroup>
 
 </Project>
