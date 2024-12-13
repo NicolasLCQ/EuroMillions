@@ -2,5 +2,5 @@ namespace EuroMillions.Application.Interfaces.Services;
 
 public interface IDrawServices
 {
-    public Task AddDrawsFromCsvFilesAsync(IEnumerable<Stream> fileStreams);
+    public Task<int> AddDrawsFromCsvFilesAsync(IEnumerable<Stream> fileStreams);
 }

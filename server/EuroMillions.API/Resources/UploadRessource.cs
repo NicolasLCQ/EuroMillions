@@ -12,8 +12,8 @@ public class UploadRessource(IDrawServices drawServices)
             return Results.BadRequest("No files provided");
         }
 
-        await drawServices.AddDrawsFromCsvFilesAsync(files.Select(f => f.OpenReadStream()));
+        var NbDrawAdded = await drawServices.AddDrawsFromCsvFilesAsync(files.Select(f => f.OpenReadStream()));
 
-        return Results.Ok(files.Select(file => file.FileName));
+        return Results.Ok(NbDrawAdded.ToString() + " Draws Added");
     }
 }

@@ -8,12 +8,14 @@ using Interfaces.Services;
 
 public class DrawServices(ICsvAdapter csvAdapter, IDrawRepository drawRepository) : IDrawServices
 {
-    public async Task AddDrawsFromCsvFilesAsync(IEnumerable<Stream> fileStreams)
+    public async Task<int> AddDrawsFromCsvFilesAsync(IEnumerable<Stream> fileStreams)
     {
-        IEnumerable<Draw> drawsToAdd = fileStreams
+        IEnumerable<Draw> drawsFromFiles = fileStreams
             .SelectMany(fileStream => csvAdapter.ExtractEuroMillionDrawFromFileAsStream(fileStream))
             .ToList();
 
-        await drawRepository.AddDrawsAsync(drawsToAdd);
+        IEnumerable<Draw> drawsToAdd = await drawRepository.FilterNewDrawsAsync(drawsFromFiles);
+
+        return await drawRepository.AddDrawsAsync(drawsToAdd);
     }
 }
