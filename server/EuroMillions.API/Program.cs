@@ -27,8 +27,7 @@ public class Program
 
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
         {
-            // optionBuilder.UseMySql(builder.Configuration.GetConnectionString("EuroMillionsDb"), ServerVersion.Parse("9.1.0-mysql"));
-            optionBuilder.UseMySql("server=localhost;port=3002;user=root;password=root;database=DB_EUROMILLIONS", ServerVersion.Parse("9.1.0-mysql"));
+            optionBuilder.UseMySql(builder.Configuration.GetConnectionString("EuroMillionsDb"), ServerVersion.Parse("9.1.0-mysql"));
         });
 
         builder.AddTransients();

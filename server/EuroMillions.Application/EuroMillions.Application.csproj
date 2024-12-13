@@ -11,8 +11,4 @@
         <Folder Include="Managers\"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj"/>
-    </ItemGroup>
-
 </Project>

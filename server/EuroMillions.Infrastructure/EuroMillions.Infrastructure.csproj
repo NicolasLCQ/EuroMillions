@@ -22,7 +22,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj"/>
-        <ProjectReference Include="..\EuroMillions.Data\EuroMillions.Data.csproj"/>
     </ItemGroup>
 
 </Project>
