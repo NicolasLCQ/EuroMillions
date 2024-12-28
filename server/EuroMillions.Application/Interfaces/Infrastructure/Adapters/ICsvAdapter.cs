@@ -1,8 +1,10 @@
 ﻿namespace EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 
+using System.Collections;
+
 using Data.Models;
 
 public interface ICsvAdapter
 {
-    public IEnumerable<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream);
+    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream);
 }

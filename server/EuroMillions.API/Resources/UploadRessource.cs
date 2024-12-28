@@ -3,7 +3,11 @@ namespace EuroMillions.API.Resources;
 using Application.Interfaces;
 using Application.Interfaces.Services;
 
-public class UploadRessource(IDrawServices drawServices)
+using Data.Models;
+
+using Mappers;
+
+public class UploadRessource(IUploadServices uploadServices)
 {
     public async Task<IResult> UploadFilesAsync(IFormFileCollection files)
     {
@@ -12,8 +16,8 @@ public class UploadRessource(IDrawServices drawServices)
             return Results.BadRequest("No files provided");
         }
 
-        var NbDrawAdded = await drawServices.AddDrawsFromCsvFilesAsync(files.Select(f => f.OpenReadStream()));
+        List<DrawFileModel> drawAddedDetails = await uploadServices.UploadDrawsFromCsvFilesAsync(files.Select(f => f.ToUploadFileModel()));
 
-        return Results.Ok(NbDrawAdded.ToString() + " Draws Added");
+        return Results.Ok(drawAddedDetails);
     }
 }

@@ -4,6 +4,6 @@ using Data.Models;
 
 public interface IDrawRepository
 {
-    public Task<int> AddDrawsAsync(IEnumerable<Draw> draws);
-    public Task<IEnumerable<Draw>> FilterNewDrawsAsync(IEnumerable<Draw> draws);
+    public Task AddDrawsAsync(IEnumerable<Draw> draws);
+    public Task<IList<Draw>> FilterNewDrawsAsync(IEnumerable<Draw> draws);
 }
