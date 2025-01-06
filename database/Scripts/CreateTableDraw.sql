@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS T_DRAW
     BALL_FOUR        int      not null,
     BALL_FIVE        int      not null,
     STAR_ONE         int      not null,
-    STAR_TWO         int      not null
+    STAR_TWO         int      not null,
+    CONSTRAINT T_DRAW_YEAR_DRAW_NUMBER_uindex UNIQUE (YEAR_DRAW_NUMBER)
 );
