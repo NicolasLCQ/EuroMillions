@@ -1,6 +1,7 @@
 namespace EuroMillions.Infrastructure.Repositories;
 
 using Application.Interfaces.Infrastructure.Repositories;
+using Application.Models;
 
 using Context;
 
@@ -28,7 +29,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
     {
         IList<T_DRAW> drawsToAdd = draws.Select(d => new T_DRAW().FromModel(d)).ToList();
 
-        await dbContext.T_DRAWs.AddRangeAsync(drawsToAdd);
+        dbContext.T_DRAWs.AddRange(drawsToAdd);
         await dbContext.SaveChangesAsync();
     }
 }

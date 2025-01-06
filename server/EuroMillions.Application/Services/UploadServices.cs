@@ -25,7 +25,10 @@ public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawReposito
             .Select(asyncTask => asyncTask.Result)
         .ToList();
 
-        filteredDrawFileModels.ForEach(async dfm =>await drawRepository.AddDrawsAsync(dfm.Draws));
+        for (int i = 0; i < filteredDrawFileModels.Count; i++)
+        {
+            await drawRepository.AddDrawsAsync(filteredDrawFileModels[i].Draws);
+        }
 
         return filteredDrawFileModels;
     }

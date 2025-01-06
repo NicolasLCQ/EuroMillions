@@ -1,4 +1,6 @@
-namespace EuroMillions.Data.Models;
+namespace EuroMillions.Application.Models;
+
+using Data.Models;
 
 public class Draw
 {
@@ -6,13 +8,13 @@ public class Draw
     public int YearDrawNumber { get; set; }
     public DateTime DrawDate { get; set; }
 
-    public Ball Ball1 { get; private set; }
-    public Ball Ball2 { get; private set; }
-    public Ball Ball3 { get; private set; }
-    public Ball Ball4 { get; private set; }
-    public Ball Ball5 { get; private set; }
-    public Star Star1 { get; private set; }
-    public Star Star2 { get; private set; }
+    private Ball _ball1; public int Ball1 { get => (int)_ball1; }
+    private Ball _ball2; public int Ball2 { get => (int)_ball2; }
+    private Ball _ball3; public int Ball3 { get => (int)_ball3; }
+    private Ball _ball4; public int Ball4 { get => (int)_ball4; }
+    private Ball _ball5; public int Ball5 { get => (int)_ball5; }
+    private Star _star1; public int Star1 { get => (int)_star1; }
+    private Star _star2; public int Star2 { get => (int)_star2; }
 
     public Draw(int yearDrawNumber, DateTime drawDate, Ball ball1, Ball ball2, Ball ball3, Ball ball4, Ball ball5, Star star1, Star star2)
     {
@@ -35,13 +37,13 @@ public class Draw
             throw new ArgumentException("Les étoiles doivent être uniques.");
         }
 
-        Ball1 = ball1;
-        Ball2 = ball2;
-        Ball3 = ball3;
-        Ball4 = ball4;
-        Ball5 = ball5;
-        Star1 = star1;
-        Star2 = star2;
+        _ball1 = ball1;
+        _ball2 = ball2;
+        _ball3 = ball3;
+        _ball4 = ball4;
+        _ball5 = ball5;
+        _star1 = star1;
+        _star2 = star2;
 
         YearDrawNumber = yearDrawNumber;
         DrawDate = drawDate;
@@ -68,13 +70,13 @@ public class Draw
             throw new ArgumentException("Stars must be unique");
         }
 
-        Ball1 = ball1;
-        Ball2 = ball2;
-        Ball3 = ball3;
-        Ball4 = ball4;
-        Ball5 = ball5;
-        Star1 = star1;
-        Star2 = star2;
+        _ball1 = ball1;
+        _ball2 = ball2;
+        _ball3 = ball3;
+        _ball4 = ball4;
+        _ball5 = ball5;
+        _star1 = star1;
+        _star2 = star2;
 
         YearDrawNumber = yearDrawNumber;
         DrawDate = drawDate;

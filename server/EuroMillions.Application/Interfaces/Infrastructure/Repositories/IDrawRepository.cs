@@ -2,6 +2,8 @@ namespace EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 
 using Data.Models;
 
+using Models;
+
 public interface IDrawRepository
 {
     public Task AddDrawsAsync(IEnumerable<Draw> draws);

@@ -2,6 +2,8 @@ namespace EuroMillions.Infrastructure.Adapters;
 
 using System.Globalization;
 
+using Application.Models;
+
 using CsvHelper;
 using CsvHelper.Configuration;
 
