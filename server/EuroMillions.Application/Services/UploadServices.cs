@@ -1,0 +1,35 @@
+namespace EuroMillions.Application.Services;
+
+using Data.Models;
+
+using Interfaces.Infrastructure.Adapters;
+using Interfaces.Infrastructure.Repositories;
+using Interfaces.Services;
+
+public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawRepository) : IUploadServices
+{
+    public async Task<List<DrawFileModel>> UploadDrawsFromCsvFilesAsync(IEnumerable<UploadFileModel> uploadFileModels)
+    {
+        List<DrawFileModel> drawFileModels = uploadFileModels.Select(ufm => new DrawFileModel
+            {
+                FileName = ufm.FileName,
+                Draws = csvAdapter.ExtractEuroMillionDrawFromFileAsStream(ufm.FileSream).ToList(),
+            })
+            .ToList();
+
+        List<DrawFileModel> filteredDrawFileModels = drawFileModels.Select(async dfm => new DrawFileModel()
+        {
+            FileName = dfm.FileName,
+            Draws = (await drawRepository.FilterNewDrawsAsync(dfm.Draws)).ToList(),
+        })
+            .Select(asyncTask => asyncTask.Result)
+        .ToList();
+
+        for (int i = 0; i < filteredDrawFileModels.Count; i++)
+        {
+            await drawRepository.AddDrawsAsync(filteredDrawFileModels[i].Draws);
+        }
+
+        return filteredDrawFileModels;
+    }
+}

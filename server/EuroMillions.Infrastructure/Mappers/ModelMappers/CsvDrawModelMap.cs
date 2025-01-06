@@ -1,6 +1,6 @@
 namespace EuroMillions.Infrastructure.Mappers.ModelMappers;
 
-using Data.Models;
+using Application.Models;
 
 using Models.csv;
 

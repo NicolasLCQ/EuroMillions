@@ -1,6 +1,6 @@
 namespace EuroMillions.Infrastructure.Mappers.EntityMappers;
 
-using Data.Models;
+using Application.Models;
 
 using Entities;
 

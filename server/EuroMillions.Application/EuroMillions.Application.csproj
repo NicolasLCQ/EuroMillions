@@ -9,6 +9,7 @@
     <ItemGroup>
         <Folder Include="Interfaces\Infrastructure\WebServices\"/>
         <Folder Include="Managers\"/>
+        <Folder Include="Mappers\" />
     </ItemGroup>
 
 </Project>
