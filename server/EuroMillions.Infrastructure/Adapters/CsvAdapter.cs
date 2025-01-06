@@ -9,8 +9,6 @@ using CsvHelper.Configuration;
 
 using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 
-using Data.Models;
-
 using Mappers.CsvMapper;
 using Mappers.ModelMappers;
 

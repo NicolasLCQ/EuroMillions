@@ -5,8 +5,6 @@ using Application.Models;
 
 using Context;
 
-using Data.Models;
-
 using Entities;
 
 using Mappers.EntityMappers;
