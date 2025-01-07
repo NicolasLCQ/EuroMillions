@@ -1,6 +1,4 @@
-﻿namespace EuroMillions.Data.Models;
-
-using Application.Models;
+﻿namespace EuroMillions.Application.Models;
 
 public class DrawFileModel
 {

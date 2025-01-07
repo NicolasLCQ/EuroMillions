@@ -1,8 +1,7 @@
 namespace EuroMillions.API.Resources;
 
 using Application.Interfaces.Services;
-
-using Data.Models;
+using Application.Models;
 
 using Mappers;
 

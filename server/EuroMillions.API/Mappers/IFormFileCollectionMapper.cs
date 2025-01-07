@@ -1,6 +1,6 @@
 ﻿namespace EuroMillions.API.Mappers;
 
-using Data.Models;
+using Application.Models;
 
 public static class FormFileMapper
 {

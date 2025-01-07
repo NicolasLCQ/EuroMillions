@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Interfaces.Services;
 
-using Data.Models;
+using Models;
 
 public interface IUploadServices
 {

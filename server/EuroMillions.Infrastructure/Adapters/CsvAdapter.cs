@@ -9,7 +9,7 @@ using CsvHelper.Configuration;
 
 using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 
-using Mappers.CsvMapper;
+using Mappers.CsvMappers;
 using Mappers.ModelMappers;
 
 using Models.csv;

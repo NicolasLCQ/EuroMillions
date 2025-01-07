@@ -2,8 +2,6 @@
 
 using System.Collections;
 
-using Data.Models;
-
 using Models;
 
 public interface ICsvAdapter

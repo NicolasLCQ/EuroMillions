@@ -1,7 +1,5 @@
 namespace EuroMillions.Application.Models;
 
-using Data.Models;
-
 public class Draw
 {
     public int? Id { get; set; }

@@ -1,10 +1,10 @@
 namespace EuroMillions.Application.Services;
 
-using Data.Models;
-
 using Interfaces.Infrastructure.Adapters;
 using Interfaces.Infrastructure.Repositories;
 using Interfaces.Services;
+
+using Models;
 
 public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawRepository) : IUploadServices
 {
