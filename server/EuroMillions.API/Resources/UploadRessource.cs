@@ -14,6 +14,13 @@ public class UploadRessource(IUploadServices uploadServices)
             return Results.BadRequest("No files provided");
         }
 
+        HashSet<string> fileNames = new();
+
+        if (files.Any(file => fileNames.Add(file.FileName) == false))
+        {
+            return Results.BadRequest("Duplicate files are not accepted");
+        }
+
         List<DrawFileModel> drawAddedDetails = await uploadServices.UploadDrawsFromCsvFilesAsync(files.Select(f => f.ToUploadFileModel()));
 
         return Results.Ok(drawAddedDetails);
