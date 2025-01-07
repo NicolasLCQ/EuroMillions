@@ -7,9 +7,9 @@ using Context;
 
 using Entities;
 
-using Mappers.EntityMappers;
-
 using Microsoft.EntityFrameworkCore;
+
+using static Mappers.EntityMappers.T_DrawMapper;
 
 public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
@@ -25,7 +25,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 
     public async Task AddDrawsAsync(IEnumerable<Draw> draws)
     {
-        IList<T_DRAW> drawsToAdd = draws.Select(d => new T_DRAW().FromModel(d)).ToList();
+        IList<T_DRAW> drawsToAdd = draws.Select(d => FromModel(d)).ToList();
 
         dbContext.T_DRAWs.AddRange(drawsToAdd);
         await dbContext.SaveChangesAsync();

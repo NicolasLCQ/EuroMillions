@@ -10,24 +10,16 @@ public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawReposito
 {
     public async Task<List<DrawFileModel>> UploadDrawsFromCsvFilesAsync(IEnumerable<UploadFileModel> uploadFileModels)
     {
-        List<DrawFileModel> drawFileModels = uploadFileModels.Select(ufm => new DrawFileModel
-            {
-                FileName = ufm.FileName,
-                Draws = csvAdapter.ExtractEuroMillionDrawFromFileAsStream(ufm.FileSream).ToList(),
-            })
+        List<DrawFileModel> drawFileModels = uploadFileModels.Select(ufm => new DrawFileModel { FileName = ufm.FileName, Draws = csvAdapter.ExtractEuroMillionDrawFromFileAsStream(ufm.FileSream).ToList() })
             .ToList();
 
-        List<DrawFileModel> filteredDrawFileModels = drawFileModels.Select(async dfm => new DrawFileModel()
-        {
-            FileName = dfm.FileName,
-            Draws = (await drawRepository.FilterNewDrawsAsync(dfm.Draws)).ToList(),
-        })
+        List<DrawFileModel> filteredDrawFileModels = drawFileModels.Select(async dfm => new DrawFileModel() { FileName = dfm.FileName, Draws = (await drawRepository.FilterNewDrawsAsync(dfm.Draws)).ToList() })
             .Select(asyncTask => asyncTask.Result)
-        .ToList();
+            .ToList();
 
-        for (int i = 0; i < filteredDrawFileModels.Count; i++)
+        foreach (DrawFileModel dfm in filteredDrawFileModels)
         {
-            await drawRepository.AddDrawsAsync(filteredDrawFileModels[i].Draws);
+            await drawRepository.AddDrawsAsync(dfm.Draws);
         }
 
         return filteredDrawFileModels;
