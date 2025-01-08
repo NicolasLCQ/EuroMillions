@@ -7,6 +7,7 @@ using Mappers;
 
 public class UploadRessource(IUploadServices uploadServices)
 {
+    //TODO : se renseigner sur les csv validators de csv helper surtout au niveau des messages d'erreurs a afficher
     public async Task<IResult> UploadFilesAsync(IFormFileCollection files)
     {
         if (!files.Any())
@@ -21,8 +22,7 @@ public class UploadRessource(IUploadServices uploadServices)
             return Results.BadRequest("Duplicate files are not accepted");
         }
 
-        List<DrawFileModel> drawAddedDetails = await uploadServices.UploadDrawsFromCsvFilesAsync(files.Select(f => f.ToUploadFileModel()));
-
-        return Results.Ok(drawAddedDetails);
+        List<UploadResultModel> uploadResult = await uploadServices.UploadDrawsFromCsvFilesAsync(files.Select(f => f.ToUploadFileModel()));
+        return Results.Ok(uploadResult);
     }
 }

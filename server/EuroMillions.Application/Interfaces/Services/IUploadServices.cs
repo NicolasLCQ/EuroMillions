@@ -4,5 +4,5 @@ using Models;
 
 public interface IUploadServices
 {
-    public Task<List<DrawFileModel>> UploadDrawsFromCsvFilesAsync(IEnumerable<UploadFileModel> fileStreams);
+    public Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IEnumerable<UploadFileModel> fileStreams);
 }
