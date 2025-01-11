@@ -12,13 +12,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj" />
-      <ProjectReference Include="..\EuroMillions.Infrastructure\EuroMillions.Infrastructure.csproj" />
+        <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj"/>
+        <ProjectReference Include="..\EuroMillions.Infrastructure\EuroMillions.Infrastructure.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Models\Request\" />
-      <Folder Include="Models\Response\" />
+        <Folder Include="Models\"/>
     </ItemGroup>
 
 </Project>

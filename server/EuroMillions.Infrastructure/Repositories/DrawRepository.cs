@@ -7,9 +7,9 @@ using Context;
 
 using Entities;
 
-using Mappers.EntityMappers;
-
 using Microsoft.EntityFrameworkCore;
+
+using static Mappers.EntityMappers.T_DrawMapper;
 
 public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
@@ -23,9 +23,19 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
         return draws.Where(d => !oldDrawYearDrawNumbers.Contains(d.YearDrawNumber)).ToList();
     }
 
+    public async Task<IList<Draw>> FilterOldDrawsAsync(IEnumerable<Draw> draws)
+    {
+        IEnumerable<int> oldDrawYearDrawNumbers = await dbContext.T_DRAWs
+            .AsNoTracking()
+            .Select(d => d.YEAR_DRAW_NUMBER)
+            .ToListAsync();
+
+        return draws.Where(d => oldDrawYearDrawNumbers.Contains(d.YearDrawNumber)).ToList();
+    }
+
     public async Task AddDrawsAsync(IEnumerable<Draw> draws)
     {
-        IList<T_DRAW> drawsToAdd = draws.Select(d => new T_DRAW().FromModel(d)).ToList();
+        IList<T_DRAW> drawsToAdd = draws.Select(d => FromModel(d)).ToList();
 
         dbContext.T_DRAWs.AddRange(drawsToAdd);
         await dbContext.SaveChangesAsync();

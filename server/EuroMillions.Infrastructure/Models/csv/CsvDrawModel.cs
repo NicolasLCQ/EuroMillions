@@ -1,7 +1,5 @@
 namespace EuroMillions.Infrastructure.Models.csv;
 
-using Data.Models;
-
 public class CsvDrawModel
 {
     public int YearDrawNumber { get; set; }
