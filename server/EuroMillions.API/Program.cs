@@ -7,6 +7,8 @@ using Application.Interfaces.Infrastructure.Repositories;
 using Application.Interfaces.Services;
 using Application.Services;
 
+using Handlers;
+
 using Infrastructure.Adapters;
 using Infrastructure.Context;
 using Infrastructure.Repositories;
@@ -23,6 +25,7 @@ public class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddExceptionHandler<EuroMillionsExceptionHandler>();
 
         builder.Services.AddCors(options =>
         {
@@ -50,6 +53,8 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseExceptionHandler(_ => { });
 
         //Routes
         app.UseUploadRoutes();
