@@ -12,6 +12,8 @@ public class UploadRessource(IUploadServices uploadServices)
     {
         if (!files.Any())
         {
+            //TODO : throw error instead ? and delegate return to Error Hnadlers only
+            throw new ApplicationException("No files provided.");
             return Results.BadRequest("No files provided");
         }
 

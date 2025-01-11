@@ -25,7 +25,9 @@ public class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddExceptionHandler<EuroMillionsExceptionHandler>();
+
+        builder.Services.AddExceptionHandler<ApplicationExceptionHandler>();
+        builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
         builder.Services.AddCors(options =>
         {

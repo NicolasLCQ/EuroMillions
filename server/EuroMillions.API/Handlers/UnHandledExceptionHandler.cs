@@ -4,7 +4,7 @@ using System.Net;
 
 using Microsoft.AspNetCore.Diagnostics;
 
-public class EuroMillionsExceptionHandler : IExceptionHandler
+public class UnHandledExceptionHandler : IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
@@ -13,6 +13,6 @@ public class EuroMillionsExceptionHandler : IExceptionHandler
 
         await httpContext.Response.WriteAsJsonAsync(new { StatusCode = httpContext.Response.StatusCode, Message = exception.Message });
 
-        return await ValueTask.FromResult(true);
+        return true;
     }
 }
