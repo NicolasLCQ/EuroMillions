@@ -15,7 +15,7 @@ public class UploadRessource(IUploadServices uploadServices)
             throw new ApplicationException("No files provided.");
         }
 
-        HashSet<string> fileNames = new();
+        HashSet<string> fileNames = new HashSet<string>();
 
         if (files.Any(file => fileNames.Add(file.FileName) == false))
         {
@@ -23,6 +23,7 @@ public class UploadRessource(IUploadServices uploadServices)
         }
 
         List<UploadResultModel> uploadResult = await uploadServices.UploadDrawsFromCsvFilesAsync(files.Select(f => f.ToUploadFileModel()));
+
         return Results.Ok(uploadResult);
     }
 }

@@ -6,7 +6,7 @@ public class Ball
 
     private Ball(int ball)
     {
-        if (ball < 0 || ball > 50)
+        if ((ball < 0) || (ball > 50))
         {
             throw new ArgumentOutOfRangeException(nameof(ball), "Le nombre doit être compris entre 0 et 50.");
         }
@@ -18,5 +18,5 @@ public class Ball
 
     public static implicit operator int(Ball ball) => ball._value;
 
-    public static implicit operator Ball(int ball) => new(ball);
+    public static implicit operator Ball(int ball) => new Ball(ball);
 }

@@ -2,7 +2,7 @@
 
 using CsvHelper.Configuration;
 
-using EuroMillions.Infrastructure.Models.csv;
+using Models.csv;
 
 public sealed class CsvDrawMap : ClassMap<CsvDrawModel>
 {
@@ -22,6 +22,8 @@ public sealed class CsvDrawMap : ClassMap<CsvDrawModel>
         Map(draw => draw.DrawDate)
             .Name("date_de_tirage")
             .TypeConverterOption
-            .Format("yyyyMMdd", "dd/MM/yyyy", "dd/MM/yy");
+            .Format("yyyyMMdd",
+                "dd/MM/yyyy",
+                "dd/MM/yy");
     }
 }

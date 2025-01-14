@@ -56,7 +56,7 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseExceptionHandler(_ => { });
+        app.UseExceptionHandler(_ => {});
 
         //Routes
         app.UseUploadRoutes();

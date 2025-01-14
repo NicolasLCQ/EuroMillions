@@ -6,14 +6,10 @@ namespace EuroMillions.Infrastructure.Context;
 
 public partial class EuroMillionsDbContext : DbContext
 {
-    public EuroMillionsDbContext()
-    {
-    }
+    public EuroMillionsDbContext() {}
 
     public EuroMillionsDbContext(DbContextOptions<EuroMillionsDbContext> options)
-        : base(options)
-    {
-    }
+        : base(options) {}
 
     public virtual DbSet<T_DRAW> T_DRAWs { get; set; }
 
