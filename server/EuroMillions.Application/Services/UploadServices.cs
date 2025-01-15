@@ -20,26 +20,13 @@ public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawReposito
                 }
                 catch (Exception e)
                 {
+                    //ajouter le nom du fichier qui ne peut pas etre lu : ufm.FileName
+
                     throw new ApplicationException(e.Message);
                 }
             })
             .ToList();
 
-        List<UploadResultModel> uploadResultDraws = drawFileModels.Select(async dfm =>
-                new UploadResultModel()
-                {
-                    FileName = dfm.FileName,
-                    AcceptedDraws = (await drawRepository.FilterNewDrawsAsync(dfm.Draws)).ToList(),
-                    RejectedDraws = (await drawRepository.FilterOldDrawsAsync(dfm.Draws)).ToList()
-                })
-            .Select(asyncTask => asyncTask.Result)
-            .ToList();
-
-        foreach (UploadResultModel ufm in uploadResultDraws)
-        {
-            await drawRepository.AddDrawsAsync(ufm.AcceptedDraws);
-        }
-
-        return uploadResultDraws;
+        return await drawRepository.AddDrawsFromDrawFileModelsAsync(drawFileModels);
     }
 }
