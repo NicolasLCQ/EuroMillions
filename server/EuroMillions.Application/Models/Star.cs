@@ -6,6 +6,7 @@ public class Star
 
     private Star(int start)
     {
+        //todo: add validation outside !!!
         if ((start < 0) || (start > 50))
         {
             throw new ArgumentOutOfRangeException(nameof(start), "Le nombre doit être compris entre 0 et 50.");

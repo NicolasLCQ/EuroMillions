@@ -40,6 +40,7 @@ public class Draw
             ball5
         };
 
+        //TODO :: add validation outside
         if (balls.Count != 5)
         {
             throw new ArgumentException("Les numéros doivent être uniques.");
