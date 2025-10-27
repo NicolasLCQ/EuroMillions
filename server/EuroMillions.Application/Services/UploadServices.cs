@@ -20,7 +20,7 @@ public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawReposito
                 }
                 catch (Exception e)
                 {
-                    //ajouter le nom du fichier qui ne peut pas etre lu : ufm.FileName
+                    //todo: ajouter le nom du fichier qui ne peut pas etre lu : ufm.FileName
 
                     throw new ApplicationException(e.Message);
                 }
