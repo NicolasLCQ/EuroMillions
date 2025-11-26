@@ -1,20 +1,17 @@
-namespace EuroMillions.Infrastructure.Adapters;
-
 using System.Globalization;
-
-using Application.Models;
 
 using CsvHelper;
 using CsvHelper.Configuration;
 
 using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
-
-using Mappers.CsvMappers;
-using Mappers.ModelMappers;
+using EuroMillions.Application.Models;
+using EuroMillions.Infrastructure.Mappers.CsvMappers;
+using EuroMillions.Infrastructure.Mappers.ModelMappers;
+using EuroMillions.Infrastructure.Models.csv;
 
 using Microsoft.AspNetCore.Http;
 
-using Models.csv;
+namespace EuroMillions.Infrastructure.Adapters;
 
 //https://joshclose.github.io/CsvHelper/examples/reading/reading-multiple-data-sets/
 public class CsvAdapter : ICsvAdapter

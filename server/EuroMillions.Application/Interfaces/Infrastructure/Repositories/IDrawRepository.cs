@@ -1,8 +1,8 @@
-namespace EuroMillions.Application.Interfaces.Infrastructure.Repositories;
+using EuroMillions.Application.Models;
 
-using Models;
+namespace EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 
 public interface IDrawRepository
 {
-    public Task<List<UploadResultModel>> AddDrawsFromDrawFileModelsAsync(List<DrawFileModel> drawFileModels);
+    Task<List<UploadResultModel>> AddDrawsFromDrawFileModelsAsync(List<DrawFileModel> drawFileModels);
 }

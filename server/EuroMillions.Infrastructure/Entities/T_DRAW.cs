@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
-using Microsoft.EntityFrameworkCore;
 
 namespace EuroMillions.Infrastructure.Entities;
 
 [Table("T_DRAW")]
-public partial class T_DRAW
+public class T_DRAW
 {
     [Key]
     public int ID { get; set; }

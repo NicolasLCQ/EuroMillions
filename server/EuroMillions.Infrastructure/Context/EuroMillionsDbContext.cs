@@ -20,10 +20,11 @@ public partial class EuroMillionsDbContext : DbContext
             .HasCharSet("utf8mb4");
 
         modelBuilder.Entity<T_DRAW>(entity =>
-        {
-            entity.HasKey(e => e.ID).HasName("PRIMARY");
-            entity.Property(e => e.ID).ValueGeneratedOnAdd();
-        });
+            {
+                entity.HasKey(e => e.ID).HasName("PRIMARY");
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+            }
+        );
 
         OnModelCreatingPartial(modelBuilder);
     }

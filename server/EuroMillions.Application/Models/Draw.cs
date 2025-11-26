@@ -2,26 +2,16 @@ namespace EuroMillions.Application.Models;
 
 public class Draw
 {
-    public int? Id { get; set; }
-    public int YearDrawNumber { get; set; }
-    public DateTime DrawDate { get; set; }
+    private readonly Ball _ball1;
+    private readonly Ball _ball2;
+    private readonly Ball _ball3;
+    private readonly Ball _ball4;
+    private readonly Ball _ball5;
+    private readonly Star _star1;
+    private readonly Star _star2;
 
-    private Ball _ball1;
-    public int Ball1 => (int)_ball1;
-    private Ball _ball2;
-    public int Ball2 => (int)_ball2;
-    private Ball _ball3;
-    public int Ball3 => (int)_ball3;
-    private Ball _ball4;
-    public int Ball4 => (int)_ball4;
-    private Ball _ball5;
-    public int Ball5 => (int)_ball5;
-    private Star _star1;
-    public int Star1 => (int)_star1;
-    private Star _star2;
-    public int Star2 => (int)_star2;
-
-    public Draw(int yearDrawNumber,
+    public Draw(
+        int yearDrawNumber,
         DateTime drawDate,
         Ball ball1,
         Ball ball2,
@@ -29,7 +19,8 @@ public class Draw
         Ball ball4,
         Ball ball5,
         Star star1,
-        Star star2)
+        Star star2
+    )
     {
         HashSet<int>? balls = new HashSet<int>
         {
@@ -63,7 +54,8 @@ public class Draw
         DrawDate = drawDate;
     }
 
-    public Draw(int dbId,
+    public Draw(
+        int dbId,
         int yearDrawNumber,
         DateTime drawDate,
         Ball ball1,
@@ -72,7 +64,8 @@ public class Draw
         Ball ball4,
         Ball ball5,
         Star star1,
-        Star star2)
+        Star star2
+    )
     {
         HashSet<int>? balls = new HashSet<int>
         {
@@ -105,4 +98,15 @@ public class Draw
         DrawDate = drawDate;
         Id = dbId;
     }
+
+    public int? Id { get; set; }
+    public int YearDrawNumber { get; set; }
+    public DateTime DrawDate { get; set; }
+    public int Ball1 => (int)_ball1;
+    public int Ball2 => (int)_ball2;
+    public int Ball3 => (int)_ball3;
+    public int Ball4 => (int)_ball4;
+    public int Ball5 => (int)_ball5;
+    public int Star1 => (int)_star1;
+    public int Star2 => (int)_star2;
 }

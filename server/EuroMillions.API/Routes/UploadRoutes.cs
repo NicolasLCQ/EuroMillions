@@ -1,8 +1,8 @@
-namespace EuroMillions.API.Routes;
+using EuroMillions.API.Resources;
 
 using Microsoft.AspNetCore.Mvc;
 
-using Resources;
+namespace EuroMillions.API.Routes;
 
 public static class UploadRoutes
 {
@@ -12,7 +12,10 @@ public static class UploadRoutes
 
         uploadGroup.DisableAntiforgery();
 
-        uploadGroup.MapPost("/history_files",
-            async ([FromServices] UploadRessource uploadRessource, [FromForm] IFormFileCollection files) => await uploadRessource.UploadFilesAsync(files));
+        uploadGroup.MapPost(
+            "/history_files",
+            async ([FromServices] UploadRessource uploadRessource, [FromForm] IFormFileCollection files) =>
+            await uploadRessource.UploadFilesAsync(files)
+        );
     }
 }

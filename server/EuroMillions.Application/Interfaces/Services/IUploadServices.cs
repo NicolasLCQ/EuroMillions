@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Http;
-
 using EuroMillions.Application.Models;
+
+using Microsoft.AspNetCore.Http;
 
 namespace EuroMillions.Application.Interfaces.Services;
 

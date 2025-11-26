@@ -15,7 +15,7 @@ public class UploadRessource(IUploadServices uploadServices)
 
         HashSet<string> fileNames = [];
 
-        if (files.Any(file => fileNames.Add(file.FileName) == false))
+        if (files.Any(file => !fileNames.Add(file.FileName)))
         {
             throw new ApplicationException("Duplicate files are not accepted");
         }

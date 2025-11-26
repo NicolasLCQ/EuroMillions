@@ -1,12 +1,10 @@
-﻿namespace EuroMillions.Application.Interfaces.Infrastructure.Adapters;
-
-using System.Collections;
+﻿using EuroMillions.Application.Models;
 
 using Microsoft.AspNetCore.Http;
 
-using Models;
+namespace EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 
 public interface ICsvAdapter
 {
-    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile);
+    IList<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile);
 }

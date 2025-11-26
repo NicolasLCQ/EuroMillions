@@ -1,12 +1,12 @@
+using EuroMillions.Application.Models;
+using EuroMillions.Infrastructure.Models.csv;
+
 namespace EuroMillions.Infrastructure.Mappers.ModelMappers;
-
-using Application.Models;
-
-using Models.csv;
 
 public static class CsvDrawModelMap
 {
-    public static Draw ToEntity(this CsvDrawModel csvDrawModel) => new Draw(csvDrawModel.YearDrawNumber,
+    public static Draw ToEntity(this CsvDrawModel csvDrawModel) => new Draw(
+        csvDrawModel.YearDrawNumber,
         csvDrawModel.DrawDate,
         csvDrawModel.Ball1,
         csvDrawModel.Ball2,
@@ -14,5 +14,6 @@ public static class CsvDrawModelMap
         csvDrawModel.Ball4,
         csvDrawModel.Ball5,
         csvDrawModel.Star1,
-        csvDrawModel.Star2);
+        csvDrawModel.Star2
+    );
 }

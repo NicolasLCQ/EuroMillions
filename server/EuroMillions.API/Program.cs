@@ -1,21 +1,17 @@
+using EuroMillions.API.Handlers;
+using EuroMillions.API.Resources;
 using EuroMillions.API.Routes;
-
-namespace EuroMillions.API;
-
-using Application.Interfaces.Infrastructure.Adapters;
-using Application.Interfaces.Infrastructure.Repositories;
-using Application.Interfaces.Services;
-using Application.UseCases;
-
-using Handlers;
-
-using Infrastructure.Adapters;
-using Infrastructure.Context;
-using Infrastructure.Repositories;
+using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
+using EuroMillions.Application.Interfaces.Infrastructure.Repositories;
+using EuroMillions.Application.Interfaces.Services;
+using EuroMillions.Application.UseCases;
+using EuroMillions.Infrastructure.Adapters;
+using EuroMillions.Infrastructure.Context;
+using EuroMillions.Infrastructure.Repositories;
 
 using Microsoft.EntityFrameworkCore;
 
-using Resources;
+namespace EuroMillions.API;
 
 public class Program
 {
@@ -30,19 +26,25 @@ public class Program
         builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
         builder.Services.AddCors(options =>
-        {
-            options.AddPolicy("AllowConsumers",
-                policy =>
-                {
-                    policy.WithOrigins(builder.Configuration["AllowedConsumers"]!.Split(","));
-                });
-        });
+            {
+                options.AddPolicy(
+                    "AllowConsumers",
+                    policy =>
+                    {
+                        policy.WithOrigins(builder.Configuration["AllowedConsumers"]!.Split(","));
+                    }
+                );
+            }
+        );
 
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
-        {
-            optionBuilder.UseMySql(builder.Configuration.GetConnectionString("EuroMillionsDb"),
-                ServerVersion.Parse("9.1.0-mysql"));
-        });
+            {
+                optionBuilder.UseMySql(
+                    builder.Configuration.GetConnectionString("EuroMillionsDb"),
+                    ServerVersion.Parse("9.1.0-mysql")
+                );
+            }
+        );
 
         builder.Services.AddTransient<IDrawRepository, DrawRepository>();
         builder.Services.AddTransient<ICsvAdapter, CsvAdapter>();

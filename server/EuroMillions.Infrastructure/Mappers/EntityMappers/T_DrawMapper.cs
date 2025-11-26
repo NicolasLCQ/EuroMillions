@@ -1,8 +1,7 @@
+using EuroMillions.Application.Models;
+using EuroMillions.Infrastructure.Entities;
+
 namespace EuroMillions.Infrastructure.Mappers.EntityMappers;
-
-using Application.Models;
-
-using Entities;
 
 public static class T_DrawMapper
 {
@@ -20,7 +19,8 @@ public static class T_DrawMapper
             STAR_TWO = draw.Star2
         };
 
-    public static Draw ToModel(this T_DRAW tDraw) => new Draw(tDraw.ID,
+    public static Draw ToModel(this T_DRAW tDraw) => new Draw(
+        tDraw.ID,
         tDraw.YEAR_DRAW_NUMBER,
         tDraw.DRAW_DATE,
         tDraw.BALL_ONE,
@@ -29,5 +29,6 @@ public static class T_DrawMapper
         tDraw.BALL_FOUR,
         tDraw.BALL_FIVE,
         tDraw.STAR_ONE,
-        tDraw.STAR_TWO);
+        tDraw.STAR_TWO
+    );
 }
