@@ -16,11 +16,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Helpers\"/>
-        <Folder Include="WebServices\"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj"/>
     </ItemGroup>
 
