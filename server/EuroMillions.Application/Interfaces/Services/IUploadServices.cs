@@ -1,8 +1,10 @@
-namespace EuroMillions.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Http;
 
-using Models;
+using EuroMillions.Application.Models;
+
+namespace EuroMillions.Application.Interfaces.Services;
 
 public interface IUploadServices
 {
-    public Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IEnumerable<UploadFileModel> fileStreams);
+    Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels);
 }

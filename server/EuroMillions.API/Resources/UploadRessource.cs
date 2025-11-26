@@ -1,9 +1,7 @@
+using EuroMillions.Application.Interfaces.Services;
+using EuroMillions.Application.Models;
+
 namespace EuroMillions.API.Resources;
-
-using Application.Interfaces.Services;
-using Application.Models;
-
-using Mappers;
 
 public class UploadRessource(IUploadServices uploadServices)
 {
@@ -15,14 +13,14 @@ public class UploadRessource(IUploadServices uploadServices)
             throw new ApplicationException("No files provided.");
         }
 
-        HashSet<string> fileNames = new HashSet<string>();
+        HashSet<string> fileNames = [];
 
         if (files.Any(file => fileNames.Add(file.FileName) == false))
         {
             throw new ApplicationException("Duplicate files are not accepted");
         }
 
-        List<UploadResultModel> uploadResult = await uploadServices.UploadDrawsFromCsvFilesAsync(files.Select(f => f.ToUploadFileModel()));
+        List<UploadResultModel> uploadResult = await uploadServices.UploadDrawsFromCsvFilesAsync(files);
 
         return Results.Ok(uploadResult);
     }

@@ -1,20 +1,18 @@
-namespace EuroMillions.Application.Services;
+using Microsoft.AspNetCore.Http;
 
-using Interfaces.Infrastructure.Adapters;
-using Interfaces.Infrastructure.Repositories;
-using Interfaces.Services;
+using EuroMillions.Application.Models;
 
-using Models;
+namespace EuroMillions.Application.UseCases;
 
-public class UploadServices(ICsvAdapter csvAdapter, IDrawRepository drawRepository) : IUploadServices
+public partial class Draws
 {
-    public async Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IEnumerable<UploadFileModel> uploadFileModels)
+    public async Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels)
     {
         List<DrawFileModel> drawFileModels = uploadFileModels.Select(ufm =>
             {
                 try
                 {
-                    List<Draw> draws = csvAdapter.ExtractEuroMillionDrawFromFileAsStream(ufm.FileSream).ToList();
+                    List<Draw> draws = csvAdapter.ExtractEuroMillionDrawFromFileAsStream(ufm).ToList();
 
                     return new DrawFileModel {FileName = ufm.FileName, Draws = draws};
                 }

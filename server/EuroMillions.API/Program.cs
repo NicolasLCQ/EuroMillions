@@ -5,7 +5,7 @@ namespace EuroMillions.API;
 using Application.Interfaces.Infrastructure.Adapters;
 using Application.Interfaces.Infrastructure.Repositories;
 using Application.Interfaces.Services;
-using Application.Services;
+using Application.UseCases;
 
 using Handlers;
 
@@ -40,12 +40,13 @@ public class Program
 
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
         {
-            optionBuilder.UseMySql(builder.Configuration.GetConnectionString("EuroMillionsDb"), ServerVersion.Parse("9.1.0-mysql"));
+            optionBuilder.UseMySql(builder.Configuration.GetConnectionString("EuroMillionsDb"),
+                ServerVersion.Parse("9.1.0-mysql"));
         });
 
         builder.Services.AddTransient<IDrawRepository, DrawRepository>();
         builder.Services.AddTransient<ICsvAdapter, CsvAdapter>();
-        builder.Services.AddTransient<IUploadServices, UploadServices>();
+        builder.Services.AddTransient<IUploadServices, Draws>();
         builder.Services.AddTransient<UploadRessource>();
 
         WebApplication app = builder.Build();

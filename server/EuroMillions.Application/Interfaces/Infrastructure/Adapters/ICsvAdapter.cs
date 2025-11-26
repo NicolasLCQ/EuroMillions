@@ -2,9 +2,11 @@
 
 using System.Collections;
 
+using Microsoft.AspNetCore.Http;
+
 using Models;
 
 public interface ICsvAdapter
 {
-    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream);
+    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile);
 }

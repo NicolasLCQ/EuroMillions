@@ -12,6 +12,8 @@ using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 using Mappers.CsvMappers;
 using Mappers.ModelMappers;
 
+using Microsoft.AspNetCore.Http;
+
 using Models.csv;
 
 //https://joshclose.github.io/CsvHelper/examples/reading/reading-multiple-data-sets/
@@ -24,9 +26,9 @@ public class CsvAdapter : ICsvAdapter
         HasHeaderRecord = true
     };
 
-    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(Stream csvReportFileStream)
+    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile)
     {
-        using StreamReader reader = new StreamReader(csvReportFileStream);
+        using StreamReader reader = new StreamReader(csvFormFile.OpenReadStream());
         using CsvReader csv = new CsvReader(reader, _csvConfiguration);
 
         csv.Context.RegisterClassMap<CsvDrawMap>();
