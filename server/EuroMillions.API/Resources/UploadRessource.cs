@@ -5,7 +5,6 @@ namespace EuroMillions.API.Resources;
 
 public class UploadRessource(IUploadServices uploadServices)
 {
-    //TODO : se renseigner sur les csv validators de csv helper surtout au niveau des messages d'erreurs a afficher
     public async Task<IResult> UploadFilesAsync(IFormFileCollection files)
     {
         if (!files.Any())
