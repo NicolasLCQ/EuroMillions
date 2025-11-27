@@ -1,4 +1,5 @@
 using EuroMillions.Application.Models;
+using EuroMillions.Application.Models.Upload;
 
 using Microsoft.AspNetCore.Http;
 

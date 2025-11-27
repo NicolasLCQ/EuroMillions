@@ -1,5 +1,6 @@
 using EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 using EuroMillions.Application.Models;
+using EuroMillions.Application.Models.Upload;
 using EuroMillions.Infrastructure.Context;
 using EuroMillions.Infrastructure.Entities;
 using EuroMillions.Infrastructure.Mappers.EntityMappers;

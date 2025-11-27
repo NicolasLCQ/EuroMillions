@@ -1,4 +1,4 @@
-namespace EuroMillions.Application.Models;
+namespace EuroMillions.Application.Models.Upload;
 
 public class UploadResultModel
 {

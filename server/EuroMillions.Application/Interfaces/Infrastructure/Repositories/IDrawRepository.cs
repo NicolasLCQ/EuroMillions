@@ -1,4 +1,5 @@
 using EuroMillions.Application.Models;
+using EuroMillions.Application.Models.Upload;
 
 namespace EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 
