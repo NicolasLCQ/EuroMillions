@@ -2,111 +2,15 @@ namespace EuroMillions.Application.Models;
 
 public class Draw
 {
-    private readonly Ball _ball1;
-    private readonly Ball _ball2;
-    private readonly Ball _ball3;
-    private readonly Ball _ball4;
-    private readonly Ball _ball5;
-    private readonly Star _star1;
-    private readonly Star _star2;
+    public required Ball Ball1;
+    public required Ball Ball2;
+    public required Ball Ball3;
+    public required Ball Ball4;
+    public required Ball Ball5;
 
-    public Draw(
-        int yearDrawNumber,
-        DateTime drawDate,
-        Ball ball1,
-        Ball ball2,
-        Ball ball3,
-        Ball ball4,
-        Ball ball5,
-        Star star1,
-        Star star2
-    )
-    {
-        HashSet<int>? balls = new HashSet<int>
-        {
-            ball1,
-            ball2,
-            ball3,
-            ball4,
-            ball5
-        };
+    public required Ball Star1;
+    public required Ball Star2;
 
-        //TODO :: add validation outside
-        if (balls.Count != 5)
-        {
-            throw new ArgumentException("Les numéros doivent être uniques.");
-        }
-
-        if (star1 == star2)
-        {
-            throw new ArgumentException("Les étoiles doivent être uniques.");
-        }
-
-        _ball1 = ball1;
-        _ball2 = ball2;
-        _ball3 = ball3;
-        _ball4 = ball4;
-        _ball5 = ball5;
-        _star1 = star1;
-        _star2 = star2;
-
-        YearDrawNumber = yearDrawNumber;
-        DrawDate = drawDate;
-    }
-
-    public Draw(
-        int dbId,
-        int yearDrawNumber,
-        DateTime drawDate,
-        Ball ball1,
-        Ball ball2,
-        Ball ball3,
-        Ball ball4,
-        Ball ball5,
-        Star star1,
-        Star star2
-    )
-    {
-        HashSet<int>? balls = new HashSet<int>
-        {
-            ball1,
-            ball2,
-            ball3,
-            ball4,
-            ball5
-        };
-
-        if (balls.Count != 5)
-        {
-            throw new ArgumentException("Numbers must be unique");
-        }
-
-        if (star1 == star2)
-        {
-            throw new ArgumentException("Stars must be unique");
-        }
-
-        _ball1 = ball1;
-        _ball2 = ball2;
-        _ball3 = ball3;
-        _ball4 = ball4;
-        _ball5 = ball5;
-        _star1 = star1;
-        _star2 = star2;
-
-        YearDrawNumber = yearDrawNumber;
-        DrawDate = drawDate;
-        Id = dbId;
-    }
-
-    public int? Id { get; set; }
     public int YearDrawNumber { get; set; }
     public DateTime DrawDate { get; set; }
-    public int Ball1 => (int)_ball1;
-    public int Ball2 => (int)_ball2;
-    public int Ball3 => (int)_ball3;
-    public int Ball4 => (int)_ball4;
-    public int Ball5 => (int)_ball5;
-    public int Star1 => (int)_star1;
-    public int Star2 => (int)_star2;
 }

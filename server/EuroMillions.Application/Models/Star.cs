@@ -4,16 +4,7 @@ public class Star
 {
     private readonly int _value;
 
-    private Star(int start)
-    {
-        //todo: add validation outside !!!
-        if ((start < 0) || (start > 50))
-        {
-            throw new ArgumentOutOfRangeException(nameof(start), "Le nombre doit être compris entre 0 et 50.");
-        }
-
-        _value = start;
-    }
+    private Star(int start) => _value = start;
 
     public override string ToString() => _value.ToString();
 
