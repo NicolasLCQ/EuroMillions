@@ -23,13 +23,13 @@ public class CsvAdapter : ICsvAdapter
         HasHeaderRecord = true
     };
 
-    public IList<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile)
+    public List<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile)
     {
         using StreamReader reader = new StreamReader(csvFormFile.OpenReadStream());
         using CsvReader csv = new CsvReader(reader, _csvConfiguration);
 
         csv.Context.RegisterClassMap<CsvDrawMap>();
 
-        return csv.GetRecords<CsvDrawModel>().Select(draw => draw.ToEntity()).ToList();
+        return csv.GetRecords<CsvDrawModel>().Select(draw => draw.ToModel()).ToList();
     }
 }
