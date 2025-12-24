@@ -17,12 +17,14 @@ export default function DropZoneContainer(props: DropZoneContainerProps) {
 		onError: e => console.log(e)
 	});
 
+	const handleClick = () => fileMutation.mutate(files);
+
 	return (
 		//ajouter un element general pour afficher des erreurs comme : vous ne pouvez pas entrer 2 fois le meme fichier
 		<div className={props.className ?? "DropZoneContainer"}>
 			<DropZoneComponent classname="DropZoneComponent" files={files} handleAdd={addFiles}
 			                   handleDelete={removeFile}/>
-			<ButtonComponents onClick={() => fileMutation.mutate(files)}>Submit</ButtonComponents>
+			<ButtonComponents onClick={handleClick}>Submit</ButtonComponents>
 		</div>
 	)
 }
