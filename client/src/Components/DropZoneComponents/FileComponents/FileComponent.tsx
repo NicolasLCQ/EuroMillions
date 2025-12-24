@@ -10,15 +10,17 @@ export interface FileComponentProps {
 }
 
 export default function FileComponent(props: FileComponentProps) {
+	const handleDelete = () => () => props.handleDelete(props.file);
+
 	return (
 		<div className={props.className ?? "FileComponent"}>
 			{props.handleDelete &&
 				<>
 					<DeleteButtonGlyphIconComponent className="DeleteFileButton"
-					                                handleDelete={() => props.handleDelete(props.file)}/>
+					                                handleDelete={handleDelete}/>
 					&nbsp;
 				</>
-				}
+			}
 			<TextComponent className="FileName">{props.file.name}</TextComponent>
 		</div>
 	)
