@@ -25,18 +25,6 @@ public class Program
         builder.Services.AddExceptionHandler<ApplicationExceptionHandler>();
         builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
-        builder.Services.AddCors(options =>
-            {
-                options.AddPolicy(
-                    "AllowConsumers",
-                    policy =>
-                    {
-                        policy.WithOrigins(builder.Configuration["AllowedConsumers"]!.Split(","));
-                    }
-                );
-            }
-        );
-
         string connectionString = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EuroMillions.Drivers/EuroMillions.db");
 
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
@@ -63,7 +51,6 @@ public class Program
         //Routes
         app.UseUploadRoutes();
 
-        app.UseCors("AllowConsumers");
         app.UseHttpsRedirection();
         app.Run();
     }
