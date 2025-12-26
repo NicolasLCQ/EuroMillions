@@ -1,17 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 
 namespace EuroMillions.Infrastructure.Entities;
 
-[Table("T_DRAW")]
-public class T_DRAW
+public partial class T_DRAW
 {
-    [Key]
     public int ID { get; set; }
 
     public int YEAR_DRAW_NUMBER { get; set; }
 
-    [Column(TypeName = "datetime")]
     public DateTime DRAW_DATE { get; set; }
 
     public int BALL_ONE { get; set; }
