@@ -25,7 +25,8 @@ public class Program
         builder.Services.AddExceptionHandler<ApplicationExceptionHandler>();
         builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
-        string connectionString = "Data Source=Externals/EuroMillions.db";
+        string dbPath = Path.Combine(AppContext.BaseDirectory, "Externals", "EuroMillions.db");
+        string connectionString = $"Data Source={dbPath}";
 
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
             {
