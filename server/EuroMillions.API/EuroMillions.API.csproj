@@ -7,13 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj"/>
         <ProjectReference Include="..\EuroMillions.Infrastructure\EuroMillions.Infrastructure.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\database\EuroMillions.db">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>Externals\EuroMillions.db</Link>
+        </None>
     </ItemGroup>
 
 </Project>

@@ -37,12 +37,11 @@ public class Program
             }
         );
 
+        string connectionString = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EuroMillions.Drivers/EuroMillions.db");
+
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
             {
-                optionBuilder.UseMySql(
-                    builder.Configuration.GetConnectionString("EuroMillionsDb"),
-                    ServerVersion.Parse("9.1.0-mysql")
-                );
+                optionBuilder.UseSqlite(connectionString);
             }
         );
 
