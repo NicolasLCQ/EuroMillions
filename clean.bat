@@ -1,1 +1,0 @@
-docker-compose -f EuroMillions-compose.yml down -v --remove-orphans

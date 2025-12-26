@@ -25,24 +25,12 @@ public class Program
         builder.Services.AddExceptionHandler<ApplicationExceptionHandler>();
         builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
-        builder.Services.AddCors(options =>
-            {
-                options.AddPolicy(
-                    "AllowConsumers",
-                    policy =>
-                    {
-                        policy.WithOrigins(builder.Configuration["AllowedConsumers"]!.Split(","));
-                    }
-                );
-            }
-        );
+        string dbPath = Path.Combine(AppContext.BaseDirectory, "Externals", "EuroMillions.db");
+        string connectionString = $"Data Source={dbPath}";
 
         builder.Services.AddDbContext<EuroMillionsDbContext>(optionBuilder =>
             {
-                optionBuilder.UseMySql(
-                    builder.Configuration.GetConnectionString("EuroMillionsDb"),
-                    ServerVersion.Parse("9.1.0-mysql")
-                );
+                optionBuilder.UseSqlite(connectionString);
             }
         );
 
@@ -64,7 +52,6 @@ public class Program
         //Routes
         app.UseUploadRoutes();
 
-        app.UseCors("AllowConsumers");
         app.UseHttpsRedirection();
         app.Run();
     }
