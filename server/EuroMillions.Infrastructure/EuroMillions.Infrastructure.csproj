@@ -20,8 +20,4 @@
         <ProjectReference Include="..\EuroMillions.Application\EuroMillions.Application.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="Context\"/>
-    </ItemGroup>
-
 </Project>
