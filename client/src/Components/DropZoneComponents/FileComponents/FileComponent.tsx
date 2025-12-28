@@ -1,6 +1,6 @@
 import "./FileComponent.css";
 import DeleteButtonGlyphIconComponent
-	from "../../ButtonComponents/DeleteButtonComponent/DeleteButtonGlyphIconComponent.tsx";
+	from "../../ButtonComponents/DeleteButtonComponents/DeleteButtonGlyphIconComponent.tsx";
 import TextComponent from "../../TextComponents/TextComponent/TextComponent.tsx";
 
 export interface FileComponentProps {

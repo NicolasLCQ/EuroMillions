@@ -1,0 +1,19 @@
+.BallComponent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.2), 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    user-select: none;
+    background: red;
+}
+
+.NumberComponent {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    align-self: center;
+    color: white;
+}

@@ -3,9 +3,10 @@ using EuroMillions.Application.Models.Upload;
 
 using Microsoft.AspNetCore.Http;
 
-namespace EuroMillions.Application.Interfaces.Services;
+namespace EuroMillions.Application.Interfaces.UseCases;
 
-public interface IUploadServices
+public interface IDrawUseCases
 {
     Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels);
+    Task<Draw?> GetLastDrawAsync();
 }

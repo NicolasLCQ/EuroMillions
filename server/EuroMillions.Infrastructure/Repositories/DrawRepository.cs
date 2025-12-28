@@ -46,18 +46,24 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
             )
             .ToList();
 
-        List<T_DRAW> drawsToAdd = result.SelectMany(r => r.AcceptedDraws).Select(d => d.ToEntity()).ToList();
+        List<T_DRAW> drawsToAdd = result.SelectMany(r => r.AcceptedDraws).Select(d => d.ToT_DRAWEntity()).ToList();
         dbContext.T_DRAWs.AddRange(drawsToAdd);
         await dbContext.SaveChangesAsync();
 
         return result;
     }
 
-    public async Task<List<Draw>> GetAllDraws() => dbContext.T_DRAWs.Select(entity => entity.ToModel()).ToList();
+    public async Task<List<Draw>> GetAllDrawsAsync() => dbContext.T_DRAWs.Select(entity => entity.ToDrawModel()).ToList();
 
-    public async Task AddDraws(List<Draw> draws)
+    public async Task AddDrawsAsync(List<Draw> draws)
     {
-        dbContext.T_DRAWs.AddRange(draws.Select(d => d.ToEntity()));
+        dbContext.T_DRAWs.AddRange(draws.Select(d => d.ToT_DRAWEntity()));
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task<Draw?> GetLastDrawAsync() =>
+        dbContext.T_DRAWs
+            .OrderByDescending(d => d.DRAW_DATE)
+            .FirstOrDefault()
+            ?.ToDrawModel();
 }

@@ -1,0 +1,8 @@
+.PageTitleComponent {
+    color: white;
+    font-weight: bold;
+    font-size: var(--title-size);
+    margin-bottom: 5px;
+    background: var(--main-background);
+    text-align: center;
+}

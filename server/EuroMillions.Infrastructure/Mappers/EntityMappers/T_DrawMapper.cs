@@ -5,7 +5,7 @@ namespace EuroMillions.Infrastructure.Mappers.EntityMappers;
 
 public static class T_DrawMapper
 {
-    public static T_DRAW ToEntity(this Draw draw) =>
+    public static T_DRAW ToT_DRAWEntity(this Draw draw) =>
         new T_DRAW
         {
             YEAR_DRAW_NUMBER = draw.YearDrawNumber,
@@ -19,7 +19,7 @@ public static class T_DrawMapper
             STAR_TWO = draw.Star2
         };
 
-    public static Draw ToModel(this T_DRAW tDraw) => new Draw
+    public static Draw ToDrawModel(this T_DRAW tDraw) => new Draw
     {
         YearDrawNumber = tDraw.YEAR_DRAW_NUMBER,
         DrawDate = tDraw.DRAW_DATE,
