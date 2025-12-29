@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import "./TitleComponent.css";
+import "./PageTitleComponent.css";
 
 interface IPageTitleComponentProps {
 	className?: string;
