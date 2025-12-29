@@ -2,6 +2,7 @@ import {useQuery} from "@tanstack/react-query";
 import {getLastDraw, IGetLastDrawResponse} from "../../Pages/HomePage/Features/Draws/GetLastDraw.ts";
 import PageTitleComponent from "Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
 import LastDrawContainer from "Pages/HomePage/Containers/LastDrawContainer.tsx";
+import PageErrorComponent from "Components/ErrorComponents/PageErrorComponents/PageErrorComponent.tsx";
 
 function HomePage() {
 
@@ -18,6 +19,10 @@ function HomePage() {
 	return (
 		<div className="HomePage">
 			<PageTitleComponent>Home Page</PageTitleComponent>
+			{GetLastDrawQueryResult.data && !(GetLastDrawQueryResult.data as IGetLastDrawResponse).isUpToDate &&
+				<a href="/Uploa" className="UploadPageLink">
+					<PageErrorComponent>Draws are not up to date !! go on Upload Page to update !!</PageErrorComponent>
+				</a>}
 			{/*message d'erreur si dernier tirage ou non + redirection vers la page upload*/}
 			{/*gérer si base de donnée vide*/}
 			{/*Affichage du dernier tirage avec date du tirage au-dessus*/}
