@@ -3,14 +3,10 @@
     flex-direction: column;
 }
 
-.DropZone{
+.DropZone {
 
 }
 
-.Title{
-   text-align: center;
-}
-
-.Informations{
+.Informations {
     margin-left: 5%;
 }

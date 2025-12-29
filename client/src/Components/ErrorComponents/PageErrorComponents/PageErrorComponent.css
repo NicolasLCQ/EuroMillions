@@ -1,0 +1,11 @@
+.PageErrorComponent {
+    display: flex;
+    background: red;
+    justify-content: center;
+    font-size: var(--text-size);
+    font-weight: bold;
+    color: black;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+
+}

@@ -2,10 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: var(--main-background);
 }
 
 .HeaderComponent {
-    color: white;
     align-content: center;
 }

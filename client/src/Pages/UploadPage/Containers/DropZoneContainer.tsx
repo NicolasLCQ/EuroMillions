@@ -8,7 +8,7 @@ export interface DropZoneContainerProps {
 	className?: string
 }
 
-export default function DropZoneContainer(props: DropZoneContainerProps) {
+function DropZoneContainer(props: DropZoneContainerProps) {
 	const {files, addFiles, removeFile, clearFiles} = useFiles();
 
 	const fileMutation = useMutation({
@@ -28,3 +28,5 @@ export default function DropZoneContainer(props: DropZoneContainerProps) {
 		</div>
 	)
 }
+
+export default DropZoneContainer;

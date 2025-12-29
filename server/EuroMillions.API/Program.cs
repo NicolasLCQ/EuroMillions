@@ -3,7 +3,7 @@ using EuroMillions.API.Resources;
 using EuroMillions.API.Routes;
 using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 using EuroMillions.Application.Interfaces.Infrastructure.Repositories;
-using EuroMillions.Application.Interfaces.Services;
+using EuroMillions.Application.Interfaces.UseCases;
 using EuroMillions.Application.UseCases;
 using EuroMillions.Infrastructure.Adapters;
 using EuroMillions.Infrastructure.Context;
@@ -25,6 +25,20 @@ public class Program
         builder.Services.AddExceptionHandler<ApplicationExceptionHandler>();
         builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
+        builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "AllowFrontend",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000") // Autorise spécifiquement votre frontend
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    }
+                );
+            }
+        );
+
         string dbPath = Path.Combine(AppContext.BaseDirectory, "Externals", "EuroMillions.db");
         string connectionString = $"Data Source={dbPath}";
 
@@ -36,10 +50,13 @@ public class Program
 
         builder.Services.AddTransient<IDrawRepository, DrawRepository>();
         builder.Services.AddTransient<ICsvAdapter, CsvAdapter>();
-        builder.Services.AddTransient<IUploadServices, Draws>();
-        builder.Services.AddTransient<UploadRessource>();
+        builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
+        builder.Services.AddTransient<DrawResources>();
 
         WebApplication app = builder.Build();
+        app.UseExceptionHandler(_ => {});
+
+        app.UseCors("AllowFrontend");
 
         if (app.Environment.IsDevelopment())
         {
@@ -47,10 +64,8 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseExceptionHandler(_ => {});
-
         //Routes
-        app.UseUploadRoutes();
+        app.UseDrawRoutes();
 
         app.UseHttpsRedirection();
         app.Run();

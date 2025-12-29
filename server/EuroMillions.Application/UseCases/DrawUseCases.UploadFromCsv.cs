@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace EuroMillions.Application.UseCases;
 
-public partial class Draws
+public partial class DrawUseCases
 {
     public async Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels)
     {

@@ -21,10 +21,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "paths":{
-      "App/*": ["./src/App/*"],
-      "Components/*": ["./src/Components/*"],
-      "Pages/*": ["./src/Pages/*"]
+    "paths": {
+      "App/*": [
+        "./src/App/*"
+      ],
+      "Components/*": [
+        "./src/Components/*"
+      ],
+      "Pages/*": [
+        "./src/Pages/*"
+      ],
+      "Models/*": [
+        "./src/Models/*"
+      ]
     }
   },
   "include": [

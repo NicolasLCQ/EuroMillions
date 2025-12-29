@@ -1,13 +1,13 @@
 import {ReactNode} from "react";
 import "./TextComponent.css";
 
-interface ITittleComponentProps{
-	className?:string;
+interface ITextComponentProps {
+	className?: string;
 	children?: ReactNode | string;
 }
 
-export default function TittleComponent( props:ITittleComponentProps ) {
+export default function TextComponent(props: ITextComponentProps) {
 	return (
-		<div className={props.className??"Text"}>{props.children}</div>
+		<div className={props.className ?? "TextComponent"}>{props.children}</div>
 	)
 }
