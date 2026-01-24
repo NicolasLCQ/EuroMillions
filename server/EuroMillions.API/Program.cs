@@ -31,7 +31,7 @@ public class Program
                     "AllowFrontend",
                     policy =>
                     {
-                        policy.WithOrigins("http://localhost:3000") // Autorise spécifiquement votre frontend
+                        policy.WithOrigins("http://localhost:3000")
                             .AllowAnyHeader()
                             .AllowAnyMethod();
                     }
