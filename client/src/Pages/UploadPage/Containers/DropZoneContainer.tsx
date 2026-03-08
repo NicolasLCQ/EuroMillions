@@ -21,8 +21,8 @@ function DropZoneContainer(props: DropZoneContainerProps) {
 
 	return (
 		//ajouter un element general pour afficher des erreurs comme : vous ne pouvez pas entrer 2 fois le meme fichier
-		<div className={props.className ?? "DropZoneContainer"}>
-			<DropZoneComponent classname="DropZoneComponent" files={files} handleAdd={addFiles}
+		<div className={props.className}>
+			<DropZoneComponent files={files} handleAdd={addFiles}
 			                   handleDelete={removeFile}/>
 			<ButtonComponents onClick={handleClick}>Submit</ButtonComponents>
 		</div>

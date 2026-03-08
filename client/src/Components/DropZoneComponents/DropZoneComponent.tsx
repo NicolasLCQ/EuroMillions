@@ -1,10 +1,10 @@
-import "./DropZoneComponents.css";
+import styles from "./DropZoneComponent.module.css";
 import {useDropzone} from "react-dropzone";
 import FileComponent from "./FileComponents/FileComponent.tsx";
 import React from "react";
 
 interface DropZoneComponentsProps {
-	classname?: string,
+	className?: string,
 	files: File[]
 	handleAdd: (files: File[]) => void,
 	handleDelete: (file: File) => void,
@@ -12,7 +12,7 @@ interface DropZoneComponentsProps {
 
 
 
-const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({classname, files, handleAdd, handleDelete}: DropZoneComponentsProps) => {
+const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({className, files, handleAdd, handleDelete}: DropZoneComponentsProps) => {
 	function noDoubleValidator(file:File){
 		if(files.map(f => f.name).includes(file.name)){
 			return {
@@ -34,15 +34,15 @@ const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({classname, files,
 		}
 	);
 
-	const dragInformationsItem = <p className='DragInformation'>Drag 'n' drop some files here, or click to select files</p>;
+	const dragInformationsItem = <p className={styles.dragInformation}>Drag 'n' drop some files here, or click to select files</p>;
 
-	const fileListItem = <aside className="FileListSection">
-		{files.map(file => <FileComponent className="FileComponent" file={file} handleDelete={handleDelete} key={file.name}/>)}
+	const fileListItem = <aside className={styles.fileListSection}>
+		{files.map(file => <FileComponent file={file} handleDelete={handleDelete} key={file.name}/>)}
 	</aside>;
 
 	return (
-		<div className={classname ??"DropZoneComponent"}>
-			<div {...getRootProps({className: "DropZoneSection"})}>
+		<div className={className ? `${styles.dropZone} ${className}` : styles.dropZone}>
+			<div {...getRootProps({className: styles.dropZoneSection})}>
 				<input {...getInputProps()}/>
 				{dragInformationsItem}
 			</div>

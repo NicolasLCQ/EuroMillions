@@ -1,9 +1,10 @@
-.DropZoneComponent{
+.dropZone{
     display: flex;
     flex-wrap: wrap;
+    gap: 16px;
 }
 
-.DropZoneSection{
+.dropZoneSection{
     border-width: 3px;
     border-style: solid;
     border-color: var(--main-color);
@@ -11,12 +12,15 @@
     width: 50%;
     min-height: 200px;
     align-content: center;
+    padding: 16px;
 }
 
-.FileListSection{
-
+.fileListSection{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.DragInformation{
+.dragInformation{
     text-align: center;
 }

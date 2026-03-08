@@ -1,8 +1,9 @@
 import {useQuery} from "@tanstack/react-query";
-import {getLastDraw, IGetLastDrawResponse} from "../../Pages/HomePage/Features/Draws/GetLastDraw.ts";
+import {getLastDraw, IGetLastDrawResponse} from "Pages/HomePage/Features/Draws/GetLastDraw.ts";
 import PageTitleComponent from "Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
 import LastDrawContainer from "Pages/HomePage/Containers/LastDrawContainer.tsx";
 import IsUpToDateContainer from "Pages/HomePage/Containers/IsUpToDateContainer.tsx";
+import styles from "./HomePage.module.css";
 
 function HomePage() {
 
@@ -17,7 +18,7 @@ function HomePage() {
 	const onIsUpToDateContainerClick = () => window.location.href = "/Upload";
 
 	return (
-		<div className="HomePage">
+		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
 			{GetLastDrawQueryResult.data &&
 				<IsUpToDateContainer isUpToDate={(GetLastDrawQueryResult.data as IGetLastDrawResponse).isUpToDate}

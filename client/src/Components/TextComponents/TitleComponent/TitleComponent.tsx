@@ -1,7 +1,5 @@
-import './TitleComponent.css'
-
 import {ReactNode} from "react";
-import "./TitleComponent.css";
+import styles from "./TitleComponent.module.css";
 
 interface ITitleComponentProps {
 	className?: string;
@@ -9,8 +7,10 @@ interface ITitleComponentProps {
 }
 
 function TitleComponent(props: ITitleComponentProps) {
+	const className = props.className ? `${styles.title} ${props.className}` : styles.title;
+
 	return (
-		<div className={props.className ?? "TitleComponent"}>{props.children}</div>
+		<div className={className}>{props.children}</div>
 	)
 }
 

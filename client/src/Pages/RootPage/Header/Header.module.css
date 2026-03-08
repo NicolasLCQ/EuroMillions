@@ -1,9 +1,17 @@
-.Header {
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.HeaderComponent {
+.headerComponent {
     align-content: center;
+}
+
+.headerLogo img {
+    display: block;
+}
+
+.version {
+    font-weight: bold;
 }

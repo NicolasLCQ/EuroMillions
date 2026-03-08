@@ -1,18 +1,19 @@
 import React from "react";
-import './DrawComponent.css';
+import styles from './DrawComponent.module.css';
 import BallComponent from '../DrawComponents/BallComponents/BallComponent.tsx';
 import StarComponent from '../DrawComponents/StarComponents/StarComponent.tsx';
-import {IDraw} from '../../Models/DrawModels/IDraw.ts';
+import {IDraw} from 'Models/DrawModels/IDraw.ts';
 
 interface DrawComponentsProps {
 	Draw: IDraw
-	classname?: string;
+	className?: string;
 }
 
 const DrawComponent: React.FC<DrawComponentsProps> = (props: DrawComponentsProps) => {
+	const className = props.className ? `${styles.draw} ${props.className}` : styles.draw;
 
 	return (
-		<div className={props.classname ?? "DrawComponent"}>
+		<div className={className}>
 			<BallComponent number={props.Draw.ball1}/>
 			<BallComponent number={props.Draw.ball2}/>
 			<BallComponent number={props.Draw.ball3}/>
