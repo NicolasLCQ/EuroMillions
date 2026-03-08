@@ -1,22 +1,28 @@
 import {config} from "../../../../Config";
-import {IDraw} from "../../../../Models/DrawModels/IDraw.ts";
+import {IDraw} from "Models/DrawModels/IDraw.ts";
 
 export interface IGetLastDrawResponse {
-	//TODO: séparer les 2 appels !!
 	isUpToDate: boolean;
 	draw?: IDraw;
 }
 
-export const getLastDraw = async () => {
-	const baseUrl = config.API_URL
+const isBodyEmpty = (body: string): boolean => !body.trim();
+
+export const getLastDraw = async (): Promise<IGetLastDrawResponse | null> => {
+	const baseUrl = config.API_URL;
 
 	const httpResponse = await fetch(`${baseUrl}/draws/getlastdraw`, {
-		method: 'GET'
-	})
+		method: "GET",
+	});
 
 	if (!httpResponse.ok) {
 		throw new Error(`GetLastDraw failed with status ${httpResponse.status}`);
 	}
 
-	return await httpResponse.json() as IGetLastDrawResponse;
-}
+	const body = await httpResponse.text();
+	if (!isBodyEmpty(body)) {
+		return null;
+	}
+
+	return JSON.parse(body) as IGetLastDrawResponse;
+};
