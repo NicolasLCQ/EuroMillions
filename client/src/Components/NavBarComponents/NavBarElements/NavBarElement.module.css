@@ -1,4 +1,4 @@
-.NavBarElement {
+.navBarElement {
     padding: 8px;
     border-radius: 3px;
     font-weight: bold;
@@ -8,4 +8,5 @@
 
 .active {
     background: var(--main-background);
+    color: white;
 }

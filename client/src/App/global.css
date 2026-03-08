@@ -7,3 +7,19 @@
     --title-size: 40px;
     --text-size: 18px;
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--main-font-color);
+}
+
+a {
+    color: inherit;
+}

@@ -1,0 +1,15 @@
+.file{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.deleteButton {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.fileName {
+    overflow-wrap: anywhere;
+}

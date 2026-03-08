@@ -1,16 +1,17 @@
-import './DefaultButtonComponent.css';
+import styles from './DefaultButtonComponent.module.css';
 import React, {ReactNode} from "react";
 
 interface ButtonComponentsProps {
-	classname?: string;
+	className?: string;
 	children?: ReactNode;
 	onClick: () => void;
 }
 
 const ButtonComponents : React.FC<ButtonComponentsProps> = (props: ButtonComponentsProps) => {
+	const className = props.className ? `${styles.button} ${props.className}` : styles.button;
 
 	return (
-		<button className={props.classname??"ButtonComponents"} onClick={props.onClick}>{props.children}</button>
+		<button className={className} onClick={props.onClick}>{props.children}</button>
 	)
 }
 

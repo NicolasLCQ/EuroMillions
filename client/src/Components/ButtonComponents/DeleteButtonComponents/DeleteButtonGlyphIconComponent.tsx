@@ -7,7 +7,7 @@ export interface DeleteButtonGlyphIconComponentProps {
 
 export default function DeleteButtonGlyphIconComponent(props: DeleteButtonGlyphIconComponentProps) {
 	return (
-		<button className={props.className ?? "DeleteButton"} onClick={props.handleDelete}>
+		<button className={props.className} onClick={props.handleDelete} type="button">
 			<TiTrash/>
 		</button>
 	)

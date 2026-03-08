@@ -1,4 +1,4 @@
-import "./FileComponent.css";
+import styles from "./FileComponent.module.css";
 import DeleteButtonGlyphIconComponent
 	from "../../ButtonComponents/DeleteButtonComponents/DeleteButtonGlyphIconComponent.tsx";
 import TextComponent from "../../TextComponents/TextComponent/TextComponent.tsx";
@@ -10,18 +10,19 @@ export interface FileComponentProps {
 }
 
 export default function FileComponent(props: FileComponentProps) {
-	const handleDelete = () => () => props.handleDelete(props.file);
+	const handleDelete = () => props.handleDelete?.(props.file);
+	const containerClassName = props.className ? `${styles.file} ${props.className}` : styles.file;
 
 	return (
-		<div className={props.className ?? "FileComponent"}>
+		<div className={containerClassName}>
 			{props.handleDelete &&
 				<>
-					<DeleteButtonGlyphIconComponent className="DeleteFileButton"
+					<DeleteButtonGlyphIconComponent className={styles.deleteButton}
 					                                handleDelete={handleDelete}/>
 					&nbsp;
 				</>
 			}
-			<TextComponent className="FileName">{props.file.name}</TextComponent>
+			<TextComponent className={styles.fileName}>{props.file.name}</TextComponent>
 		</div>
 	)
 }

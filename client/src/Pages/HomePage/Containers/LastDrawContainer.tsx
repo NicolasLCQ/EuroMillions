@@ -10,7 +10,7 @@ export interface LastDrawContainerProps {
 function LastDrawContainer(props: LastDrawContainerProps) {
 
 	return (
-		<div className={props.className ?? "LastDrawContainer"}>
+		<div className={props.className}>
 			<TitleComponent>Last Draw</TitleComponent>
 			<DrawComponent Draw={props.Draw}/>
 		</div>

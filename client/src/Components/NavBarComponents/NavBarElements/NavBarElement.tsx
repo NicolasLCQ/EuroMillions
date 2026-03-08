@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom";
-import "./NavBarElement.css";
+import styles from "./NavBarElement.module.css";
 import React from "react";
 
 export interface INavBarComponentProps {
@@ -9,7 +9,7 @@ export interface INavBarComponentProps {
 
 const NavBarElement: React.FC<INavBarComponentProps> = (props: INavBarComponentProps) => {
 	return (
-			<NavLink className="NavBarElement" to={props.link}>{props.text}</NavLink>
+			<NavLink className={({isActive}) => isActive ? `${styles.navBarElement} ${styles.active}` : styles.navBarElement} to={props.link}>{props.text}</NavLink>
 	);
 }
 

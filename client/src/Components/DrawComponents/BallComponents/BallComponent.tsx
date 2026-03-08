@@ -1,16 +1,19 @@
 import React from "react";
-import './BallComponent.css';
+import styles from './BallComponent.module.css';
 
 interface BallComponentProps {
 	number: number;
 	numberClassName?: string;
-	classname?: string;
+	className?: string;
 }
 
 const BallComponent: React.FC<BallComponentProps> = (props: BallComponentProps) => {
+	const ballClassName = props.className ? `${styles.ball} ${props.className}` : styles.ball;
+	const numberClassName = props.numberClassName ? `${styles.number} ${props.numberClassName}` : styles.number;
+
 	return (
-		<div className={props.classname ?? "BallComponent"}>
-			<span className={props.numberClassName ?? "NumberComponent"}>{props.number}</span>
+		<div className={ballClassName}>
+			<span className={numberClassName}>{props.number}</span>
 		</div>
 	)
 }

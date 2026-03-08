@@ -1,13 +1,15 @@
 import React from 'react';
-import './PageErrorComponent.css';
+import styles from './PageErrorComponent.module.css';
 
 interface IPageErrorComponentProps extends React.PropsWithChildren {
 	className?: string
 }
 
 function PageErrorComponent(props: IPageErrorComponentProps) {
+	const className = props.className ? `${styles.pageError} ${props.className}` : styles.pageError;
+
 	return (
-		<div className={props.className ?? "PageErrorComponent"}>
+		<div className={className}>
 			{props.children}
 		</div>
 	)

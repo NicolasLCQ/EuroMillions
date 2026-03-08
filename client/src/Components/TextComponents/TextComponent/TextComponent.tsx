@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import "./TextComponent.css";
+import styles from "./TextComponent.module.css";
 
 interface ITextComponentProps {
 	className?: string;
@@ -7,7 +7,9 @@ interface ITextComponentProps {
 }
 
 export default function TextComponent(props: ITextComponentProps) {
+	const className = props.className ? `${styles.text} ${props.className}` : styles.text;
+
 	return (
-		<div className={props.className ?? "TextComponent"}>{props.children}</div>
+		<div className={className}>{props.children}</div>
 	)
 }

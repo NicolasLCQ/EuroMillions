@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import "./PageTitleComponent.css";
+import styles from "./PageTitleComponent.module.css";
 
 interface IPageTitleComponentProps {
 	className?: string;
@@ -7,7 +7,9 @@ interface IPageTitleComponentProps {
 }
 
 export default function PageTitleComponent(props: IPageTitleComponentProps) {
+	const className = props.className ? `${styles.pageTitle} ${props.className}` : styles.pageTitle;
+
 	return (
-		<div className={props.className ?? "PageTitleComponent"}>{props.children}</div>
+		<div className={className}>{props.children}</div>
 	)
 }

@@ -1,16 +1,19 @@
 import React from "react";
-import './StarComponent.css';
+import styles from './StarComponent.module.css';
 
 interface StarComponentProps {
 	number: number;
 	numberClassName?: string;
-	classname?: string;
+	className?: string;
 }
 
 const StarComponent: React.FC<StarComponentProps> = (props: StarComponentProps) => {
+	const starClassName = props.className ? `${styles.star} ${props.className}` : styles.star;
+	const numberClassName = props.numberClassName ? `${styles.number} ${props.numberClassName}` : styles.number;
+
 	return (
-		<div className={props.classname ?? "StarComponent"}>
-			<span className={props.numberClassName ?? "NumberComponent"}>{props.number}</span>
+		<div className={starClassName}>
+			<span className={numberClassName}>{props.number}</span>
 		</div>
 	)
 }

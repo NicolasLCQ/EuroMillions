@@ -1,16 +1,16 @@
-import './Header.css';
+import styles from './Header.module.css';
 import packageJson from '../../../../package.json';
 
 export default function Header() {
 	return (
-		<div className="Header">
-			<div className="HeaderComponent">
-				<div className="HeaderLogo">
+		<div className={styles.header}>
+			<div className={styles.headerComponent}>
+				<div className={styles.headerLogo}>
 					<img src="/images/FDJLogo.png" alt="FDJLogo"/>
 				</div>
 			</div>
-			<div className="HeaderComponent">
-				<div className="Version">
+			<div className={styles.headerComponent}>
+				<div className={styles.version}>
 					v{packageJson.version}
 				</div>
 			</div>
