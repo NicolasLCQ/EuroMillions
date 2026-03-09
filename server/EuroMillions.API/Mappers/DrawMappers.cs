@@ -5,7 +5,7 @@ namespace EuroMillions.API.Mappers;
 
 public static class DrawMappers
 {
-    public static DrawReponseModel ToDrawResponseModel(this Draw draw) =>
+    public static DrawReponseModel ToDrawResponseModel(this Draw? draw) =>
         new DrawReponseModel
         {
             DrawNumber = draw.YearDrawNumber,
@@ -18,7 +18,4 @@ public static class DrawMappers
             Star1 = draw.Star1,
             Star2 = draw.Star2
         };
-
-    public static GetLastDrawResponseModel ToGetLastDrawResponseModel(this Draw draw) =>
-        new GetLastDrawResponseModel {isUpToDate = true, Draw = draw.ToDrawResponseModel()};
 }

@@ -1,14 +1,10 @@
 import {config} from "../../../../Config";
 import {IDraw} from "Models/DrawModels/IDraw.ts";
 
-export interface IGetLastDrawResponse {
-	isUpToDate: boolean;
-	draw?: IDraw;
-}
-
 const isBodyEmpty = (body: string): boolean => !body.trim();
 
-export const getLastDraw = async (): Promise<IGetLastDrawResponse | null> => {
+//TODO:: toutes les features devraient etre dans le fichier app > features > data :: app/features/drawfeatures/getlastdraw.ts
+export const getLastDraw = async (): Promise<IDraw | null> => {
 	const baseUrl = config.API_URL;
 
 	const httpResponse = await fetch(`${baseUrl}/draws/getlastdraw`, {
@@ -24,5 +20,5 @@ export const getLastDraw = async (): Promise<IGetLastDrawResponse | null> => {
 		return null;
 	}
 
-	return JSON.parse(body) as IGetLastDrawResponse;
+	return JSON.parse(body) as IDraw;
 };
