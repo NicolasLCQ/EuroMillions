@@ -1,5 +1,5 @@
-import {INavBarComponentProps} from "../../../Components/NavBarComponents/NavBarElements/NavBarElement.tsx";
-import NavBarComponent from "../../../Components/NavBarComponents/NavBarComponent.tsx";
+import {INavBarComponentProps} from "../../../Shared/Components/NavBarComponents/NavBarElements/NavBarElement.tsx";
+import NavBarComponent from "../../../Shared/Components/NavBarComponents/NavBarComponent.tsx";
 import uploadRouteObject from "../../UploadPage/UploadRouteObject.tsx";
 import homeRouteObject from "../../../Pages/HomePage/HomePageRouteObject.tsx";
 

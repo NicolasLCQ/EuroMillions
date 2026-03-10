@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './DrawComponent.module.css';
-import BallComponent from '../DrawComponents/BallComponents/BallComponent.tsx';
-import StarComponent from '../DrawComponents/StarComponents/StarComponent.tsx';
+import BallComponent from './BallComponents/BallComponent.tsx';
+import StarComponent from './StarComponents/StarComponent.tsx';
 import {IDraw} from 'Models/DrawModels/IDraw.ts';
 
 interface DrawComponentsProps {

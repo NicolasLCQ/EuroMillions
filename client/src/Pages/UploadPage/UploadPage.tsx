@@ -1,8 +1,8 @@
 import styles from './UploadPage.module.css';
-import TextComponent from 'Components/TextComponents/TextComponent/TextComponent.tsx';
+import TextComponent from '../../Shared/Components/TextComponents/TextComponent/TextComponent.tsx';
 import DropZoneContainer from "./Containers/DropZoneContainer.tsx";
-import PageTitleComponent from "Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
-import TitleComponent from "Components/TextComponents/TitleComponent/TitleComponent.tsx";
+import PageTitleComponent from "../../Shared/Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
+import TitleComponent from "../../Shared/Components/TextComponents/TitleComponent/TitleComponent.tsx";
 
 
 function UploadPage() {
