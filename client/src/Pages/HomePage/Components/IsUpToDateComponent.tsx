@@ -1,12 +1,12 @@
 import ClickableComponentWrapper from "../../../Shared/Components/TextComponents/ClickableComponentWrapper.tsx";
 import PageErrorComponent from "../../../Shared/Components/ErrorComponents/PageErrorComponents/PageErrorComponent.tsx";
 
-export interface IsUpToDateContainerProps {
+export interface IsUpToDateComponentProps {
 	onClick: () => void;
 	isUpToDate: boolean;
 }
 
-function IsUpToDateContainer(props: IsUpToDateContainerProps) {
+function IsUpToDateComponent(props: IsUpToDateComponentProps) {
 
 	const onClick = props.onClick;
 
@@ -18,4 +18,4 @@ function IsUpToDateContainer(props: IsUpToDateContainerProps) {
 	)
 }
 
-export default IsUpToDateContainer;
+export default IsUpToDateComponent;

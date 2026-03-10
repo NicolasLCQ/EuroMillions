@@ -1,8 +1,8 @@
 import {useQuery} from "@tanstack/react-query";
 import {getLastDraw} from "Pages/HomePage/Features/Draws/GetLastDraw.ts";
 import PageTitleComponent from "../../Shared/Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
-import LastDrawContainer from "Pages/HomePage/Components/LastDrawContainer.tsx";
-import IsUpToDateContainer from "Pages/HomePage/Components/IsUpToDateContainer.tsx";
+import LastDrawComponent from "Pages/HomePage/Components/LastDrawComponent.tsx";
+import IsUpToDateComponent from "Pages/HomePage/Components/IsUpToDateComponent.tsx";
 import styles from "./HomePage.module.css";
 import {IDraw} from "Models/DrawModels/IDraw.ts";
 
@@ -16,7 +16,7 @@ function HomePage() {
 		queryFn: getLastDraw,
 	})
 
-	const onIsUpToDateContainerClick = () => window.location.href = "/Upload";
+	const onIsUpToDateComponentClick = () => window.location.href = "/Upload";
 
 	return (
 		<div className={styles.homePage}>
@@ -33,14 +33,15 @@ function HomePage() {
 
 			{/*TODO: New route : isUpToDate*/}
 			{/*{GetLastDrawQueryResult.data &&*/}
-			{/*	<IsUpToDateContainer isUpToDate={(GetLastDrawQueryResult.data)}*/}
-			{/*	                     onClick={onIsUpToDateContainerClick}/>}*/}
+			{/*	<IsUpToDateComponent isUpToDate={(GetLastDrawQueryResult.data)}*/}
+			{/*	                     onClick={onIsUpToDateComponentClick}/>}*/}
 
-			{/*TODO: transformer en composant :: virer tout ce qui se nomme container ? */}
+			{/*TODO: transformer en composant :: virer tout ce qui se nomme component ? */}
 			{/*{GetLastDrawQueryResult.data &&*/}
-			{/*	<LastDrawContainer Draw={(GetLastDrawQueryResult.data as IDraw)}/>}*/}
+			{/*	<LastDrawComponent Draw={(GetLastDrawQueryResult.data as IDraw)}/>}*/}
 		</div>
 	);
 }
 
 export default HomePage
+

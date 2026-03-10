@@ -2,12 +2,12 @@ import TitleComponent from "../../../Shared/Components/TextComponents/TitleCompo
 import DrawComponent from "../../../Shared/Components/DrawComponents/DrawComponent.tsx";
 import {IDraw} from "Models/DrawModels/IDraw.ts";
 
-export interface LastDrawContainerProps {
+export interface LastDrawComponentProps {
 	Draw: IDraw
 	className?: string
 }
 
-function LastDrawContainer(props: LastDrawContainerProps) {
+function LastDrawComponent(props: LastDrawComponentProps) {
 
 	return (
 		<div className={props.className}>
@@ -17,4 +17,5 @@ function LastDrawContainer(props: LastDrawContainerProps) {
 	)
 }
 
-export default LastDrawContainer;
+export default LastDrawComponent;
+

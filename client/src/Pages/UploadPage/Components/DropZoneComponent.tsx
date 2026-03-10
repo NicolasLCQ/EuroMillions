@@ -1,14 +1,14 @@
-import DropZoneComponent from "../../../Shared/Components/DropZoneComponents/DropZoneComponent.tsx";
+import BaseDropZoneComponent from "../../../Shared/Components/DropZoneComponents/DropZoneComponent.tsx";
 import {useFiles} from "../Hooks/useFiles.ts";
 import ButtonComponents from "../../../Shared/Components/ButtonComponents/DefaultButtonComponent.tsx";
 import {postFiles} from "../Features/Files/PostFiles.ts";
 import {useMutation} from "@tanstack/react-query";
 
-export interface DropZoneContainerProps {
+export interface DropZoneComponentProps {
 	className?: string
 }
 
-function DropZoneContainer(props: DropZoneContainerProps) {
+function DropZoneComponent(props: DropZoneComponentProps) {
 	const {files, addFiles, removeFile, clearFiles} = useFiles();
 
 	const fileMutation = useMutation({
@@ -22,11 +22,12 @@ function DropZoneContainer(props: DropZoneContainerProps) {
 	return (
 		//ajouter un element general pour afficher des erreurs comme : vous ne pouvez pas entrer 2 fois le meme fichier
 		<div className={props.className}>
-			<DropZoneComponent files={files} handleAdd={addFiles}
+			<BaseDropZoneComponent files={files} handleAdd={addFiles}
 			                   handleDelete={removeFile}/>
 			<ButtonComponents onClick={handleClick}>Submit</ButtonComponents>
 		</div>
 	)
 }
 
-export default DropZoneContainer;
+export default DropZoneComponent;
+
