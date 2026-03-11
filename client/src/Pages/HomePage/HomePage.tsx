@@ -21,9 +21,12 @@ function HomePage() {
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
-			{/*message d'erreur si dernier tirage + redirection vers la page upload*/}
-			{/*gérer si base de donnée vide && dernier tirage ok => la base de donnée 'est pas a jour + redirection vers la page upload*/}
-
+			{getLastDrawQueryResult.data && (
+				<IsUpToDateComponent
+					isUpToDate={Boolean(getLastDrawQueryResult.data)}
+					onClick={onIsUpToDateComponentClick}
+				/>
+			)}
 			{/*DATE DU PROCHAIN TIRAGE*/}
 			{/*SOMME A GAGNER ??*/}
 
@@ -31,12 +34,7 @@ function HomePage() {
 			{/*Affichage du dernier tirage */}
 			{/*date du tirage au-dessus*/}
 
-			{getLastDrawQueryResult.data && (
-				<IsUpToDateComponent
-					isUpToDate={Boolean(getLastDrawQueryResult.data)}
-					onClick={onIsUpToDateComponentClick}
-				/>
-			)}
+
 
 			{getLastDrawQueryResult.data && (
 				<LastDrawComponent Draw={getLastDrawQueryResult.data as IDraw}/>
