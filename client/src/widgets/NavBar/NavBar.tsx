@@ -1,5 +1,5 @@
-import {INavBarComponentProps} from "shared/ui/NavBarComponents/NavBarElements/NavBarElement.tsx";
-import NavBarComponent from "shared/ui/NavBarComponents/NavBarComponent.tsx";
+import {INavBarComponentProps} from "shared/components/NavBarComponents/NavBarElements/NavBarElement.tsx";
+import NavBarComponent from "shared/components/NavBarComponents/NavBarComponent.tsx";
 import uploadRouteObject from "pages/UploadPage/UploadRouteObject.tsx";
 import homeRouteObject from "pages/HomePage/HomePageRouteObject.tsx";
 
@@ -27,3 +27,4 @@ export default function NavBar() {
 		<NavBarComponent textAndLinks={NavBarInformations}/>
 	)
 }
+

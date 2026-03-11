@@ -1,8 +1,8 @@
 import styles from './UploadPage.module.css';
-import TextComponent from 'shared/ui/TextComponents/TextComponent/TextComponent.tsx';
+import TextComponent from 'shared/components/TextComponents/TextComponent/TextComponent.tsx';
 import DropZoneComponent from "features/upload/components/DropZoneComponent.tsx";
-import PageTitleComponent from "shared/ui/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
-import TitleComponent from "shared/ui/TextComponents/TitleComponent/TitleComponent.tsx";
+import PageTitleComponent from "shared/components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
+import TitleComponent from "shared/components/TextComponents/TitleComponent/TitleComponent.tsx";
 
 
 function UploadPage() {
@@ -24,4 +24,5 @@ function UploadPage() {
 }
 
 export default UploadPage
+
 

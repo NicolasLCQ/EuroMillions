@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
 import {getLastDraw} from "features/draws/api/getLastDraw.ts";
-import PageTitleComponent from "shared/ui/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
+import PageTitleComponent from "shared/components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
 import LastDrawComponent from "features/draws/components/LastDrawComponent.tsx";
 import IsUpToDateComponent from "features/draws/components/IsUpToDateComponent.tsx";
 import styles from "./HomePage.module.css";
@@ -44,4 +44,5 @@ function HomePage() {
 }
 
 export default HomePage
+
 

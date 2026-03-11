@@ -1,4 +1,4 @@
-import {config} from "shared/lib/config";
+import {config} from "app/config";
 
 export const postFiles = async(files: File[]) => {
 	const baseUrl = config.API_URL
