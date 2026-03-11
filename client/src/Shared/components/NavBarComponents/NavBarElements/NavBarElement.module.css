@@ -10,3 +10,8 @@
     background: var(--main-background);
     color: white;
 }
+
+.disabled {
+    opacity: 0.6;
+    cursor: default;
+}

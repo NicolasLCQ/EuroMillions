@@ -1,5 +1,5 @@
 import {RouteObject} from "react-router-dom";
-import UploadPage from "pages";
+import UploadPage from "pages/UploadPage";
 
 const uploadRouteObject: RouteObject = {
 	path: "/upload",

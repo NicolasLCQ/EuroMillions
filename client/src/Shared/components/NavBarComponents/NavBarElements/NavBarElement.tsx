@@ -8,6 +8,10 @@ export interface INavBarComponentProps {
 }
 
 const NavBarElement: React.FC<INavBarComponentProps> = (props: INavBarComponentProps) => {
+	if (!props.link.trim()) {
+		return <span className={`${styles.navBarElement} ${styles.disabled}`}>{props.text}</span>;
+	}
+
 	return (
 			<NavLink className={({isActive}) => isActive ? `${styles.navBarElement} ${styles.active}` : styles.navBarElement} to={props.link}>{props.text}</NavLink>
 	);
