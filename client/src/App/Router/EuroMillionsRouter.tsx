@@ -1,5 +1,5 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import {RootRouteObject} from "./routes";
+import {RootRouteObject} from "app/router/routes";
 
 const euroMillionsRouter = createBrowserRouter([RootRouteObject]);
 

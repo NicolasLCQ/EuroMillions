@@ -1,5 +1,5 @@
 import {RouteObject} from "react-router-dom";
-import HomePage from "./HomePage.tsx";
+import HomePage from "pages/HomePage";
 
 const homeRouteObject: RouteObject = {
 	path: "/home",
