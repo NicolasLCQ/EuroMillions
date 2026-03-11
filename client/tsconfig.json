@@ -13,6 +13,7 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "baseUrl": ".",
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
@@ -22,17 +23,20 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "App/*": [
-        "./src/App/*"
+      "app/*": [
+        "./src/app/*"
       ],
-      "Components/*": [
-        "./src/Components/*"
+      "shared/*": [
+        "./src/shared/*"
       ],
-      "Pages/*": [
-        "./src/Pages/*"
+      "features/*": [
+        "./src/features/*"
       ],
-      "Models/*": [
-        "./src/Models/*"
+      "pages/*": [
+        "./src/pages/*"
+      ],
+      "widgets/*": [
+        "./src/widgets/*"
       ]
     }
   },

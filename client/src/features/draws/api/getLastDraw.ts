@@ -1,5 +1,5 @@
-import {config} from "../../../../Shared/Config";
-import {IDraw} from "Models/DrawModels/IDraw.ts";
+import {config} from "shared/lib/config";
+import {IDraw} from "features/draws/model/IDraw.ts";
 
 const isBodyEmpty = (body: string): boolean => !body.trim();
 

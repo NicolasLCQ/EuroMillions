@@ -1,6 +1,6 @@
-import TitleComponent from "../../../Components/TextComponents/TitleComponent/TitleComponent.tsx";
-import DrawComponent from "../../../Components/DrawComponents/DrawComponent.tsx";
-import {IDraw} from "Models/DrawModels/IDraw.ts";
+import TitleComponent from "shared/ui/TextComponents/TitleComponent/TitleComponent.tsx";
+import DrawComponent from "shared/ui/DrawComponents/DrawComponent.tsx";
+import {IDraw} from "features/draws/model/IDraw.ts";
 
 export interface LastDrawComponentProps {
 	Draw: IDraw

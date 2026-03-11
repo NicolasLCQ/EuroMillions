@@ -2,7 +2,7 @@ import React from "react";
 import styles from './DrawComponent.module.css';
 import BallComponent from './BallComponents/BallComponent.tsx';
 import StarComponent from './StarComponents/StarComponent.tsx';
-import {IDraw} from 'Models/DrawModels/IDraw.ts';
+import {IDraw} from 'features/draws/model/IDraw.ts';
 
 interface DrawComponentsProps {
 	Draw: IDraw

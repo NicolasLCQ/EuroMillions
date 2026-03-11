@@ -1,22 +1,22 @@
 import {useQuery} from "@tanstack/react-query";
-import {getLastDraw} from "Pages/HomePage/Features/Draws/GetLastDraw.ts";
-import PageTitleComponent from "../../Shared/Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
-import LastDrawComponent from "../../Shared/Features/Draws/IsUpToDate/LastDrawComponent.tsx";
-import IsUpToDateComponent from "../../Shared/Features/Draws/IsUpToDate/IsUpToDateComponent.tsx";
+import {getLastDraw} from "features/draws/api/getLastDraw.ts";
+import PageTitleComponent from "shared/ui/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
+import LastDrawComponent from "features/draws/components/LastDrawComponent.tsx";
+import IsUpToDateComponent from "features/draws/components/IsUpToDateComponent.tsx";
 import styles from "./HomePage.module.css";
-import {IDraw} from "Models/DrawModels/IDraw.ts";
+import {IDraw} from "features/draws/model/IDraw.ts";
 
 function HomePage() {
 
 	// aller fetch le back
 	// -> base de donnée a jour ?
 	// -> informations du dernier tirage
-	const GetLastDrawQueryResult = useQuery({
+	const getLastDrawQueryResult = useQuery({
 		queryKey: ["api/Draws/GetLastDraw"],
 		queryFn: getLastDraw,
 	})
 
-	const onIsUpToDateComponentClick = () => window.location.href = "/Upload";
+	const onIsUpToDateComponentClick = () => window.location.href = "/upload";
 
 	return (
 		<div className={styles.homePage}>
@@ -31,14 +31,16 @@ function HomePage() {
 			{/*Affichage du dernier tirage */}
 			{/*date du tirage au-dessus*/}
 
-			{/*TODO: New route : isUpToDate*/}
-			{/*{GetLastDrawQueryResult.data &&*/}
-			{/*	<IsUpToDateComponent isUpToDate={(GetLastDrawQueryResult.data)}*/}
-			{/*	                     onClick={onIsUpToDateComponentClick}/>}*/}
+			{getLastDrawQueryResult.data && (
+				<IsUpToDateComponent
+					isUpToDate={Boolean(getLastDrawQueryResult.data)}
+					onClick={onIsUpToDateComponentClick}
+				/>
+			)}
 
-			{/*TODO: transformer en composant :: virer tout ce qui se nomme component ? */}
-			{/*{GetLastDrawQueryResult.data &&*/}
-			{/*	<LastDrawComponent Draw={(GetLastDrawQueryResult.data as IDraw)}/>}*/}
+			{getLastDrawQueryResult.data && (
+				<LastDrawComponent Draw={getLastDrawQueryResult.data as IDraw}/>
+			)}
 		</div>
 	);
 }
