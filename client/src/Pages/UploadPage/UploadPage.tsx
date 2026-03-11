@@ -1,6 +1,6 @@
 import styles from './UploadPage.module.css';
 import TextComponent from 'shared/components/TextComponents/TextComponent/TextComponent.tsx';
-import DropZoneComponent from "features/upload/components/DropZoneComponent.tsx";
+import DropZoneComponent from "pages/UploadPage/DropZone/DropZoneComponent.tsx";
 import PageTitleComponent from "shared/components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
 import TitleComponent from "shared/components/TextComponents/TitleComponent/TitleComponent.tsx";
 
