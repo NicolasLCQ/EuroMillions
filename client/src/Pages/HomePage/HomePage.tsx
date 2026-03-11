@@ -1,8 +1,8 @@
 import {useQuery} from "@tanstack/react-query";
 import {getLastDraw} from "Pages/HomePage/Features/Draws/GetLastDraw.ts";
 import PageTitleComponent from "../../Shared/Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
-import LastDrawComponent from "Pages/HomePage/Components/LastDrawComponent.tsx";
-import IsUpToDateComponent from "Pages/HomePage/Components/IsUpToDateComponent.tsx";
+import LastDrawComponent from "../../Shared/Features/Draws/IsUpToDate/LastDrawComponent.tsx";
+import IsUpToDateComponent from "../../Shared/Features/Draws/IsUpToDate/IsUpToDateComponent.tsx";
 import styles from "./HomePage.module.css";
 import {IDraw} from "Models/DrawModels/IDraw.ts";
 
