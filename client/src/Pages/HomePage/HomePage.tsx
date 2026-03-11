@@ -5,8 +5,10 @@ import LastDrawComponent from "pages/HomePage/LastDraw";
 import IsUpToDateComponent from "pages/HomePage/IsUpToDate";
 import styles from "./HomePage.module.css";
 import {IDraw} from "shared/types";
+import {useNavigate} from "react-router-dom";
 
 function HomePage() {
+	const navigate = useNavigate();
 
 	// aller fetch le back
 	// -> base de donnée a jour ?
@@ -16,7 +18,7 @@ function HomePage() {
 		queryFn: getLastDraw,
 	})
 
-	const onIsUpToDateComponentClick = () => window.location.href = "/upload";
+	const onIsUpToDateComponentClick = () => navigate("/upload");
 
 	return (
 		<div className={styles.homePage}>
