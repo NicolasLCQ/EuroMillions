@@ -11,9 +11,9 @@ export const postFiles = async(files: File[]) => {
 		body: body,
 	})
 
-	if(httpResponse.ok) {
-		return await httpResponse.json() as Response;
+	if(!httpResponse.ok) {
+		throw new Error(`PostFiles failed with status ${httpResponse.status}`);
 	}
 
-	return await httpResponse.json() as Error;
+	return await httpResponse.json() as Response;
 }

@@ -16,9 +16,9 @@ export const getLastDraw = async (): Promise<IDraw | null> => {
 	}
 
 	const body = await httpResponse.text();
-	if (!isBodyEmpty(body)) {
+	if (isBodyEmpty(body)) {
 		return null;
 	}
 
-	return JSON.parse(body) as IDraw;
+	return await httpResponse.json() as IDraw;
 };

@@ -3,25 +3,25 @@ import {useState} from "react";
 export const useFiles = () => {
 	const [files, setFiles] = useState<File[]>([]);
 
-	const addFiles = (newFiles) => {
-		setFiles([
-			...files,
+	const addFiles = (newFiles: File[]) => {
+		setFiles((previousFiles) => [
+			...previousFiles,
 			...newFiles
 		]);
-	}
+	};
 
 	const removeFile = (file: File) => {
-		setFiles(files.filter(f => f !== file));
-	}
+		setFiles((previousFiles) => previousFiles.filter((f) => f !== file));
+	};
 
 	const clearFiles = () => {
 		setFiles([]);
-	}
+	};
 
 	return {
 		files,
 		addFiles,
 		removeFile,
 		clearFiles,
-	}
-}
+	};
+};

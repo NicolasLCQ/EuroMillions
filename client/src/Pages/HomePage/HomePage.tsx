@@ -23,7 +23,7 @@ function HomePage() {
 			<PageTitleComponent>Home Page</PageTitleComponent>
 			{getLastDrawQueryResult.data && (
 				<IsUpToDateComponent
-					isUpToDate={Boolean(getLastDrawQueryResult.data)}
+					isUpToDate={true}
 					onClick={onIsUpToDateComponentClick}
 				/>
 			)}
