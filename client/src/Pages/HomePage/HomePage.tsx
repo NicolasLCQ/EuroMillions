@@ -21,9 +21,10 @@ function HomePage() {
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
+			{/*todo :: enlever se composant ! utiliser uniquement is up to date et utiliser bannererror*/}
 			{getLastDrawQueryResult.data && (
 				<IsUpToDateComponent
-					isUpToDate={true}
+					isUpToDate={false}
 					onClick={onIsUpToDateComponentClick}
 				/>
 			)}
