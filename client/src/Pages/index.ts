@@ -1,4 +1,4 @@
-export { default as RootPage } from "./RootPage.tsx";
+export { default } from "./RootPage";
 export * from "./HomePage";
 export * from "./UploadPage";
 export * from "./NotFoundPage";
