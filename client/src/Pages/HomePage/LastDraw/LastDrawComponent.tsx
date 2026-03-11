@@ -1,6 +1,6 @@
-import TitleComponent from "shared/components/TextComponents/TitleComponent/TitleComponent.tsx";
-import DrawComponent from "shared/components/DrawComponents/DrawComponent.tsx";
-import {IDraw} from "shared/types/IDraw.ts";
+import TitleComponent from "shared/components/TextComponents/TitleComponent";
+import DrawComponent from "shared/components/DrawComponents";
+import {IDraw} from "shared/types";
 
 export interface LastDrawComponentProps {
 	Draw: IDraw
@@ -18,5 +18,6 @@ function LastDrawComponent(props: LastDrawComponentProps) {
 }
 
 export default LastDrawComponent;
+
 
 

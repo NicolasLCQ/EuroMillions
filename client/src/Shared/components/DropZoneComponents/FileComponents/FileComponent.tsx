@@ -1,7 +1,7 @@
 import styles from "./FileComponent.module.css";
 import DeleteButtonGlyphIconComponent
-	from "../../ButtonComponents/DeleteButtonComponents/DeleteButtonGlyphIconComponent.tsx";
-import TextComponent from "../../TextComponents/TextComponent/TextComponent.tsx";
+	from "../../ButtonComponents/DeleteButtonComponents";
+import TextComponent from "../../TextComponents/TextComponent";
 
 export interface FileComponentProps {
 	className?: string,
@@ -26,3 +26,4 @@ export default function FileComponent(props: FileComponentProps) {
 		</div>
 	)
 }
+

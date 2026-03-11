@@ -1,7 +1,7 @@
-import {INavBarComponentProps} from "shared/components/NavBarComponents/NavBarElements/NavBarElement.tsx";
-import NavBarComponent from "shared/components/NavBarComponents/NavBarComponent.tsx";
-import uploadRouteObject from "pages/UploadPage/UploadRouteObject.tsx";
-import homeRouteObject from "pages/HomePage/HomePageRouteObject.tsx";
+import {INavBarComponentProps} from "shared/components/NavBarComponents/NavBarElements";
+import NavBarComponent from "shared/components/NavBarComponents";
+import {uploadRouteObject} from "pages/UploadPage";
+import {homeRouteObject} from "pages/HomePage";
 
 const NavBarInformations: INavBarComponentProps[] = [
 	{
@@ -27,4 +27,5 @@ export default function NavBar() {
 		<NavBarComponent textAndLinks={NavBarInformations}/>
 	)
 }
+
 

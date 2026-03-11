@@ -1,5 +1,5 @@
 import styles from './NavBarComponent.module.css';
-import NavBarElement from "./NavBarElements/NavBarElement.tsx";
+import NavBarElement from "./NavBarElements";
 import React from "react";
 
 interface INavBarComponentProps{
@@ -13,3 +13,4 @@ const NavBarComponent: React.FC<INavBarComponentProps> = (props:INavBarComponent
 }
 
 export default NavBarComponent;
+

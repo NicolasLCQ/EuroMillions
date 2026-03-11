@@ -1,5 +1,5 @@
 import {config} from "app/config";
-import {IDraw} from "shared/types/IDraw.ts";
+import {IDraw} from "shared/types";
 
 const isBodyEmpty = (body: string): boolean => !body.trim();
 
@@ -22,3 +22,4 @@ export const getLastDraw = async (): Promise<IDraw | null> => {
 
 	return await httpResponse.json() as IDraw;
 };
+

@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './DrawComponent.module.css';
-import BallComponent from './BallComponents/BallComponent.tsx';
-import StarComponent from './StarComponents/StarComponent.tsx';
-import {IDraw} from 'shared/types/IDraw.ts';
+import BallComponent from "./BallComponents";
+import StarComponent from "./StarComponents";
+import {IDraw} from 'shared/types';
 
 interface DrawComponentsProps {
 	Draw: IDraw
@@ -26,3 +26,4 @@ const DrawComponent: React.FC<DrawComponentsProps> = (props: DrawComponentsProps
 }
 
 export default DrawComponent;
+

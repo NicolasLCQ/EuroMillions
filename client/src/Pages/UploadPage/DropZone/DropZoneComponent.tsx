@@ -1,7 +1,7 @@
-import BaseDropZoneComponent from "shared/components/DropZoneComponents/DropZoneComponent.tsx";
-import {useFiles} from "shared/hooks/useFiles.ts";
-import ButtonComponents from "shared/components/ButtonComponents/DefaultButtonComponent.tsx";
-import {postFiles} from "../../../api/postFiles.ts";
+import BaseDropZoneComponent from "shared/components/DropZoneComponents";
+import {useFiles} from "shared/hooks";
+import ButtonComponents from "shared/components/ButtonComponents";
+import {postFiles} from "api";
 import {useMutation} from "@tanstack/react-query";
 
 export interface DropZoneComponentProps {
@@ -30,5 +30,6 @@ function DropZoneComponent(props: DropZoneComponentProps) {
 }
 
 export default DropZoneComponent;
+
 
 

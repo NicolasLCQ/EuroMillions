@@ -1,6 +1,6 @@
 import styles from "./DropZoneComponent.module.css";
 import {useDropzone} from "react-dropzone";
-import FileComponent from "./FileComponents/FileComponent.tsx";
+import FileComponent from "./FileComponents";
 import React from "react";
 
 interface DropZoneComponentsProps {
@@ -54,3 +54,4 @@ const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({className, files,
 }
 
 export default DropZoneComponent;
+

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Header from "../widgets/Header/Header.tsx";
-import NavBar from "widgets/NavBar/NavBar.tsx";
+import Header from "widgets/Header";
+import NavBar from "widgets/NavBar";
 
 export default function RootPage() {
 	return(
@@ -11,3 +11,4 @@ export default function RootPage() {
 		</>
 	)
 }
+

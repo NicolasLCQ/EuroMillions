@@ -1,6 +1,6 @@
 import './styles/global.css';
-import QueryProvider from "./providers/query-provider/QueryProvider.tsx";
-import EuroMillionsRouter from "./router/EuroMillionsRouter.tsx";
+import QueryProvider from "./providers/query-provider";
+import EuroMillionsRouter from "./router";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 const EuroMillionsApp = () => (
@@ -11,3 +11,4 @@ const EuroMillionsApp = () => (
 )
 
 export default EuroMillionsApp;
+
