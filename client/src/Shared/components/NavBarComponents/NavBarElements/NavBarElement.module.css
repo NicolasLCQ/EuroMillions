@@ -1,0 +1,17 @@
+.navBarElement {
+    padding: 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: var(--main-font-color);
+    text-decoration: none;
+}
+
+.active {
+    background: var(--main-background);
+    color: white;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: default;
+}

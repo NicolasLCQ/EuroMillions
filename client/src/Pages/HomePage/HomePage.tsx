@@ -1,35 +1,51 @@
 import {useQuery} from "@tanstack/react-query";
-import {getLastDraw, IGetLastDrawResponse} from "Pages/HomePage/Features/Draws/GetLastDraw.ts";
-import PageTitleComponent from "Components/TextComponents/PageTitleComponent/PageTitleComponent.tsx";
-import LastDrawContainer from "Pages/HomePage/Containers/LastDrawContainer.tsx";
-import IsUpToDateContainer from "Pages/HomePage/Containers/IsUpToDateContainer.tsx";
+import {getLastDraw} from "api";
+import PageTitleComponent from "shared/components/TextComponents/PageTitleComponent";
+import LastDrawComponent from "pages/HomePage/LastDraw";
+import IsUpToDateComponent from "pages/HomePage/IsUpToDate";
 import styles from "./HomePage.module.css";
+import {IDraw} from "shared/types";
+import {useNavigate} from "react-router-dom";
 
 function HomePage() {
+	const navigate = useNavigate();
 
 	// aller fetch le back
 	// -> base de donnée a jour ?
 	// -> informations du dernier tirage
-	const GetLastDrawQueryResult = useQuery({
+	const getLastDrawQueryResult = useQuery({
 		queryKey: ["api/Draws/GetLastDraw"],
 		queryFn: getLastDraw,
 	})
 
-	const onIsUpToDateContainerClick = () => window.location.href = "/Upload";
+	const onIsUpToDateComponentClick = () => navigate("/upload");
 
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
-			{GetLastDrawQueryResult.data &&
-				<IsUpToDateContainer isUpToDate={(GetLastDrawQueryResult.data as IGetLastDrawResponse).isUpToDate}
-				                     onClick={onIsUpToDateContainerClick}/>}
-			{/*message d'erreur si dernier tirage ou non + redirection vers la page upload*/}
-			{/*gérer si base de donnée vide*/}
-			{/*Affichage du dernier tirage avec date du tirage au-dessus*/}
-			{GetLastDrawQueryResult.data &&
-				<LastDrawContainer Draw={(GetLastDrawQueryResult.data as IGetLastDrawResponse).draw}/>}
+			{/*todo :: enlever se composant ! utiliser uniquement is up to date et utiliser bannererror*/}
+			{getLastDrawQueryResult.data && (
+				<IsUpToDateComponent
+					isUpToDate={false}
+					onClick={onIsUpToDateComponentClick}
+				/>
+			)}
+			{/*DATE DU PROCHAIN TIRAGE*/}
+			{/*SOMME A GAGNER ??*/}
+
+			{/*TITRE :: DERNIER TIRAGE*/}
+			{/*Affichage du dernier tirage */}
+			{/*date du tirage au-dessus*/}
+
+
+
+			{getLastDrawQueryResult.data && (
+				<LastDrawComponent Draw={getLastDrawQueryResult.data as IDraw}/>
+			)}
 		</div>
 	);
 }
 
 export default HomePage
+
+

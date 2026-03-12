@@ -1,8 +1,9 @@
-import RootPage from "../../../Pages/RootPage/RootPage.tsx";
-import NotFoundPage from "../../../Pages/NotFoundPage/NotFoundPage.tsx";
+import RootPage from "pages/RootPage";
+import NotFoundPage from "pages/NotFoundPage";
+import {homeRouteObject} from "pages/HomePage";
+import {uploadRouteObject} from "pages/UploadPage";
+import {notFoundRouteObject} from "pages/NotFoundPage";
 import {Navigate, RouteObject} from "react-router-dom";
-import uploadRouteObject from "../../../Pages/UploadPage/UploadRouteObject.tsx";
-import homePageRouteObject from "../../../Pages/HomePage/HomePageRouteObject.tsx";
 
 const rootRouteObject: RouteObject = {
 	path: "/",
@@ -11,10 +12,11 @@ const rootRouteObject: RouteObject = {
 	children: [
 		{
 			index: true,
-			element: <Navigate to={homePageRouteObject.path} replace/>
+			element: <Navigate to={homeRouteObject.path} replace/>
 		},
 		uploadRouteObject,
-		homePageRouteObject
+		homeRouteObject,
+		notFoundRouteObject
 	]
 }
 

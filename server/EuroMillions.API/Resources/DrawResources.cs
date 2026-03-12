@@ -28,9 +28,9 @@ public class DrawResources(IDrawUseCases drawUseCases)
 
     public async Task<IResult> GetLastDrawAsync()
     {
-        GetLastDrawResponseModel? getLastDrawResponseModel = (await drawUseCases.GetLastDrawAsync())
-            ?.ToGetLastDrawResponseModel();
+        DrawReponseModel? lastDraw = (await drawUseCases.GetLastDrawAsync())
+            ?.ToDrawResponseModel();
 
-        return Results.Ok(getLastDrawResponseModel);
+        return Results.Ok(lastDraw);
     }
 }
