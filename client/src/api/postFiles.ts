@@ -1,12 +1,11 @@
-import {config} from "app/config";
+import API_ROUTES from "./client/routes.ts";
 
-export const postFiles = async(files: File[]) => {
-	const baseUrl = config.API_URL
+const postFiles = async(files: File[]) => {
 
 	const body = new FormData();
 	files.forEach(f => {body.append('file', f);});
 
-	const httpResponse =await fetch(`${baseUrl}/upload/history_files`, {
+	const httpResponse =await fetch(API_ROUTES.uploadFiles, {
 		method: 'POST',
 		body: body,
 	})
@@ -17,3 +16,5 @@ export const postFiles = async(files: File[]) => {
 
 	return await httpResponse.json() as Response;
 }
+
+export default postFiles;

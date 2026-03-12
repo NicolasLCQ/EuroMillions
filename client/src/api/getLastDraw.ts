@@ -1,12 +1,12 @@
-import {config} from "app/config";
 import {IDraw} from "shared/types";
+import euroMillionsFetch from "./client/client.ts";
+import API_ROUTES from "./client/routes.ts";
 
 const isBodyEmpty = (body: string): boolean => !body.trim();
 
-export const getLastDraw = async (): Promise<IDraw | null> => {
-	const baseUrl = config.API_URL;
+const getLastDraw = async (): Promise<IDraw | null> => {
 
-	const httpResponse = await fetch(`${baseUrl}/draws/getlastdraw`, {
+	const httpResponse = await euroMillionsFetch(API_ROUTES.lastDraw, {
 		method: "GET",
 	});
 
@@ -21,4 +21,6 @@ export const getLastDraw = async (): Promise<IDraw | null> => {
 
 	return await httpResponse.json() as IDraw;
 };
+
+export default getLastDraw;
 
