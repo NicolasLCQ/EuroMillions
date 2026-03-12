@@ -3,7 +3,6 @@ import {IDraw} from "shared/types";
 
 const isBodyEmpty = (body: string): boolean => !body.trim();
 
-//TODO:: toutes les features devraient etre dans le fichier app > features > data :: app/features/drawfeatures/getlastdraw.ts
 export const getLastDraw = async (): Promise<IDraw | null> => {
 	const baseUrl = config.API_URL;
 

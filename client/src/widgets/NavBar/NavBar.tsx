@@ -1,6 +1,7 @@
 import {INavBarComponentProps} from "shared/components/NavBarComponents/NavBarElements";
 import NavBarComponent from "shared/components/NavBarComponents";
-import {uploadRouteObject, homeRouteObject} from "pages";
+import {homeRouteObject} from "pages/HomePage";
+import {uploadRouteObject} from "pages/UploadPage";
 
 const NavBarInformations: INavBarComponentProps[] = [
 	{

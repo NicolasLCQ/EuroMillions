@@ -1,6 +1,8 @@
 import RootPage from "pages/RootPage";
 import NotFoundPage from "pages/NotFoundPage";
-import {uploadRouteObject, homeRouteObject, notFoundRouteObject} from "pages";
+import {homeRouteObject} from "pages/HomePage";
+import {uploadRouteObject} from "pages/UploadPage";
+import {notFoundRouteObject} from "pages/NotFoundPage";
 import {Navigate, RouteObject} from "react-router-dom";
 
 const rootRouteObject: RouteObject = {
