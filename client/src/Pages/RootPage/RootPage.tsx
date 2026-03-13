@@ -7,10 +7,12 @@ export default function RootPage() {
 	return(
 		<div className={styles.rootPage}>
 			<Header/>
-			<NavBar/>
-			<main className={styles.content}>
-				<Outlet />
-			</main>
+			<div className={styles.pageBody}>
+				<NavBar/>
+				<main className={styles.content}>
+					<Outlet />
+				</main>
+			</div>
 		</div>
 	)
 }
