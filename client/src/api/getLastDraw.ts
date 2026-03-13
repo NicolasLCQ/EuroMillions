@@ -4,7 +4,7 @@ import API_ROUTES from "./client/routes.ts";
 
 const isBodyEmpty = (body: string): boolean => !body.trim();
 
-const getLastDraw = async (): Promise<IDraw | null> => {
+export const getLastDraw = async (): Promise<IDraw | null> => {
 
 	const httpResponse = await euroMillionsFetch(API_ROUTES.lastDraw, {
 		method: "GET",
@@ -21,6 +21,3 @@ const getLastDraw = async (): Promise<IDraw | null> => {
 
 	return await httpResponse.json() as IDraw;
 };
-
-export default getLastDraw;
-

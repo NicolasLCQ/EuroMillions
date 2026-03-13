@@ -1,6 +1,6 @@
 import API_ROUTES from "./client/routes.ts";
 
-const postFiles = async(files: File[]) => {
+export const postFiles = async(files: File[]) => {
 
 	const body = new FormData();
 	files.forEach(f => {body.append('file', f);});
@@ -16,5 +16,3 @@ const postFiles = async(files: File[]) => {
 
 	return await httpResponse.json() as Response;
 }
-
-export default postFiles;

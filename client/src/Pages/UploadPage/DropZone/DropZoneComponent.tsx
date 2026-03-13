@@ -1,8 +1,8 @@
 import BaseDropZoneComponent from "shared/components/DropZoneComponents";
 import {useFiles} from "shared/hooks";
 import ButtonComponents from "shared/components/ButtonComponents";
-import {postFiles} from "api";
 import {useMutation} from "@tanstack/react-query";
+import {postFiles} from "api";
 
 export interface DropZoneComponentProps {
 	className?: string
