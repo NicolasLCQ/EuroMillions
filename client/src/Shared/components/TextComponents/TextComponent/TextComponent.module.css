@@ -1,3 +1,5 @@
 .text {
     font-size: var(--text-size);
+    line-height: 1.55;
+    color: var(--text-secondary);
 }

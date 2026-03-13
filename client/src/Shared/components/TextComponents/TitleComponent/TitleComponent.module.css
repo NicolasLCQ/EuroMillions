@@ -1,5 +1,6 @@
 .title {
-    font-weight: bold;
-    font-size: var(--title-size);
-    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: var(--subtitle-size);
+    margin-bottom: 0.45rem;
+    color: var(--text-primary);
 }

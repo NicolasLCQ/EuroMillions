@@ -5,22 +5,34 @@
 }
 
 .dropZoneSection{
-    border-width: 3px;
-    border-style: solid;
-    border-color: var(--main-color);
-    border-radius: 2px;
-    width: 50%;
-    min-height: 200px;
+    border: 2px dashed rgba(145, 174, 255, 0.45);
+    border-radius: 14px;
+    width: min(540px, 100%);
+    min-height: 180px;
     align-content: center;
     padding: 16px;
+    background: rgba(16, 31, 70, 0.48);
+    transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.dropZoneSection:hover {
+    border-color: var(--brand);
+    background: rgba(19, 36, 82, 0.6);
 }
 
 .fileListSection{
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-width: min(420px, 100%);
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    background: rgba(9, 19, 43, 0.46);
 }
 
 .dragInformation{
     text-align: center;
+    color: var(--text-secondary);
+    margin: 0;
 }

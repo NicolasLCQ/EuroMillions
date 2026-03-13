@@ -1,17 +1,25 @@
 .navBarElement {
-    padding: 8px;
-    border-radius: 3px;
-    font-weight: bold;
-    color: var(--main-font-color);
+    padding: 0.5rem 0.9rem;
+    border-radius: 9px;
+    font-weight: 700;
+    color: var(--text-secondary);
     text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.navBarElement:hover {
+    color: var(--text-primary);
+    background: rgba(110, 166, 255, 0.14);
+    transform: translateY(-1px);
 }
 
 .active {
-    background: var(--main-background);
-    color: white;
+    background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+    color: #0d1a3d;
+    box-shadow: 0 10px 20px rgba(31, 80, 186, 0.28);
 }
 
 .disabled {
-    opacity: 0.6;
+    opacity: 0.48;
     cursor: default;
 }

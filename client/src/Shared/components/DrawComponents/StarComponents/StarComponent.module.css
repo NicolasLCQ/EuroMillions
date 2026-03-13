@@ -3,14 +3,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: gold;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #ffe98c, #f0b413);
+    filter: drop-shadow(0 6px 9px rgba(0, 0, 0, 0.24));
 }
 
 .number {
-    font-weight: bold;
-    font-family: Arial, sans-serif;
+    font-weight: 800;
     align-self: center;
-    color: white;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
