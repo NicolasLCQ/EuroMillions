@@ -4,6 +4,10 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2%;
-    background: var(--second-background);
+    gap: 0.45rem;
+    background: var(--surface-strong);
+    border: 1px solid var(--surface-border);
+    border-radius: 14px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 28px rgba(6, 11, 27, 0.2);
 }

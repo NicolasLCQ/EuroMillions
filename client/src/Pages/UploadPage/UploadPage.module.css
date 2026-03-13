@@ -1,18 +1,34 @@
 .uploadPage {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1rem;
+    animation: pageReveal 460ms ease-out;
 }
 
 .dropZone {
-    margin-top: 8px;
+    margin-top: 0.2rem;
 }
 
 .informations {
-    margin-left: 5%;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    background: rgba(110, 166, 255, 0.08);
 }
 
 .euroMillionsLink {
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: underline;
+    color: var(--text-primary);
+}
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

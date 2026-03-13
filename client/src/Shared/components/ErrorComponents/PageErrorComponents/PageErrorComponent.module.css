@@ -1,11 +1,12 @@
 .pageError {
     display: flex;
-    background: red;
+    background: var(--danger-bg);
+    border: 1px solid rgba(255, 111, 122, 0.45);
+    border-radius: 10px;
     justify-content: center;
     font-size: var(--text-size);
-    font-weight: bold;
-    color: black;
-    font-family: Arial, sans-serif;
-    padding: 15px;
+    font-weight: 700;
+    color: #ffdce1;
+    padding: 0.8rem;
     text-decoration: none;
 }

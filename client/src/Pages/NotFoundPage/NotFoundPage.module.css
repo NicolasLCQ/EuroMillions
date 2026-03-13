@@ -1,0 +1,19 @@
+.notFound {
+    min-height: 55vh;
+    display: grid;
+    place-content: center;
+    gap: 0.4rem;
+    text-align: center;
+}
+
+.code {
+    margin: 0;
+    font-size: clamp(3rem, 2.2rem + 4vw, 5rem);
+    color: var(--text-primary);
+}
+
+.message {
+    margin: 0;
+    color: var(--text-secondary);
+    font-weight: 600;
+}

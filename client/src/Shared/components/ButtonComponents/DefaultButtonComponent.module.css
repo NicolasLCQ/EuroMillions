@@ -1,5 +1,23 @@
 .button{
-    width: 10%;
-    background: var(--second-background);
-    padding: 5px;
+    width: fit-content;
+    min-width: 132px;
+    border: 0;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #0d1a3d;
+    background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+    box-shadow: 0 10px 18px rgba(38, 88, 199, 0.3);
+}
+
+.button:active {
+    transform: translateY(0);
 }

@@ -2,6 +2,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    background: var(--second-background);
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    border-radius: 14px;
+    background: rgba(110, 166, 255, 0.1);
+    border: 1px solid var(--surface-border);
+    padding: 0.55rem;
 }
