@@ -1,10 +1,10 @@
 import React from "react";
 import styles from './DrawComponent.module.css';
-import BallComponent from "./BallComponents";
-import StarComponent from "./StarComponents";
+import { BallComponent } from "./BallComponents";
+import { StarComponent } from "./StarComponents";
 import {IDraw} from 'shared/types';
 
-interface DrawComponentsProps {
+export interface DrawComponentsProps {
 	Draw: IDraw
 	className?: string;
 }

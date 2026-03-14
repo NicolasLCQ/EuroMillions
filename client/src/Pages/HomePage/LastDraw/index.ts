@@ -1,2 +1,2 @@
-export { default } from "./LastDrawComponent.tsx";
+export { default as LastDrawComponent } from "./LastDrawComponent";
 export type { LastDrawComponentProps } from "./LastDrawComponent.tsx";

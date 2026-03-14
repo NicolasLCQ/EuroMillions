@@ -1,1 +1,1 @@
-export { default } from "./RootRouteObject.tsx";
+export { default as rootRouteObject } from "./RootRouteObject";

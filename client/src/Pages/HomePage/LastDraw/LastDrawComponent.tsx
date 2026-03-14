@@ -1,5 +1,5 @@
-import TitleComponent from "shared/components/TextComponents/TitleComponent";
-import DrawComponent from "shared/components/DrawComponents";
+import { TitleComponent } from "shared/components/TextComponents/TitleComponent";
+import { DrawComponent } from "shared/components/DrawComponents";
 import {IDraw} from "shared/types";
 import styles from "./LastDrawComponent.module.css";
 

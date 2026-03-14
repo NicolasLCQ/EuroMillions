@@ -1,1 +1,1 @@
-export { default } from "./EuroMillionsRouter.tsx";
+export { default as EuroMillionsRouter } from "./EuroMillionsRouter";

@@ -1,2 +1,2 @@
-export { default } from "./NavBarComponent.tsx";
+export { default as NavBarComponent } from "./NavBarComponent";
 export * from "./NavBarElements";

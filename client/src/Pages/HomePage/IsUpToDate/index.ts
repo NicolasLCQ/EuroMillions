@@ -1,2 +1,4 @@
-export { default } from "./IsUpToDateComponent.tsx";
-export type { IsUpToDateComponentProps } from "./IsUpToDateComponent.tsx";
+export {
+	default as IsUpToDateComponent,
+	type IsUpToDateComponentProps
+} from "./IsUpToDateComponent";

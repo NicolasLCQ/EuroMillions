@@ -1,4 +1,6 @@
-export { default } from "./DrawComponent.tsx";
-export { default as DrawComponent } from "./DrawComponent.tsx";
+export {
+	default as DrawComponent,
+	type DrawComponentsProps
+} from "./DrawComponent";
 export * from "./BallComponents";
 export * from "./StarComponents";

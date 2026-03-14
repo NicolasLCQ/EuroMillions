@@ -1,2 +1,2 @@
-export { default } from "./NotFoundPage.tsx";
-export { default as notFoundRouteObject } from "./NotFoundPageRouteObject.tsx";
+export { default as NotFoundPage } from "./NotFoundPage";
+export * from "./NotFoundPageRouteObject";

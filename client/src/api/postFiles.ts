@@ -1,4 +1,4 @@
-import API_ROUTES from "./client/routes.ts";
+import {API_ROUTES} from "./client";
 
 export const postFiles = async(files: File[]) => {
 

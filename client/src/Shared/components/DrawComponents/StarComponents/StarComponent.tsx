@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './StarComponent.module.css';
 
-interface StarComponentProps {
+export interface StarComponentProps {
 	number: number;
 	numberClassName?: string;
 	className?: string;

@@ -1,3 +1,2 @@
-export { default } from "./NavBarElement.tsx";
-export { default as NavBarElement } from "./NavBarElement.tsx";
+export { default as NavBarElement } from "./NavBarElement";
 export type { INavBarComponentProps } from "./NavBarElement.tsx";

@@ -1,6 +1,5 @@
 import {IDraw} from "shared/types";
-import euroMillionsFetch from "./client/client.ts";
-import API_ROUTES from "./client/routes.ts";
+import {euroMillionsFetch, API_ROUTES} from "./client";
 
 const isBodyEmpty = (body: string): boolean => !body.trim();
 
@@ -21,3 +20,4 @@ export const getLastDraw = async (): Promise<IDraw | null> => {
 
 	return await httpResponse.json() as IDraw;
 };
+

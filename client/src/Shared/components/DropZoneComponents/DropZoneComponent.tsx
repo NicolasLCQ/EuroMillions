@@ -1,6 +1,6 @@
 import styles from "./DropZoneComponent.module.css";
 import {useDropzone} from "react-dropzone";
-import FileComponent from "./FileComponents";
+import { FileComponent } from "./FileComponents";
 import React from "react";
 
 interface DropZoneComponentsProps {

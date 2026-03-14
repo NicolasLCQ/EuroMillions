@@ -1,7 +1,7 @@
-import styles from './DefaultButtonComponent.module.css';
+import styles from './ButtonComponent.module.css';
 import React, {ReactNode} from "react";
 
-interface ButtonComponentsProps {
+export interface ButtonComponentsProps {
 	className?: string;
 	children?: ReactNode;
 	onClick: () => void;

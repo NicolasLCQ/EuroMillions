@@ -1,2 +1,4 @@
-export { default } from "./QueryProvider.tsx";
-export type { IQueryProviderProps } from "./QueryProvider.tsx";
+export {
+	default as QueryProvider,
+	type IQueryProviderProps
+} from "./QueryProvider";

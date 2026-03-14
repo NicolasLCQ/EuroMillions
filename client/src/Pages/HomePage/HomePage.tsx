@@ -1,7 +1,7 @@
 import {useQuery} from "@tanstack/react-query";
-import PageTitleComponent from "shared/components/TextComponents/PageTitleComponent";
-import LastDrawComponent from "pages/HomePage/LastDraw";
-import IsUpToDateComponent from "pages/HomePage/IsUpToDate";
+import { PageTitleComponent } from "shared/components/TextComponents/PageTitleComponent";
+import { LastDrawComponent } from "pages/HomePage/LastDraw";
+import { IsUpToDateComponent } from "pages/HomePage/IsUpToDate";
 import styles from "./HomePage.module.css";
 import {IDraw} from "shared/types";
 import {useNavigate} from "react-router-dom";

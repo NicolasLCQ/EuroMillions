@@ -1,6 +1,6 @@
-import BaseDropZoneComponent from "shared/components/DropZoneComponents";
+import { BaseDropZoneComponent } from "shared/components/DropZoneComponents";
 import {useFiles} from "shared/hooks";
-import ButtonComponents from "shared/components/ButtonComponents";
+import { ButtonComponents } from "shared/components/ButtonComponents";
 import {useMutation} from "@tanstack/react-query";
 import {postFiles} from "api";
 

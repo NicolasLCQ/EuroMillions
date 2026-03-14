@@ -1,5 +1,5 @@
 import styles from './NavBarComponent.module.css';
-import NavBarElement from "./NavBarElements";
+import { NavBarElement } from "./NavBarElements";
 import React from "react";
 
 interface INavBarComponentProps{

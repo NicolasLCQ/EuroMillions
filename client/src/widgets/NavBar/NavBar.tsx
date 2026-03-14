@@ -1,5 +1,5 @@
 import {INavBarComponentProps} from "shared/components/NavBarComponents/NavBarElements";
-import NavBarComponent from "shared/components/NavBarComponents";
+import { NavBarComponent } from "shared/components/NavBarComponents";
 import {homeRouteObject} from "pages/HomePage";
 import {uploadRouteObject} from "pages/UploadPage";
 

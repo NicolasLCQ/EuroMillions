@@ -1,3 +1,5 @@
-export { default } from "./DefaultButtonComponent.tsx";
-export { default as DefaultButtonComponent } from "./DefaultButtonComponent.tsx";
+export {
+	default as ButtonComponents,
+	type ButtonComponentsProps
+} from "./ButtonComponent.tsx";
 export * from "./DeleteButtonComponents";

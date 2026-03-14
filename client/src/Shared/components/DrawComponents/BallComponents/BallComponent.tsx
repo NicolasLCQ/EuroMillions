@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './BallComponent.module.css';
 
-interface BallComponentProps {
+export interface BallComponentProps {
 	number: number;
 	numberClassName?: string;
 	className?: string;

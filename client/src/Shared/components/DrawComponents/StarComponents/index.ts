@@ -1,2 +1,4 @@
-export { default } from "./StarComponent.tsx";
-export { default as StarComponent } from "./StarComponent.tsx";
+export {
+	default as StarComponent,
+	type StarComponentProps
+} from "./StarComponent";
