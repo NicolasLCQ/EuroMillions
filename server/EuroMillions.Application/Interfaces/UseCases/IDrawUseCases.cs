@@ -9,4 +9,5 @@ public interface IDrawUseCases
 {
     Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels);
     Task<Draw?> GetLastDrawAsync();
+    Task<bool> AreUpToDate();
 }
