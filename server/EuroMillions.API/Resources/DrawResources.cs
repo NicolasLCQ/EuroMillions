@@ -33,4 +33,11 @@ public class DrawResources(IDrawUseCases drawUseCases)
 
         return Results.Ok(lastDraw);
     }
+
+    public async Task<IResult> AreDrawsUpToDateAsync()
+    {
+        bool areDrawsUpToDate = await drawUseCases.AreUpToDate();
+
+        return Results.Ok(areDrawsUpToDate);
+    }
 }

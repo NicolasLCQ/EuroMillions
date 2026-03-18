@@ -9,4 +9,5 @@ public interface IDrawRepository
     Task<List<Draw>> GetAllDrawsAsync();
     Task<Draw?> GetLastDrawAsync();
     Task AddDrawsAsync(List<Draw> draws);
+    Task<bool> AreDrawsUpToDateAsync();
 }

@@ -17,6 +17,11 @@ public static class DrawRoutes
             async ([FromServices] DrawResources drawResources) => await drawResources.GetLastDrawAsync()
         );
 
+        drawsGroup.MapGet(
+            "/areuptodate",
+            async ([FromServices] DrawResources drawResources) => await drawResources.AreDrawsUpToDateAsync()
+        );
+
         drawsGroup.MapPost(
             "/history_files",
             async ([FromServices] DrawResources drawResources, [FromForm] IFormFileCollection files) =>

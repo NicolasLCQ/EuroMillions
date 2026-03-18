@@ -5,6 +5,8 @@ using EuroMillions.Infrastructure.Context;
 using EuroMillions.Infrastructure.Entities;
 using EuroMillions.Infrastructure.Mappers.EntityMappers;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace EuroMillions.Infrastructure.Repositories;
 
 using static T_DrawMapper;
@@ -66,4 +68,32 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
             .OrderByDescending(d => d.DRAW_DATE)
             .FirstOrDefault()
             ?.ToDrawModel();
+
+    public async Task<bool> AreDrawsUpToDateAsync()
+    {
+        T_DRAW? lastDraw = await dbContext
+            .T_DRAWs
+            .AsNoTracking()
+            .OrderByDescending(d => d.DRAW_DATE)
+            .FirstOrDefaultAsync();
+
+        if (lastDraw == null)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (
+                lastDraw.DRAW_DATE.DayOfWeek
+                is DayOfWeek.Thursday
+                or DayOfWeek.Friday
+            )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

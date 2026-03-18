@@ -19,17 +19,17 @@ function HomePage() {
 	})
 
 	const onIsUpToDateComponentClick = () => navigate("/upload");
+	const isUpToDate = false;
 
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
 			{/*todo :: enlever se composant ! utiliser uniquement is up to date et utiliser bannererror*/}
-			{getLastDrawQueryResult.data && (
-				<IsUpToDateComponent
-					isUpToDate={false}
-					onClick={onIsUpToDateComponentClick}
-				/>
-			)}
+			{!isUpToDate &&<IsUpToDateComponent
+				isUpToDate={isUpToDate}
+				onClick={onIsUpToDateComponentClick}
+			/>}
+
 			{/*DATE DU PROCHAIN TIRAGE*/}
 			{/*SOMME A GAGNER ??*/}
 
