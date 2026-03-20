@@ -64,36 +64,32 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
     }
 
     public async Task<Draw?> GetLastDrawAsync() =>
-        dbContext.T_DRAWs
+        await dbContext.T_DRAWs
             .OrderByDescending(d => d.DRAW_DATE)
-            .FirstOrDefault()
-            ?.ToDrawModel();
+            .AsNoTracking()
+            .Select(d => d.ToDrawModel())
+            .FirstOrDefaultAsync();
 
     public async Task<bool> AreDrawsUpToDateAsync()
     {
-        T_DRAW? lastDraw = await dbContext
+        T_DRAW? lastestDrawUploaded = await dbContext
             .T_DRAWs
             .AsNoTracking()
             .OrderByDescending(d => d.DRAW_DATE)
             .FirstOrDefaultAsync();
 
-        if (lastDraw == null)
+        if (lastestDrawUploaded == null)
         {
             return false;
         }
 
-        for (int i = 0; i < 3; i++)
-        {
-            if (
-                lastDraw.DRAW_DATE.DayOfWeek
-                is DayOfWeek.Thursday
-                or DayOfWeek.Friday
-            )
-            {
-                return true;
-            }
-        }
+        List<DayOfWeek> drawDays = [DayOfWeek.Tuesday, DayOfWeek.Friday];
+        List<DayOfWeek> drawPublishedDays = drawDays.Select(d => d + 1).ToList();
 
-        return false;
+        DateTime lastPublishedDate = Enumerable.Range(0, 7)
+            .Select(i => DateTime.Today.AddDays(-i))
+            .First(d => drawPublishedDays.Contains(d.DayOfWeek));
+
+        return lastestDrawUploaded.DRAW_DATE.AddDays(1) == lastPublishedDate;
     }
 }
