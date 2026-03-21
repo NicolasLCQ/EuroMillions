@@ -3,6 +3,7 @@ using EuroMillions.Application.Models;
 using EuroMillions.Application.Models.Upload;
 using EuroMillions.Infrastructure.Context;
 using EuroMillions.Infrastructure.Entities;
+using EuroMillions.Infrastructure.Extensions;
 using EuroMillions.Infrastructure.Mappers.EntityMappers;
 
 using Microsoft.EntityFrameworkCore;
@@ -84,12 +85,15 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
         }
 
         List<DayOfWeek> drawDays = [DayOfWeek.Tuesday, DayOfWeek.Friday];
-        List<DayOfWeek> drawPublishedDays = drawDays.Select(d => d + 1).ToList();
 
-        DateTime lastPublishedDate = Enumerable.Range(0, 7)
+        List<DayOfWeek> drawPublicationDay = drawDays
+            .Select(d => d + 1)
+            .ToList();
+
+        DateTime lastDrawPublicationDate = Enumerable.Range(0, 7)
             .Select(i => DateTime.Today.AddDays(-i))
-            .First(d => drawPublishedDays.Contains(d.DayOfWeek));
+            .First(d => drawPublicationDay.Contains(d.DayOfWeek));
 
-        return lastestDrawUploaded.DRAW_DATE.AddDays(1) == lastPublishedDate;
+        return lastestDrawUploaded.GetPublicationDate() == lastDrawPublicationDate;
     }
 }
