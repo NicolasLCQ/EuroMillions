@@ -21,6 +21,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
         //todo: gerer les problemes métier au niveau du service.
         //todo: ajouter une fonction addDraws pour les draws
         //todo: virer l'objet UploadResultModel de cette couche !! seul draw à l'aire d'etre util !!
+        //todo: utiliser un dataset pour pas avoir de double dans ce que l'on ajoute :: pas ajouter ce qui existe deja et pas ajouter en double
         List<UploadResultModel> result = drawFileModels.Select(dfm =>
                 {
                     List<T_DRAW> existingDraws = dbContext.T_DRAWs.ToList();
@@ -56,7 +57,10 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
         return result;
     }
 
-    public async Task<List<Draw>> GetAllDrawsAsync() => dbContext.T_DRAWs.Select(entity => entity.ToDrawModel()).ToList();
+    public async Task<List<Draw>> GetAllDrawsAsync() => await dbContext.T_DRAWs
+        .Select(entity => entity.ToDrawModel())
+        .AsNoTracking()
+        .ToListAsync();
 
     public async Task AddDrawsAsync(List<Draw> draws)
     {
