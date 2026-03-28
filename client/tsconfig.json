@@ -26,17 +26,32 @@
       "api": [
         "./src/api"
       ],
+      "api/*": [
+        "./src/api/*"
+      ],
       "app": [
         "./src/app"
+      ],
+      "app/*": [
+        "./src/app/*"
       ],
       "shared": [
         "./src/shared"
       ],
+      "shared/*": [
+        "./src/shared/*"
+      ],
       "pages": [
         "./src/pages"
       ],
+      "pages/*": [
+        "./src/pages/*"
+      ],
       "widgets": [
         "./src/widgets"
+      ],
+      "widgets/*": [
+        "./src/widgets/*"
       ]
     }
   },
