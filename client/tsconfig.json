@@ -24,34 +24,19 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "api": [
-        "./src/api/index.ts"
+        "./src/api"
       ],
       "app": [
-        "./src/app/index.ts"
-      ],
-      "app/*": [
-        "./src/app/*"
+        "./src/app"
       ],
       "shared": [
-        "./src/shared/index.ts"
-      ],
-      "shared/*": [
-        "./src/shared/*"
+        "./src/shared"
       ],
       "pages": [
-        "./src/pages/index.ts"
-      ],
-      "features/*": [
-        "./src/features/*"
-      ],
-      "pages/*": [
-        "./src/pages/*"
+        "./src/pages"
       ],
       "widgets": [
-        "./src/widgets/index.ts"
-      ],
-      "widgets/*": [
-        "./src/widgets/*"
+        "./src/widgets"
       ]
     }
   },
