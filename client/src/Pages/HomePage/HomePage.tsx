@@ -1,11 +1,12 @@
 import {useQuery} from "@tanstack/react-query";
-import { PageTitleComponent } from "shared/components/TextComponents/PageTitleComponent";
-import { LastDrawComponent } from "pages/HomePage/LastDraw";
-import { IsUpToDateComponent } from "pages/HomePage/IsUpToDate";
+import {PageTitleComponent} from "shared/components/TextComponents/PageTitleComponent";
+import {LastDrawComponent} from "pages/HomePage/LastDraw";
+import {IsUpToDateComponent} from "pages/HomePage/IsUpToDate";
 import styles from "./HomePage.module.css";
 import {IDraw} from "shared/types";
 import {useNavigate} from "react-router-dom";
 import {getLastDraw} from "api";
+import {uploadRouteObject} from "pages";
 
 function HomePage() {
 	const navigate = useNavigate();
@@ -18,17 +19,13 @@ function HomePage() {
 		queryFn: getLastDraw,
 	})
 
-	const onIsUpToDateComponentClick = () => navigate("/upload");
+	const goToUploadPage = () => navigate(uploadRouteObject.path);
 	const isUpToDate = false;
 
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
-			{/*todo :: enlever se composant ! utiliser uniquement is up to date et utiliser bannererror*/}
-			{!isUpToDate &&<IsUpToDateComponent
-				isUpToDate={isUpToDate}
-				onClick={onIsUpToDateComponentClick}
-			/>}
+			<IsUpToDateComponent isUpToDate={isUpToDate} onClick={goToUploadPage}/>
 
 			{/*DATE DU PROCHAIN TIRAGE*/}
 			{/*SOMME A GAGNER ??*/}
@@ -36,7 +33,6 @@ function HomePage() {
 			{/*TITRE :: DERNIER TIRAGE*/}
 			{/*Affichage du dernier tirage */}
 			{/*date du tirage au-dessus*/}
-
 
 
 			{getLastDrawQueryResult.data && (
