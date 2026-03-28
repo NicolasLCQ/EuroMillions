@@ -4,3 +4,4 @@ export * from "./DropZoneComponents";
 export * from "./ErrorComponents/PageErrorComponents";
 export * from "./NavBarComponents";
 export * from "./TextComponents";
+export * from "./ClickableComponents";

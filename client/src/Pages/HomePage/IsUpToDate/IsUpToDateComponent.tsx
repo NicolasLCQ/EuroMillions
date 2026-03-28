@@ -1,5 +1,4 @@
-import {ClickableComponentWrapper} from "shared/components/TextComponents";
-import {PageErrorComponent} from "shared/components/ErrorComponents/PageErrorComponents";
+import {ClickableComponentWrapper, PageErrorComponent} from "shared/components";
 
 export interface IsUpToDateComponentProps {
 	onClick: () => void;
