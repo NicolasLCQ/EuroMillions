@@ -16,20 +16,29 @@ function HomePage() {
 	const getLastDrawQueryResult = useQuery({
 		queryKey: [API_ROUTES.lastDraw],
 		queryFn: getLastDraw,
-	})
+	});
 
 	const getAreUpToDateQueryResult = useQuery({
 		queryKey: [API_ROUTES.areUpToDate],
 		queryFn: getAreUpToDate,
-	})
+	});
 
 	const goToUploadPage = () => navigate(uploadRouteObject.path);
-	const areUpToDate = getAreUpToDateQueryResult.data?.areUpToDate ?? false;
+
+	const isLoading = getLastDrawQueryResult.isLoading || getAreUpToDateQueryResult.isLoading;
+	const isError = getLastDrawQueryResult.error || getAreUpToDateQueryResult.error;
+	const areDatas = getLastDrawQueryResult.data && getAreUpToDateQueryResult.data;
+
+	if (isLoading) return <div>Loading...</div>;
+	if (isError) return <div>Error while loading data.</div>;
+	if (areDatas) return <div>No data available.</div>;
+
+	const areUpToDate = getAreUpToDateQueryResult.data.areUpToDate;
 
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
-			{getAreUpToDateQueryResult.data && <IsUpToDateComponent isUpToDate={areUpToDate} onClick={goToUploadPage}/>}
+			<IsUpToDateComponent isUpToDate={areUpToDate} onClick={goToUploadPage}/>
 
 			{/*DATE DU PROCHAIN TIRAGE*/}
 			{/*SOMME A GAGNER ??*/}
@@ -39,9 +48,7 @@ function HomePage() {
 			{/*date du tirage au-dessus*/}
 
 
-			{getLastDrawQueryResult.data && (
-				<LastDrawComponent Draw={getLastDrawQueryResult.data as IDraw}/>
-			)}
+			<LastDrawComponent Draw={getLastDrawQueryResult.data as IDraw}/>
 		</div>
 	);
 }
