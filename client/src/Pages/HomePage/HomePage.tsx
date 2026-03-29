@@ -1,4 +1,4 @@
-import {useQuery} from "@tanstack/react-query";
+﻿import {useQuery} from "@tanstack/react-query";
 import {PageTitleComponent} from "shared/components/TextComponents/PageTitleComponent";
 import {LastDrawComponent} from "pages/HomePage/LastDraw";
 import {IsUpToDateComponent} from "pages/HomePage/IsUpToDate";
@@ -7,25 +7,29 @@ import {IDraw} from "shared/types";
 import {useNavigate} from "react-router-dom";
 import {getLastDraw} from "api";
 import {uploadRouteObject} from "pages";
+import {API_ROUTES} from "api/client";
+import {getAreUpToDate} from "api/getAreUpToDate.ts";
 
 function HomePage() {
 	const navigate = useNavigate();
 
-	// aller fetch le back
-	// -> base de donnée a jour ?
-	// -> informations du dernier tirage
 	const getLastDrawQueryResult = useQuery({
-		queryKey: ["api/Draws/GetLastDraw"],
+		queryKey: [API_ROUTES.lastDraw],
 		queryFn: getLastDraw,
 	})
 
+	const getAreUpToDateQueryResult = useQuery({
+		queryKey: [API_ROUTES.areUpToDate],
+		queryFn: getAreUpToDate,
+	})
+
 	const goToUploadPage = () => navigate(uploadRouteObject.path);
-	const isUpToDate = false;
+	const areUpToDate = getAreUpToDateQueryResult.data?.areUpToDate ?? false;
 
 	return (
 		<div className={styles.homePage}>
 			<PageTitleComponent>Home Page</PageTitleComponent>
-			<IsUpToDateComponent isUpToDate={isUpToDate} onClick={goToUploadPage}/>
+			{getAreUpToDateQueryResult.data && <IsUpToDateComponent isUpToDate={areUpToDate} onClick={goToUploadPage}/>}
 
 			{/*DATE DU PROCHAIN TIRAGE*/}
 			{/*SOMME A GAGNER ??*/}
@@ -43,5 +47,7 @@ function HomePage() {
 }
 
 export default HomePage
+
+
 
 

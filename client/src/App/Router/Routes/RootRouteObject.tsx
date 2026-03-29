@@ -1,13 +1,7 @@
-import {
-	RootPage,
-	NotFoundPage,
-	notFoundRouteObject,
-	uploadRouteObject,
-	homeRouteObject,
-} from "pages";
+import {homeRouteObject, NotFoundPage, notFoundRouteObject, RootPage, uploadRouteObject,} from "pages";
 import {Navigate, RouteObject} from "react-router-dom";
 
-const redirectOnHomePageByDefaultConfiguration = { index: true, element: <Navigate to={homeRouteObject.path} replace/>}
+const redirectOnHomePageByDefaultConfiguration = {index: true, element: <Navigate to={homeRouteObject.path} replace/>}
 
 const rootRouteObject: RouteObject = {
 	path: "/",
