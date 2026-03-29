@@ -1,5 +1,5 @@
 export const API_ROUTES = {
 	areUpToDate: "/draws/areuptodate",
-	lastDraw: "/draws/last",
+	lastDraw: "/draws/getlastdraw",
 	uploadFiles: "/draws/upload",
 };
