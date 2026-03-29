@@ -1,1 +1,2 @@
-export type { IDraw } from "./IDraw.ts";
+export type {IDraw} from "./IDraw.ts";
+export * from "./ResponseTypes";
