@@ -3,11 +3,13 @@ using EuroMillions.API.Resources;
 using EuroMillions.API.Routes;
 using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 using EuroMillions.Application.Interfaces.Infrastructure.Repositories;
+using EuroMillions.Application.Interfaces.Infrastructure.Webservices;
 using EuroMillions.Application.Interfaces.UseCases;
 using EuroMillions.Application.UseCases;
 using EuroMillions.Infrastructure.Adapters;
 using EuroMillions.Infrastructure.Context;
 using EuroMillions.Infrastructure.Repositories;
+using EuroMillions.Infrastructure.Webservices;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -50,6 +52,7 @@ public class Program
 
         builder.Services.AddTransient<IDrawRepository, DrawRepository>();
         builder.Services.AddTransient<ICsvAdapter, CsvAdapter>();
+        builder.Services.AddHttpClient<IHttpWebService, HttpWebService>();
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();
 
