@@ -12,32 +12,17 @@ public static class HtmlHelper
         RegexOptions.IgnoreCase | RegexOptions.Compiled
     );
 
-    public static IEnumerable<string> ExtractAllHrefsFromHtml(string html)
-    {
-        foreach (Match hrefMatch in HrefRegex.Matches(html))
-        {
-            string href = hrefMatch.Groups["href"].Value.Trim();
-
-            if (!string.IsNullOrWhiteSpace(href))
-            {
-                yield return href;
-            }
-        }
-    }
+    public static IEnumerable<string> ExtractAllHrefsFromHtml(string html) =>
+        HrefRegex.Matches(html)
+            .Select(m => m.Groups["href"].Value.Trim())
+            .Where(href => !string.IsNullOrWhiteSpace(href));
 
     public static IEnumerable<string> ConvertHrefsToAbsolutLinks(
         IEnumerable<string> hrefs,
         Uri baseUrl
-    )
-    {
-        foreach (string href in hrefs)
-        {
-            string decodedHref = WebUtility.HtmlDecode(href).Trim();
-
-            if (Uri.TryCreate(baseUrl, decodedHref, out Uri? absoluteUri))
-            {
-                yield return absoluteUri.AbsoluteUri;
-            }
-        }
-    }
+    ) =>
+        hrefs
+            .Select(href => WebUtility.HtmlDecode(href).Trim())
+            .Where(decodedHref => Uri.TryCreate(baseUrl, decodedHref, out _))
+            .Select(decodedHref => new Uri(baseUrl, decodedHref).AbsoluteUri);
 }
