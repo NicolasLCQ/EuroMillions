@@ -5,7 +5,7 @@ namespace EuroMillions.Application.UseCases;
 
 public partial class DrawUseCases
 {
-    public async Task<List<string>> GetHistoryDownloadLinksAsync()
+    public async Task<List<string>> UpdateAutomaticallyAsync()
     {
         string html = await httpWebService.GetHtmlFrom(FdjHistoryLinksConsts.HistoryPageUrl);
         IEnumerable<string> hrefs = HtmlHelper.ExtractAllHrefsFromHtml(html);
