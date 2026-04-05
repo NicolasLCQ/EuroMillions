@@ -25,7 +25,7 @@ public static class DrawRoutes
         drawsGroup.MapGet(
             "/historydownloadlinks",
             async ([FromServices] DrawResources drawResources) =>
-            await drawResources.GetHistoryDownloadLinksAsync()
+            await drawResources.UpdateAutomaticallyAsync()
         );
 
         drawsGroup.MapPost(
