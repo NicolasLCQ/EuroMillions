@@ -36,7 +36,7 @@ public class DrawResources(IDrawUseCases drawUseCases)
 
     public async Task<IResult> AreDrawsUpToDateAsync()
     {
-        bool areDrawsUpToDate = await drawUseCases.AreUpToDate();
+        bool areDrawsUpToDate = await drawUseCases.AreUpToDateAsync();
         AreUpToDateResponseModel response = new AreUpToDateResponseModel {AreUpToDate = areDrawsUpToDate};
 
         return Results.Ok(response);
@@ -44,7 +44,7 @@ public class DrawResources(IDrawUseCases drawUseCases)
 
     public async Task<IResult> UpdateAutomaticallyAsync()
     {
-        List<string> links = await drawUseCases.GetHistoryDownloadLinksAsync();
+        List<string> links = await drawUseCases.UpdateAutomaticallyAsync();
 
         HistoryDownloadLinksResponseModel response = new HistoryDownloadLinksResponseModel {Links = links};
 
