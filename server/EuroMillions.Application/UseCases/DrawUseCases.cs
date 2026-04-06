@@ -8,5 +8,6 @@ namespace EuroMillions.Application.UseCases;
 public partial class DrawUseCases(
     ICsvAdapter csvAdapter,
     IDrawRepository drawRepository,
-    IHttpWebService httpWebService
+    IHttpWebService httpWebService,
+    IFileAdapter fileAdapter
 ) : IDrawUseCases {}

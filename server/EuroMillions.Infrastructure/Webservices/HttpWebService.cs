@@ -4,7 +4,7 @@ namespace EuroMillions.Infrastructure.Webservices;
 
 public class HttpWebService(HttpClient httpClient) : IHttpWebService
 {
-    public async Task<string> GetHtmlFrom(string url) => await httpClient.GetStringAsync(url);
+    public async Task<string> GetHtmlAsync(string url) => await httpClient.GetStringAsync(url);
 
-    public async Task<byte[]> DownloadFrom(string url) => await httpClient.GetByteArrayAsync(url);
+    public async Task<byte[]> DownloadAsync(string url) => await httpClient.GetByteArrayAsync(url);
 }
