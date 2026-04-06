@@ -7,27 +7,33 @@ public partial class DrawUseCases
 {
     public async Task<List<string>> UpdateAutomaticallyAsync()
     {
-        string html = await httpWebService.GetHtmlAsync(FdjHistoryLinksConsts.HistoryPageUrl);
+        string html = await httpWebService.GetHtmlAsync(FdjConsts.HistoryPageUrl);
         IEnumerable<string> hrefs = HtmlHelper.ExtractAllHrefsFromHtml(html);
 
         IEnumerable<string> absoluteLinks
-            = HtmlHelper.ConvertHrefsToAbsolutLinks(hrefs, new Uri(FdjHistoryLinksConsts.HistoryPageUrl));
+            = HtmlHelper.ConvertHrefsToAbsolutLinks(hrefs, new Uri(FdjConsts.HistoryPageUrl));
 
         IEnumerable<string> historyFileLinks = FdjScraperHelper.FilterHistoryFileDownloadLinksFromLinks(absoluteLinks);
 
-        //dowload history files as zip into temp folder
-        historyFileLinks.ToList()
-            .ForEach(async link =>
+        string tempFolder = Path.GetTempPath();
+        string workingDirectory = Path.Combine(tempFolder, $"EuroMillions{Guid.NewGuid()}");
+
+        string downloadDirectory = Path.Combine(workingDirectory, "Download");
+        Directory.CreateDirectory(downloadDirectory);
+
+        IEnumerable<Task> downloadTasks = historyFileLinks.Select(async link =>
             {
                 byte[] zipFile = await httpWebService.DownloadAsync(link);
-                string tempFolder = Path.GetTempPath();
-                string workingDirectory = Path.Combine(tempFolder, $"EuroMillions{Guid.NewGuid()}");
-                Directory.CreateDirectory(workingDirectory);
-                string tempFilePath = Path.Combine(workingDirectory, Path.GetFileName(link));
+
+                string tempFilePath = Path.Combine(downloadDirectory, Path.GetFileName(link));
                 await File.WriteAllBytesAsync(tempFilePath, zipFile);
+            }
+        );
 
-            });
+        await Task.WhenAll(downloadTasks);
 
-        return historyFileLinks.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+        //unzip file from working directory
+
+        return [];
     }
 }
