@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Consts;
 
-public static class FdjHistoryLinksConsts
+public static class FdjConsts
 {
     public const string HistoryPageUrl = "https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/historique";
     public const string HistoryFileLinkPattern =

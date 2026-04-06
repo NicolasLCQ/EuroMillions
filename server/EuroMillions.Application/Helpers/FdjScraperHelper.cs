@@ -7,7 +7,7 @@ namespace EuroMillions.Application.Helpers;
 public static class FdjScraperHelper
 {
     private static readonly Regex HistoryFileLinkRegex = new Regex(
-        FdjHistoryLinksConsts.HistoryFileLinkPattern,
+        FdjConsts.HistoryFileLinkPattern,
         RegexOptions.IgnoreCase | RegexOptions.Compiled
     );
 
