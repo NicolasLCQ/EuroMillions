@@ -10,7 +10,7 @@ public partial class DrawUseCases
     {
         List<DrawFileModel> drawFileModels = uploadFileModels
             .Select(ufm =>
-                new DrawFileModel {FileName = ufm.FileName, Draws = csvAdapter.ExtractEuroMillionDrawFromFileAsStream(ufm)}
+                new DrawFileModel {FileName = ufm.FileName, Draws = csvAdapter.ExtractEuroMillionDrawFromFile(ufm)}
             )
             .ToList();
 

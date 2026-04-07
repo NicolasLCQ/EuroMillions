@@ -52,6 +52,7 @@ public class Program
 
         builder.Services.AddTransient<IDrawRepository, DrawRepository>();
         builder.Services.AddTransient<ICsvAdapter, CsvAdapter>();
+        builder.Services.AddTransient<IFileAdapter, FileAdapter>();
         builder.Services.AddHttpClient<IHttpWebService, HttpWebService>();
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();

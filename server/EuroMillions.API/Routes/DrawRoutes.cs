@@ -23,7 +23,7 @@ public static class DrawRoutes
         );
 
         drawsGroup.MapGet(
-            "/historydownloadlinks",
+            "/updateautomatically",
             async ([FromServices] DrawResources drawResources) =>
             await drawResources.UpdateAutomaticallyAsync()
         );
