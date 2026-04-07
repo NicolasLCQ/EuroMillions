@@ -44,9 +44,9 @@ public class DrawResources(IDrawUseCases drawUseCases)
 
     public async Task<IResult> UpdateAutomaticallyAsync()
     {
-        List<string> links = await drawUseCases.UpdateAutomaticallyAsync();
+        string links = await drawUseCases.UpdateAutomaticallyAsync();
 
-        HistoryDownloadLinksResponseModel response = new HistoryDownloadLinksResponseModel {Links = links};
+        HistoryDownloadLinksResponseModel response = new HistoryDownloadLinksResponseModel {Links = [links]};
 
         return Results.Ok(response);
     }

@@ -2,6 +2,10 @@ namespace EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 
 public interface IFileAdapter
 {
-    void WriteFile(string filePath, byte[] bytes);
-    void Unzip(string zipFilePath, string extractPath);
+    Task UnzipAsync(string zipFilePath, string extractPath);
+    Task DeleteFileAsync(string filePath);
+    Task DeleteDirectoryAsync(string directoryPath);
+    Task<IEnumerable<string>> GetFilesInDirectoryAsync(string directoryPath);
+
+    Task<Stream> ReadFileAsync(string filePath);
 }

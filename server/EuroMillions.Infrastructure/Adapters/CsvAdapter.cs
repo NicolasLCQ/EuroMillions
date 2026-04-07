@@ -23,9 +23,12 @@ public class CsvAdapter : ICsvAdapter
         HasHeaderRecord = true
     };
 
-    public List<Draw> ExtractEuroMillionDrawFromFileAsStream(IFormFile csvFormFile)
+    public List<Draw> ExtractEuroMillionDrawFromFile(IFormFile csvFormFile) =>
+        ExtractEuroMillionDrawFromFile(csvFormFile.OpenReadStream());
+
+    public List<Draw> ExtractEuroMillionDrawFromFile(Stream csvStream)
     {
-        using StreamReader reader = new StreamReader(csvFormFile.OpenReadStream());
+        using StreamReader reader = new StreamReader(csvStream);
         using CsvReader csv = new CsvReader(reader, _csvConfiguration);
 
         csv.Context.RegisterClassMap<CsvDrawMap>();
