@@ -14,7 +14,7 @@ public partial class DrawUseCases
         IEnumerable<string> absoluteLinks
             = HtmlHelper.ConvertHrefsToAbsolutLinks(hrefs, new Uri(FdjConsts.HistoryPageUrl));
 
-        IEnumerable<string> historyFileLinks = FdjScraperHelper.FilterHistoryFileDownloadLinksFromLinks(absoluteLinks);
+        List<string> historyFileLinks = FdjScraperHelper.FilterHistoryFileDownloadLinksFromLinks(absoluteLinks).ToList();
 
         string tempFolder = Path.GetTempPath();
         string workingDirectory = Path.Combine(tempFolder, $"EuroMillions{Guid.NewGuid()}");
@@ -24,28 +24,28 @@ public partial class DrawUseCases
         Directory.CreateDirectory(downloadDirectory);
         Directory.CreateDirectory(unzipDirectory);
 
-        List<Task> downloadAndUnzipTasks = historyFileLinks.Select(async link =>
-                {
-                    byte[] zipFile = await httpWebService.DownloadAsync(link);
-                    string fileName = Path.GetFileName(link);
-                    string zipFilePath = Path.Combine(downloadDirectory, fileName);
+        await Parallel.ForEachAsync(
+            historyFileLinks,
+            async (link, cancellationToken) =>
+            {
+                byte[] zipFile = await httpWebService.DownloadAsync(link);
+                string fileName = Path.GetFileName(link);
+                string zipFilePath = Path.Combine(downloadDirectory, fileName);
 
-                    await File.WriteAllBytesAsync(zipFilePath, zipFile);
-                    await fileAdapter.UnzipAsync(zipFilePath, unzipDirectory);
-                    await fileAdapter.DeleteFileAsync(zipFilePath);
-                }
-            )
-            .ToList();
+                await File.WriteAllBytesAsync(zipFilePath, zipFile, cancellationToken);
+                await fileAdapter.UnzipAsync(zipFilePath, unzipDirectory);
+                await fileAdapter.DeleteFileAsync(zipFilePath);
+            }
+        );
 
-        await Task.WhenAll(downloadAndUnzipTasks);
         await fileAdapter.DeleteDirectoryAsync(downloadDirectory);
 
-        IEnumerable<string> unzipFilePaths = await fileAdapter.GetFilesInDirectoryAsync(unzipDirectory);
+        List<string> unzipFilePaths = (await fileAdapter.GetFilesInDirectoryAsync(unzipDirectory)).ToList();
 
         List<Task<DrawFileModel>> drawFileModelTasks = unzipFilePaths
             .Select(async filePath =>
                 {
-                    Stream fileStream = await fileAdapter.ReadFileAsync(filePath);
+                    await using Stream fileStream = await fileAdapter.ReadFileAsync(filePath);
 
                     return new DrawFileModel
                     {
@@ -56,10 +56,10 @@ public partial class DrawUseCases
             .ToList();
 
         await Task.WhenAll(drawFileModelTasks);
-        await fileAdapter.DeleteDirectoryAsync(unzipDirectory);
 
         List<DrawFileModel> drawFileModels = drawFileModelTasks.Select(t => t.Result).ToList();
         await drawRepository.AddDrawsFromDrawFileModelsAsync(drawFileModels);
+        await fileAdapter.DeleteDirectoryAsync(unzipDirectory);
         return unzipDirectory;
     }
 }
