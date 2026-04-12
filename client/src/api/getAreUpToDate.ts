@@ -8,7 +8,7 @@ export const getAreUpToDate = async (): Promise<IAreUpToDateResponse | null> => 
 	});
 	
 	if (!httpResponse.ok) {
-		throw new Error(`GetLastDraw failed with status ${httpResponse.status}`);
+		throw new Error(`GetAreUpToDate failed with status ${httpResponse.status}`);
 	}
 
 	return await httpResponse.json() as IAreUpToDateResponse;

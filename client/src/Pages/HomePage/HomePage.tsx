@@ -31,7 +31,7 @@ function HomePage() {
 
 	if (isLoading) return <div>Loading...</div>;
 	if (isError) return <div>Error while loading data.</div>;
-	if (areDatas) return <div>No data available.</div>;
+	if (!areDatas) return <div>No data available.</div>;
 
 	const areUpToDate = getAreUpToDateQueryResult.data.areUpToDate;
 
@@ -54,7 +54,6 @@ function HomePage() {
 }
 
 export default HomePage
-
 
 
 

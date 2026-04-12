@@ -1,7 +1,5 @@
 import {IDraw} from "shared/types";
-import {euroMillionsFetch, API_ROUTES} from "./client";
-
-const isBodyEmpty = (body: string): boolean => !body.trim();
+import {API_ROUTES, euroMillionsFetch} from "./client";
 
 export const getLastDraw = async (): Promise<IDraw | null> => {
 
@@ -11,11 +9,6 @@ export const getLastDraw = async (): Promise<IDraw | null> => {
 
 	if (!httpResponse.ok) {
 		throw new Error(`GetLastDraw failed with status ${httpResponse.status}`);
-	}
-
-	const body = await httpResponse.text();
-	if (isBodyEmpty(body)) {
-		return null;
 	}
 
 	return await httpResponse.json() as IDraw;
