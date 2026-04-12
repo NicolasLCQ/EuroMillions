@@ -21,7 +21,7 @@ public class DrawResources(IDrawUseCases drawUseCases)
             throw new ApplicationException("Duplicate files are not accepted");
         }
 
-        List<UploadResultSimpleModel> uploadResult = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
+        UploadResultModel uploadResult = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
 
         return Results.Ok(uploadResult);
     }

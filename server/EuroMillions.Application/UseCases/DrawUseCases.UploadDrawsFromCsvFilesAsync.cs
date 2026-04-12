@@ -6,7 +6,7 @@ namespace EuroMillions.Application.UseCases;
 
 public partial class DrawUseCases
 {
-    public async Task<List<UploadResultSimpleModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels)
+    public async Task<UploadResultModel> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels)
     {
         List<DrawFileModel> drawFileModels = uploadFileModels
             .Select(ufm =>
@@ -14,6 +14,6 @@ public partial class DrawUseCases
             )
             .ToList();
 
-        return await drawRepository.AddDrawsFromDrawFileModelsAsync(drawFileModels);
+        return await AddDrawsWithDeduplicationAsync(drawFileModels);
     }
 }
