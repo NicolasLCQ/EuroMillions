@@ -1,4 +1,4 @@
-using EuroMillions.Application.Models;
+ï»¿using EuroMillions.Application.Models;
 using EuroMillions.Application.Models.Upload;
 
 namespace EuroMillions.Application.Extensions;
@@ -27,17 +27,17 @@ public static class DrawExtensions
 
         if (balls.Count != 5)
         {
-            throw new ArgumentException("Les numéros doivent être uniques.");
+            throw new ArgumentException("Les numï¿½ros doivent ï¿½tre uniques.");
         }
 
         if (draw.Star1 == draw.Star2)
         {
-            throw new ArgumentException("Les étoiles doivent être uniques.");
+            throw new ArgumentException("Les ï¿½toiles doivent ï¿½tre uniques.");
         }
     }
 
     public static RejectedDraw ToRejectedDraw(this Draw draw, string reason) =>
-        new()
+        new RejectedDraw
         {
             YearDrawNumber = draw.YearDrawNumber,
             DrawDate = draw.DrawDate,
