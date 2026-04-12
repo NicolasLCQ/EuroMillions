@@ -1,16 +1,18 @@
-import {API_ROUTES} from "./client";
+import {API_ROUTES, euroMillionsFetch} from "./client";
 
-export const postFiles = async(files: File[]) => {
+export const postFiles = async (files: File[]) => {
 
 	const body = new FormData();
-	files.forEach(f => {body.append('file', f);});
+	files.forEach(f => {
+		body.append('file', f);
+	});
 
-	const httpResponse =await fetch(API_ROUTES.uploadFiles, {
+	const httpResponse = await euroMillionsFetch(API_ROUTES.uploadFiles, {
 		method: 'POST',
 		body: body,
 	})
 
-	if(!httpResponse.ok) {
+	if (!httpResponse.ok) {
 		throw new Error(`PostFiles failed with status ${httpResponse.status}`);
 	}
 

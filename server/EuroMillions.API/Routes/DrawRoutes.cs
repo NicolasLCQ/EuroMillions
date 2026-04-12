@@ -29,7 +29,7 @@ public static class DrawRoutes
         );
 
         drawsGroup.MapPost(
-            "/historyfiles",
+            "/upload",
             async ([FromServices] DrawResources drawResources, [FromForm] IFormFileCollection files) =>
             await drawResources.UploadFilesAsync(files)
         );
