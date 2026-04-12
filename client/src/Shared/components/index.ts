@@ -2,6 +2,7 @@ export * from "./ButtonComponents";
 export * from "./DrawComponents";
 export * from "./DropZoneComponents";
 export * from "./ErrorComponents/PageErrorComponents";
+export * from "./FeedbackComponents";
 export * from "./NavBarComponents";
 export * from "./TextComponents";
 export * from "./ClickableComponents";
