@@ -6,7 +6,7 @@ namespace EuroMillions.Application.UseCases;
 
 public partial class DrawUseCases
 {
-    public async Task<List<UploadResultModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels)
+    public async Task<List<UploadResultSimpleModel>> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels)
     {
         List<DrawFileModel> drawFileModels = uploadFileModels
             .Select(ufm =>

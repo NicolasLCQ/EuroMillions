@@ -14,7 +14,7 @@ using static T_DrawMapper;
 
 public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
-    public async Task<List<UploadResultModel>> AddDrawsFromDrawFileModelsAsync(List<DrawFileModel> drawFileModels)
+    public async Task<List<UploadResultSimpleModel>> AddDrawsFromDrawFileModelsAsync(List<DrawFileModel> drawFileModels)
     {
         //todo: faire un get all et un add✅
         //todo: remonter la logique de old et new dans le service.
@@ -22,7 +22,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
         //todo: ajouter une fonction addDraws pour les draws
         //todo: virer l'objet UploadResultModel de cette couche !! seul draw à l'aire d'etre util !!
         //todo: utiliser un dataset pour pas avoir de double dans ce que l'on ajoute :: pas ajouter ce qui existe deja et pas ajouter en double
-        List<UploadResultModel> result = drawFileModels.Select(dfm =>
+        List<UploadResultSimpleModel> result = drawFileModels.Select(dfm =>
                 {
                     List<T_DRAW> existingDraws = dbContext.T_DRAWs.ToList();
 
@@ -40,7 +40,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
                         )
                         .ToList();
 
-                    return new UploadResultModel
+                    return new UploadResultSimpleModel
                     {
                         FileName = dfm.FileName,
                         AcceptedDraws = newDraws,

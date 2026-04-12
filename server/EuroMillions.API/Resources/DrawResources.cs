@@ -21,7 +21,7 @@ public class DrawResources(IDrawUseCases drawUseCases)
             throw new ApplicationException("Duplicate files are not accepted");
         }
 
-        List<UploadResultModel> uploadResult = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
+        List<UploadResultSimpleModel> uploadResult = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
 
         return Results.Ok(uploadResult);
     }
@@ -44,10 +44,7 @@ public class DrawResources(IDrawUseCases drawUseCases)
 
     public async Task<IResult> UpdateAutomaticallyAsync()
     {
-        string links = await drawUseCases.UpdateAutomaticallyAsync();
-
-        HistoryDownloadLinksResponseModel response = new HistoryDownloadLinksResponseModel {Links = [links]};
-
-        return Results.Ok(response);
+        UploadResultModel uploadResult = await drawUseCases.UpdateAutomaticallyAsync();
+        return Results.Ok(uploadResult);
     }
 }
