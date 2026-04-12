@@ -39,7 +39,7 @@ function UploadPage() {
 			</TextComponent>
 			<DropZoneComponent className={styles.dropZone} handleSubmitFiles={submitFiles}/>
 			<TitleComponent>Try update automatically</TitleComponent>
-			<ButtonComponents onClick={updateAutomatically}>Update Aotmatically</ButtonComponents>
+			<ButtonComponents onClick={updateAutomatically}>Update Automatically</ButtonComponents>
 		</div>
 	);
 }
