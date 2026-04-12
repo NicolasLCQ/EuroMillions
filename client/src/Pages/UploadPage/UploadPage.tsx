@@ -6,17 +6,23 @@ import {TitleComponent} from "shared/components/TextComponents/TitleComponent";
 import {ButtonComponents} from "shared/components/ButtonComponents";
 import {getUpdateAutomatically, postFiles} from "api";
 import {useMutation} from "@tanstack/react-query";
+import {useNotification} from "app/providers/notification-provider";
 
 
 function UploadPage() {
+	const {showSuccess, showError} = useNotification();
+
 	const uploadFilesMutation = useMutation({
 		mutationFn: postFiles,
-		onError: e => console.log(e),
+		onSuccess: () => showSuccess("Files uploaded successfully."),
+		onError: e => showError(e.message),
 	});
 
 	const updateAutomaticallyMutation = useMutation({
 		mutationFn: getUpdateAutomatically,
-		onError: e => console.log(e),
+		onSuccess: () => showSuccess("Automatic update successful."),
+		onError: e => showError(e.message),
+
 	});
 
 	const submitFiles = async (files: File[]) => {

@@ -1,0 +1,30 @@
+.notificationContainer {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3000;
+    width: min(420px, calc(100vw - 2rem));
+    pointer-events: none;
+}
+
+.notification {
+    border-radius: 12px;
+    border: 1px solid transparent;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+}
+
+.success {
+    border-color: #2e7d32;
+    background: rgba(217, 243, 217, 0.96);
+    color: #1b5e20;
+}
+
+.error {
+    border-color: #d32f2f;
+    background: rgba(252, 226, 226, 0.97);
+    color: #9a1f1f;
+}
