@@ -18,6 +18,11 @@ public static class DrawRoutes
         );
 
         drawsGroup.MapGet(
+            "/nextdraw",
+            async ([FromServices] DrawResources drawResources) => await drawResources.GetNextDrawAsync()
+        );
+
+        drawsGroup.MapGet(
             "/areuptodate",
             async ([FromServices] DrawResources drawResources) => await drawResources.AreDrawsUpToDateAsync()
         );

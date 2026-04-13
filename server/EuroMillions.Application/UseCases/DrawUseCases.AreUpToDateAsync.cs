@@ -1,3 +1,4 @@
+using EuroMillions.Application.Consts;
 using EuroMillions.Application.Models;
 
 namespace EuroMillions.Application.UseCases;
@@ -13,9 +14,7 @@ public partial class DrawUseCases
             return false;
         }
 
-        List<DayOfWeek> drawDays = [DayOfWeek.Tuesday, DayOfWeek.Friday];
-
-        List<DayOfWeek> drawPublicationDays = drawDays
+        List<DayOfWeek> drawPublicationDays = DrawConsts.DrawDays
             .Select(day => day + 1)
             .ToList();
 
