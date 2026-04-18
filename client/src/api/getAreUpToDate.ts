@@ -1,5 +1,5 @@
 import {API_ROUTES, euroMillionsFetch} from "./client";
-import {IAreUpToDateResponse} from "shared/types/ResponseTypes/IAreUpToDateResponse.ts";
+import {IAreUpToDateResponse} from "shared/types";
 
 export const getAreUpToDate = async (): Promise<IAreUpToDateResponse | null> => {
 

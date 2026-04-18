@@ -7,7 +7,9 @@ interface ITextComponentProps {
 }
 
 export default function TextComponent(props: ITextComponentProps) {
-	const className = props.className ? `${styles.text} ${props.className}` : styles.text;
+	const className = props.className
+		?`${styles.text} ${props.className}`
+		: styles.text;
 
 	return (
 		<div className={className}>{props.children}</div>

@@ -1,0 +1,16 @@
+.nextDraw {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 14px;
+    background: rgba(111, 177, 255, 0.08);
+}
+
+.nextDrawDate {
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    font-size: 2rem;
+}
