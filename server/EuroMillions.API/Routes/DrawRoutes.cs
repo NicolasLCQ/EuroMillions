@@ -38,5 +38,10 @@ public static class DrawRoutes
             async ([FromServices] DrawResources drawResources, [FromForm] IFormFileCollection files) =>
             await drawResources.UploadFilesAsync(files)
         );
+
+        drawsGroup.MapGet(
+            "/all",
+            async ([FromServices] DrawResources drawResources) => await drawResources.GetAllAsync()
+        );
     }
 }
