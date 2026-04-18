@@ -21,6 +21,8 @@ function NextDrawComponent(props: INextDrawComponentProps) {
 			<TextComponent className={styles.nextDrawDate}>
 				{date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}
 			</TextComponent>
+			{/*TODO:: SOMME A GAGNER ??*/}
+			{/*TODO:: AUTRES INFORMATIONS DISPONIBLES ??*/}
 		</div>
 	)
 }

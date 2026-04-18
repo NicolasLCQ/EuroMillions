@@ -49,14 +49,6 @@ function HomePage() {
 			<PageTitleComponent>Home Page</PageTitleComponent>
 			<IsUpToDateComponent isUpToDate={areUpToDate} onClick={goToUploadPage}/>
 			<NextDrawComponent Date={nextDrawDate}/>
-			{/*DATE DU PROCHAIN TIRAGE*/}
-			{/*SOMME A GAGNER ??*/}
-
-			{/*TITRE :: DERNIER TIRAGE*/}
-			{/*Affichage du dernier tirage */}
-			{/*date du tirage au-dessus*/}
-
-
 			<LastDrawComponent Draw={getLastDrawQueryResult.data as IDraw}/>
 		</div>
 	);
