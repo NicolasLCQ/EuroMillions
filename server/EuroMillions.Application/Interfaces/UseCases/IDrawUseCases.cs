@@ -12,4 +12,5 @@ public interface IDrawUseCases
     Task<DrawDate> GetNextDrawDateAsync();
     Task<bool> AreUpToDateAsync();
     Task<UploadResultModel> UpdateAutomaticallyAsync();
+    Task<List<Draw>> GetAllAsync();
 }

@@ -56,4 +56,12 @@ public class DrawResources(IDrawUseCases drawUseCases)
         UploadResultModel uploadResult = await drawUseCases.UpdateAutomaticallyAsync();
         return Results.Ok(uploadResult);
     }
+
+    public async Task<IResult> GetAllAsync()
+    {
+        List<Draw> allDraws = await drawUseCases.GetAllAsync();
+        List<DrawReponseModel> allDrawResponseModel = allDraws.Select(d => d.ToDrawResponseModel()).ToList();
+        GetAllResultModel getAllResult = new GetAllResultModel {Draws = allDrawResponseModel};
+        return Results.Ok(getAllResult);
+    }
 }
