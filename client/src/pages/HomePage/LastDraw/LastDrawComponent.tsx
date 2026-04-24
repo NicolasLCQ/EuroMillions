@@ -21,6 +21,7 @@ function LastDrawComponent(props: LastDrawComponentProps) {
 		<div className={className}>
 			<TitleComponent>Last Draw</TitleComponent>
 			<DrawComponent Draw={props.Draw}/>
+			{/*TODO:: autres informations sur le dernier tirage*/}
 		</div>
 	)
 }

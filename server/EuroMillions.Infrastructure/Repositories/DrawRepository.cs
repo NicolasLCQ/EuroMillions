@@ -1,8 +1,6 @@
 using EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 using EuroMillions.Application.Models;
 using EuroMillions.Infrastructure.Context;
-using EuroMillions.Infrastructure.Entities;
-using EuroMillions.Infrastructure.Extensions;
 using EuroMillions.Infrastructure.Mappers.EntityMappers;
 
 using Microsoft.EntityFrameworkCore;
@@ -30,30 +28,4 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
             .AsNoTracking()
             .Select(d => d.ToDrawModel())
             .FirstOrDefaultAsync();
-
-    public async Task<bool> AreDrawsUpToDateAsync()
-    {
-        T_DRAW? lastestDrawUploaded = await dbContext
-            .T_DRAWs
-            .AsNoTracking()
-            .OrderByDescending(d => d.DRAW_DATE)
-            .FirstOrDefaultAsync();
-
-        if (lastestDrawUploaded == null)
-        {
-            return false;
-        }
-
-        List<DayOfWeek> drawDays = [DayOfWeek.Tuesday, DayOfWeek.Friday];
-
-        List<DayOfWeek> drawPublicationDay = drawDays
-            .Select(d => d + 1)
-            .ToList();
-
-        DateTime lastDrawPublicationDate = Enumerable.Range(0, 7)
-            .Select(i => DateTime.Today.AddDays(-i))
-            .First(d => drawPublicationDay.Contains(d.DayOfWeek));
-
-        return lastestDrawUploaded.GetPublicationDate() == lastDrawPublicationDate;
-    }
 }

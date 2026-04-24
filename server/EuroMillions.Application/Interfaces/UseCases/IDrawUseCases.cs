@@ -9,6 +9,7 @@ public interface IDrawUseCases
 {
     Task<UploadResultModel> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels);
     Task<Draw?> GetLastDrawAsync();
+    Task<DrawDate> GetNextDrawDateAsync();
     Task<bool> AreUpToDateAsync();
     Task<UploadResultModel> UpdateAutomaticallyAsync();
 }

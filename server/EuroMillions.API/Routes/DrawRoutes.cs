@@ -13,8 +13,13 @@ public static class DrawRoutes
         drawsGroup.DisableAntiforgery();
 
         drawsGroup.MapGet(
-            "/getlastdraw",
+            "/lastdraw",
             async ([FromServices] DrawResources drawResources) => await drawResources.GetLastDrawAsync()
+        );
+
+        drawsGroup.MapGet(
+            "/nextdrawdate",
+            async ([FromServices] DrawResources drawResources) => await drawResources.GetNextDrawAsync()
         );
 
         drawsGroup.MapGet(

@@ -1,6 +1,7 @@
 using EuroMillions.API.Mappers;
 using EuroMillions.API.Models.ResponseModels;
 using EuroMillions.Application.Interfaces.UseCases;
+using EuroMillions.Application.Models;
 using EuroMillions.Application.Models.Upload;
 
 namespace EuroMillions.API.Resources;
@@ -32,6 +33,14 @@ public class DrawResources(IDrawUseCases drawUseCases)
             ?.ToDrawResponseModel();
 
         return Results.Ok(lastDraw);
+    }
+
+    public async Task<IResult> GetNextDrawAsync()
+    {
+        DrawDate nextDrawDate = await drawUseCases.GetNextDrawDateAsync();
+        NextDrawResponseModel response = new NextDrawResponseModel {NextDrawDate = nextDrawDate};
+
+        return Results.Ok(response);
     }
 
     public async Task<IResult> AreDrawsUpToDateAsync()
