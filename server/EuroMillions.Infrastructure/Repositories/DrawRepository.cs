@@ -18,7 +18,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 
     public async Task AddDrawsAsync(List<Draw> draws)
     {
-        dbContext.T_DRAWs.AddRange(draws.Select(d => d.ToDRAWEntity()));
+        dbContext.T_DRAWs.AddRange(draws.Select(d => d.ToDrawEntity()));
         await dbContext.SaveChangesAsync();
     }
 
