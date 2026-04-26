@@ -34,12 +34,12 @@ function HomePage() {
 	const goToUploadPage = () => navigate(uploadRouteObject.path);
 
 	const isLoading = getLastDrawQueryResult.isLoading || getAreUpToDateQueryResult.isLoading || getNextDrawQueryResult.isLoading;
-	const isError = getLastDrawQueryResult.error || getAreUpToDateQueryResult.error || getNextDrawQueryResult.error;
-	const areDatas = getLastDrawQueryResult.data && getAreUpToDateQueryResult.data || getNextDrawQueryResult.data;
+	const isError = /*getLastDrawQueryResult.error ||*/ getAreUpToDateQueryResult.error || getNextDrawQueryResult.error;
+	// const areDatas = getLastDrawQueryResult.data;
 
 	if (isLoading) return <div>Loading...</div>;
 	if (isError) return <div>Error while loading data.</div>;
-	if (!areDatas) return <div>No data available.</div>;
+	// if (!areDatas) return <div>No data available.</div>;
 
 	const areUpToDate = getAreUpToDateQueryResult.data.areUpToDate;
 	const nextDrawDate = getNextDrawQueryResult.data.nextDrawDate;
