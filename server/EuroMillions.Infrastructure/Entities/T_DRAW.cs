@@ -29,7 +29,7 @@ public partial class T_DRAW
 
     public DateTime? FORCLUSION_DATE { get; set; }
 
-    public string? DRAW_NUMBER_IN_CYCLE { get; set; }
+    public int? DRAW_NUMBER_IN_CYCLE { get; set; }
 
     public string? WINNING_BALLS_IN_ASCENDING_ORDER { get; set; }
 

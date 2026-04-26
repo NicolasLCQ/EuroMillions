@@ -1,7 +1,5 @@
 using EuroMillions.Application.Models;
 using EuroMillions.Infrastructure.Entities;
-using EuroMillions.Infrastructure.Helpers;
-
 namespace EuroMillions.Infrastructure.Mappers.EntityMappers;
 
 public static class T_DrawMapper
@@ -20,7 +18,7 @@ public static class T_DrawMapper
             STAR_TWO = draw.Star2,
             DRAW_DAY = draw.DrawDay,
             FORCLUSION_DATE = draw.ForclusionDate,
-            DRAW_NUMBER_IN_CYCLE = draw.DrawNumberInCycle?.ToString(),
+            DRAW_NUMBER_IN_CYCLE = draw.DrawNumberInCycle,
             WINNING_BALLS_IN_ASCENDING_ORDER = draw.WinningBallsInAscendingOrder,
             WINNING_STARS_IN_ASCENDING_ORDER = draw.WinningStarsInAscendingOrder,
             JOKER_PLUS_NUMBER = draw.JokerPlusNumber,
@@ -99,6 +97,6 @@ public static class T_DrawMapper
         Ball5 = tDraw.BALL_FIVE,
         Star1 = tDraw.STAR_ONE,
         Star2 = tDraw.STAR_TWO,
-        DrawNumberInCycle = StringHelpers.ParseNullableInt(tDraw.DRAW_NUMBER_IN_CYCLE)
+        DrawNumberInCycle = tDraw.DRAW_NUMBER_IN_CYCLE
     };
 }

@@ -28,6 +28,7 @@ public partial class EuroMillionsDbContext : DbContext
             entity.Property(e => e.BALL_THREE).HasColumnType("INT");
             entity.Property(e => e.BALL_TWO).HasColumnType("INT");
             entity.Property(e => e.DRAW_DATE).HasColumnType("DATETIME");
+            entity.Property(e => e.DRAW_NUMBER_IN_CYCLE).HasColumnType("INT");
             entity.Property(e => e.FORCLUSION_DATE).HasColumnType("DATETIME");
             entity.Property(e => e.STAR_ONE).HasColumnType("INT");
             entity.Property(e => e.STAR_TWO).HasColumnType("INT");

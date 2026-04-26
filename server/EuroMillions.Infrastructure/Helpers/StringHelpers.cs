@@ -4,23 +4,6 @@ namespace EuroMillions.Infrastructure.Helpers;
 
 public static class StringHelpers
 {
-    public static int? ParseNullableInt(string? text)
-    {
-        if (string.IsNullOrWhiteSpace(text))
-        {
-            return null;
-        }
-
-        string cleaned = text.Trim().Replace(" ", string.Empty).Replace("\u00A0", string.Empty);
-
-        if (int.TryParse(cleaned, NumberStyles.Integer, CultureInfo.InvariantCulture, out int value))
-        {
-            return value;
-        }
-
-        throw new FormatException($"Invalid integer value: '{text}'.");
-    }
-
     public static int? ParseNullableIntOrNull(string? text)
     {
         if (string.IsNullOrWhiteSpace(text))
