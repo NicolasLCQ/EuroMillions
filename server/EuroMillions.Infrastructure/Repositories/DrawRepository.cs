@@ -11,10 +11,14 @@ using static T_DrawMapper;
 
 public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
-    public async Task<List<Draw>> GetAllDrawsAsync() => await dbContext.T_DRAWs
+    public async Task<List<Draw>> GetAllDrawsAsync() => (await dbContext.T_DRAWs
+            .Include(draw => draw.T_DRAW_INFORMATION)
+            .Include(draw => draw.T_DRAW_ADDITIONAL_GAME)
+            .Include(draw => draw.T_DRAW_WINNER)
+            .AsNoTracking()
+            .ToListAsync())
         .Select(entity => entity.ToDrawModel())
-        .AsNoTracking()
-        .ToListAsync();
+        .ToList();
 
     public async Task AddDrawsAsync(List<Draw> draws)
     {
@@ -23,9 +27,12 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
     }
 
     public async Task<Draw?> GetLastDrawAsync() =>
-        await dbContext.T_DRAWs
-            .OrderByDescending(d => d.DRAW_DATE)
+        (await dbContext.T_DRAWs
+            .Include(draw => draw.T_DRAW_INFORMATION)
+            .Include(draw => draw.T_DRAW_ADDITIONAL_GAME)
+            .Include(draw => draw.T_DRAW_WINNER)
+            .OrderByDescending(d => d.T_DRAW_INFORMATION!.DRAW_DATE)
             .AsNoTracking()
-            .Select(d => d.ToDrawModel())
-            .FirstOrDefaultAsync();
+            .FirstOrDefaultAsync())
+        ?.ToDrawModel();
 }

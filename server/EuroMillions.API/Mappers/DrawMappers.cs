@@ -8,8 +8,8 @@ public static class DrawMappers
     public static DrawReponseModel ToDrawResponseModel(this Draw? draw) =>
         new DrawReponseModel
         {
-            DrawNumber = draw.YearDrawNumber,
-            DrawDate = draw.DrawDate,
+            DrawNumber = draw.DrawInformation?.YearDrawNumber ?? 0,
+            DrawDate = draw.DrawInformation?.DrawDate ?? default,
             Ball1 = draw.Ball1,
             Ball2 = draw.Ball2,
             Ball3 = draw.Ball3,
