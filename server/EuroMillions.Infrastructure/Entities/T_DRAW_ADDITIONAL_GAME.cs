@@ -1,4 +1,4 @@
-namespace EuroMillions.Infrastructure.Entities;
+﻿namespace EuroMillions.Infrastructure.Entities;
 
 public partial class T_DRAW_ADDITIONAL_GAME
 {
@@ -10,5 +10,5 @@ public partial class T_DRAW_ADDITIONAL_GAME
 
     public string? EXCEPTIONAL_EURO_MILLIONS_DRAW_NUMBER { get; set; }
 
-    public T_DRAW? T_DRAW { get; set; }
+    public virtual T_DRAW DRAW { get; set; } = null!;
 }

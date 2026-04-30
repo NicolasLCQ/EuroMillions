@@ -1,4 +1,4 @@
-namespace EuroMillions.Infrastructure.Entities;
+﻿namespace EuroMillions.Infrastructure.Entities;
 
 public partial class T_DRAW
 {
@@ -22,9 +22,9 @@ public partial class T_DRAW
 
     public string? WINNING_STARS_IN_ASCENDING_ORDER { get; set; }
 
-    public T_DRAW_ADDITIONAL_GAME? T_DRAW_ADDITIONAL_GAME { get; set; }
+    public virtual T_DRAW_ADDITIONAL_GAME? T_DRAW_ADDITIONAL_GAME { get; set; }
 
-    public T_DRAW_INFORMATION? T_DRAW_INFORMATION { get; set; }
+    public virtual T_DRAW_INFORMATION? T_DRAW_INFORMATION { get; set; }
 
-    public T_DRAW_WINNER? T_DRAW_WINNER { get; set; }
+    public virtual T_DRAW_WINNER? T_DRAW_WINNER { get; set; }
 }

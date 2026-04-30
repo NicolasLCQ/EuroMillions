@@ -1,4 +1,4 @@
-namespace EuroMillions.Infrastructure.Entities;
+﻿namespace EuroMillions.Infrastructure.Entities;
 
 public partial class T_DRAW_INFORMATION
 {
@@ -14,5 +14,5 @@ public partial class T_DRAW_INFORMATION
 
     public int? DRAW_NUMBER_IN_CYCLE { get; set; }
 
-    public T_DRAW? T_DRAW { get; set; }
+    public virtual T_DRAW DRAW { get; set; } = null!;
 }
