@@ -1,9 +1,9 @@
-﻿using EuroMillions.Application.Models;
+using EuroMillions.Application.Models;
 using EuroMillions.Infrastructure.Models.csv;
 
 namespace EuroMillions.Infrastructure.Mappers.ModelMappers;
 
-public static class CsvDrawModelMap
+public static class CsvDrawModelMapper
 {
     public static Draw ToDrawModel(this CsvDrawModel csvDrawModel) => new Draw
     {
