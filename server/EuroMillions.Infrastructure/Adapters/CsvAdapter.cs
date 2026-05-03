@@ -13,14 +13,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace EuroMillions.Infrastructure.Adapters;
 
-//https://joshclose.github.io/CsvHelper/examples/reading/reading-multiple-data-sets/
 public class CsvAdapter : ICsvAdapter
 {
-    private readonly CsvConfiguration _csvConfiguration = new CsvConfiguration(CultureInfo.InvariantCulture)
+    private readonly CsvConfiguration _csvConfiguration = new CsvConfiguration(CultureInfo.GetCultureInfo("fr-FR"))
     {
         NewLine = "\n",
         Delimiter = ";",
-        HasHeaderRecord = true
+        HasHeaderRecord = true,
+        TrimOptions = TrimOptions.Trim
     };
 
     public List<Draw> ExtractEuroMillionDrawFromFile(IFormFile csvFormFile) =>
@@ -33,6 +33,6 @@ public class CsvAdapter : ICsvAdapter
 
         csv.Context.RegisterClassMap<CsvDrawMap>();
 
-        return csv.GetRecords<CsvDrawModel>().Select(draw => draw.ToModel()).ToList();
+        return csv.GetRecords<CsvDrawModel>().Select(draw => draw.ToDrawModel()).ToList();
     }
 }

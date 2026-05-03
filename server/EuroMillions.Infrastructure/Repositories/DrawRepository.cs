@@ -11,21 +11,24 @@ using static T_DrawMapper;
 
 public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
-    public async Task<List<Draw>> GetAllDrawsAsync() => await dbContext.T_DRAWs
-        .Select(entity => entity.ToDrawModel())
-        .AsNoTracking()
-        .ToListAsync();
+    public async Task<List<DrawSummaryModel>> GetAllDrawsAsync() => (await dbContext.T_DRAWs
+            .Include(draw => draw.T_DRAW_INFORMATION)
+            .AsNoTracking()
+            .ToListAsync())
+        .Select(entity => entity.ToDrawSummaryModel())
+        .ToList();
 
     public async Task AddDrawsAsync(List<Draw> draws)
     {
-        dbContext.T_DRAWs.AddRange(draws.Select(d => d.ToDRAWEntity()));
+        dbContext.T_DRAWs.AddRange(draws.Select(d => d.ToDrawEntity()));
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task<Draw?> GetLastDrawAsync() =>
-        await dbContext.T_DRAWs
-            .OrderByDescending(d => d.DRAW_DATE)
+    public async Task<DrawSummaryModel?> GetLastDrawAsync() =>
+        (await dbContext.T_DRAWs
+            .Include(draw => draw.T_DRAW_INFORMATION)
+            .OrderByDescending(d => d.T_DRAW_INFORMATION!.DRAW_DATE)
             .AsNoTracking()
-            .Select(d => d.ToDrawModel())
-            .FirstOrDefaultAsync();
+            .FirstOrDefaultAsync())
+        ?.ToDrawSummaryModel();
 }

@@ -1,4 +1,4 @@
-using EuroMillions.Application.Extensions;
+using EuroMillions.Application.Mappers;
 using EuroMillions.Application.Models;
 using EuroMillions.Application.Models.Upload;
 
@@ -9,7 +9,7 @@ public partial class DrawUseCases
     private async Task<UploadResultModel> AddDrawsWithDeduplicationAsync(List<DrawFileModel> drawFileModels)
     {
         HashSet<int> existingDrawNumbers = (await drawRepository.GetAllDrawsAsync())
-            .Select(d => d.YearDrawNumber)
+            .Select(d => d.DrawNumber)
             .ToHashSet();
 
         HashSet<int> detectedDrawNumbers = [];
@@ -23,13 +23,13 @@ public partial class DrawUseCases
 
             foreach (Draw draw in drawFileModel.Draws)
             {
-                if (existingDrawNumbers.Contains(draw.YearDrawNumber))
+                if (existingDrawNumbers.Contains(draw.DrawInformation!.YearDrawNumber))
                 {
                     rejectedDraws.Add(draw.ToRejectedDraw("Already Added"));
                     continue;
                 }
 
-                if (!detectedDrawNumbers.Add(draw.YearDrawNumber))
+                if (!detectedDrawNumbers.Add(draw.DrawInformation!.YearDrawNumber))
                 {
                     rejectedDraws.Add(draw.ToRejectedDraw("Duplication"));
                     continue;

@@ -1,6 +1,6 @@
-namespace EuroMillions.API.Models.ResponseModels;
+namespace EuroMillions.Application.Models;
 
-public class DrawReponseModel
+public class DrawSummaryModel : IHasDrawDate
 {
     public int DrawNumber { get; set; }
     public DateTime DrawDate { get; set; }

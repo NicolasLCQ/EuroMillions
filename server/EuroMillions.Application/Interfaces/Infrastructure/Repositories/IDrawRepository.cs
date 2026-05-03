@@ -4,7 +4,7 @@ namespace EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 
 public interface IDrawRepository
 {
-    Task<List<Draw>> GetAllDrawsAsync();
-    Task<Draw?> GetLastDrawAsync();
+    Task<List<DrawSummaryModel>> GetAllDrawsAsync();
+    Task<DrawSummaryModel?> GetLastDrawAsync();
     Task AddDrawsAsync(List<Draw> draws);
 }

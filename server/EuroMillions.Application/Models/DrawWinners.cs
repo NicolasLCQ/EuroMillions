@@ -1,26 +1,7 @@
-﻿namespace EuroMillions.Infrastructure.Models.csv;
+namespace EuroMillions.Application.Models;
 
-public class CsvDrawModel
+public class DrawWinners
 {
-    public int YearDrawNumber { get; set; }
-    public DateTime DrawDate { get; set; }
-
-    public int Ball1 { get; set; }
-    public int Ball2 { get; set; }
-    public int Ball3 { get; set; }
-    public int Ball4 { get; set; }
-    public int Ball5 { get; set; }
-    public int Star1 { get; set; }
-    public int Star2 { get; set; }
-
-    public string? DrawDay { get; set; }
-    public DateTime? ForclusionDate { get; set; }
-    public int? DrawNumberInCycle { get; set; }
-    public string? WinningBallsInAscendingOrder { get; set; }
-    public string? WinningStarsInAscendingOrder { get; set; }
-    public string? JokerPlusNumber { get; set; }
-    public string? MyMillionNumber { get; set; }
-    public string? ExceptionalEuroMillionsDrawNumber { get; set; }
     public string? Currency { get; set; }
 
     public int? Rank1EuroMillionsWinnersFrance { get; set; }

@@ -2,6 +2,7 @@ import {TitleComponent} from "shared/components/TextComponents/TitleComponent";
 import {DrawComponent} from "shared/components/DrawComponents";
 import {IDraw} from "shared/types";
 import styles from "./LastDrawComponent.module.css";
+import {TextComponent} from "shared/components";
 
 export interface LastDrawComponentProps {
 	Draw: IDraw
@@ -10,17 +11,13 @@ export interface LastDrawComponentProps {
 
 function LastDrawComponent(props: LastDrawComponentProps) {
 	const className = props.className ? `${styles.lastDraw} ${props.className}` : styles.lastDraw;
-
-	if (!props.Draw) return (
-		<div className={className}>
-			<TitleComponent>No draw found</TitleComponent>
-		</div>
-	)
+	const areDraws = !!props.Draw;
 
 	return (
 		<div className={className}>
 			<TitleComponent>Last Draw</TitleComponent>
-			<DrawComponent Draw={props.Draw}/>
+			{areDraws && <DrawComponent Draw={props.Draw}/>}
+			{!areDraws && <TextComponent>No draw found</TextComponent>}
 			{/*TODO:: autres informations sur le dernier tirage*/}
 		</div>
 	)

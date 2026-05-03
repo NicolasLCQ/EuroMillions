@@ -17,7 +17,7 @@ public class ApplicationExceptionHandler : IExceptionHandler
             return false;
         }
 
-        httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+        httpContext.Response.StatusCode = (int)HttpStatusCode.UnprocessableContent;
         httpContext.Response.ContentType = "application/json";
 
         await httpContext.Response.WriteAsJsonAsync(
