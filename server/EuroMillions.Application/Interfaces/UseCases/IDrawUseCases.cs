@@ -8,9 +8,9 @@ namespace EuroMillions.Application.Interfaces.UseCases;
 public interface IDrawUseCases
 {
     Task<UploadResultModel> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels);
-    Task<Draw?> GetLastDrawAsync();
-    Task<DrawDate> GetNextDrawDateAsync();
+    Task<DrawSummaryModel?> GetLastDrawAsync();
+    Task<DateTime> GetNextDrawDateAsync();
     Task<bool> AreUpToDateAsync();
     Task<UploadResultModel> UpdateAutomaticallyAsync();
-    Task<List<Draw>> GetAllAsync();
+    Task<List<DrawSummaryModel>> GetAllAsync();
 }
