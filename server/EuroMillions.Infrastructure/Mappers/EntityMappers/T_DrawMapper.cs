@@ -5,6 +5,19 @@ namespace EuroMillions.Infrastructure.Mappers.EntityMappers;
 
 public static class T_DrawMapper
 {
+    public static DrawSummaryModel ToDrawSummaryModel(this T_DRAW tDraw) => new DrawSummaryModel
+    {
+        DrawNumber = tDraw.T_DRAW_INFORMATION?.YEAR_DRAW_NUMBER ?? 0,
+        DrawDate = tDraw.T_DRAW_INFORMATION?.DRAW_DATE ?? default,
+        Ball1 = tDraw.BALL_ONE,
+        Ball2 = tDraw.BALL_TWO,
+        Ball3 = tDraw.BALL_THREE,
+        Ball4 = tDraw.BALL_FOUR,
+        Ball5 = tDraw.BALL_FIVE,
+        Star1 = tDraw.STAR_ONE,
+        Star2 = tDraw.STAR_TWO
+    };
+
     public static T_DRAW ToDrawEntity(this Draw draw) =>
         new T_DRAW
         {
