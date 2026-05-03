@@ -1,4 +1,5 @@
 using EuroMillions.Application.Consts;
+using EuroMillions.Application.Extensions;
 using EuroMillions.Application.Models;
 
 namespace EuroMillions.Application.UseCases;
@@ -7,7 +8,7 @@ public partial class DrawUseCases
 {
     public async Task<bool> AreUpToDateAsync()
     {
-        Draw? latestDrawUploaded = await drawRepository.GetLastDrawAsync();
+        DrawSummaryModel? latestDrawUploaded = await drawRepository.GetLastDrawAsync();
 
         if (latestDrawUploaded == null)
         {
@@ -22,8 +23,6 @@ public partial class DrawUseCases
             .Select(i => DateTime.Today.AddDays(-i))
             .First(day => drawPublicationDays.Contains(day.DayOfWeek));
 
-        DateTime latestDrawUploadedPublicationDate = latestDrawUploaded.DrawInformation!.DrawDate.AddDays(1);
-
-        return latestDrawUploadedPublicationDate == lastDrawPublicationDate;
+        return latestDrawUploaded.GetPublicationDate() == lastDrawPublicationDate;
     }
 }

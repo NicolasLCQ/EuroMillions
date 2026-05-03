@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Models;
 
-public class DrawInformation
+public class DrawInformation : IHasDrawDate
 {
     public int YearDrawNumber { get; set; }
     public DateTime DrawDate { get; set; }
