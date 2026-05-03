@@ -1,5 +1,5 @@
 using EuroMillions.API.Mappers;
-using EuroMillions.API.Models.ResponseModels;
+using EuroMillions.API.ViewModels;
 using EuroMillions.Application.Interfaces.UseCases;
 using EuroMillions.Application.Models;
 using EuroMillions.Application.Models.Upload;
@@ -12,33 +12,34 @@ public class DrawResources(IDrawUseCases drawUseCases)
     {
         if (!files.Any())
         {
-            throw new ApplicationException("No files provided.");
+            throw new BadHttpRequestException("No files provided.");
         }
 
         HashSet<string> fileNames = [];
 
         if (files.Any(file => !fileNames.Add(file.FileName)))
         {
-            throw new ApplicationException("Duplicate files are not accepted");
+            throw new BadHttpRequestException("Duplicate files are not accepted");
         }
 
-        UploadResultModel uploadResult = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
+        UploadResultModel uploadResponse = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
+        UploadResponseViewModel response = uploadResponse.ToUploadResponseViewModel();
 
-        return Results.Ok(uploadResult);
+        return Results.Ok(response);
     }
 
     public async Task<IResult> GetLastDrawAsync()
     {
-        DrawReponseModel? lastDraw = (await drawUseCases.GetLastDrawAsync())
-            ?.ToDrawResponseModel();
+        DrawResponseViewModel? lastDraw = (await drawUseCases.GetLastDrawAsync())
+            ?.ToDrawResponseViewModel();
 
         return Results.Ok(lastDraw);
     }
 
     public async Task<IResult> GetNextDrawAsync()
     {
-        DrawDate nextDrawDate = await drawUseCases.GetNextDrawDateAsync();
-        NextDrawResponseModel response = new NextDrawResponseModel {NextDrawDate = nextDrawDate};
+        DateTime nextDrawDate = await drawUseCases.GetNextDrawDateAsync();
+        NextDrawResponseViewModel response = new NextDrawResponseViewModel {NextDrawDate = nextDrawDate};
 
         return Results.Ok(response);
     }
@@ -46,22 +47,22 @@ public class DrawResources(IDrawUseCases drawUseCases)
     public async Task<IResult> AreDrawsUpToDateAsync()
     {
         bool areDrawsUpToDate = await drawUseCases.AreUpToDateAsync();
-        AreUpToDateResponseModel response = new AreUpToDateResponseModel {AreUpToDate = areDrawsUpToDate};
+        AreUpToDateResponseViewModel response = new AreUpToDateResponseViewModel {AreUpToDate = areDrawsUpToDate};
 
         return Results.Ok(response);
     }
 
     public async Task<IResult> UpdateAutomaticallyAsync()
     {
-        UploadResultModel uploadResult = await drawUseCases.UpdateAutomaticallyAsync();
-        return Results.Ok(uploadResult);
+        UploadResponseViewModel uploadResponse = (await drawUseCases.UpdateAutomaticallyAsync()).ToUploadResponseViewModel();
+        return Results.Ok(uploadResponse);
     }
 
     public async Task<IResult> GetAllAsync()
     {
-        List<Draw> allDraws = await drawUseCases.GetAllAsync();
-        List<DrawReponseModel> allDrawResponseModel = allDraws.Select(d => d.ToDrawResponseModel()).ToList();
-        GetAllResultModel getAllResult = new GetAllResultModel {Draws = allDrawResponseModel};
-        return Results.Ok(getAllResult);
+        List<DrawSummaryModel> allDraws = await drawUseCases.GetAllAsync();
+        List<DrawResponseViewModel> allDrawResponseViewModels = allDraws.Select(d => d.ToDrawResponseViewModel()).ToList();
+        GetAllResponseViewModel getAllResponseViewModel = new GetAllResponseViewModel {Draws = allDrawResponseViewModels};
+        return Results.Ok(getAllResponseViewModel);
     }
 }

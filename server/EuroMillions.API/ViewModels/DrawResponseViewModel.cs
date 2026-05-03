@@ -1,6 +1,6 @@
-namespace EuroMillions.API.Models.ResponseModels;
+namespace EuroMillions.API.ViewModels;
 
-public class DrawReponseModel
+public class DrawResponseViewModel
 {
     public int DrawNumber { get; set; }
     public DateTime DrawDate { get; set; }
