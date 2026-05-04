@@ -6,16 +6,6 @@ public static class DrawExtensions
 {
     public static void Validate(this Draw draw)
     {
-        //todo : valider a la construction du type !
-        draw.Ball1.Validate();
-        draw.Ball2.Validate();
-        draw.Ball3.Validate();
-        draw.Ball4.Validate();
-        draw.Ball5.Validate();
-
-        draw.Star1.Validate();
-        draw.Star2.Validate();
-
         HashSet<int> balls = new HashSet<int>
         {
             draw.Ball1,

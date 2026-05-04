@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Models;
 
-public class DrawSummaryModel : IHasDrawDate
+public class DrawSummaryModel
 {
     public int DrawNumber { get; set; }
     public DateTime DrawDate { get; set; }

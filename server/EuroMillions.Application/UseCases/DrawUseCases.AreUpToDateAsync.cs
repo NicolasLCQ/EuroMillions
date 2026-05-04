@@ -23,6 +23,6 @@ public partial class DrawUseCases
             .Select(i => DateTime.Today.AddDays(-i))
             .First(day => drawPublicationDays.Contains(day.DayOfWeek));
 
-        return latestDrawUploaded.GetPublicationDate() == lastDrawPublicationDate;
+        return latestDrawUploaded.DrawDate.AddDays(1) == lastDrawPublicationDate;
     }
 }
