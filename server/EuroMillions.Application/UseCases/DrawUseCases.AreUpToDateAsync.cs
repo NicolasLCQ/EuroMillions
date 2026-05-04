@@ -1,5 +1,4 @@
 using EuroMillions.Application.Consts;
-using EuroMillions.Application.Extensions;
 using EuroMillions.Application.Models;
 
 namespace EuroMillions.Application.UseCases;

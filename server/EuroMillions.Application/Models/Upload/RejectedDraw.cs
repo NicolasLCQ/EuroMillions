@@ -2,5 +2,5 @@
 
 public class RejectedDraw : Draw
 {
-    public string Reason { get; set; }
+    public required string Reason { get; set; }
 }

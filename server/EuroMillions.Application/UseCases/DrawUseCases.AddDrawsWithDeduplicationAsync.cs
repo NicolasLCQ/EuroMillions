@@ -23,13 +23,13 @@ public partial class DrawUseCases
 
             foreach (Draw draw in drawFileModel.Draws)
             {
-                if (existingDrawNumbers.Contains(draw.DrawInformation!.YearDrawNumber))
+                if (existingDrawNumbers.Contains(draw.DrawInformation.YearDrawNumber))
                 {
                     rejectedDraws.Add(draw.ToRejectedDraw("Already Added"));
                     continue;
                 }
 
-                if (!detectedDrawNumbers.Add(draw.DrawInformation!.YearDrawNumber))
+                if (!detectedDrawNumbers.Add(draw.DrawInformation.YearDrawNumber))
                 {
                     rejectedDraws.Add(draw.ToRejectedDraw("Duplication"));
                     continue;
