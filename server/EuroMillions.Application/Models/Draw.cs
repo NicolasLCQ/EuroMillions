@@ -1,5 +1,5 @@
 namespace EuroMillions.Application.Models;
-//todo: faire des objets plus petits précis pour la requete et sans nullable
+
 public class Draw
 {
     public required Star Star1 { get; set; }
