@@ -30,10 +30,10 @@
         "./src/api/*"
       ],
       "app": [
-        "./src/app"
+        "./src/App"
       ],
       "app/*": [
-        "./src/app/*"
+        "./src/App/*"
       ],
       "shared": [
         "./src/shared"

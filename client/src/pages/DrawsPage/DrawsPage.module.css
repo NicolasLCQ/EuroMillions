@@ -1,0 +1,27 @@
+.drawsPage {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    animation: pageReveal 460ms ease-out;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    background: rgba(15, 25, 52, 0.62);
+}
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

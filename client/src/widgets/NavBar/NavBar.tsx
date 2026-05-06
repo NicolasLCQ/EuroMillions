@@ -2,6 +2,7 @@ import {INavBarComponentProps} from "shared/components/NavBarComponents/NavBarEl
 import { NavBarComponent } from "shared/components/NavBarComponents";
 import {homeRouteObject} from "pages/HomePage";
 import {uploadRouteObject} from "pages/UploadPage";
+import {drawsRouteObject} from "pages/DrawsPage";
 
 const NavBarInformations: INavBarComponentProps[] = [
 	{
@@ -10,7 +11,7 @@ const NavBarInformations: INavBarComponentProps[] = [
 	},
 	{
 		text: "Draws",
-		link: ""
+		link: drawsRouteObject.path
 	},
 	{
 		text: "Statistics",

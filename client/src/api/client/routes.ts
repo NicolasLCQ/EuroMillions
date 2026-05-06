@@ -4,4 +4,5 @@ export const API_ROUTES = {
 	uploadFiles: "/draws/upload",
 	updateAutomatically: "/draws/updateautomatically",
 	nextDrawDate: "/draws/nextdrawdate",
+	allDraws: "/draws/all",
 };

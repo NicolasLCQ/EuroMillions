@@ -1,0 +1,124 @@
+.tableShell {
+    width: 100%;
+    max-height: min(58vh, 520px);
+    overflow: auto;
+    border: 1px solid var(--surface-border);
+    border-radius: 14px;
+    background: rgba(7, 14, 32, 0.44);
+}
+
+.drawsTable {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+}
+
+.drawsTable th,
+.drawsTable td {
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(145, 174, 255, 0.14);
+}
+
+.drawsTable th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(15, 25, 52, 0.96);
+    box-shadow: 0 1px 0 rgba(145, 174, 255, 0.18);
+}
+
+.drawsTable tbody tr:hover {
+    background: rgba(111, 177, 255, 0.08);
+}
+
+.drawsTable tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.sortButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    background: transparent;
+    cursor: pointer;
+}
+
+.sortButton span {
+    padding: 0.12rem 0.38rem;
+    border-radius: 999px;
+    color: #061026;
+    background: var(--brand);
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: nowrap;
+}
+
+.dateCell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    min-width: 7.5rem;
+}
+
+.dateCell strong {
+    color: var(--text-primary);
+    font-size: 0.92rem;
+}
+
+.dateCell span {
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.resultGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.drawBall,
+.drawStar {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 720px) {
+    .tableShell {
+        width: 100%;
+        max-height: 62vh;
+        overflow: auto;
+        border: 1px solid var(--surface-border);
+        background: rgba(7, 14, 32, 0.44);
+    }
+
+    .drawsTable {
+        min-width: 560px;
+    }
+
+    .drawsTable th,
+    .drawsTable td {
+        padding: 0.5rem 0.65rem;
+    }
+
+    .drawBall,
+    .drawStar {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,6 +1,6 @@
 export interface IDraw {
-	yearDrawNumber: number;
-	drawDate: Date;
+	drawNumber: number;
+	drawDate: string;
 	ball1: number;
 	ball2: number;
 	ball3: number;
