@@ -6,7 +6,7 @@ import {TitleComponent} from "shared/components/TextComponents/TitleComponent";
 import {ButtonComponents} from "shared/components/ButtonComponents";
 import {getUpdateAutomatically, postFiles} from "api";
 import {useMutation} from "@tanstack/react-query";
-import {useNotification} from "app/providers/notification-provider";
+import {useNotification} from "app/Providers/notification-provider";
 
 
 function UploadPage() {

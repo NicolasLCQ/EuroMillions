@@ -1,7 +1,7 @@
 import './styles/global.css';
-import { QueryProvider } from "./providers/query-provider";
-import {NotificationProvider} from "./providers/notification-provider";
-import { EuroMillionsRouter } from "./router";
+import { QueryProvider } from "./Providers/query-provider";
+import {NotificationProvider} from "./Providers/notification-provider";
+import { EuroMillionsRouter } from "./Router";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 const EuroMillionsApp = () => (
