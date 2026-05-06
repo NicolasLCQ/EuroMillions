@@ -24,6 +24,8 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddProblemDetails();
+        builder.Services.AddExceptionHandler<BadHttpRequestExceptionHandler>();
         builder.Services.AddExceptionHandler<ApplicationExceptionHandler>();
         builder.Services.AddExceptionHandler<UnHandledExceptionHandler>();
 
