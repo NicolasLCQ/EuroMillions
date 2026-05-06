@@ -17,19 +17,17 @@ public static class DrawMapper
             Ball5 = draw.Ball5,
             Star1 = draw.Star1,
             Star2 = draw.Star2,
-            DrawInformation = draw.DrawInformation is null
-                ? null
-                : new DrawInformation
+            DrawInformation
+                = new DrawInformation
                 {
                     YearDrawNumber = draw.DrawInformation.YearDrawNumber,
                     DrawDate = draw.DrawInformation.DrawDate,
                     DrawDay = draw.DrawInformation.DrawDay,
                     ForclusionDate = draw.DrawInformation.ForclusionDate,
-                    DrawNumberInCycle = draw.DrawInformation.DrawNumberInCycle,
+                    DrawNumberInCycle = draw.DrawInformation.DrawNumberInCycle
                 },
-            AdditionalGame = draw.AdditionalGame is null
-                ? null
-                : new DrawAdditionalGame
+            AdditionalGame
+                = new DrawAdditionalGame
                 {
                     JokerPlusNumber = draw.AdditionalGame.JokerPlusNumber,
                     MyMillionNumber = draw.AdditionalGame.MyMillionNumber,

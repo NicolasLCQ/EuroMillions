@@ -1,9 +1,9 @@
 namespace EuroMillions.Application.Models;
-//todo: faire des objets plus petits précis pour la requete et sans nullable
+
 public class Draw
 {
-    public required Ball Star1 { get; set; }
-    public required Ball Star2 { get; set; }
+    public required Star Star1 { get; set; }
+    public required Star Star2 { get; set; }
     public required Ball Ball1 { get; set; }
     public required Ball Ball2 { get; set; }
     public required Ball Ball3 { get; set; }
@@ -12,7 +12,7 @@ public class Draw
 
     public string? WinningBallsInAscendingOrder { get; set; }
     public string? WinningStarsInAscendingOrder { get; set; }
-    public DrawWinners? Winners { get; set; }
-    public DrawInformation? DrawInformation { get; set; }
-    public DrawAdditionalGame? AdditionalGame { get; set; }
+    public required DrawWinners Winners { get; set; }
+    public required DrawInformation DrawInformation { get; set; }
+    public required DrawAdditionalGame AdditionalGame { get; set; }
 }

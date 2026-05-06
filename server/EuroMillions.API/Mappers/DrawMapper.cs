@@ -23,8 +23,8 @@ public static class DrawMapper
     public static DrawResponseViewModel ToDrawResponseViewModel(this Draw draw) =>
         new DrawResponseViewModel
         {
-            DrawNumber = draw.DrawInformation?.YearDrawNumber ?? 0,
-            DrawDate = draw.DrawInformation?.DrawDate ?? default,
+            DrawNumber = draw.DrawInformation.YearDrawNumber,
+            DrawDate = draw.DrawInformation.DrawDate,
             Ball1 = draw.Ball1,
             Ball2 = draw.Ball2,
             Ball3 = draw.Ball3,
@@ -37,8 +37,8 @@ public static class DrawMapper
     public static RejectedDrawResponseViewModel ToRejectedDrawResponseViewModel(this RejectedDraw draw) =>
         new RejectedDrawResponseViewModel
         {
-            DrawNumber = draw.DrawInformation?.YearDrawNumber ?? 0,
-            DrawDate = draw.DrawInformation?.DrawDate ?? default,
+            DrawNumber = draw.DrawInformation.YearDrawNumber,
+            DrawDate = draw.DrawInformation.DrawDate,
             Ball1 = draw.Ball1,
             Ball2 = draw.Ball2,
             Ball3 = draw.Ball3,
