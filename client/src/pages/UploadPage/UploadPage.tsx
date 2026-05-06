@@ -5,22 +5,41 @@ import {PageTitleComponent} from "shared/components/TextComponents/PageTitleComp
 import {TitleComponent} from "shared/components/TextComponents/TitleComponent";
 import {ButtonComponents} from "shared/components/ButtonComponents";
 import {getUpdateAutomatically, postFiles} from "api";
-import {useMutation} from "@tanstack/react-query";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {useNotification} from "app/Providers/notification-provider";
+import {API_ROUTES} from "api/client";
+import {getAreUpToDate} from "api/getAreUpToDate.ts";
+import {DrawStatusBannerComponent} from "pages/UploadPage/DrawStatusBanner";
 
 
 function UploadPage() {
 	const {showSuccess, showError} = useNotification();
+	const queryClient = useQueryClient();
+
+	const getAreUpToDateQueryResult = useQuery({
+		queryKey: [API_ROUTES.areUpToDate],
+		queryFn: getAreUpToDate,
+	});
+
+	const refreshAreUpToDateStatus = async () => {
+		await queryClient.invalidateQueries({queryKey: [API_ROUTES.areUpToDate]});
+	};
 
 	const uploadFilesMutation = useMutation({
 		mutationFn: postFiles,
-		onSuccess: () => showSuccess("Files uploaded successfully."),
+		onSuccess: async () => {
+			showSuccess("Files uploaded successfully.");
+			await refreshAreUpToDateStatus();
+		},
 		onError: e => showError(e.message),
 	});
 
 	const updateAutomaticallyMutation = useMutation({
 		mutationFn: getUpdateAutomatically,
-		onSuccess: () => showSuccess("Automatic update successful."),
+		onSuccess: async () => {
+			showSuccess("Automatic update successful.");
+			await refreshAreUpToDateStatus();
+		},
 		onError: e => showError(e.message),
 
 	});
@@ -33,6 +52,11 @@ function UploadPage() {
 
 	return (
 		<div className={styles.uploadPage}>
+			<DrawStatusBannerComponent
+				areUpToDate={getAreUpToDateQueryResult.data?.areUpToDate}
+				isError={getAreUpToDateQueryResult.isError}
+				isLoading={getAreUpToDateQueryResult.isLoading}
+			/>
 			<PageTitleComponent>Upload Page</PageTitleComponent>
 			<TitleComponent>You can upload the files from FDJ EuroMillions on this page</TitleComponent>
 			<TextComponent className={styles.informations}>
@@ -51,5 +75,3 @@ function UploadPage() {
 }
 
 export default UploadPage
-
-

@@ -1,0 +1,30 @@
+.banner {
+    display: flex;
+    justify-content: center;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    font-size: var(--text-size);
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.information {
+    color: #713f12;
+    border-color: rgba(245, 158, 11, 0.42);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(254, 243, 199, 0.74));
+}
+
+.success {
+    color: #14532d;
+    border-color: rgba(34, 197, 94, 0.38);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(187, 247, 208, 0.55));
+}
+
+.error {
+    color: #ffdce1;
+    border-color: rgba(255, 111, 122, 0.45);
+    background: var(--danger-bg);
+}
