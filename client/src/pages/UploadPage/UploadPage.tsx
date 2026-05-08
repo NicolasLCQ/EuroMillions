@@ -62,7 +62,7 @@ function UploadPage() {
 			<TextComponent className={styles.informations}>
 				1 - Download Files from <a className={styles.euroMillionsLink}
 				                           href="https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/historique">FDJ
-				EuroMillions Historique</a><br/>
+				EuroMillions History</a><br/>
 				2 - Upload them below<br/>
 				3 - Submit<br/>
 				<br/>

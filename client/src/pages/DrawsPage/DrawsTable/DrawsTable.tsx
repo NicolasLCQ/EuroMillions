@@ -15,7 +15,7 @@ interface DrawsTableProps {
 	draws: IDraw[];
 }
 
-const formatDate = (drawDate: string) => new Intl.DateTimeFormat("fr-FR", {
+const formatDate = (drawDate: string) => new Intl.DateTimeFormat("en-GB", {
 	day: "2-digit",
 	month: "2-digit",
 	year: "numeric",
@@ -35,26 +35,26 @@ function DrawsTable({draws}: DrawsTableProps) {
 			cell: ({row}) => (
 				<div className={styles.dateCell}>
 					<strong>{formatDate(row.original.drawDate)}</strong>
-					<span>Tirage #{row.original.drawNumber}</span>
+					<span>Draw #{row.original.drawNumber}</span>
 				</div>
 			),
 		},
 		{
 			id: "balls",
-			header: "Boules",
+			header: "Balls",
 			enableSorting: false,
 			cell: ({row}) => (
-				<div className={styles.resultGroup} aria-label={`Boules du tirage ${row.original.drawNumber}`}>
+				<div className={styles.resultGroup} aria-label={`Balls for draw ${row.original.drawNumber}`}>
 					{getBalls(row.original).map(ball => <BallComponent key={ball} number={ball} className={styles.drawBall}/>) }
 				</div>
 			),
 		},
 		{
 			id: "stars",
-			header: "Etoiles",
+			header: "Stars",
 			enableSorting: false,
 			cell: ({row}) => (
-				<div className={styles.resultGroup} aria-label={`Etoiles du tirage ${row.original.drawNumber}`}>
+				<div className={styles.resultGroup} aria-label={`Stars for draw ${row.original.drawNumber}`}>
 					{getStars(row.original).map(star => <StarComponent key={star} number={star} className={styles.drawStar}/>) }
 				</div>
 			),
@@ -78,7 +78,7 @@ function DrawsTable({draws}: DrawsTableProps) {
 						<tr key={headerGroup.id}>
 							{headerGroup.headers.map(header => {
 								const sortDirection = header.column.getIsSorted();
-								const sortLabel = sortDirection === "asc" ? "ancien au recent" : "recent au ancien";
+								const sortLabel = sortDirection === "asc" ? "oldest to newest" : "newest to oldest";
 
 								return (
 									<th key={header.id} scope="col">

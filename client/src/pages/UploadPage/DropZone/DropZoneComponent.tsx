@@ -16,7 +16,7 @@ function DropZoneComponent(props: DropZoneComponentProps) {
 	};
 
 	return (
-		//ajouter un element general pour afficher des erreurs comme : vous ne pouvez pas entrer 2 fois le meme fichier
+		// Add a shared element for errors, for example: you cannot add the same file twice.
 		<div className={props.className}>
 			<BaseDropZoneComponent files={files} handleAdd={addFiles}
 			                       handleDelete={removeFile}/>
@@ -26,6 +26,5 @@ function DropZoneComponent(props: DropZoneComponentProps) {
 }
 
 export default DropZoneComponent;
-
 
 

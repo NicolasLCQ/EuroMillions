@@ -20,7 +20,7 @@ function DrawsPage() {
 	return (
 		<div className={styles.drawsPage}>
 			<header className={styles.header}>
-				<PageTitleComponent>Tirages</PageTitleComponent>
+				<PageTitleComponent>Draws</PageTitleComponent>
 			</header>
 
 			{draws.length === 0 ? <TextComponent>No draw found</TextComponent> : <DrawsTable draws={draws}/>}

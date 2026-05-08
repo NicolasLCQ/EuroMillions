@@ -8,24 +8,24 @@ export interface DrawStatusBannerComponentProps {
 
 function DrawStatusBannerComponent(props: DrawStatusBannerComponentProps) {
 	if (props.isLoading) {
-		return <BannerComponent state="information">Verification de l'etat des tirages...</BannerComponent>;
+		return <BannerComponent state="information">Checking draw status...</BannerComponent>;
 	}
 
 	if (props.isError || props.areUpToDate === undefined) {
 		return (
 			<BannerComponent state="error">
-				Impossible de verifier si les tirages sont a jour.
+				Unable to check whether draws are up to date.
 			</BannerComponent>
 		);
 	}
 
 	if (props.areUpToDate) {
-		return <BannerComponent state="success">Les tirages sont a jour.</BannerComponent>;
+		return <BannerComponent state="success">Draws are up to date.</BannerComponent>;
 	}
 
 	return (
 		<BannerComponent state="information">
-			Les tirages ne sont pas a jour. Ajoutez les derniers fichiers FDJ ou lancez la mise a jour automatique.
+			Draws are not up to date. Add the latest FDJ files or run the automatic update.
 		</BannerComponent>
 	);
 }
