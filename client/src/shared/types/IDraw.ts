@@ -8,4 +8,7 @@ export interface IDraw {
 	ball5: number;
 	star1: number;
 	star2: number;
+	jokerPlusNumber?: string;
+	myMillionNumber?: string;
+	exceptionalEuroMillionsDrawNumber?: string;
 }

@@ -6,6 +6,7 @@ import {
 	useReactTable,
 	type ColumnDef,
 	type SortingState,
+	type Updater,
 } from "@tanstack/react-table";
 import {BallComponent, StarComponent} from "shared/components";
 import {IDraw} from "shared/types";
@@ -15,6 +16,8 @@ interface DrawsTableProps {
 	draws: IDraw[];
 }
 
+const DEFAULT_SORTING: SortingState = [{id: "drawDate", desc: true}];
+
 const formatDate = (drawDate: string) => new Intl.DateTimeFormat("en-GB", {
 	day: "2-digit",
 	month: "2-digit",
@@ -23,9 +26,10 @@ const formatDate = (drawDate: string) => new Intl.DateTimeFormat("en-GB", {
 
 const getBalls = (draw: IDraw) => [draw.ball1, draw.ball2, draw.ball3, draw.ball4, draw.ball5];
 const getStars = (draw: IDraw) => [draw.star1, draw.star2];
+const formatAdditionalGame = (value?: string) => value ? value.replace(/,\s*/g, ",\n") : "-";
 
 function DrawsTable({draws}: DrawsTableProps) {
-	const [sorting, setSorting] = useState<SortingState>([{id: "drawDate", desc: true}]);
+	const [sorting, setSorting] = useState<SortingState>(DEFAULT_SORTING);
 
 	const columns = useMemo<ColumnDef<IDraw>[]>(() => [
 		{
@@ -59,13 +63,43 @@ function DrawsTable({draws}: DrawsTableProps) {
 				</div>
 			),
 		},
+		{
+			id: "jokerPlusNumber",
+			header: "Joker+",
+			enableSorting: false,
+			cell: ({row}) => <span className={styles.additionalGame}>{formatAdditionalGame(row.original.jokerPlusNumber)}</span>,
+		},
+		{
+			id: "myMillionNumber",
+			header: "My Million",
+			enableSorting: false,
+			cell: ({row}) => <span className={styles.additionalGame}>{formatAdditionalGame(row.original.myMillionNumber)}</span>,
+		},
+		{
+			id: "exceptionalEuroMillionsDrawNumber",
+			header: "Exceptional",
+			enableSorting: false,
+			cell: ({row}) => (
+				<span className={styles.additionalGame}>{formatAdditionalGame(row.original.exceptionalEuroMillionsDrawNumber)}</span>
+			),
+		},
 	], []);
+
+	const handleSortingChange = (updater: Updater<SortingState>) => {
+		setSorting(currentSorting => {
+			const nextSorting = typeof updater === "function" ? updater(currentSorting) : updater;
+			const drawDateSorting = nextSorting.find(sort => sort.id === "drawDate");
+
+			return [{id: "drawDate", desc: drawDateSorting?.desc ?? DEFAULT_SORTING[0].desc}];
+		});
+	};
 
 	const table = useReactTable({
 		data: draws,
 		columns,
 		state: {sorting},
-		onSortingChange: setSorting,
+		onSortingChange: handleSortingChange,
+		enableSortingRemoval: false,
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
 	});
@@ -78,14 +112,15 @@ function DrawsTable({draws}: DrawsTableProps) {
 						<tr key={headerGroup.id}>
 							{headerGroup.headers.map(header => {
 								const sortDirection = header.column.getIsSorted();
-								const sortLabel = sortDirection === "asc" ? "oldest to newest" : "newest to oldest";
+								const sortArrow = sortDirection === "asc" ? "↑" : "↓";
+								const sortLabel = sortDirection === "asc" ? "ascending order" : "descending order";
 
 								return (
 									<th key={header.id} scope="col">
 										{header.column.getCanSort() ? (
 											<button className={styles.sortButton} type="button" onClick={header.column.getToggleSortingHandler()}>
 												{flexRender(header.column.columnDef.header, header.getContext())}
-												<span>{sortLabel}</span>
+												<span aria-label={sortLabel}>{sortArrow}</span>
 											</button>
 										) : flexRender(header.column.columnDef.header, header.getContext())}
 									</th>
