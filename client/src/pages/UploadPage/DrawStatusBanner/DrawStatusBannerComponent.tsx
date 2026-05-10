@@ -24,7 +24,7 @@ function DrawStatusBannerComponent(props: DrawStatusBannerComponentProps) {
 	}
 
 	return (
-		<BannerComponent state="information">
+		<BannerComponent state="error">
 			Draws are not up to date. Add the latest FDJ files or run the automatic update.
 		</BannerComponent>
 	);

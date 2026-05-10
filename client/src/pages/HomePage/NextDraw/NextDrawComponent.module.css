@@ -30,3 +30,86 @@
         0 8px 20px rgba(8, 20, 53, 0.35);
     min-width: min(100%, 240px);
 }
+
+.estimatedJackpot {
+    position: relative;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    width: min(100%, 390px);
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 225, 122, 0.72);
+    border-radius: 22px;
+    text-align: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.34), transparent 28%),
+        radial-gradient(circle at 78% 12%, rgba(255, 93, 93, 0.2), transparent 30%),
+        linear-gradient(135deg, rgba(255, 207, 84, 0.48), rgba(255, 145, 58, 0.22) 48%, rgba(255, 236, 162, 0.18));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        0 0 0 4px rgba(255, 202, 75, 0.08),
+        0 16px 34px rgba(255, 163, 49, 0.22),
+        0 12px 26px rgba(8, 20, 53, 0.26);
+}
+
+.estimatedJackpot::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(115deg, transparent 12%, rgba(255, 255, 255, 0.3) 28%, transparent 44%);
+    opacity: 0.38;
+}
+
+.jackpotLabel {
+    position: relative;
+    color: rgba(255, 247, 209, 0.78);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.jackpotAmount {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    padding: 0.72rem 0.85rem;
+    border: 2px solid rgba(255, 255, 255, 0.72);
+    border-radius: 16px;
+    color: #fffdf2;
+    font-size: clamp(1.55rem, 1.08rem + 2vw, 2.65rem);
+    font-weight: 1000;
+    letter-spacing: 0.025em;
+    line-height: 1.05;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.42), transparent 24%),
+        linear-gradient(135deg, #ffd84d 0%, #ff9d2e 38%, #ff4f73 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.46),
+        inset 0 -10px 22px rgba(126, 46, 0, 0.18),
+        0 0 0 5px rgba(255, 232, 127, 0.16),
+        0 12px 28px rgba(255, 85, 95, 0.24),
+        0 10px 24px rgba(255, 176, 39, 0.22);
+    text-shadow: 0 2px 12px rgba(89, 47, 0, 0.34);
+}
+
+.jackpotCurrency {
+    padding: 0.18rem 0.42rem;
+    border: 1px solid rgba(255, 255, 255, 0.54);
+    border-radius: 999px;
+    color: #5b2300;
+    font-size: 0.48em;
+    font-weight: 1000;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.72);
+    text-shadow: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
