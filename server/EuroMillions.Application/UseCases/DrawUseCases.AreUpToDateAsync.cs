@@ -14,14 +14,13 @@ public partial class DrawUseCases
             return false;
         }
 
-        List<DayOfWeek> drawPublicationDays = DrawConsts.DrawDays
-            .Select(day => day + 1)
-            .ToList();
+        DateTime now = DateTime.Now;
 
-        DateTime lastDrawPublicationDate = Enumerable.Range(0, 7)
+        DateTime lastResultPublicationDateTime = Enumerable.Range(0, 7)
             .Select(i => DateTime.Today.AddDays(-i))
-            .First(day => drawPublicationDays.Contains(day.DayOfWeek));
+            .Where(day => DrawConsts.DrawDays.Contains(day.DayOfWeek))
+            .First(day => now >= day.Add(DrawConsts.DrawResultAvailabilityTime.ToTimeSpan()));
 
-        return latestDrawUploaded.DrawDate.AddDays(1) == lastDrawPublicationDate;
+        return latestDrawUploaded.DrawDate.Date == lastResultPublicationDateTime.Date;
     }
 }
