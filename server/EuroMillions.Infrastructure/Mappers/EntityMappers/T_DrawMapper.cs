@@ -15,7 +15,10 @@ public static class T_DrawMapper
         Ball4 = tDraw.BALL_FOUR,
         Ball5 = tDraw.BALL_FIVE,
         Star1 = tDraw.STAR_ONE,
-        Star2 = tDraw.STAR_TWO
+        Star2 = tDraw.STAR_TWO,
+        JokerPlusNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.JOKER_PLUS_NUMBER,
+        MyMillionNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.MY_MILLION_NUMBER,
+        ExceptionalEuroMillionsDrawNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.EXCEPTIONAL_EURO_MILLIONS_DRAW_NUMBER
     };
 
     public static T_DRAW ToDrawEntity(this Draw draw) =>

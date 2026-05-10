@@ -17,7 +17,10 @@ public static class DrawMapper
             Ball4 = summary.Ball4,
             Ball5 = summary.Ball5,
             Star1 = summary.Star1,
-            Star2 = summary.Star2
+            Star2 = summary.Star2,
+            JokerPlusNumber = summary.JokerPlusNumber,
+            MyMillionNumber = summary.MyMillionNumber,
+            ExceptionalEuroMillionsDrawNumber = summary.ExceptionalEuroMillionsDrawNumber
         };
 
     public static DrawResponseViewModel ToDrawResponseViewModel(this Draw draw) =>
@@ -31,7 +34,10 @@ public static class DrawMapper
             Ball4 = draw.Ball4,
             Ball5 = draw.Ball5,
             Star1 = draw.Star1,
-            Star2 = draw.Star2
+            Star2 = draw.Star2,
+            JokerPlusNumber = draw.AdditionalGame?.JokerPlusNumber,
+            MyMillionNumber = draw.AdditionalGame?.MyMillionNumber,
+            ExceptionalEuroMillionsDrawNumber = draw.AdditionalGame?.ExceptionalEuroMillionsDrawNumber
         };
 
     public static RejectedDrawResponseViewModel ToRejectedDrawResponseViewModel(this RejectedDraw draw) =>

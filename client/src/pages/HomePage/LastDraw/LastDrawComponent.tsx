@@ -18,12 +18,11 @@ function LastDrawComponent(props: LastDrawComponentProps) {
 			<TitleComponent>Last Draw</TitleComponent>
 			{areDraws && <DrawComponent Draw={props.Draw}/>}
 			{!areDraws && <TextComponent>No draw found</TextComponent>}
-			{/*TODO:: autres informations sur le dernier tirage*/}
+			{/*TODO:: add more information about the latest draw*/}
 		</div>
 	)
 }
 
 export default LastDrawComponent;
-
 
 

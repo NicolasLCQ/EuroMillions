@@ -13,6 +13,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
     public async Task<List<DrawSummaryModel>> GetAllDrawsAsync() => (await dbContext.T_DRAWs
             .Include(draw => draw.T_DRAW_INFORMATION)
+            .Include(draw => draw.T_DRAW_ADDITIONAL_GAME)
             .AsNoTracking()
             .ToListAsync())
         .Select(entity => entity.ToDrawSummaryModel())
@@ -27,6 +28,7 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
     public async Task<DrawSummaryModel?> GetLastDrawAsync() =>
         (await dbContext.T_DRAWs
             .Include(draw => draw.T_DRAW_INFORMATION)
+            .Include(draw => draw.T_DRAW_ADDITIONAL_GAME)
             .OrderByDescending(d => d.T_DRAW_INFORMATION!.DRAW_DATE)
             .AsNoTracking()
             .FirstOrDefaultAsync())

@@ -11,4 +11,7 @@ public class DrawResponseViewModel
     public int Ball5 { get; set; }
     public int Star1 { get; set; }
     public int Star2 { get; set; }
+    public string? JokerPlusNumber { get; set; }
+    public string? MyMillionNumber { get; set; }
+    public string? ExceptionalEuroMillionsDrawNumber { get; set; }
 }

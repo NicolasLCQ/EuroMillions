@@ -1,6 +1,6 @@
 export interface IDraw {
-	yearDrawNumber: number;
-	drawDate: Date;
+	drawNumber: number;
+	drawDate: string;
 	ball1: number;
 	ball2: number;
 	ball3: number;
@@ -8,4 +8,7 @@ export interface IDraw {
 	ball5: number;
 	star1: number;
 	star2: number;
+	jokerPlusNumber?: string;
+	myMillionNumber?: string;
+	exceptionalEuroMillionsDrawNumber?: string;
 }

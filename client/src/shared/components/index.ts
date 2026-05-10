@@ -1,3 +1,4 @@
+export * from "./BannerComponents";
 export * from "./ButtonComponents";
 export * from "./DrawComponents";
 export * from "./DropZoneComponents";
