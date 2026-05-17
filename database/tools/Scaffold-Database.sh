@@ -30,23 +30,45 @@ wait_for_user() {
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "$script_dir/../.." && pwd)"
+server_dir="$repo_root/server"
 
 db_path="$repo_root/database/EuroMillions.db"
 infra_project="$repo_root/server/EuroMillions.Infrastructure/EuroMillions.Infrastructure.csproj"
 startup_project="$repo_root/server/EuroMillions.API/EuroMillions.API.csproj"
 
-if ! dotnet ef --version >/dev/null 2>&1; then
-    echo "dotnet-ef manquant. Installe-le avec: dotnet tool install --global dotnet-ef" >&2
+# Finder/Rider can launch scripts with a reduced PATH compared to an interactive shell.
+export PATH="$PATH:/usr/local/share/dotnet:$HOME/.dotnet/tools:/opt/homebrew/bin:/usr/local/bin"
+
+if ! command -v dotnet >/dev/null 2>&1; then
+    echo "dotnet est introuvable dans le PATH." >&2
+    echo "Verifie l'installation du SDK .NET avec: dotnet --info" >&2
     wait_for_user "Une erreur est survenue. Appuie sur Entree pour fermer."
     exit 1
+fi
+
+ef_command=(dotnet tool run dotnet-ef)
+
+if ! "${ef_command[@]}" --version >/dev/null 2>&1; then
+    echo "Restauration de l'outil local dotnet-ef..."
+    (
+        cd "$server_dir"
+        dotnet tool restore
+    )
 fi
 
 echo "Scaffolding from: $db_path"
 
 (
-    cd "$repo_root"
+    cd "$server_dir"
 
-    dotnet ef dbcontext scaffold "Data Source=$db_path" "Microsoft.EntityFrameworkCore.Sqlite" \
+    if ! "${ef_command[@]}" --version >/dev/null 2>&1; then
+        echo "dotnet-ef est introuvable ou son execution echoue." >&2
+        echo "Essaie depuis le dossier server: dotnet tool restore" >&2
+        echo "Puis: dotnet tool run dotnet-ef --version" >&2
+        exit 1
+    fi
+
+    "${ef_command[@]}" dbcontext scaffold "Data Source=$db_path" "Microsoft.EntityFrameworkCore.Sqlite" \
         --project "$infra_project" \
         --startup-project "$startup_project" \
         --context "EuroMillionsDbContext" \
