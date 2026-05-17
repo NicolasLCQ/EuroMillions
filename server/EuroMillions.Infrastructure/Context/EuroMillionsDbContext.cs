@@ -1,4 +1,6 @@
-﻿using EuroMillions.Infrastructure.Entities;
+﻿using System;
+using System.Collections.Generic;
+using EuroMillions.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EuroMillions.Infrastructure.Context;

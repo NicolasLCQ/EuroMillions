@@ -1,4 +1,7 @@
-﻿namespace EuroMillions.Infrastructure.Entities;
+﻿using System;
+using System.Collections.Generic;
+
+namespace EuroMillions.Infrastructure.Entities;
 
 public partial class T_DRAW_INFORMATION
 {
@@ -8,11 +11,11 @@ public partial class T_DRAW_INFORMATION
 
     public DateTime DRAW_DATE { get; set; }
 
-    public string? DRAW_DAY { get; set; }
+    public string DRAW_DAY { get; set; } = null!;
 
-    public DateTime? FORCLUSION_DATE { get; set; }
+    public DateTime FORCLUSION_DATE { get; set; }
 
-    public int? DRAW_NUMBER_IN_CYCLE { get; set; }
+    public int DRAW_NUMBER_IN_CYCLE { get; set; }
 
     public virtual T_DRAW DRAW { get; set; } = null!;
 }

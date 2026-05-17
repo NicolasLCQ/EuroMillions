@@ -1,4 +1,7 @@
-﻿namespace EuroMillions.Infrastructure.Entities;
+﻿using System;
+using System.Collections.Generic;
+
+namespace EuroMillions.Infrastructure.Entities;
 
 public partial class T_DRAW
 {
