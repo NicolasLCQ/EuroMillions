@@ -32,10 +32,9 @@ public static class DrawMapper
                     JokerPlusNumber = draw.AdditionalGame.JokerPlusNumber,
                     MyMillionNumber = draw.AdditionalGame.MyMillionNumber,
                     ExceptionalEuroMillionsDrawNumber = draw.AdditionalGame.ExceptionalEuroMillionsDrawNumber
-                },
+            },
             Winners = new DrawWinners
             {
-                Currency = draw.Winners.Currency,
                 Rank1EuroMillionsWinnersFrance = draw.Winners.Rank1EuroMillionsWinnersFrance,
                 Rank1EuroMillionsWinnersEurope = draw.Winners.Rank1EuroMillionsWinnersEurope,
                 Rank1EuroMillionsPrize = draw.Winners.Rank1EuroMillionsPrize,

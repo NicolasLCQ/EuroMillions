@@ -59,9 +59,6 @@ public sealed class CsvDrawMap : ClassMap<CsvDrawModel>
                 "numero_Tirage_Exceptionnel_Euro_Millions"
             )
             .Optional();
-
-        Map(draw => draw.Currency).Name("devise").Optional();
-
         Map(draw => draw.Rank1EuroMillionsWinnersFrance)
             .Name(
                 "nombre_de_gagnant_au_rang1_en_france",

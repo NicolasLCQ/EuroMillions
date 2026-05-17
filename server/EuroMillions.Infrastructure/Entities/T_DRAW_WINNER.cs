@@ -4,8 +4,6 @@ public partial class T_DRAW_WINNER
 {
     public int DRAW_ID { get; set; }
 
-    public string? CURRENCY { get; set; }
-
     public int? RANK_1_EURO_MILLIONS_WINNERS_FRANCE { get; set; }
 
     public int? RANK_1_EURO_MILLIONS_WINNERS_EUROPE { get; set; }

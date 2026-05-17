@@ -2,8 +2,6 @@ namespace EuroMillions.Application.Models;
 
 public class DrawWinners
 {
-    public string? Currency { get; set; }
-
     public int? Rank1EuroMillionsWinnersFrance { get; set; }
     public int? Rank1EuroMillionsWinnersEurope { get; set; }
     public decimal? Rank1EuroMillionsPrize { get; set; }
