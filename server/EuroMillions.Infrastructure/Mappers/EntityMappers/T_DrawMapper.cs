@@ -18,7 +18,8 @@ public static class T_DrawMapper
         Star2 = tDraw.STAR_TWO,
         JokerPlusNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.JOKER_PLUS_NUMBER,
         MyMillionNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.MY_MILLION_NUMBER,
-        ExceptionalEuroMillionsDrawNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.EXCEPTIONAL_EURO_MILLIONS_DRAW_NUMBER
+        ExceptionalEuroMillionsDrawNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.EXCEPTIONAL_EURO_MILLIONS_DRAW_NUMBER,
+        Winners = tDraw.T_DRAW_WINNER is null ? null : ToDrawWinners(tDraw.T_DRAW_WINNER)
     };
 
     public static T_DRAW ToDrawEntity(this Draw draw) =>
@@ -46,10 +47,9 @@ public static class T_DrawMapper
                     JOKER_PLUS_NUMBER = draw.AdditionalGame.JokerPlusNumber,
                     MY_MILLION_NUMBER = draw.AdditionalGame.MyMillionNumber,
                     EXCEPTIONAL_EURO_MILLIONS_DRAW_NUMBER = draw.AdditionalGame.ExceptionalEuroMillionsDrawNumber
-                },
+            },
             T_DRAW_WINNER = new T_DRAW_WINNER
                 {
-                    CURRENCY = draw.Winners.Currency,
                     RANK_1_EURO_MILLIONS_WINNERS_FRANCE = draw.Winners.Rank1EuroMillionsWinnersFrance,
                     RANK_1_EURO_MILLIONS_WINNERS_EUROPE = draw.Winners.Rank1EuroMillionsWinnersEurope,
                     RANK_1_EURO_MILLIONS_PRIZE = (double?)draw.Winners.Rank1EuroMillionsPrize,
@@ -145,7 +145,6 @@ public static class T_DrawMapper
             ? new DrawWinners()
             : new DrawWinners
             {
-                Currency = tDraw.T_DRAW_WINNER.CURRENCY,
                 Rank1EuroMillionsWinnersFrance = tDraw.T_DRAW_WINNER.RANK_1_EURO_MILLIONS_WINNERS_FRANCE,
                 Rank1EuroMillionsWinnersEurope = tDraw.T_DRAW_WINNER.RANK_1_EURO_MILLIONS_WINNERS_EUROPE,
                 Rank1EuroMillionsPrize = (decimal?)tDraw.T_DRAW_WINNER.RANK_1_EURO_MILLIONS_PRIZE,
@@ -206,5 +205,68 @@ public static class T_DrawMapper
                 Rank10EtoilePlusWinners = tDraw.T_DRAW_WINNER.RANK_10_ETOILE_PLUS_WINNERS,
                 Rank10EtoilePlusPrize = (decimal?)tDraw.T_DRAW_WINNER.RANK_10_ETOILE_PLUS_PRIZE
             }
+    };
+
+    private static DrawWinners ToDrawWinners(T_DRAW_WINNER winner) => new DrawWinners
+    {
+        Rank1EuroMillionsWinnersFrance = winner.RANK_1_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank1EuroMillionsWinnersEurope = winner.RANK_1_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank1EuroMillionsPrize = (decimal?)winner.RANK_1_EURO_MILLIONS_PRIZE,
+        Rank2EuroMillionsWinnersFrance = winner.RANK_2_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank2EuroMillionsWinnersEurope = winner.RANK_2_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank2EuroMillionsPrize = (decimal?)winner.RANK_2_EURO_MILLIONS_PRIZE,
+        Rank3EuroMillionsWinnersFrance = winner.RANK_3_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank3EuroMillionsWinnersEurope = winner.RANK_3_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank3EuroMillionsPrize = (decimal?)winner.RANK_3_EURO_MILLIONS_PRIZE,
+        Rank4EuroMillionsWinnersFrance = winner.RANK_4_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank4EuroMillionsWinnersEurope = winner.RANK_4_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank4EuroMillionsPrize = (decimal?)winner.RANK_4_EURO_MILLIONS_PRIZE,
+        Rank5EuroMillionsWinnersFrance = winner.RANK_5_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank5EuroMillionsWinnersEurope = winner.RANK_5_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank5EuroMillionsPrize = (decimal?)winner.RANK_5_EURO_MILLIONS_PRIZE,
+        Rank6EuroMillionsWinnersFrance = winner.RANK_6_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank6EuroMillionsWinnersEurope = winner.RANK_6_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank6EuroMillionsPrize = (decimal?)winner.RANK_6_EURO_MILLIONS_PRIZE,
+        Rank7EuroMillionsWinnersFrance = winner.RANK_7_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank7EuroMillionsWinnersEurope = winner.RANK_7_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank7EuroMillionsPrize = (decimal?)winner.RANK_7_EURO_MILLIONS_PRIZE,
+        Rank8EuroMillionsWinnersFrance = winner.RANK_8_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank8EuroMillionsWinnersEurope = winner.RANK_8_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank8EuroMillionsPrize = (decimal?)winner.RANK_8_EURO_MILLIONS_PRIZE,
+        Rank9EuroMillionsWinnersFrance = winner.RANK_9_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank9EuroMillionsWinnersEurope = winner.RANK_9_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank9EuroMillionsPrize = (decimal?)winner.RANK_9_EURO_MILLIONS_PRIZE,
+        Rank10EuroMillionsWinnersFrance = winner.RANK_10_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank10EuroMillionsWinnersEurope = winner.RANK_10_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank10EuroMillionsPrize = (decimal?)winner.RANK_10_EURO_MILLIONS_PRIZE,
+        Rank11EuroMillionsWinnersFrance = winner.RANK_11_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank11EuroMillionsWinnersEurope = winner.RANK_11_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank11EuroMillionsPrize = (decimal?)winner.RANK_11_EURO_MILLIONS_PRIZE,
+        Rank12EuroMillionsWinnersFrance = winner.RANK_12_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank12EuroMillionsWinnersEurope = winner.RANK_12_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank12EuroMillionsPrize = (decimal?)winner.RANK_12_EURO_MILLIONS_PRIZE,
+        Rank13EuroMillionsWinnersFrance = winner.RANK_13_EURO_MILLIONS_WINNERS_FRANCE,
+        Rank13EuroMillionsWinnersEurope = winner.RANK_13_EURO_MILLIONS_WINNERS_EUROPE,
+        Rank13EuroMillionsPrize = (decimal?)winner.RANK_13_EURO_MILLIONS_PRIZE,
+        Rank1EtoilePlusWinners = winner.RANK_1_ETOILE_PLUS_WINNERS,
+        Rank1EtoilePlusPrize = (decimal?)winner.RANK_1_ETOILE_PLUS_PRIZE,
+        Rank2EtoilePlusWinners = winner.RANK_2_ETOILE_PLUS_WINNERS,
+        Rank2EtoilePlusPrize = (decimal?)winner.RANK_2_ETOILE_PLUS_PRIZE,
+        Rank3EtoilePlusWinners = winner.RANK_3_ETOILE_PLUS_WINNERS,
+        Rank3EtoilePlusPrize = (decimal?)winner.RANK_3_ETOILE_PLUS_PRIZE,
+        Rank4EtoilePlusWinners = winner.RANK_4_ETOILE_PLUS_WINNERS,
+        Rank4EtoilePlusPrize = (decimal?)winner.RANK_4_ETOILE_PLUS_PRIZE,
+        Rank5EtoilePlusWinners = winner.RANK_5_ETOILE_PLUS_WINNERS,
+        Rank5EtoilePlusPrize = (decimal?)winner.RANK_5_ETOILE_PLUS_PRIZE,
+        Rank6EtoilePlusWinners = winner.RANK_6_ETOILE_PLUS_WINNERS,
+        Rank6EtoilePlusPrize = (decimal?)winner.RANK_6_ETOILE_PLUS_PRIZE,
+        Rank7EtoilePlusWinners = winner.RANK_7_ETOILE_PLUS_WINNERS,
+        Rank7EtoilePlusPrize = (decimal?)winner.RANK_7_ETOILE_PLUS_PRIZE,
+        Rank8EtoilePlusWinners = winner.RANK_8_ETOILE_PLUS_WINNERS,
+        Rank8EtoilePlusPrize = (decimal?)winner.RANK_8_ETOILE_PLUS_PRIZE,
+        Rank9EtoilePlusWinners = winner.RANK_9_ETOILE_PLUS_WINNERS,
+        Rank9EtoilePlusPrize = (decimal?)winner.RANK_9_ETOILE_PLUS_PRIZE,
+        Rank10EtoilePlusWinners = winner.RANK_10_ETOILE_PLUS_WINNERS,
+        Rank10EtoilePlusPrize = (decimal?)winner.RANK_10_ETOILE_PLUS_PRIZE
     };
 }

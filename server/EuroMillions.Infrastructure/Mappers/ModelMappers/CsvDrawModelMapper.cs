@@ -32,7 +32,6 @@ public static class CsvDrawModelMapper
         },
         Winners = new DrawWinners
         {
-            Currency = csvDrawModel.Currency,
             Rank1EuroMillionsWinnersFrance = csvDrawModel.Rank1EuroMillionsWinnersFrance,
             Rank1EuroMillionsWinnersEurope = csvDrawModel.Rank1EuroMillionsWinnersEurope,
             Rank1EuroMillionsPrize = csvDrawModel.Rank1EuroMillionsPrize,

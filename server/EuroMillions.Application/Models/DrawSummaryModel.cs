@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Models;
 
-public class DrawSummaryModel : IHasDrawDate
+public class DrawSummaryModel
 {
     public int DrawNumber { get; set; }
     public DateTime DrawDate { get; set; }
@@ -14,4 +14,5 @@ public class DrawSummaryModel : IHasDrawDate
     public string? JokerPlusNumber { get; set; }
     public string? MyMillionNumber { get; set; }
     public string? ExceptionalEuroMillionsDrawNumber { get; set; }
+    public DrawWinners? Winners { get; set; }
 }

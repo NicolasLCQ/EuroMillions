@@ -1,14 +1,6 @@
-export interface IDraw {
-	drawNumber: number;
-	drawDate: string;
-	ball1: number;
-	ball2: number;
-	ball3: number;
-	ball4: number;
-	ball5: number;
-	star1: number;
-	star2: number;
-	jokerPlusNumber?: string;
-	myMillionNumber?: string;
-	exceptionalEuroMillionsDrawNumber?: string;
-}
+import {IDrawAdditionalGames} from "./IDrawAdditionalGames.ts";
+import {IDrawInformations} from "./IDrawInformations.ts";
+import {IDrawPrizeRanks} from "./IDrawPrizeRanks.ts";
+import {IDrawResult} from "./IDrawResult.ts";
+
+export interface IDraw extends IDrawInformations, IDrawResult, IDrawAdditionalGames, IDrawPrizeRanks {}

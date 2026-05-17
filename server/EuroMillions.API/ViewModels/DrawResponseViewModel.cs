@@ -14,4 +14,5 @@ public class DrawResponseViewModel
     public string? JokerPlusNumber { get; set; }
     public string? MyMillionNumber { get; set; }
     public string? ExceptionalEuroMillionsDrawNumber { get; set; }
+    public List<DrawPrizeRankResponseViewModel> EuroMillionsPrizeRanks { get; set; } = [];
 }

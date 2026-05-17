@@ -21,7 +21,6 @@ public class CsvDrawModel
     public string? JokerPlusNumber { get; set; }
     public string? MyMillionNumber { get; set; }
     public string? ExceptionalEuroMillionsDrawNumber { get; set; }
-    public string? Currency { get; set; }
 
     public int? Rank1EuroMillionsWinnersFrance { get; set; }
     public int? Rank1EuroMillionsWinnersEurope { get; set; }
