@@ -1,9 +1,153 @@
 .lastDraw {
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.7rem;
     padding: 0.85rem 0.9rem;
     border: 1px solid var(--surface-border);
     border-radius: 14px;
+    background: rgba(111, 177, 255, 0.08);
+}
+
+.drawSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.65rem;
+}
+
+.drawDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    gap: 0.65rem;
+}
+
+.drawDate {
+    align-self: flex-start;
+    width: fit-content;
+    max-width: min(25vw, 100%);
+    box-sizing: border-box;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(236, 242, 255, 0.34);
+    border-radius: 8px;
+    background: rgba(236, 242, 255, 0.06);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.additionalGames {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 0.45rem;
+    margin-top: 0.2rem;
+}
+
+.additionalGame {
+    display: grid;
+    grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1fr);
+    gap: 0.6rem;
+    align-items: start;
+    padding: 0.55rem 0.65rem;
+    border-radius: 10px;
+    background: rgba(111, 177, 255, 0.12);
+}
+
+.additionalGameLabel {
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.additionalGameValue {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 800;
+    white-space: pre-line;
+    word-break: break-word;
+}
+
+.emptyState {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+    .drawDate {
+        max-width: 100%;
+    }
+
+    .additionalGame {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+}
+
+.drawResult {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.prizeRanksSection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.prizeRanksTitle {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 900;
+}
+
+.prizeRanksTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(111, 177, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(7, 14, 32, 0.34);
+}
+
+.prizeRanksTable {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+}
+
+.prizeRanksTable th,
+.prizeRanksTable td {
+    padding: 0.55rem 0.65rem;
+    border-bottom: 1px solid rgba(145, 174, 255, 0.14);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.prizeRanksTable th {
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(15, 25, 52, 0.82);
+}
+
+.prizeRanksTable th:first-child,
+.prizeRanksTable td:first-child {
+    text-align: left;
+}
+
+.prizeRanksTable tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.prizeRanksTable tbody tr:hover {
     background: rgba(111, 177, 255, 0.08);
 }

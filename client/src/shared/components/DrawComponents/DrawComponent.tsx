@@ -2,10 +2,10 @@ import React from "react";
 import styles from './DrawComponent.module.css';
 import { BallComponent } from "./BallComponents";
 import { StarComponent } from "./StarComponents";
-import {IDraw} from 'shared/types';
+import {IDrawResult} from 'shared/types';
 
 export interface DrawComponentsProps {
-	Draw: IDraw
+	Draw: IDrawResult
 	className?: string;
 }
 
@@ -26,4 +26,3 @@ const DrawComponent: React.FC<DrawComponentsProps> = (props: DrawComponentsProps
 }
 
 export default DrawComponent;
-
