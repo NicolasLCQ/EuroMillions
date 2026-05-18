@@ -21,9 +21,9 @@ public partial class T_DRAW
 
     public int STAR_TWO { get; set; }
 
-    public string? WINNING_BALLS_IN_ASCENDING_ORDER { get; set; }
+    public string WINNING_BALLS_IN_ASCENDING_ORDER { get; set; } = null!;
 
-    public string? WINNING_STARS_IN_ASCENDING_ORDER { get; set; }
+    public string WINNING_STARS_IN_ASCENDING_ORDER { get; set; } = null!;
 
     public virtual T_DRAW_ADDITIONAL_GAME? T_DRAW_ADDITIONAL_GAME { get; set; }
 

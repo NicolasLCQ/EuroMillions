@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS T_DRAW
     BALL_FIVE        INT       not null,
     STAR_ONE                         INT  not null,
     STAR_TWO                         INT  not null,
-    WINNING_BALLS_IN_ASCENDING_ORDER TEXT,
-    WINNING_STARS_IN_ASCENDING_ORDER TEXT
+    WINNING_BALLS_IN_ASCENDING_ORDER TEXT not null,
+    WINNING_STARS_IN_ASCENDING_ORDER TEXT not null
 );
