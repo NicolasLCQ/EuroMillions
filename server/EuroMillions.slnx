@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/Database/">
+    <File Path="../database/EuroMillions.db" />
+  </Folder>
+  <Folder Name="/Database/Scripts/">
+    <File Path="../database/Scripts/1_CreateTableDraw.sql" />
+    <File Path="../database/Scripts/2_CreateTableDrawWinner.sql" />
+    <File Path="../database/Scripts/3_CreateTableDrawInformation.sql" />
+    <File Path="../database/Scripts/4_CreateTableDrawAdditionalGame.sql" />
+  </Folder>
+  <Folder Name="/Database/Tools/">
+    <File Path="../database/tools/Apply-Scripts.ps1" />
+    <File Path="../database/tools/Apply-Scripts.sh" />
+    <File Path="../database/tools/Scaffold-Database.ps1" />
+    <File Path="../database/tools/Scaffold-Database.sh" />
+  </Folder>
+  <Folder Name="/ProjectItems/">
+    <File Path=".config/dotnet-tools.json" />
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="EuroMillions.API/EuroMillions.API.csproj" />
+  <Project Path="EuroMillions.Application/EuroMillions.Application.csproj" />
+  <Project Path="EuroMillions.Infrastructure/EuroMillions.Infrastructure.csproj" />
+</Solution>
