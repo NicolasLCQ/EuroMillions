@@ -11,8 +11,9 @@ public class DrawSummaryModel
     public required Ball Ball5 { get; set; }
     public required Star Star1 { get; set; }
     public required Star Star2 { get; set; }
+    //todo:: additionnal games
     public string? JokerPlusNumber { get; set; }
     public string? MyMillionNumber { get; set; }
     public string? ExceptionalEuroMillionsDrawNumber { get; set; }
-    public DrawWinners? Winners { get; set; }
+    public required DrawWinners Winners { get; set; }
 }
