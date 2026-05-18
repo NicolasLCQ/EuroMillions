@@ -31,6 +31,7 @@ public class CsvAdapter : ICsvAdapter
         using StreamReader reader = new StreamReader(csvStream);
         using CsvReader csv = new CsvReader(reader, _csvConfiguration);
 
+        csv.Context.TypeConverterCache.AddConverter<decimal>(new FdjDecimalConverter());
         csv.Context.RegisterClassMap<CsvDrawMap>();
 
         return csv.GetRecords<CsvDrawModel>().Select(draw => draw.ToDrawModel()).ToList();
