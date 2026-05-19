@@ -1,4 +1,1 @@
-export {
-	default as DrawStatusBannerComponent,
-	type DrawStatusBannerComponentProps
-} from "./DrawStatusBannerComponent";
+export {default as DrawStatusBannerComponent, type DrawStatusBannerComponentProps} from './DrawStatusBannerComponent';

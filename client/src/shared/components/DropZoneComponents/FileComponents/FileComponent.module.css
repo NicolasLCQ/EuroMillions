@@ -1,19 +1,19 @@
-.file{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.2rem;
-    padding: 0.35rem 0;
+.file {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0;
 }
 
 .deleteButton {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    color: var(--danger);
-    font-size: 1.1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--danger);
+  font-size: 1.1rem;
 }
 
 .fileName {
-    overflow-wrap: anywhere;
+  overflow-wrap: anywhere;
 }

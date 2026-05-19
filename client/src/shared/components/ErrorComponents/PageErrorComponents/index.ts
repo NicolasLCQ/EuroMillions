@@ -1,1 +1,1 @@
-export { default as PageErrorComponent } from "./PageErrorComponent";
+export {default as PageErrorComponent} from './PageErrorComponent';

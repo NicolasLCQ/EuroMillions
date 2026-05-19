@@ -1,21 +1,23 @@
 .star {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    box-shadow: inset -4px -4px 8px rgba(112, 73, 0, 0.32), 0 8px 12px rgba(0, 0, 0, 0.2);
-    margin: 0;
-    user-select: none;
-    background: linear-gradient(135deg, #ffe98c, #f0b413);
-    border: 1px solid rgba(255, 247, 191, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  box-shadow:
+    inset -4px -4px 8px rgba(112, 73, 0, 0.32),
+    0 8px 12px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  user-select: none;
+  background: linear-gradient(135deg, #ffe98c, #f0b413);
+  border: 1px solid rgba(255, 247, 191, 0.42);
 }
 
 .number {
-    font-size: 1.15rem;
-    font-weight: 800;
-    align-self: center;
-    color: #ffffff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  font-size: 1.15rem;
+  font-weight: 800;
+  align-self: center;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }

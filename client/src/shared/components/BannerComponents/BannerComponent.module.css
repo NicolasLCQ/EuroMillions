@@ -1,30 +1,30 @@
 .banner {
-    display: flex;
-    justify-content: center;
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--surface-border);
-    border-radius: 12px;
-    font-size: var(--text-size);
-    font-weight: 800;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  justify-content: center;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  font-size: var(--text-size);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
 }
 
 .information {
-    color: #dbeafe;
-    border-color: rgba(110, 166, 255, 0.48);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.34), rgba(14, 165, 233, 0.24));
+  color: #dbeafe;
+  border-color: rgba(110, 166, 255, 0.48);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.34), rgba(14, 165, 233, 0.24));
 }
 
 .success {
-    color: #f0fdf4;
-    border-color: rgba(134, 239, 172, 0.62);
-    background: linear-gradient(135deg, rgba(21, 128, 61, 0.94), rgba(22, 101, 52, 0.9));
+  color: #f0fdf4;
+  border-color: rgba(134, 239, 172, 0.62);
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.94), rgba(22, 101, 52, 0.9));
 }
 
 .error {
-    color: #ffdce1;
-    border-color: rgba(255, 111, 122, 0.45);
-    background: var(--danger-bg);
+  color: #ffdce1;
+  border-color: rgba(255, 111, 122, 0.45);
+  background: var(--danger-bg);
 }

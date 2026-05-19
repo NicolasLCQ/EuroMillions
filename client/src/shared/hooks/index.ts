@@ -1,1 +1,1 @@
-export * from "./useFiles.ts";
+export * from './useFiles.ts';

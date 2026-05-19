@@ -1,4 +1,4 @@
 export {
-	default as DeleteButtonGlyphIconComponent,
-	type DeleteButtonGlyphIconComponentProps
-} from "./DeleteButtonGlyphIconComponent";
+  default as DeleteButtonGlyphIconComponent,
+  type DeleteButtonGlyphIconComponentProps,
+} from './DeleteButtonGlyphIconComponent';

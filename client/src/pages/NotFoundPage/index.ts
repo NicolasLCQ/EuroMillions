@@ -1,2 +1,2 @@
-export { default as NotFoundPage } from "./NotFoundPage";
-export * from "./NotFoundPageRouteObject";
+export {default as NotFoundPage} from './NotFoundPage';
+export * from './NotFoundPageRouteObject';

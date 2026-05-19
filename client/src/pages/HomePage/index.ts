@@ -1,2 +1,2 @@
-export { default as HomePage } from "./HomePage";
-export * from "./HomePageRouteObject";
+export {default as HomePage} from './HomePage';
+export * from './HomePageRouteObject';

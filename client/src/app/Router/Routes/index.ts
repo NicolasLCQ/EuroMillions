@@ -1,1 +1,1 @@
-export { default as rootRouteObject } from "./RootRouteObject";
+export {default as rootRouteObject} from './RootRouteObject';

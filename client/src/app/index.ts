@@ -1,1 +1,1 @@
-export { default as EuroMillionsApp } from "./EuroMillionsApp";
+export {default as EuroMillionsApp} from './EuroMillionsApp';

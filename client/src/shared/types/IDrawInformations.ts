@@ -1,4 +1,4 @@
 export interface IDrawInformations {
-	drawNumber: number;
-	drawDate: string;
+  drawNumber: number;
+  drawDate: string;
 }

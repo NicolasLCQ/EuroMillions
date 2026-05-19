@@ -1,9 +1,9 @@
 .pageTitle {
-    color: var(--text-primary);
-    font-weight: 800;
-    font-size: var(--title-size);
-    line-height: 1.1;
-    margin-bottom: 0.35rem;
-    letter-spacing: 0.015em;
-    text-wrap: balance;
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: var(--title-size);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.015em;
+  text-wrap: balance;
 }

@@ -1,1 +1,1 @@
-export {default as ClickableComponentWrapper} from "./ClickableComponentWrapper";
+export {default as ClickableComponentWrapper} from './ClickableComponentWrapper';

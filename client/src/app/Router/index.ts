@@ -1,1 +1,1 @@
-export { default as EuroMillionsRouter } from "./EuroMillionsRouter";
+export {default as EuroMillionsRouter} from './EuroMillionsRouter';

@@ -1,1 +1,1 @@
-export * from "./GlobalNotificationComponent";
+export * from './GlobalNotificationComponent';

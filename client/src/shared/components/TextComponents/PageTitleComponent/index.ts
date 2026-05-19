@@ -1,1 +1,1 @@
-export { default as PageTitleComponent } from "./PageTitleComponent";
+export {default as PageTitleComponent} from './PageTitleComponent';

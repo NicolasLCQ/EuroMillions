@@ -1,4 +1,1 @@
-export {
-	default as GlobalNotificationComponent,
-	type IGlobalNotificationComponentProps
-} from "./GlobalNotificationComponent.tsx";
+export {default as GlobalNotificationComponent, type IGlobalNotificationComponentProps} from './GlobalNotificationComponent.tsx';

@@ -1,1 +1,1 @@
-export {default as DrawsTable} from "./DrawsTable";
+export {default as DrawsTable} from './DrawsTable';

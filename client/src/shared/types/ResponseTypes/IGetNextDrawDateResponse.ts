@@ -1,3 +1,3 @@
 export interface IGetNextDrawDateResponse {
-	nextDrawDate: Date
+  nextDrawDate: Date;
 }

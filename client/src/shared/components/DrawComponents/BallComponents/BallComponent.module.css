@@ -1,20 +1,22 @@
 .ball {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    box-shadow: inset -4px -4px 8px rgba(64, 10, 16, 0.35), 0 8px 12px rgba(0, 0, 0, 0.2);
-    margin: 0;
-    user-select: none;
-    background: linear-gradient(135deg, #ff5151, #d1163e);
-    border: 1px solid rgba(255, 210, 210, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  box-shadow:
+    inset -4px -4px 8px rgba(64, 10, 16, 0.35),
+    0 8px 12px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  user-select: none;
+  background: linear-gradient(135deg, #ff5151, #d1163e);
+  border: 1px solid rgba(255, 210, 210, 0.22);
 }
 
 .number {
-    font-size: 1.15rem;
-    font-weight: 800;
-    align-self: center;
-    color: #fff5f6;
+  font-size: 1.15rem;
+  font-weight: 800;
+  align-self: center;
+  color: #fff5f6;
 }

@@ -1,2 +1,2 @@
-export {default as DrawsPage} from "./DrawsPage";
-export * from "./DrawsPageRouteObject";
+export {default as DrawsPage} from './DrawsPage';
+export * from './DrawsPageRouteObject';

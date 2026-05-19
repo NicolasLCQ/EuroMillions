@@ -1,5 +1,1 @@
-export {
-	default as BannerComponent,
-	type BannerComponentProps,
-	type BannerComponentState
-} from "./BannerComponent";
+export {default as BannerComponent, type BannerComponentProps, type BannerComponentState} from './BannerComponent';
