@@ -1,5 +1,5 @@
 import styles from './DropZoneComponent.module.css';
-import {useDropzone} from 'react-dropzone';
+import {type FileError, useDropzone} from 'react-dropzone';
 import {FileComponent} from './FileComponents';
 import React from 'react';
 
@@ -8,6 +8,7 @@ interface DropZoneComponentsProps {
   files: File[];
   handleAdd: (files: File[]) => void;
   handleDelete: (file: File) => void;
+  validateFile?: (file: File) => FileError | readonly FileError[] | null;
 }
 
 const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({
@@ -15,23 +16,14 @@ const DropZoneComponent: React.FC<DropZoneComponentsProps> = ({
   files,
   handleAdd,
   handleDelete,
+  validateFile,
 }: DropZoneComponentsProps) => {
-  function noDoubleValidator(file: File) {
-    if (files.map((f) => f.name).includes(file.name)) {
-      return {
-        code: 'file-already-added',
-        message: `${file}: already added`,
-      };
-    }
-    return null;
-  }
-
   const {getRootProps, getInputProps} = useDropzone({
     accept: {
       'text/csv': ['.csv'],
     },
     onDrop: (files) => handleAdd(files),
-    validator: (file) => noDoubleValidator(file),
+    validator: validateFile,
   });
 
   const dragInformationsItem = <p className={styles.dragInformation}>Drag 'n' drop some files here, or click to select files</p>;
