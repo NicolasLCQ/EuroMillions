@@ -8,7 +8,7 @@ interface INotificationState {
   message: string;
 }
 
-interface INotificationContext {
+export interface INotificationContext {
   showSuccess: (message: string) => void;
   showError: (message: string) => void;
   clearNotification: () => void;
@@ -26,7 +26,7 @@ export const useNotification: () => INotificationContext = () => {
   return context;
 };
 
-type INotificationProviderProps = React.PropsWithChildren;
+export type INotificationProviderProps = React.PropsWithChildren;
 
 function NotificationProvider(props: INotificationProviderProps) {
   const [notification, setNotification] = useState<INotificationState | null>(null);

@@ -1,4 +1,4 @@
-import {IDraw} from 'shared/types/IDraw.ts';
+import {IDraw} from '../IDraw';
 
 export interface IGetAllDrawsResponse {
   draws: IDraw[];

@@ -1,28 +1,9 @@
-import {INavBarComponentProps} from 'shared/components/NavBarComponents/NavBarElements';
-import {NavBarComponent} from 'shared/components/NavBarComponents';
-import {homeRouteObject} from 'pages/HomePage';
-import {uploadRouteObject} from 'pages/UploadPage';
-import {drawsRouteObject} from 'pages/DrawsPage';
+import {NavBarComponent, type INavBarComponentLink} from 'shared/components';
 
-const NavBarInformations: INavBarComponentProps[] = [
-  {
-    text: 'Home',
-    link: homeRouteObject.path,
-  },
-  {
-    text: 'Draws',
-    link: drawsRouteObject.path,
-  },
-  {
-    text: 'Statistics',
-    link: '',
-  },
-  {
-    text: 'Upload',
-    link: uploadRouteObject.path,
-  },
-];
+export interface INavBarProps {
+  textAndLinks: INavBarComponentLink[];
+}
 
-export default function NavBar() {
-  return <NavBarComponent textAndLinks={NavBarInformations} />;
+export default function NavBar(props: INavBarProps) {
+  return <NavBarComponent textAndLinks={props.textAndLinks} />;
 }

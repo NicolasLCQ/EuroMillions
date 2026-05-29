@@ -1,2 +1,2 @@
-export {default as NavBarComponent} from './NavBarComponent';
+export {default as NavBarComponent, type INavBarComponentLink, type INavBarComponentProps} from './NavBarComponent';
 export * from './NavBarElements';

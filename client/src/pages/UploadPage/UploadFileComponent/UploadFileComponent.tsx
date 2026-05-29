@@ -1,6 +1,5 @@
-import {BaseDropZoneComponent} from 'shared/components/DropZoneComponents';
+import {BaseDropZoneComponent, ButtonComponents} from 'shared/components';
 import {useFiles} from 'shared/hooks';
-import {ButtonComponents} from 'shared/components/ButtonComponents';
 import type {FileError} from 'react-dropzone';
 
 export interface DropZoneComponentProps {

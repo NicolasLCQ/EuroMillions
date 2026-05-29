@@ -1,45 +1,35 @@
+import {apiQueryKeys, useAreUpToDateQuery, useUpdateAutomaticallyMutation, useUploadFilesMutation} from 'api/hooks';
+import {useNotification} from 'app/providers';
+import {useQueryClient} from '@tanstack/react-query';
+import {ButtonComponents, PageTitleComponent, TextComponent, TitleComponent} from 'shared/components';
+import {DrawStatusBannerComponent} from './DrawStatusBanner';
+import {DropZoneComponent} from './UploadFileComponent';
 import styles from './UploadPage.module.css';
-import {TextComponent} from 'shared/components/TextComponents/TextComponent';
-import {DropZoneComponent} from 'pages/UploadPage/UploadFileComponent';
-import {PageTitleComponent} from 'shared/components/TextComponents/PageTitleComponent';
-import {TitleComponent} from 'shared/components/TextComponents/TitleComponent';
-import {ButtonComponents} from 'shared/components/ButtonComponents';
-import {getUpdateAutomatically, postFiles} from 'api';
-import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
-import {useNotification} from 'app/Providers/notification-provider';
-import {API_ROUTES} from 'api/client';
-import {getAreUpToDate} from 'api/getAreUpToDate.ts';
-import {DrawStatusBannerComponent} from 'pages/UploadPage/DrawStatusBanner';
 
 function UploadPage() {
   const {showSuccess, showError} = useNotification();
   const queryClient = useQueryClient();
 
-  const getAreUpToDateQueryResult = useQuery({
-    queryKey: [API_ROUTES.areUpToDate],
-    queryFn: getAreUpToDate,
-  });
+  const getAreUpToDateQueryResult = useAreUpToDateQuery();
 
   const refreshAreUpToDateStatus = async () => {
-    await queryClient.invalidateQueries({queryKey: [API_ROUTES.areUpToDate]});
+    await queryClient.invalidateQueries({queryKey: apiQueryKeys.areUpToDate});
   };
 
-  const uploadFilesMutation = useMutation({
-    mutationFn: postFiles,
+  const uploadFilesMutation = useUploadFilesMutation({
     onSuccess: async () => {
       showSuccess('Files uploaded successfully.');
       await refreshAreUpToDateStatus();
     },
-    onError: (e) => showError(e.message),
+    onError: (error) => showError(error.message),
   });
 
-  const updateAutomaticallyMutation = useMutation({
-    mutationFn: getUpdateAutomatically,
+  const updateAutomaticallyMutation = useUpdateAutomaticallyMutation({
     onSuccess: async () => {
       showSuccess('Automatic update successful.');
       await refreshAreUpToDateStatus();
     },
-    onError: (e) => showError(e.message),
+    onError: (error) => showError(error.message),
   });
 
   const submitFiles = async (files: File[]) => {

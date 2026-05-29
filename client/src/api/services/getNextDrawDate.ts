@@ -1,5 +1,8 @@
-import {API_ROUTES, euroMillionsFetch} from './client';
-import {IGetNextDrawDateResponse} from 'shared/types/ResponseTypes/IGetNextDrawDateResponse.ts';
+import {API_ROUTES, euroMillionsFetch} from '../clients';
+
+export interface IGetNextDrawDateResponse {
+  nextDrawDate: Date;
+}
 
 export const getNextDrawDate = async (): Promise<IGetNextDrawDateResponse | null> => {
   const httpResponse = await euroMillionsFetch(API_ROUTES.nextDrawDate, {
@@ -7,7 +10,7 @@ export const getNextDrawDate = async (): Promise<IGetNextDrawDateResponse | null
   });
 
   if (!httpResponse.ok) {
-    throw new Error(`GetAreUpToDate failed with status ${httpResponse.status}`);
+    throw new Error(`GetNextDrawDate failed with status ${httpResponse.status}`);
   }
 
   return (await httpResponse.json()) as IGetNextDrawDateResponse;

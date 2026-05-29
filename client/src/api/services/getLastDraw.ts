@@ -1,7 +1,6 @@
-import {IDraw} from 'shared/types';
-import {API_ROUTES, euroMillionsFetch} from './client';
+import {API_ROUTES, euroMillionsFetch} from '../clients';
 
-export const getLastDraw = async (): Promise<IDraw | null> => {
+export const getLastDraw = async <TDraw = unknown>(): Promise<TDraw | null> => {
   const httpResponse = await euroMillionsFetch(API_ROUTES.lastDraw, {
     method: 'GET',
   });
@@ -10,5 +9,5 @@ export const getLastDraw = async (): Promise<IDraw | null> => {
     throw new Error(`GetLastDraw failed with status ${httpResponse.status}`);
   }
 
-  return (await httpResponse.json()) as IDraw;
+  return (await httpResponse.json()) as TDraw;
 };

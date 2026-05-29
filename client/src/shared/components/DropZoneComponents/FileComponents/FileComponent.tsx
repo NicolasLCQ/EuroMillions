@@ -1,6 +1,6 @@
 import styles from './FileComponent.module.css';
-import {DeleteButtonGlyphIconComponent} from '../../ButtonComponents/DeleteButtonComponents';
-import {TextComponent} from '../../TextComponents/TextComponent';
+import {DeleteButtonGlyphIconComponent} from '../../ButtonComponents';
+import {TextComponent} from '../../TextComponents';
 
 export interface FileComponentProps {
   className?: string;
