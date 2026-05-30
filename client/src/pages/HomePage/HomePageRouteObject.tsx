@@ -1,5 +1,5 @@
 import {RouteObject} from 'react-router-dom';
-import {HomePage} from 'pages/HomePage';
+import HomePage from './HomePage';
 
 export const homeRouteObject: RouteObject = {
   path: '/home',

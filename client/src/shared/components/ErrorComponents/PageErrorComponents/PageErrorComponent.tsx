@@ -1,5 +1,5 @@
 import React from 'react';
-import {BannerComponent} from 'shared/components/BannerComponents';
+import {BannerComponent} from '../../BannerComponents';
 
 interface IPageErrorComponentProps extends React.PropsWithChildren {
   className?: string;

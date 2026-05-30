@@ -1,5 +1,5 @@
 import {RouteObject} from 'react-router-dom';
-import {DrawsPage} from 'pages/DrawsPage';
+import DrawsPage from './DrawsPage';
 
 export const drawsRouteObject: RouteObject = {
   path: '/draws',

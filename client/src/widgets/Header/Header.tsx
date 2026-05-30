@@ -1,7 +1,10 @@
 import styles from './Header.module.css';
-import packageJson from '../../../package.json';
 
-export default function Header() {
+export interface IHeaderProps {
+  version: string;
+}
+
+export default function Header(props: IHeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
@@ -11,7 +14,7 @@ export default function Header() {
           </div>
         </div>
         <div className={styles.headerComponent}>
-          <div className={styles.version}>v{packageJson.version}</div>
+          <div className={styles.version}>v{props.version}</div>
         </div>
       </div>
     </header>

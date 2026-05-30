@@ -2,12 +2,12 @@ import {NavLink} from 'react-router-dom';
 import styles from './NavBarElement.module.css';
 import React from 'react';
 
-export interface INavBarComponentProps {
+export interface INavBarElementProps {
   text: string;
   link: string;
 }
 
-const NavBarElement: React.FC<INavBarComponentProps> = (props: INavBarComponentProps) => {
+const NavBarElement: React.FC<INavBarElementProps> = (props: INavBarElementProps) => {
   if (!props.link.trim()) {
     return <span className={`${styles.navBarElement} ${styles.disabled}`}>{props.text}</span>;
   }

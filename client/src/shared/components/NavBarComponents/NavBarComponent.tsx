@@ -2,8 +2,13 @@ import styles from './NavBarComponent.module.css';
 import {NavBarElement} from './NavBarElements';
 import React from 'react';
 
-interface INavBarComponentProps {
-  textAndLinks?: {text: string; link: string}[];
+export interface INavBarComponentLink {
+  text: string;
+  link: string;
+}
+
+export interface INavBarComponentProps {
+  textAndLinks?: INavBarComponentLink[];
 }
 
 const NavBarComponent: React.FC<INavBarComponentProps> = (props: INavBarComponentProps) => {

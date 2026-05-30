@@ -33,6 +33,8 @@ Authorized React entry points must only use hooks from `api/hooks` to call exter
 
 - It contains the [ApplicationName]App.tsx. The entrypoint of the javascript/typescript application
 - It contains a `providers` directory in which are defined application's providers
+    - Provider-owned hooks that read provider contexts must stay in the corresponding `[ProviderName]Provider.tsx`
+      file and be exported through `app/providers`.
 - It contains a `router` directory containing the application's router and a `routes` directory containing the
   RootRouteObject.tsx defining base routes for the router
 - It contains a `styles` directory for global css
@@ -61,7 +63,7 @@ Contains generic reusable code for all the application
 - It contains `components` directory for each reusable component
     - If the application uses any external component or design system, every component must be wrap in 'components'
       before being used
-- It contains `hooks` for reusable hooks
+- It contains `hooks` for reusable hooks that do not depend on app providers
 - It contains `types`for reusable types/interfaces
 
 6. **widgets**:
@@ -143,9 +145,11 @@ app -> api/hooks
 app -> config
 app -> shared
 app -> widgets
+pages -> app/providers (provider hooks only)
 pages -> api/hooks
 pages -> shared
 pages -> widgets
+widgets -> app/providers (provider hooks only)
 widgets -> api/hooks
 widgets -> shared
 api/hooks -> api/services
@@ -158,19 +162,23 @@ Rules:
 1. **app** can import from `pages`, `shared`, `widgets`, `config`, and `api/hooks` only when wiring global concerns such
    as providers or routing. Providers can call hooks from `api/hooks` when they need external data to initialize or
    expose application-level state.
-2. **pages** can import from `widgets`, `shared`, and `api/hooks`. Pages should coordinate data and layout, but must not
-   store reusable UI logic that belongs in `widgets` or `shared`.
-3. **widgets** can import from `shared` and `api/hooks`. **widgets** must not import from `pages` or `app`.
-4. **shared** must not import from `pages`, `widgets`, `app`, or `api`. Shared code should stay generic and stable.
+2. **Provider hooks** that expose a provider context, for example `useNotification`, must be defined in the owning
+   `[ProviderName]Provider.tsx` file under `app/providers/[providerName]-provider` and exported by `app/providers`.
+   Do not put provider context hooks in `shared/hooks` or in a separate hook file.
+3. **pages** can import from `widgets`, `shared`, `api/hooks`, and provider hooks from `app/providers`. Pages should
+   coordinate data and layout, but must not store reusable UI logic that belongs in `widgets` or `shared`.
+4. **widgets** can import from `shared`, `api/hooks`, and provider hooks from `app/providers`. **widgets** must not
+   import from `pages` or other `app` modules.
+5. **shared** must not import from `pages`, `widgets`, `app`, or `api`. Shared code should stay generic and stable.
    Shared must also wrap any external components.
-5. **api/hooks** can import from `api/services`.
-6. **api/services** can import from `api/clients`.
-7. **api/clients** contains external communication setup and can import runtime configuration from `config`.
-8. **api** must not import from `app`, `pages`, `widgets`, or `shared`.
-9. **config** must not import from `app`, `pages`, `widgets`, `shared`, or `api`.
-10. Prefer public `index.ts` exports for cross-folder imports. Avoid deep imports into another module's private files
+6. **api/hooks** can import from `api/services`.
+7. **api/services** can import from `api/clients`.
+8. **api/clients** contains external communication setup and can import runtime configuration from `config`.
+9. **api** must not import from `app`, `pages`, `widgets`, or `shared`.
+10. **config** must not import from `app`, `pages`, `widgets`, `shared`, or `api`.
+11. Prefer public `index.ts` exports for cross-folder imports. Avoid deep imports into another module's private files
     unless the folder explicitly exposes that file as part of its contract.
-11. Keep circular dependencies out of the codebase. If two modules need each other, extract the shared contract into
+12. Keep circular dependencies out of the codebase. If two modules need each other, extract the shared contract into
     `shared`.
 
 ## Data Fetching Boundaries

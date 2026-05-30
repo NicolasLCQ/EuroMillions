@@ -1,4 +1,4 @@
-import {API_ROUTES, euroMillionsFetch} from './client';
+import {API_ROUTES, euroMillionsFetch} from '../clients';
 
 export const getUpdateAutomatically = async (): Promise<Response> => {
   const httpResponse = await euroMillionsFetch(API_ROUTES.updateAutomatically, {

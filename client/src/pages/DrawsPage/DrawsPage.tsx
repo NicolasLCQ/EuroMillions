@@ -1,16 +1,11 @@
-import {useQuery} from '@tanstack/react-query';
-import {getAllDraws} from 'api';
-import {API_ROUTES} from 'api/client';
-import {TextComponent} from 'shared/components';
-import {PageTitleComponent} from 'shared/components/TextComponents/PageTitleComponent';
+import {useAllDrawsQuery} from 'api/hooks';
+import {PageTitleComponent, TextComponent} from 'shared/components';
+import {IDraw} from 'shared/types';
 import {DrawsTable} from './DrawsTable';
 import styles from './DrawsPage.module.css';
 
 function DrawsPage() {
-  const {data, isLoading, isError} = useQuery({
-    queryKey: [API_ROUTES.allDraws],
-    queryFn: getAllDraws,
-  });
+  const {data, isLoading, isError} = useAllDrawsQuery<IDraw>();
 
   if (isLoading) return <TextComponent>Loading draws...</TextComponent>;
   if (isError) return <TextComponent>Error while loading draws.</TextComponent>;

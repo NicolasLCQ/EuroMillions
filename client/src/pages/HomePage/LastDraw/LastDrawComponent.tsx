@@ -1,8 +1,6 @@
-import {TitleComponent} from 'shared/components/TextComponents/TitleComponent';
-import {DrawComponent} from 'shared/components/DrawComponents';
+import {DrawComponent, TextComponent, TitleComponent} from 'shared/components';
 import {IDraw} from 'shared/types';
 import styles from './LastDrawComponent.module.css';
-import {TextComponent} from 'shared/components';
 import AdditionalGamesComponent from './AdditionalGamesComponent.tsx';
 import PrizeRanksTableComponent from './PrizeRanksTableComponent.tsx';
 
@@ -15,7 +13,7 @@ const formatDrawDate = (drawDate: string) =>
   }).format(new Date(drawDate));
 
 export interface LastDrawComponentProps {
-  Draw: IDraw;
+  Draw: IDraw | null | undefined;
   className?: string;
 }
 

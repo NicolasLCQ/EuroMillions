@@ -1,14 +1,19 @@
 import {Outlet} from 'react-router-dom';
-import {Header} from 'widgets/Header';
-import {NavBar} from 'widgets/NavBar';
+import {Header, NavBar} from 'widgets';
+import type {INavBarComponentLink} from 'shared/components';
 import styles from './RootPage.module.css';
 
-export default function RootPage() {
+export interface IRootPageProps {
+  applicationVersion: string;
+  navigationLinks: INavBarComponentLink[];
+}
+
+export default function RootPage(props: IRootPageProps) {
   return (
     <div className={styles.rootPage}>
-      <Header />
+      <Header version={props.applicationVersion} />
       <div className={styles.pageBody}>
-        <NavBar />
+        <NavBar textAndLinks={props.navigationLinks} />
         <main className={styles.content}>
           <Outlet />
         </main>
