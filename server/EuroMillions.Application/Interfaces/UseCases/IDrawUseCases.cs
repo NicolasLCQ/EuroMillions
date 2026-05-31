@@ -13,4 +13,8 @@ public interface IDrawUseCases
     Task<bool> AreUpToDateAsync();
     Task<UploadResultModel> UpdateAutomaticallyAsync();
     Task<List<DrawSummaryModel>> GetAllAsync();
+    Task<int> GetBallNbTimePickedAsync(int ballNumber);
+    Task<int> GetStarNbTimePickedAsync(int starNumber);
+    Task<Dictionary<int, int>> GetAllBallsNbTimePickedAsync();
+    Task<Dictionary<int, int>> GetAllStarsNbTimePickedAsync();
 }

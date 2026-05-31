@@ -1,6 +1,7 @@
 using EuroMillions.API.Handlers;
 using EuroMillions.API.Resources;
 using EuroMillions.API.Routes;
+using EuroMillions.API.Validators;
 using EuroMillions.Application.Interfaces.Infrastructure.Adapters;
 using EuroMillions.Application.Interfaces.Infrastructure.Repositories;
 using EuroMillions.Application.Interfaces.Infrastructure.Webservices;
@@ -58,6 +59,9 @@ public class Program
         builder.Services.AddHttpClient<IHttpWebService, HttpWebService>();
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();
+        builder.Services.AddTransient<StatisticsResources>();
+        builder.Services.AddTransient<IBallValidator, BallValidator>();
+        builder.Services.AddTransient<IStarValidator, StarValidator>();
 
         WebApplication app = builder.Build();
         app.UseExceptionHandler(_ => {});
@@ -72,6 +76,7 @@ public class Program
 
         //Routes
         app.UseDrawRoutes();
+        app.UseStatisticsRoutes();
 
         app.UseHttpsRedirection();
         app.Run();
