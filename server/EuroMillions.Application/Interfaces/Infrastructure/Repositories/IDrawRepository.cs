@@ -6,5 +6,7 @@ public interface IDrawRepository
 {
     Task<List<DrawSummaryModel>> GetAllDrawsAsync();
     Task<DrawSummaryModel?> GetLastDrawAsync();
+    Task<Dictionary<int, int>> GetAllBallsNbTimePickedAsync();
+    Task<Dictionary<int, int>> GetAllStarsNbTimePickedAsync();
     Task AddDrawsAsync(List<Draw> draws);
 }
