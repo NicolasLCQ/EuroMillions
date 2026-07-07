@@ -18,22 +18,10 @@ public static class StatisticsRoutes
             await statisticsResources.GetAllBallsNbTimePickedAsync()
         );
 
-        numbersStatisticsGroup.MapGet(
-            "/{ballNumber:int}/NbTimePicked",
-            async ([FromServices] StatisticsResources statisticsResources, [FromRoute] int ballNumber) =>
-            await statisticsResources.GetBallNbTimePickedAsync(ballNumber)
-        );
-
         starsStatisticsGroup.MapGet(
             "/NbTimePicked",
             async ([FromServices] StatisticsResources statisticsResources) =>
             await statisticsResources.GetAllStarsNbTimePickedAsync()
-        );
-
-        starsStatisticsGroup.MapGet(
-            "/{starNumber:int}/NbTimePicked",
-            async ([FromServices] StatisticsResources statisticsResources, [FromRoute] int starNumber) =>
-            await statisticsResources.GetStarNbTimePickedAsync(starNumber)
         );
     }
 }

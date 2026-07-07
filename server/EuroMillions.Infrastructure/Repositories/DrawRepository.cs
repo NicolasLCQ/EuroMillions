@@ -26,25 +26,6 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task<int> GetBallNbTimePickedAsync(int ballNumber) =>
-        await dbContext.T_DRAWs
-            .AsNoTracking()
-            .CountAsync(draw =>
-                (draw.BALL_ONE == ballNumber)
-                || (draw.BALL_TWO == ballNumber)
-                || (draw.BALL_THREE == ballNumber)
-                || (draw.BALL_FOUR == ballNumber)
-                || (draw.BALL_FIVE == ballNumber)
-            );
-
-    public async Task<int> GetStarNbTimePickedAsync(int starNumber) =>
-        await dbContext.T_DRAWs
-            .AsNoTracking()
-            .CountAsync(draw =>
-                (draw.STAR_ONE == starNumber)
-                || (draw.STAR_TWO == starNumber)
-            );
-
     public async Task<Dictionary<int, int>> GetAllBallsNbTimePickedAsync()
     {
         var draws = await dbContext.T_DRAWs
