@@ -4,10 +4,6 @@ namespace EuroMillions.Application.Mappers;
 
 public static class StarStatisticsMapper
 {
-    public static StarStatisticsModel ToStarStatisticsModel(this KeyValuePair<Star, int> entry) =>
-        new StarStatisticsModel
-        {
-            Star = entry.Key,
-            NbTimesDraw = entry.Value
-        };
+    public static DrawItemStatisticsModel<Star> ToStarStatisticsModel(this KeyValuePair<Star, int> entry) =>
+        entry.ToDrawItemStatisticsModel();
 }
