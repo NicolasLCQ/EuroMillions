@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Models;
 
-public class Star
+public record Star
 {
     private readonly int _value;
 

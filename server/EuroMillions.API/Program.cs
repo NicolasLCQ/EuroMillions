@@ -62,6 +62,7 @@ public class Program
         );
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();
+        builder.Services.AddTransient<StatisticsResources>();
 
         WebApplication app = builder.Build();
         app.UseExceptionHandler(_ => {});
