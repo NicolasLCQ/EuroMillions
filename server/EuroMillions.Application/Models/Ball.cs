@@ -1,6 +1,6 @@
 namespace EuroMillions.Application.Models;
 
-public class Ball
+public record Ball
 {
     private readonly int _value;
 

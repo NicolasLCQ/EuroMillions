@@ -7,10 +7,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EuroMillions.Infrastructure.Repositories;
 
-using static T_DrawMapper;
-
 public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
+    public async Task<List<MinimalDrawModel>> GetMinimalDrawsAsync() => await dbContext.T_DRAWs
+        .AsNoTracking()
+        .Select(T_DrawMapper.ToMinimalDrawModelExpression())
+        .ToListAsync();
+
     public async Task<List<DrawSummaryModel>> GetAllDrawsAsync() => (await dbContext.T_DRAWs
             .Include(draw => draw.T_DRAW_INFORMATION)
             .Include(draw => draw.T_DRAW_ADDITIONAL_GAME)
