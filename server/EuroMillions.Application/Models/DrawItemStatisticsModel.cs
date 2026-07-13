@@ -1,7 +1,7 @@
 namespace EuroMillions.Application.Models;
 
-public abstract class DrawItemStatisticsModel
+public class DrawItemStatisticsModel<TDrawItem>
 {
-    public abstract int GetDrawItem();
+    public required TDrawItem DrawItem { get; set; }
     public int NbTimesDraw { get; set; }
 }

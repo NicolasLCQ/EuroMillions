@@ -2,6 +2,6 @@ namespace EuroMillions.Application.Models;
 
 public class DrawItemsStatisticsModel
 {
-    public List<StarStatisticsModel> Stars { get; set; } = [];
-    public List<BallStatisticsModel> Balls { get; set; } = [];
+    public List<DrawItemStatisticsModel<Star>> Stars { get; set; } = [];
+    public List<DrawItemStatisticsModel<Ball>> Balls { get; set; } = [];
 }
