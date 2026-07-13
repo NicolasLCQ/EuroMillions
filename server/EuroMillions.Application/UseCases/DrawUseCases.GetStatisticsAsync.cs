@@ -21,11 +21,11 @@ public partial class DrawUseCases
         {
             Balls = ballCounts
                 .OrderBy(entry => (int)entry.Key)
-                .Select(entry => entry.ToBallStatisticsModel())
+                .Select(entry => entry.ToDrawItemStatisticsModel())
                 .ToList(),
             Stars = starCounts
                 .OrderBy(entry => (int)entry.Key)
-                .Select(entry => entry.ToStarStatisticsModel())
+                .Select(entry => entry.ToDrawItemStatisticsModel())
                 .ToList()
         };
     }
