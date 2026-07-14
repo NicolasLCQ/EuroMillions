@@ -1,14 +1,9 @@
 namespace EuroMillions.Application.Models;
 
-public record Ball
+public record Ball : DrawItemAbstraction
 {
-    private readonly int _value;
-
-    private Ball(int ball) => _value = ball;
-
-    public override string ToString() => _value.ToString();
-
-    public static implicit operator int(Ball ball) => ball._value;
+    private Ball(int ball)
+        : base(ball) {}
 
     public static implicit operator Ball(int ball)
     {
@@ -16,6 +11,7 @@ public record Ball
         {
             throw new ArgumentException("The ball must be between 0 and 50.");
         }
+
         return new Ball(ball);
     }
 }
