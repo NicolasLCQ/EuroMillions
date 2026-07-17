@@ -14,7 +14,8 @@ public partial class DrawUseCases
         IEnumerable<string> absoluteLinks
             = HtmlHelper.ConvertHrefsToAbsolutLinks(hrefs, new Uri(FdjConsts.HistoryPageUrl));
 
-        List<string> historyFileLinks = FdjScraperHelper.FilterHistoryFileDownloadLinksFromLinks(absoluteLinks).ToList();
+        List<string> historyFileLinks = FdjScraperHelper.FilterHistoryFileDownloadLinksFromLinks(absoluteLinks)
+            .DeduplicateLinks();
 
         string tempFolder = Path.GetTempPath();
         string workingDirectory = Path.Combine(tempFolder, $"EuroMillions{Guid.NewGuid()}");
