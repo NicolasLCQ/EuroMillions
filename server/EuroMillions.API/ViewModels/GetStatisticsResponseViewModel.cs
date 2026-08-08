@@ -2,6 +2,6 @@ namespace EuroMillions.API.ViewModels;
 
 public class GetStatisticsResponseViewModel
 {
-    public List<StatisticViewModel> Stars { get; set; } = [];
-    public List<StatisticViewModel> Balls { get; set; } = [];
+    public List<StarStatisticsViewModel> Stars { get; set; } = [];
+    public List<BallStatisticsViewModel> Balls { get; set; } = [];
 }
