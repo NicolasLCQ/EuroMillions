@@ -2,9 +2,9 @@ namespace EuroMillions.Application.Models;
 
 public class DrawInformation
 {
-    public int YearDrawNumber { get; set; }
-    public DateTime DrawDate { get; set; }
+    public required int YearDrawNumber { get; set; }
+    public required DateTime DrawDate { get; set; }
     public required string DrawDay { get; set; }
-    public DateTime ForclusionDate { get; set; }
-    public int DrawNumberInCycle { get; set; }
+    public required DateTime ForclusionDate { get; set; }
+    public required int DrawNumberInCycle { get; set; }
 }

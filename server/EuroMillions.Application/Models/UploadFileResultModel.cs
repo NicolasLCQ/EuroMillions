@@ -3,6 +3,6 @@
 public class UploadFileResultModel
 {
     public required string FileName { get; set; }
-    public List<Draw> AcceptedDraws { get; set; } = [];
-    public List<RejectedDraw> RejectedDraws { get; set; } = [];
+    public required List<Draw> AcceptedDraws { get; set; }
+    public required List<RejectedDraw> RejectedDraws { get; set; }
 }
