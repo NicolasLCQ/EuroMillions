@@ -11,6 +11,8 @@ public class DrawRepository(EuroMillionsDbContext dbContext) : IDrawRepository
 {
     public async Task<List<MinimalDrawModel>> GetMinimalDrawsAsync() => await dbContext.T_DRAWs
         .AsNoTracking()
+        .OrderByDescending(draw => draw.T_DRAW_INFORMATION!.DRAW_DATE)
+        .ThenByDescending(draw => draw.ID)
         .Select(T_DrawMapper.ToMinimalDrawModelExpression())
         .ToListAsync();
 

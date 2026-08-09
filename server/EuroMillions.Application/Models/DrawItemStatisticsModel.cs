@@ -5,4 +5,5 @@ public class DrawItemStatisticsModel<TDrawItem>
 {
     public required TDrawItem DrawItem { get; set; }
     public int NbTimesDraw { get; set; }
+    public int NbDrawsSinceLastOccurrence { get; set; }
 }

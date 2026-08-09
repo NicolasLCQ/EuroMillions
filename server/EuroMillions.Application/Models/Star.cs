@@ -7,9 +7,9 @@ public record Star : DrawItemAbstraction
 
     public static implicit operator Star(int star)
     {
-        if ((star < 0) || (star > 12))
+        if ((star < 1) || (star > 12))
         {
-            throw new ArgumentException("Le nombre doit être compris entre 0 et 12.");
+            throw new ArgumentException("Le nombre doit être compris entre 1 et 12.");
         }
 
         return new Star(star);
