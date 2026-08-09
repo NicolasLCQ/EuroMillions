@@ -2,5 +2,5 @@ namespace EuroMillions.API.ViewModels;
 
 public class UploadResponseViewModel
 {
-    public List<UploadFileResponseViewModel> FileResults { get; set; } = [];
+    public required List<UploadFileResponseViewModel> FileResults { get; set; }
 }
