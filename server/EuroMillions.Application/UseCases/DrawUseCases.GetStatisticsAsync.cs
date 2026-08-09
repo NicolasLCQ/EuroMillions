@@ -10,6 +10,7 @@ public partial class DrawUseCases
     {
         List<MinimalDrawModel> draws = await drawRepository.GetMinimalDrawsAsync();
         (BallDictionary ballCounts, StarDictionary starCounts) = draws.CalculateNbTimesDraw();
+
         (BallDictionary ballNbDrawsSinceLastOccurrence, StarDictionary starNbDrawsSinceLastOccurrence)
             = draws.CalculateNbDrawsSinceLastOccurrence();
 
@@ -17,11 +18,11 @@ public partial class DrawUseCases
         {
             Balls = ballCounts
                 .OrderBy(entry => (int)entry.Key)
-                .Select(entry => entry.ToDrawItemStatisticsModel(ballNbDrawsSinceLastOccurrence[entry.Key]))
+                .Select(entry => entry.ToBallStatisticsModel(ballNbDrawsSinceLastOccurrence[entry.Key]))
                 .ToList(),
             Stars = starCounts
                 .OrderBy(entry => (int)entry.Key)
-                .Select(entry => entry.ToDrawItemStatisticsModel(starNbDrawsSinceLastOccurrence[entry.Key]))
+                .Select(entry => entry.ToStarStatisticsModel(starNbDrawsSinceLastOccurrence[entry.Key]))
                 .ToList()
         };
     }

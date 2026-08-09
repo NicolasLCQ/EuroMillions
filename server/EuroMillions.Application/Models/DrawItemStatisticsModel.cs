@@ -1,9 +1,7 @@
 namespace EuroMillions.Application.Models;
 
-public class DrawItemStatisticsModel<TDrawItem>
-    where TDrawItem : DrawItemAbstraction
+public class DrawItemStatisticsModel
 {
-    public required TDrawItem DrawItem { get; set; }
-    public int NbTimesDraw { get; set; }
-    public int NbDrawsSinceLastOccurrence { get; set; }
+    public required int NbTimesDraw { get; set; }
+    public required int NbDrawsSinceLastOccurrence { get; set; }
 }

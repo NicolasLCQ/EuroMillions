@@ -4,14 +4,21 @@ namespace EuroMillions.Application.Mappers;
 
 public static class DrawItemStatisticsMapper
 {
-    public static DrawItemStatisticsModel<TDrawItem> ToDrawItemStatisticsModel<TDrawItem>(
-        this KeyValuePair<TDrawItem, int> entry,
-        int nbDrawsSinceLastOccurrence)
-        where TDrawItem : DrawItemAbstraction =>
-        new DrawItemStatisticsModel<TDrawItem>
-        {
-            DrawItem = entry.Key,
-            NbTimesDraw = entry.Value,
-            NbDrawsSinceLastOccurrence = nbDrawsSinceLastOccurrence
-        };
+    public static BallStatisticsModel ToBallStatisticsModel(this KeyValuePair<Ball, int> entry, int nbDrawsSinceLastOccurrence)
+        =>
+            new BallStatisticsModel
+            {
+                Ball = entry.Key,
+                NbTimesDraw = entry.Value,
+                NbDrawsSinceLastOccurrence = nbDrawsSinceLastOccurrence
+            };
+
+    public static StarStatisticsModel ToStarStatisticsModel(this KeyValuePair<Star, int> entry, int nbDrawsSinceLastOccurrence)
+        =>
+            new StarStatisticsModel
+            {
+                Star = entry.Key,
+                NbTimesDraw = entry.Value,
+                NbDrawsSinceLastOccurrence = nbDrawsSinceLastOccurrence
+            };
 }
