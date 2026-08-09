@@ -5,18 +5,18 @@ namespace EuroMillions.API.Mappers;
 
 public static class StatisticViewModelMappers
 {
-    public static BallStatisticsViewModel ToStatisticsResponseViewModel(this DrawItemStatisticsModel<Ball> statistics)
+    public static BallStatisticsViewModel ToStatisticsResponseViewModel(this BallStatisticsModel statistics)
         => new BallStatisticsViewModel
         {
-            Ball = statistics.DrawItem,
+            Ball = statistics.Ball,
             NbTimesDraw = statistics.NbTimesDraw,
             NbDrawsSinceLastOccurrence = statistics.NbDrawsSinceLastOccurrence
         };
 
-    public static StarStatisticsViewModel ToStatisticsResponseViewModel(this DrawItemStatisticsModel<Star> statistics)
+    public static StarStatisticsViewModel ToStatisticsResponseViewModel(this StarStatisticsModel statistics)
         => new StarStatisticsViewModel
         {
-            Star = statistics.DrawItem,
+            Star = statistics.Star,
             NbTimesDraw = statistics.NbTimesDraw,
             NbDrawsSinceLastOccurrence = statistics.NbDrawsSinceLastOccurrence
         };
