@@ -1,5 +1,4 @@
 using EuroMillions.Application.Extensions;
-using EuroMillions.Application.Mappers;
 using EuroMillions.Application.Models;
 
 namespace EuroMillions.Application.UseCases;
@@ -16,13 +15,23 @@ public partial class DrawUseCases
 
         return new DrawItemsStatisticsModel
         {
-            Balls = ballCounts
-                .OrderBy(entry => (int)entry.Key)
-                .Select(entry => entry.ToBallStatisticsModel(ballNbDrawsSinceLastOccurrence[entry.Key]))
+            Stars = Enumerable.Range(1, 12)
+                .Select(s => new StarStatisticsModel
+                    {
+                        Star = s,
+                        NbTimesDraw = starCounts[s],
+                        NbDrawsSinceLastOccurrence = starNbDrawsSinceLastOccurrence[s]
+                    }
+                )
                 .ToList(),
-            Stars = starCounts
-                .OrderBy(entry => (int)entry.Key)
-                .Select(entry => entry.ToStarStatisticsModel(starNbDrawsSinceLastOccurrence[entry.Key]))
+            Balls = Enumerable.Range(1, 50)
+                .Select(b => new BallStatisticsModel
+                    {
+                        Ball = b,
+                        NbTimesDraw = ballCounts[b],
+                        NbDrawsSinceLastOccurrence = ballNbDrawsSinceLastOccurrence[b]
+                    }
+                )
                 .ToList()
         };
     }
