@@ -15,7 +15,7 @@ public partial class DrawUseCases
 
         return new DrawItemsStatisticsModel
         {
-            Stars = Enumerable.Range(1, 12)
+            Stars = Enumerable.Range(Star.MinValue, Star.ValueCount)
                 .Select(s => new StarStatisticsModel
                     {
                         Star = s,
@@ -24,7 +24,7 @@ public partial class DrawUseCases
                     }
                 )
                 .ToList(),
-            Balls = Enumerable.Range(1, 50)
+            Balls = Enumerable.Range(Ball.MinValue, Ball.ValueCount)
                 .Select(b => new BallStatisticsModel
                     {
                         Ball = b,
