@@ -8,10 +8,13 @@ public partial class DrawUseCases
     public async Task<DrawItemsStatisticsModel> GetStatisticsAsync()
     {
         List<MinimalDrawModel> draws = await drawRepository.GetMinimalDrawsAsync();
-        (BallDictionary ballCounts, StarDictionary starCounts) = draws.CalculateNbTimesDraw();
+        (BallDictionary<int> ballCounts, StarDictionary<int> starCounts) = draws.CalculateNbTimesDraw();
 
-        (BallDictionary ballNbDrawsSinceLastOccurrence, StarDictionary starNbDrawsSinceLastOccurrence)
+        (BallDictionary<int> ballNbDrawsSinceLastOccurrence, StarDictionary<int> starNbDrawsSinceLastOccurrence)
             = draws.CalculateNbDrawsSinceLastOccurrence();
+        (BallDictionary<double> ballAverageNbDrawsBetweenOccurrences,
+                StarDictionary<double> starAverageNbDrawsBetweenOccurrences)
+            = draws.CalculateAverageNbDrawsBetweenOccurrences();
 
         return new DrawItemsStatisticsModel
         {
@@ -20,7 +23,8 @@ public partial class DrawUseCases
                     {
                         Star = s,
                         NbTimesDraw = starCounts[s],
-                        NbDrawsSinceLastOccurrence = starNbDrawsSinceLastOccurrence[s]
+                        NbDrawsSinceLastOccurrence = starNbDrawsSinceLastOccurrence[s],
+                        AverageNbDrawsBetweenOccurrences = starAverageNbDrawsBetweenOccurrences[s]
                     }
                 )
                 .ToList(),
@@ -29,7 +33,8 @@ public partial class DrawUseCases
                     {
                         Ball = b,
                         NbTimesDraw = ballCounts[b],
-                        NbDrawsSinceLastOccurrence = ballNbDrawsSinceLastOccurrence[b]
+                        NbDrawsSinceLastOccurrence = ballNbDrawsSinceLastOccurrence[b],
+                        AverageNbDrawsBetweenOccurrences = ballAverageNbDrawsBetweenOccurrences[b]
                     }
                 )
                 .ToList()

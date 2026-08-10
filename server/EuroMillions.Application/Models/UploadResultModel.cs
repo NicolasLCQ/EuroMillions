@@ -2,5 +2,5 @@
 
 public class UploadResultModel
 {
-    public List<UploadFileResultModel> FileResults { get; set; }
+    public required List<UploadFileResultModel> FileResults { get; set; }
 }
