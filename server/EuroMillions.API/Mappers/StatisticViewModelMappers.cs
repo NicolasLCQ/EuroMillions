@@ -10,7 +10,8 @@ public static class StatisticViewModelMappers
         {
             Ball = statistics.Ball,
             NbTimesDraw = statistics.NbTimesDraw,
-            NbDrawsSinceLastOccurrence = statistics.NbDrawsSinceLastOccurrence
+            NbDrawsSinceLastOccurrence = statistics.NbDrawsSinceLastOccurrence,
+            AverageNbDrawsBetweenOccurrences = statistics.AverageNbDrawsBetweenOccurrences
         };
 
     public static StarStatisticsViewModel ToStatisticsResponseViewModel(this StarStatisticsModel statistics)
@@ -18,7 +19,8 @@ public static class StatisticViewModelMappers
         {
             Star = statistics.Star,
             NbTimesDraw = statistics.NbTimesDraw,
-            NbDrawsSinceLastOccurrence = statistics.NbDrawsSinceLastOccurrence
+            NbDrawsSinceLastOccurrence = statistics.NbDrawsSinceLastOccurrence,
+            AverageNbDrawsBetweenOccurrences = statistics.AverageNbDrawsBetweenOccurrences
         };
 
     public static GetStatisticsResponseViewModel ToStatisticsResponseViewModel(this DrawItemsStatisticsModel statistics)

@@ -6,10 +6,10 @@ public static class MinimalDrawModelExtensions
 {
     extension(IEnumerable<MinimalDrawModel> draws)
     {
-        public (BallDictionary Balls, StarDictionary Stars) CalculateNbTimesDraw()
+        public (BallDictionary<int> Balls, StarDictionary<int> Stars) CalculateNbTimesDraw()
         {
-            BallDictionary ballDictionary = new BallDictionary();
-            StarDictionary starDictionary = new StarDictionary();
+            BallDictionary<int> ballDictionary = new BallDictionary<int>(_ => 0);
+            StarDictionary<int> starDictionary = new StarDictionary<int>(_ => 0);
 
             foreach (MinimalDrawModel draw in draws)
             {
@@ -20,10 +20,10 @@ public static class MinimalDrawModelExtensions
             return (ballDictionary, starDictionary);
         }
 
-        public (BallDictionary Balls, StarDictionary Stars) CalculateNbDrawsSinceLastOccurrence()
+        public (BallDictionary<int> Balls, StarDictionary<int> Stars) CalculateNbDrawsSinceLastOccurrence()
         {
-            BallDictionary ballDictionary = new BallDictionary();
-            StarDictionary starDictionary = new StarDictionary();
+            BallDictionary<int> ballDictionary = new BallDictionary<int>(_ => 0);
+            StarDictionary<int> starDictionary = new StarDictionary<int>(_ => 0);
             HashSet<Ball> ballsWithoutOccurrence = ballDictionary.Keys.ToHashSet();
             HashSet<Star> starsWithoutOccurrence = starDictionary.Keys.ToHashSet();
 
@@ -45,6 +45,36 @@ public static class MinimalDrawModelExtensions
             }
 
             return (ballDictionary, starDictionary);
+        }
+
+        public (BallDictionary<double> Balls, StarDictionary<double> Stars)
+            CalculateAverageNbDrawsBetweenOccurrences()
+        {
+            BallDictionary<OccurrenceIndexes> ballOccurrenceIndexes = new BallDictionary<OccurrenceIndexes>(_ => []);
+            StarDictionary<OccurrenceIndexes> starOccurrenceIndexes = new StarDictionary<OccurrenceIndexes>(_ => []);
+
+            int drawIndex = 0;
+
+            foreach (MinimalDrawModel draw in draws.Reverse())
+            {
+                ballOccurrenceIndexes.AddOccurrenceIndexes(
+                    [draw.Ball1, draw.Ball2, draw.Ball3, draw.Ball4, draw.Ball5],
+                    drawIndex
+                );
+
+                starOccurrenceIndexes.AddOccurrenceIndexes([draw.Star1, draw.Star2], drawIndex);
+                drawIndex++;
+            }
+
+            BallDictionary<double> ballAverages
+                = new BallDictionary<double>(ball => ballOccurrenceIndexes[ball].CalculateAverageNbDrawsBetweenOccurrences()
+                );
+
+            StarDictionary<double> starAverages
+                = new StarDictionary<double>(star => starOccurrenceIndexes[star].CalculateAverageNbDrawsBetweenOccurrences()
+                );
+
+            return (ballAverages, starAverages);
         }
     }
 }
