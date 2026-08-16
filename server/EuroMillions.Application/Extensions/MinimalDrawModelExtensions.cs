@@ -76,5 +76,69 @@ public static class MinimalDrawModelExtensions
 
             return (ballAverages, starAverages);
         }
+
+        public (BallDictionary<int> Balls, StarDictionary<int> Stars)
+            CalculateMinimumNbDrawsBetweenOccurrences()
+        {
+            BallDictionary<OccurrenceIndexes> ballOccurrenceIndexes = new BallDictionary<OccurrenceIndexes>(_ => []);
+            StarDictionary<OccurrenceIndexes> starOccurrenceIndexes = new StarDictionary<OccurrenceIndexes>(_ => []);
+
+            int drawIndex = 0;
+
+            foreach (MinimalDrawModel draw in draws.Reverse())
+            {
+                ballOccurrenceIndexes.AddOccurrenceIndexes(
+                    [draw.Ball1, draw.Ball2, draw.Ball3, draw.Ball4, draw.Ball5],
+                    drawIndex
+                );
+
+                starOccurrenceIndexes.AddOccurrenceIndexes([draw.Star1, draw.Star2], drawIndex);
+                drawIndex++;
+            }
+
+            BallDictionary<int> ballMinimums
+                = new BallDictionary<int>(ball =>
+                    ballOccurrenceIndexes[ball].CalculateMinimumNbDrawsBetweenOccurrences()
+                );
+
+            StarDictionary<int> starMinimums
+                = new StarDictionary<int>(star =>
+                    starOccurrenceIndexes[star].CalculateMinimumNbDrawsBetweenOccurrences()
+                );
+
+            return (ballMinimums, starMinimums);
+        }
+
+        public (BallDictionary<int> Balls, StarDictionary<int> Stars)
+            CalculateMaximumNbDrawsBetweenOccurrences()
+        {
+            BallDictionary<OccurrenceIndexes> ballOccurrenceIndexes = new BallDictionary<OccurrenceIndexes>(_ => []);
+            StarDictionary<OccurrenceIndexes> starOccurrenceIndexes = new StarDictionary<OccurrenceIndexes>(_ => []);
+
+            int drawIndex = 0;
+
+            foreach (MinimalDrawModel draw in draws.Reverse())
+            {
+                ballOccurrenceIndexes.AddOccurrenceIndexes(
+                    [draw.Ball1, draw.Ball2, draw.Ball3, draw.Ball4, draw.Ball5],
+                    drawIndex
+                );
+
+                starOccurrenceIndexes.AddOccurrenceIndexes([draw.Star1, draw.Star2], drawIndex);
+                drawIndex++;
+            }
+
+            BallDictionary<int> ballMaximums
+                = new BallDictionary<int>(ball =>
+                    ballOccurrenceIndexes[ball].CalculateMaximumNbDrawsBetweenOccurrences()
+                );
+
+            StarDictionary<int> starMaximums
+                = new StarDictionary<int>(star =>
+                    starOccurrenceIndexes[star].CalculateMaximumNbDrawsBetweenOccurrences()
+                );
+
+            return (ballMaximums, starMaximums);
+        }
     }
 }

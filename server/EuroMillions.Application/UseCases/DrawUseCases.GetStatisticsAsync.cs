@@ -15,6 +15,12 @@ public partial class DrawUseCases
         (BallDictionary<double> ballAverageNbDrawsBetweenOccurrences,
                 StarDictionary<double> starAverageNbDrawsBetweenOccurrences)
             = draws.CalculateAverageNbDrawsBetweenOccurrences();
+        (BallDictionary<int> ballMinimumNbDrawsBetweenOccurrences,
+                StarDictionary<int> starMinimumNbDrawsBetweenOccurrences)
+            = draws.CalculateMinimumNbDrawsBetweenOccurrences();
+        (BallDictionary<int> ballMaximumNbDrawsBetweenOccurrences,
+                StarDictionary<int> starMaximumNbDrawsBetweenOccurrences)
+            = draws.CalculateMaximumNbDrawsBetweenOccurrences();
 
         return new DrawItemsStatisticsModel
         {
@@ -24,7 +30,9 @@ public partial class DrawUseCases
                         Star = s,
                         NbTimesDraw = starCounts[s],
                         NbDrawsSinceLastOccurrence = starNbDrawsSinceLastOccurrence[s],
-                        AverageNbDrawsBetweenOccurrences = starAverageNbDrawsBetweenOccurrences[s]
+                        AverageNbDrawsBetweenOccurrences = starAverageNbDrawsBetweenOccurrences[s],
+                        MinimumNbDrawsBetweenOccurrences = starMinimumNbDrawsBetweenOccurrences[s],
+                        MaximumNbDrawsBetweenOccurrences = starMaximumNbDrawsBetweenOccurrences[s]
                     }
                 )
                 .ToList(),
@@ -34,7 +42,9 @@ public partial class DrawUseCases
                         Ball = b,
                         NbTimesDraw = ballCounts[b],
                         NbDrawsSinceLastOccurrence = ballNbDrawsSinceLastOccurrence[b],
-                        AverageNbDrawsBetweenOccurrences = ballAverageNbDrawsBetweenOccurrences[b]
+                        AverageNbDrawsBetweenOccurrences = ballAverageNbDrawsBetweenOccurrences[b],
+                        MinimumNbDrawsBetweenOccurrences = ballMinimumNbDrawsBetweenOccurrences[b],
+                        MaximumNbDrawsBetweenOccurrences = ballMaximumNbDrawsBetweenOccurrences[b]
                     }
                 )
                 .ToList()

@@ -22,5 +22,29 @@ internal static class OccurrenceIndexesExtensions
                 .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
                 .Average();
         }
+
+        public int CalculateMinimumNbDrawsBetweenOccurrences()
+        {
+            if (indexes.Count < 2)
+            {
+                return 0;
+            }
+
+            return indexes
+                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
+                .Min();
+        }
+
+        public int CalculateMaximumNbDrawsBetweenOccurrences()
+        {
+            if (indexes.Count < 2)
+            {
+                return 0;
+            }
+
+            return indexes
+                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
+                .Max();
+        }
     }
 }
