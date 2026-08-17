@@ -7,4 +7,5 @@ public class DrawItemStatisticsModel
     public required double AverageNbDrawsBetweenOccurrences { get; set; }
     public required int MinimumNbDrawsBetweenOccurrences { get; set; }
     public required int MaximumNbDrawsBetweenOccurrences { get; set; }
+    public required double VarianceNbDrawsBetweenOccurrences { get; set; }
 }
