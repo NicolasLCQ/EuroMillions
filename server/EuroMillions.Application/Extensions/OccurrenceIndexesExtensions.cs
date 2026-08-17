@@ -46,5 +46,21 @@ internal static class OccurrenceIndexesExtensions
                 .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
                 .Max();
         }
+
+        public double CalculateVarianceNbDrawsBetweenOccurrences()
+        {
+            if (indexes.Count < 2)
+            {
+                return 0;
+            }
+
+            int[] gaps = indexes
+                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
+                .ToArray();
+
+            double average = gaps.Average();
+
+            return gaps.Average(gap => Math.Pow(gap - average, 2));
+        }
     }
 }

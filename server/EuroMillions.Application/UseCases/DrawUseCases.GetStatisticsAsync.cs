@@ -21,6 +21,9 @@ public partial class DrawUseCases
         (BallDictionary<int> ballMaximumNbDrawsBetweenOccurrences,
                 StarDictionary<int> starMaximumNbDrawsBetweenOccurrences)
             = draws.CalculateMaximumNbDrawsBetweenOccurrences();
+        (BallDictionary<double> ballVarianceNbDrawsBetweenOccurrences,
+                StarDictionary<double> starVarianceNbDrawsBetweenOccurrences)
+            = draws.CalculateVarianceNbDrawsBetweenOccurrences();
 
         return new DrawItemsStatisticsModel
         {
@@ -32,7 +35,8 @@ public partial class DrawUseCases
                         NbDrawsSinceLastOccurrence = starNbDrawsSinceLastOccurrence[s],
                         AverageNbDrawsBetweenOccurrences = starAverageNbDrawsBetweenOccurrences[s],
                         MinimumNbDrawsBetweenOccurrences = starMinimumNbDrawsBetweenOccurrences[s],
-                        MaximumNbDrawsBetweenOccurrences = starMaximumNbDrawsBetweenOccurrences[s]
+                        MaximumNbDrawsBetweenOccurrences = starMaximumNbDrawsBetweenOccurrences[s],
+                        VarianceNbDrawsBetweenOccurrences = starVarianceNbDrawsBetweenOccurrences[s]
                     }
                 )
                 .ToList(),
@@ -44,7 +48,8 @@ public partial class DrawUseCases
                         NbDrawsSinceLastOccurrence = ballNbDrawsSinceLastOccurrence[b],
                         AverageNbDrawsBetweenOccurrences = ballAverageNbDrawsBetweenOccurrences[b],
                         MinimumNbDrawsBetweenOccurrences = ballMinimumNbDrawsBetweenOccurrences[b],
-                        MaximumNbDrawsBetweenOccurrences = ballMaximumNbDrawsBetweenOccurrences[b]
+                        MaximumNbDrawsBetweenOccurrences = ballMaximumNbDrawsBetweenOccurrences[b],
+                        VarianceNbDrawsBetweenOccurrences = ballVarianceNbDrawsBetweenOccurrences[b]
                     }
                 )
                 .ToList()
