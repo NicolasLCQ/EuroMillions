@@ -172,5 +172,37 @@ public static class MinimalDrawModelExtensions
 
             return (ballVariances, starVariances);
         }
+
+        public (BallDictionary<double> Balls, StarDictionary<double> Stars)
+            CalculateStandardDeviationNbDrawsBetweenOccurrences()
+        {
+            BallDictionary<OccurrenceIndexes> ballOccurrenceIndexes = new BallDictionary<OccurrenceIndexes>(_ => []);
+            StarDictionary<OccurrenceIndexes> starOccurrenceIndexes = new StarDictionary<OccurrenceIndexes>(_ => []);
+
+            int drawIndex = 0;
+
+            foreach (MinimalDrawModel draw in draws.Reverse())
+            {
+                ballOccurrenceIndexes.AddOccurrenceIndexes(
+                    [draw.Ball1, draw.Ball2, draw.Ball3, draw.Ball4, draw.Ball5],
+                    drawIndex
+                );
+
+                starOccurrenceIndexes.AddOccurrenceIndexes([draw.Star1, draw.Star2], drawIndex);
+                drawIndex++;
+            }
+
+            BallDictionary<double> ballStandardDeviations
+                = new BallDictionary<double>(ball =>
+                    ballOccurrenceIndexes[ball].CalculateStandardDeviationNbDrawsBetweenOccurrences()
+                );
+
+            StarDictionary<double> starStandardDeviations
+                = new StarDictionary<double>(star =>
+                    starOccurrenceIndexes[star].CalculateStandardDeviationNbDrawsBetweenOccurrences()
+                );
+
+            return (ballStandardDeviations, starStandardDeviations);
+        }
     }
 }
