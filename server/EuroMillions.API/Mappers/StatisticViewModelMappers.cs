@@ -14,7 +14,8 @@ public static class StatisticViewModelMappers
             AverageNbDrawsBetweenOccurrences = statistics.AverageNbDrawsBetweenOccurrences,
             MinimumNbDrawsBetweenOccurrences = statistics.MinimumNbDrawsBetweenOccurrences,
             MaximumNbDrawsBetweenOccurrences = statistics.MaximumNbDrawsBetweenOccurrences,
-            VarianceNbDrawsBetweenOccurrences = statistics.VarianceNbDrawsBetweenOccurrences
+            VarianceNbDrawsBetweenOccurrences = statistics.VarianceNbDrawsBetweenOccurrences,
+            StandardDeviationNbDrawsBetweenOccurrences = statistics.StandardDeviationNbDrawsBetweenOccurrences
         };
 
     public static StarStatisticsViewModel ToStatisticsResponseViewModel(this StarStatisticsModel statistics)
@@ -26,7 +27,8 @@ public static class StatisticViewModelMappers
             AverageNbDrawsBetweenOccurrences = statistics.AverageNbDrawsBetweenOccurrences,
             MinimumNbDrawsBetweenOccurrences = statistics.MinimumNbDrawsBetweenOccurrences,
             MaximumNbDrawsBetweenOccurrences = statistics.MaximumNbDrawsBetweenOccurrences,
-            VarianceNbDrawsBetweenOccurrences = statistics.VarianceNbDrawsBetweenOccurrences
+            VarianceNbDrawsBetweenOccurrences = statistics.VarianceNbDrawsBetweenOccurrences,
+            StandardDeviationNbDrawsBetweenOccurrences = statistics.StandardDeviationNbDrawsBetweenOccurrences
         };
 
     public static GetStatisticsResponseViewModel ToStatisticsResponseViewModel(this DrawItemsStatisticsModel statistics)

@@ -62,5 +62,8 @@ internal static class OccurrenceIndexesExtensions
 
             return gaps.Average(gap => Math.Pow(gap - average, 2));
         }
+
+        public double CalculateStandardDeviationNbDrawsBetweenOccurrences()
+            => Math.Sqrt(indexes.CalculateVarianceNbDrawsBetweenOccurrences());
     }
 }

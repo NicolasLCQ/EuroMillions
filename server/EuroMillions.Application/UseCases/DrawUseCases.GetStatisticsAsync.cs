@@ -24,6 +24,9 @@ public partial class DrawUseCases
         (BallDictionary<double> ballVarianceNbDrawsBetweenOccurrences,
                 StarDictionary<double> starVarianceNbDrawsBetweenOccurrences)
             = draws.CalculateVarianceNbDrawsBetweenOccurrences();
+        (BallDictionary<double> ballStandardDeviationNbDrawsBetweenOccurrences,
+                StarDictionary<double> starStandardDeviationNbDrawsBetweenOccurrences)
+            = draws.CalculateStandardDeviationNbDrawsBetweenOccurrences();
 
         return new DrawItemsStatisticsModel
         {
@@ -36,7 +39,9 @@ public partial class DrawUseCases
                         AverageNbDrawsBetweenOccurrences = starAverageNbDrawsBetweenOccurrences[s],
                         MinimumNbDrawsBetweenOccurrences = starMinimumNbDrawsBetweenOccurrences[s],
                         MaximumNbDrawsBetweenOccurrences = starMaximumNbDrawsBetweenOccurrences[s],
-                        VarianceNbDrawsBetweenOccurrences = starVarianceNbDrawsBetweenOccurrences[s]
+                        VarianceNbDrawsBetweenOccurrences = starVarianceNbDrawsBetweenOccurrences[s],
+                        StandardDeviationNbDrawsBetweenOccurrences
+                            = starStandardDeviationNbDrawsBetweenOccurrences[s]
                     }
                 )
                 .ToList(),
@@ -49,7 +54,9 @@ public partial class DrawUseCases
                         AverageNbDrawsBetweenOccurrences = ballAverageNbDrawsBetweenOccurrences[b],
                         MinimumNbDrawsBetweenOccurrences = ballMinimumNbDrawsBetweenOccurrences[b],
                         MaximumNbDrawsBetweenOccurrences = ballMaximumNbDrawsBetweenOccurrences[b],
-                        VarianceNbDrawsBetweenOccurrences = ballVarianceNbDrawsBetweenOccurrences[b]
+                        VarianceNbDrawsBetweenOccurrences = ballVarianceNbDrawsBetweenOccurrences[b],
+                        StandardDeviationNbDrawsBetweenOccurrences
+                            = ballStandardDeviationNbDrawsBetweenOccurrences[b]
                     }
                 )
                 .ToList()
