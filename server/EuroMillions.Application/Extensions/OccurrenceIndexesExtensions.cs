@@ -6,7 +6,15 @@ internal static class OccurrenceIndexesExtensions
 {
     extension(OccurrenceIndexes indexes)
     {
-        public double CalculateAverageNbDrawsBetweenOccurrences()
+        public int[] CalculateNbDrawsBetweenOccurrences()
+            => indexes
+                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
+                .ToArray();
+
+        public int CalculateNbDrawsSinceLastOccurrence(int drawCount)
+            => indexes.Count == 0 ? drawCount : drawCount - indexes[^1] - 1;
+
+        public double CalculateAverageNbDrawsBetweenOccurrences(int[] gaps)
         {
             if (indexes.Count == 0)
             {
@@ -18,52 +26,19 @@ internal static class OccurrenceIndexesExtensions
                 return indexes[0];
             }
 
-            return indexes
-                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
-                .Average();
+            return gaps.Average();
         }
 
-        public int CalculateMinimumNbDrawsBetweenOccurrences()
-        {
-            if (indexes.Count < 2)
-            {
-                return 0;
-            }
+        public int CalculateMinimumNbDrawsBetweenOccurrences(int[] gaps)
+            => gaps.Length == 0 ? 0 : gaps.Min();
 
-            return indexes
-                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
-                .Min();
-        }
+        public int CalculateMaximumNbDrawsBetweenOccurrences(int[] gaps)
+            => gaps.Length == 0 ? 0 : gaps.Max();
 
-        public int CalculateMaximumNbDrawsBetweenOccurrences()
-        {
-            if (indexes.Count < 2)
-            {
-                return 0;
-            }
+        public double CalculateVarianceNbDrawsBetweenOccurrences(int[] gaps, double average)
+            => gaps.Length == 0 ? 0 : gaps.Average(gap => Math.Pow(gap - average, 2));
 
-            return indexes
-                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
-                .Max();
-        }
-
-        public double CalculateVarianceNbDrawsBetweenOccurrences()
-        {
-            if (indexes.Count < 2)
-            {
-                return 0;
-            }
-
-            int[] gaps = indexes
-                .Zip(indexes.Skip(1), (previous, current) => current - previous - 1)
-                .ToArray();
-
-            double average = gaps.Average();
-
-            return gaps.Average(gap => Math.Pow(gap - average, 2));
-        }
-
-        public double CalculateStandardDeviationNbDrawsBetweenOccurrences()
-            => Math.Sqrt(indexes.CalculateVarianceNbDrawsBetweenOccurrences());
+        public double CalculateStandardDeviationNbDrawsBetweenOccurrences(double variance)
+            => Math.Sqrt(variance);
     }
 }
