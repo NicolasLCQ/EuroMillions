@@ -8,55 +8,59 @@ public partial class DrawUseCases
     public async Task<DrawItemsStatisticsModel> GetStatisticsAsync()
     {
         List<MinimalDrawModel> draws = await drawRepository.GetMinimalDrawsAsync();
-        (BallDictionary<int> ballCounts, StarDictionary<int> starCounts) = draws.CalculateNbTimesDraw();
-
-        (BallDictionary<int> ballNbDrawsSinceLastOccurrence, StarDictionary<int> starNbDrawsSinceLastOccurrence)
-            = draws.CalculateNbDrawsSinceLastOccurrence();
-        (BallDictionary<double> ballAverageNbDrawsBetweenOccurrences,
-                StarDictionary<double> starAverageNbDrawsBetweenOccurrences)
-            = draws.CalculateAverageNbDrawsBetweenOccurrences();
-        (BallDictionary<int> ballMinimumNbDrawsBetweenOccurrences,
-                StarDictionary<int> starMinimumNbDrawsBetweenOccurrences)
-            = draws.CalculateMinimumNbDrawsBetweenOccurrences();
-        (BallDictionary<int> ballMaximumNbDrawsBetweenOccurrences,
-                StarDictionary<int> starMaximumNbDrawsBetweenOccurrences)
-            = draws.CalculateMaximumNbDrawsBetweenOccurrences();
-        (BallDictionary<double> ballVarianceNbDrawsBetweenOccurrences,
-                StarDictionary<double> starVarianceNbDrawsBetweenOccurrences)
-            = draws.CalculateVarianceNbDrawsBetweenOccurrences();
-        (BallDictionary<double> ballStandardDeviationNbDrawsBetweenOccurrences,
-                StarDictionary<double> starStandardDeviationNbDrawsBetweenOccurrences)
-            = draws.CalculateStandardDeviationNbDrawsBetweenOccurrences();
+        (BallDictionary<OccurrenceIndexes> ballOccurrenceIndexes,
+                StarDictionary<OccurrenceIndexes> starOccurrenceIndexes)
+            = draws.CalculateOccurrenceIndexes();
 
         return new DrawItemsStatisticsModel
         {
             Stars = Enumerable.Range(Star.MinValue, Star.ValueCount)
-                .Select(s => new StarStatisticsModel
+                .Select(s =>
                     {
-                        Star = s,
-                        NbTimesDraw = starCounts[s],
-                        NbDrawsSinceLastOccurrence = starNbDrawsSinceLastOccurrence[s],
-                        AverageNbDrawsBetweenOccurrences = starAverageNbDrawsBetweenOccurrences[s],
-                        MinimumNbDrawsBetweenOccurrences = starMinimumNbDrawsBetweenOccurrences[s],
-                        MaximumNbDrawsBetweenOccurrences = starMaximumNbDrawsBetweenOccurrences[s],
-                        VarianceNbDrawsBetweenOccurrences = starVarianceNbDrawsBetweenOccurrences[s],
-                        StandardDeviationNbDrawsBetweenOccurrences
-                            = starStandardDeviationNbDrawsBetweenOccurrences[s]
+                        OccurrenceIndexes indexes = starOccurrenceIndexes[s];
+                        int[] gaps = indexes.CalculateNbDrawsBetweenOccurrences();
+                        double average = indexes.CalculateAverageNbDrawsBetweenOccurrences(gaps);
+                        double variance = indexes.CalculateVarianceNbDrawsBetweenOccurrences(gaps, average);
+
+                        return new StarStatisticsModel
+                        {
+                            Star = s,
+                            NbTimesDraw = indexes.Count,
+                            NbDrawsSinceLastOccurrence = indexes.CalculateNbDrawsSinceLastOccurrence(draws.Count),
+                            AverageNbDrawsBetweenOccurrences = average,
+                            MinimumNbDrawsBetweenOccurrences
+                                = indexes.CalculateMinimumNbDrawsBetweenOccurrences(gaps),
+                            MaximumNbDrawsBetweenOccurrences
+                                = indexes.CalculateMaximumNbDrawsBetweenOccurrences(gaps),
+                            VarianceNbDrawsBetweenOccurrences = variance,
+                            StandardDeviationNbDrawsBetweenOccurrences
+                                = indexes.CalculateStandardDeviationNbDrawsBetweenOccurrences(variance)
+                        };
                     }
                 )
                 .ToList(),
             Balls = Enumerable.Range(Ball.MinValue, Ball.ValueCount)
-                .Select(b => new BallStatisticsModel
+                .Select(b =>
                     {
-                        Ball = b,
-                        NbTimesDraw = ballCounts[b],
-                        NbDrawsSinceLastOccurrence = ballNbDrawsSinceLastOccurrence[b],
-                        AverageNbDrawsBetweenOccurrences = ballAverageNbDrawsBetweenOccurrences[b],
-                        MinimumNbDrawsBetweenOccurrences = ballMinimumNbDrawsBetweenOccurrences[b],
-                        MaximumNbDrawsBetweenOccurrences = ballMaximumNbDrawsBetweenOccurrences[b],
-                        VarianceNbDrawsBetweenOccurrences = ballVarianceNbDrawsBetweenOccurrences[b],
-                        StandardDeviationNbDrawsBetweenOccurrences
-                            = ballStandardDeviationNbDrawsBetweenOccurrences[b]
+                        OccurrenceIndexes indexes = ballOccurrenceIndexes[b];
+                        int[] gaps = indexes.CalculateNbDrawsBetweenOccurrences();
+                        double average = indexes.CalculateAverageNbDrawsBetweenOccurrences(gaps);
+                        double variance = indexes.CalculateVarianceNbDrawsBetweenOccurrences(gaps, average);
+
+                        return new BallStatisticsModel
+                        {
+                            Ball = b,
+                            NbTimesDraw = indexes.Count,
+                            NbDrawsSinceLastOccurrence = indexes.CalculateNbDrawsSinceLastOccurrence(draws.Count),
+                            AverageNbDrawsBetweenOccurrences = average,
+                            MinimumNbDrawsBetweenOccurrences
+                                = indexes.CalculateMinimumNbDrawsBetweenOccurrences(gaps),
+                            MaximumNbDrawsBetweenOccurrences
+                                = indexes.CalculateMaximumNbDrawsBetweenOccurrences(gaps),
+                            VarianceNbDrawsBetweenOccurrences = variance,
+                            StandardDeviationNbDrawsBetweenOccurrences
+                                = indexes.CalculateStandardDeviationNbDrawsBetweenOccurrences(variance)
+                        };
                     }
                 )
                 .ToList()
