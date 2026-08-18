@@ -2,5 +2,5 @@ namespace EuroMillions.API.ViewModels;
 
 public class NextDrawResponseViewModel
 {
-    public DateTime NextDrawDate { get; set; }
+    public required DateTime NextDrawDate { get; set; }
 }
