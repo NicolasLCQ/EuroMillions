@@ -18,9 +18,9 @@ public partial class DrawUseCases
                 .Select(s =>
                     {
                         OccurrenceIndexes indexes = starOccurrenceIndexes[s];
-                        int[] gaps = indexes.CalculateNbDrawsBetweenOccurrences();
-                        double average = indexes.CalculateAverageNbDrawsBetweenOccurrences(gaps);
-                        double variance = indexes.CalculateVarianceNbDrawsBetweenOccurrences(gaps, average);
+                        OccurrenceGaps gaps = indexes.CalculateNbDrawsBetweenOccurrences();
+                        (double average, double variance, double standardDeviation)
+                            = gaps.CalculateAverageVarianceAndStandardDeviationNbDrawsBetweenOccurrences();
 
                         return new StarStatisticsModel
                         {
@@ -28,13 +28,10 @@ public partial class DrawUseCases
                             NbTimesDraw = indexes.Count,
                             NbDrawsSinceLastOccurrence = indexes.CalculateNbDrawsSinceLastOccurrence(draws.Count),
                             AverageNbDrawsBetweenOccurrences = average,
-                            MinimumNbDrawsBetweenOccurrences
-                                = indexes.CalculateMinimumNbDrawsBetweenOccurrences(gaps),
-                            MaximumNbDrawsBetweenOccurrences
-                                = indexes.CalculateMaximumNbDrawsBetweenOccurrences(gaps),
+                            MinimumNbDrawsBetweenOccurrences = gaps.CalculateMinimumNbDrawsBetweenOccurrences(),
+                            MaximumNbDrawsBetweenOccurrences = gaps.CalculateMaximumNbDrawsBetweenOccurrences(),
                             VarianceNbDrawsBetweenOccurrences = variance,
-                            StandardDeviationNbDrawsBetweenOccurrences
-                                = indexes.CalculateStandardDeviationNbDrawsBetweenOccurrences(variance)
+                            StandardDeviationNbDrawsBetweenOccurrences = standardDeviation
                         };
                     }
                 )
@@ -43,9 +40,9 @@ public partial class DrawUseCases
                 .Select(b =>
                     {
                         OccurrenceIndexes indexes = ballOccurrenceIndexes[b];
-                        int[] gaps = indexes.CalculateNbDrawsBetweenOccurrences();
-                        double average = indexes.CalculateAverageNbDrawsBetweenOccurrences(gaps);
-                        double variance = indexes.CalculateVarianceNbDrawsBetweenOccurrences(gaps, average);
+                        OccurrenceGaps gaps = indexes.CalculateNbDrawsBetweenOccurrences();
+                        (double average, double variance, double standardDeviation)
+                            = gaps.CalculateAverageVarianceAndStandardDeviationNbDrawsBetweenOccurrences();
 
                         return new BallStatisticsModel
                         {
@@ -53,13 +50,10 @@ public partial class DrawUseCases
                             NbTimesDraw = indexes.Count,
                             NbDrawsSinceLastOccurrence = indexes.CalculateNbDrawsSinceLastOccurrence(draws.Count),
                             AverageNbDrawsBetweenOccurrences = average,
-                            MinimumNbDrawsBetweenOccurrences
-                                = indexes.CalculateMinimumNbDrawsBetweenOccurrences(gaps),
-                            MaximumNbDrawsBetweenOccurrences
-                                = indexes.CalculateMaximumNbDrawsBetweenOccurrences(gaps),
+                            MinimumNbDrawsBetweenOccurrences = gaps.CalculateMinimumNbDrawsBetweenOccurrences(),
+                            MaximumNbDrawsBetweenOccurrences = gaps.CalculateMaximumNbDrawsBetweenOccurrences(),
                             VarianceNbDrawsBetweenOccurrences = variance,
-                            StandardDeviationNbDrawsBetweenOccurrences
-                                = indexes.CalculateStandardDeviationNbDrawsBetweenOccurrences(variance)
+                            StandardDeviationNbDrawsBetweenOccurrences = standardDeviation
                         };
                     }
                 )
