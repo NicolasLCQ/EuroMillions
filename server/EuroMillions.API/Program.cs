@@ -55,7 +55,11 @@ public class Program
         builder.Services.AddTransient<IDrawRepository, DrawRepository>();
         builder.Services.AddTransient<ICsvAdapter, CsvAdapter>();
         builder.Services.AddTransient<IFileAdapter, FileAdapter>();
-        builder.Services.AddHttpClient<IHttpWebService, HttpWebService>();
+        builder.Services.AddHttpClient<IHttpWebService, HttpWebService>(client =>
+            {
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("EuroMillions/1.0");
+            }
+        );
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();
         builder.Services.AddTransient<StatisticsResources>();
