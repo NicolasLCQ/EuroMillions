@@ -1,5 +1,6 @@
 import './styles/global.css';
-import {NotificationProvider, QueryProvider} from './providers';
+import {NotificationProvider} from '@/shared/ui/notification';
+import {QueryProvider} from './providers/query-provider';
 import {EuroMillionsRouter} from './router';
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 
