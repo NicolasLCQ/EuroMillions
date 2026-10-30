@@ -6,3 +6,4 @@ riderModule.iml
 **/*.idea
 .idea/
 **/node_modules/
+client/dist/

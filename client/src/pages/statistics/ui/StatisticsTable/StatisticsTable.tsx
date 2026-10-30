@@ -1,6 +1,7 @@
 import {BallComponent, StarComponent, type IBallStatistics, type IStarStatistics} from '@/entities/draw';
+import {sortableTableFeatures} from '@/shared/lib/table';
 import {TitleComponent} from '@/shared/ui/title';
-import {getCoreRowModel, getSortedRowModel, useReactTable, type ColumnDef, type SortingState} from '@tanstack/react-table';
+import {useTable, type ColumnDef, type SortingState} from '@tanstack/react-table';
 import {useMemo, useState} from 'react';
 import StatisticsDataTable from './StatisticsDataTable';
 import styles from './StatisticsTable.module.css';
@@ -23,7 +24,7 @@ const getNumber = (statistic: Statistics) => ('ball' in statistic ? statistic.ba
 function StatisticsTable({title, itemType, statistics}: StatisticsTableProps) {
   const [sorting, setSorting] = useState<SortingState>([{id: 'number', desc: false}]);
 
-  const columns = useMemo<ColumnDef<Statistics>[]>(
+  const columns = useMemo<ColumnDef<typeof sortableTableFeatures, Statistics>[]>(
     () => [
       {
         id: 'number',
@@ -74,14 +75,13 @@ function StatisticsTable({title, itemType, statistics}: StatisticsTableProps) {
     [itemType],
   );
 
-  const table = useReactTable({
+  const table = useTable({
+    features: sortableTableFeatures,
     data: statistics,
     columns,
     getRowId: (statistic) => getNumber(statistic).toString(),
     state: {sorting},
     onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
   });
 
   return (

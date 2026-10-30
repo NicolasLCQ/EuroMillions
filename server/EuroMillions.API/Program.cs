@@ -13,6 +13,8 @@ using EuroMillions.Infrastructure.Webservices;
 
 using Microsoft.EntityFrameworkCore;
 
+using Scalar.AspNetCore;
+
 namespace EuroMillions.API;
 
 public class Program
@@ -21,8 +23,7 @@ public class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddOpenApi();
 
         builder.Services.AddProblemDetails();
         builder.Services.AddExceptionHandler<BadHttpRequestExceptionHandler>();
@@ -72,8 +73,8 @@ public class Program
 
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            app.MapOpenApi();
+            app.MapScalarApiReference();
         }
 
         //Routes

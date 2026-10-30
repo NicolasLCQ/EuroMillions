@@ -1,14 +1,7 @@
 import {useMemo, useState} from 'react';
-import {
-  flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  useReactTable,
-  type ColumnDef,
-  type SortingState,
-  type Updater,
-} from '@tanstack/react-table';
+import {flexRender, useTable, type ColumnDef, type SortingState, type Updater} from '@tanstack/react-table';
 import {BallComponent, StarComponent, type IDraw} from '@/entities/draw';
+import {sortableTableFeatures} from '@/shared/lib/table';
 import styles from './DrawsTable.module.css';
 
 interface DrawsTableProps {
@@ -31,7 +24,7 @@ const formatAdditionalGame = (value?: string) => (value ? value.replace(/,\s*/g,
 function DrawsTable({draws}: DrawsTableProps) {
   const [sorting, setSorting] = useState<SortingState>(DEFAULT_SORTING);
 
-  const columns = useMemo<ColumnDef<IDraw>[]>(
+  const columns = useMemo<ColumnDef<typeof sortableTableFeatures, IDraw>[]>(
     () => [
       {
         id: 'drawDate',
@@ -101,14 +94,13 @@ function DrawsTable({draws}: DrawsTableProps) {
     });
   };
 
-  const table = useReactTable({
+  const table = useTable({
+    features: sortableTableFeatures,
     data: draws,
     columns,
     state: {sorting},
     onSortingChange: handleSortingChange,
     enableSortingRemoval: false,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
   });
 
   return (
