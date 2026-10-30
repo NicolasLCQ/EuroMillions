@@ -1,19 +1,20 @@
-import {drawsRouteObject, homeRouteObject, NotFoundPage, notFoundRouteObject, RootPage, uploadRouteObject} from 'pages';
-import {config} from 'config';
-import {Navigate, RouteObject} from 'react-router-dom';
-
-const homePath = homeRouteObject.path ?? '/home';
-const drawsPath = drawsRouteObject.path ?? '/draws';
-const uploadPath = uploadRouteObject.path ?? '/upload';
+import {DrawsPage} from '@/pages/draws';
+import {HomePage} from '@/pages/home';
+import {NotFoundPage} from '@/pages/not-found';
+import {UpdateDrawsPage} from '@/pages/update-draws';
+import {config} from '@/shared/config';
+import {ROUTES} from '@/shared/routes';
+import {Navigate, type RouteObject} from 'react-router-dom';
+import AppLayout from '../../layout/AppLayout';
 
 const rootNavigationLinks = [
   {
     text: 'Home',
-    link: homePath,
+    link: ROUTES.home,
   },
   {
     text: 'Draws',
-    link: drawsPath,
+    link: ROUTES.draws,
   },
   {
     text: 'Statistics',
@@ -21,20 +22,26 @@ const rootNavigationLinks = [
   },
   {
     text: 'Upload',
-    link: uploadPath,
+    link: ROUTES.updateDraws,
   },
 ];
 
 const redirectOnHomePageByDefaultConfiguration = {
   index: true,
-  element: <Navigate to={homePath} replace />,
+  element: <Navigate to={ROUTES.home} replace />,
 };
 
 const rootRouteObject: RouteObject = {
   path: '/',
-  element: <RootPage applicationVersion={config.APPLICATION_VERSION} navigationLinks={rootNavigationLinks} />,
+  element: <AppLayout applicationVersion={config.APPLICATION_VERSION} navigationLinks={rootNavigationLinks} />,
   errorElement: <NotFoundPage />,
-  children: [redirectOnHomePageByDefaultConfiguration, uploadRouteObject, drawsRouteObject, homeRouteObject, notFoundRouteObject],
+  children: [
+    redirectOnHomePageByDefaultConfiguration,
+    {path: ROUTES.home, element: <HomePage />},
+    {path: ROUTES.draws, element: <DrawsPage />},
+    {path: ROUTES.updateDraws, element: <UpdateDrawsPage />},
+    {path: '*', element: <NotFoundPage />},
+  ],
 };
 
 export default rootRouteObject;
