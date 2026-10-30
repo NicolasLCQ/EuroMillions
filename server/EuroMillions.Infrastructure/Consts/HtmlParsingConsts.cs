@@ -1,6 +1,6 @@
-﻿namespace EuroMillions.Application.Consts;
+namespace EuroMillions.Infrastructure.Consts;
 
-public class HtmlConsts
+public static class HtmlParsingConsts
 {
     public const string HrefPattern = "\\bhref\\s*=\\s*\"(?<href>[^\"]+)\"|\\bhref\\s*=\\s*'(?<href>[^']+)'";
 }

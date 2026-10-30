@@ -1,4 +1,4 @@
-namespace EuroMillions.Application.Consts;
+namespace EuroMillions.Infrastructure.Consts;
 
 public static class FdjConsts
 {

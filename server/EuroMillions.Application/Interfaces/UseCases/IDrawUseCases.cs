@@ -1,14 +1,12 @@
 using EuroMillions.Application.Models;
 using EuroMillions.Application.Models.Upload;
 
-using Microsoft.AspNetCore.Http;
-
 namespace EuroMillions.Application.Interfaces.UseCases;
 
 public interface IDrawUseCases
 {
     Task<DrawItemsStatisticsModel> GetStatisticsAsync();
-    Task<UploadResultModel> UploadDrawsFromCsvFilesAsync(IFormFileCollection uploadFileModels);
+    Task<UploadResultModel> UploadDrawsFromCsvFilesAsync(IReadOnlyCollection<UploadFileModel> uploadFileModels);
     Task<DrawSummaryModel?> GetLastDrawAsync();
     Task<DateTime> GetNextDrawDateAsync();
     Task<bool> AreUpToDateAsync();

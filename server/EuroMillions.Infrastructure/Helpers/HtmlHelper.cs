@@ -1,14 +1,14 @@
 using System.Net;
 using System.Text.RegularExpressions;
 
-using EuroMillions.Application.Consts;
+using EuroMillions.Infrastructure.Consts;
 
-namespace EuroMillions.Application.Helpers;
+namespace EuroMillions.Infrastructure.Helpers;
 
 public static class HtmlHelper
 {
     private static readonly Regex HrefRegex = new Regex(
-        HtmlConsts.HrefPattern,
+        HtmlParsingConsts.HrefPattern,
         RegexOptions.IgnoreCase | RegexOptions.Compiled
     );
 

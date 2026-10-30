@@ -1,4 +1,4 @@
-using EuroMillions.Application.Consts;
+using EuroMillions.Infrastructure.Consts;
 
 namespace EuroMillions.Infrastructure.Helpers;
 
