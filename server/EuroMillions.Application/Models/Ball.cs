@@ -1,21 +1,21 @@
 namespace EuroMillions.Application.Models;
 
-public class Ball
+public record Ball : DrawItemAbstraction
 {
-    private readonly int _value;
+    public const int MinValue = 1;
+    public const int MaxValue = 50;
+    public const int ValueCount = (MaxValue - MinValue) + 1;
 
-    private Ball(int ball) => _value = ball;
-
-    public override string ToString() => _value.ToString();
-
-    public static implicit operator int(Ball ball) => ball._value;
+    private Ball(int ball)
+        : base(ball) {}
 
     public static implicit operator Ball(int ball)
     {
-        if ((ball < 0) || (ball > 50))
+        if ((ball < MinValue) || (ball > MaxValue))
         {
-            throw new ArgumentException("The ball must be between 0 and 50.");
+            throw new ArgumentException($"The ball must be between {MinValue} and {MaxValue}.");
         }
+
         return new Ball(ball);
     }
 }

@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 using EuroMillions.Application.Models;
 using EuroMillions.Infrastructure.Entities;
 
@@ -5,6 +7,18 @@ namespace EuroMillions.Infrastructure.Mappers.EntityMappers;
 
 public static class T_DrawMapper
 {
+    public static Expression<Func<T_DRAW, MinimalDrawModel>> ToMinimalDrawModelExpression() =>
+        draw => new MinimalDrawModel
+        {
+            Ball1 = draw.BALL_ONE,
+            Ball2 = draw.BALL_TWO,
+            Ball3 = draw.BALL_THREE,
+            Ball4 = draw.BALL_FOUR,
+            Ball5 = draw.BALL_FIVE,
+            Star1 = draw.STAR_ONE,
+            Star2 = draw.STAR_TWO
+        };
+
     public static DrawSummaryModel ToDrawSummaryModel(this T_DRAW tDraw) => new DrawSummaryModel
     {
         DrawNumber = tDraw.T_DRAW_INFORMATION?.YEAR_DRAW_NUMBER ?? 0,
@@ -19,7 +33,8 @@ public static class T_DrawMapper
         JokerPlusNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.JOKER_PLUS_NUMBER,
         MyMillionNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.MY_MILLION_NUMBER,
         ExceptionalEuroMillionsDrawNumber = tDraw.T_DRAW_ADDITIONAL_GAME?.EXCEPTIONAL_EURO_MILLIONS_DRAW_NUMBER,
-        Winners = tDraw.T_DRAW_WINNER is null ? null : ToDrawWinners(tDraw.T_DRAW_WINNER)
+        // T_DRAW_WINNER n'est nul que par definition de la base de donnée.
+        Winners = tDraw.T_DRAW_WINNER!.ToDrawWinners()
     };
 
     public static T_DRAW ToDrawEntity(this Draw draw) =>
@@ -114,7 +129,7 @@ public static class T_DrawMapper
             }
         };
 
-    private static DrawWinners ToDrawWinners(T_DRAW_WINNER winner) => new DrawWinners
+    private static DrawWinners ToDrawWinners(this T_DRAW_WINNER winner) => new DrawWinners
     {
         Rank1EuroMillionsWinnersFrance = winner.RANK_1_EURO_MILLIONS_WINNERS_FRANCE,
         Rank1EuroMillionsWinnersEurope = winner.RANK_1_EURO_MILLIONS_WINNERS_EUROPE,

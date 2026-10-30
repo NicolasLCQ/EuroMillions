@@ -60,6 +60,7 @@ public class Program
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("EuroMillions/1.0");
             }
         );
+        builder.Services.AddTransient<IDrawHistorySource, FdjDrawHistorySource>();
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();
         builder.Services.AddTransient<StatisticsResources>();

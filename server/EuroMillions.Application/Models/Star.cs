@@ -1,20 +1,19 @@
 namespace EuroMillions.Application.Models;
 
-public class Star
+public record Star : DrawItemAbstraction
 {
-    private readonly int _value;
+    public const int MinValue = 1;
+    public const int MaxValue = 12;
+    public const int ValueCount = (MaxValue - MinValue) + 1;
 
-    private Star(int start) => _value = start;
-
-    public override string ToString() => _value.ToString();
-
-    public static implicit operator int(Star star) => star._value;
+    private Star(int star)
+        : base(star) {}
 
     public static implicit operator Star(int star)
     {
-        if ((star < 0) || (star > 12))
+        if ((star < MinValue) || (star > MaxValue))
         {
-            throw new ArgumentException( "Le nombre doit être compris entre 0 et 12.");
+            throw new ArgumentException($"Le nombre doit être compris entre {MinValue} et {MaxValue}.");
         }
 
         return new Star(star);

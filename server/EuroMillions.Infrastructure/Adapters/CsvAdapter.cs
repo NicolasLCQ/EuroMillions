@@ -9,8 +9,6 @@ using EuroMillions.Infrastructure.Mappers.CsvMappers;
 using EuroMillions.Infrastructure.Mappers.ModelMappers;
 using EuroMillions.Infrastructure.Models.csv;
 
-using Microsoft.AspNetCore.Http;
-
 namespace EuroMillions.Infrastructure.Adapters;
 
 public class CsvAdapter : ICsvAdapter
@@ -23,12 +21,9 @@ public class CsvAdapter : ICsvAdapter
         TrimOptions = TrimOptions.Trim
     };
 
-    public List<Draw> ExtractEuroMillionDrawFromFile(IFormFile csvFormFile) =>
-        ExtractEuroMillionDrawFromFile(csvFormFile.OpenReadStream());
-
     public List<Draw> ExtractEuroMillionDrawFromFile(Stream csvStream)
     {
-        using StreamReader reader = new StreamReader(csvStream);
+        using StreamReader reader = new StreamReader(csvStream, leaveOpen: true);
         using CsvReader csv = new CsvReader(reader, _csvConfiguration);
 
         csv.Context.TypeConverterCache.AddConverter<decimal>(new FdjDecimalConverter());

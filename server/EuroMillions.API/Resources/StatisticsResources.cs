@@ -1,3 +1,4 @@
+using EuroMillions.API.Mappers;
 using EuroMillions.API.ViewModels;
 using EuroMillions.Application.Interfaces.UseCases;
 
@@ -5,30 +6,11 @@ namespace EuroMillions.API.Resources;
 
 public class StatisticsResources(IDrawUseCases drawUseCases)
 {
-    public async Task<IResult> GetAllBallsNbTimePickedAsync()
+    public async Task<IResult> GetStatisticsAsync()
     {
-        Dictionary<int, int> nbTimePickedByBall = await drawUseCases.GetAllBallsNbTimePickedAsync();
+        GetStatisticsResponseViewModel response = (await drawUseCases.GetStatisticsAsync())
+            .ToStatisticsResponseViewModel();
 
-        return Results.Ok(ToAllNbTimePickedResponseViewModels(nbTimePickedByBall));
+        return Results.Ok(response);
     }
-
-    public async Task<IResult> GetAllStarsNbTimePickedAsync()
-    {
-        Dictionary<int, int> nbTimePickedByStar = await drawUseCases.GetAllStarsNbTimePickedAsync();
-
-        return Results.Ok(ToAllNbTimePickedResponseViewModels(nbTimePickedByStar));
-    }
-
-    private static List<AllNbTimePickedResponseViewModel> ToAllNbTimePickedResponseViewModels(
-        Dictionary<int, int> nbTimePickedByNumber
-    ) =>
-        nbTimePickedByNumber
-            .OrderBy(item => item.Key)
-            .Select(item => new AllNbTimePickedResponseViewModel
-                {
-                    Number = item.Key,
-                    NbTimePicked = item.Value
-                }
-            )
-            .ToList();
 }

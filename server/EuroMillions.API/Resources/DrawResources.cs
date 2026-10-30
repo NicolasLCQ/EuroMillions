@@ -22,10 +22,27 @@ public class DrawResources(IDrawUseCases drawUseCases)
             throw new BadHttpRequestException("Duplicate files are not accepted");
         }
 
-        UploadResultModel uploadResponse = await drawUseCases.UploadDrawsFromCsvFilesAsync(files);
-        UploadResponseViewModel response = uploadResponse.ToUploadResponseViewModel();
+        List<UploadFileModel> uploadFiles = [];
 
-        return Results.Ok(response);
+        try
+        {
+            foreach (IFormFile file in files)
+            {
+                uploadFiles.Add(new UploadFileModel {FileName = file.FileName, Content = file.OpenReadStream()});
+            }
+
+            UploadResultModel uploadResponse = await drawUseCases.UploadDrawsFromCsvFilesAsync(uploadFiles);
+            UploadResponseViewModel response = uploadResponse.ToUploadResponseViewModel();
+
+            return Results.Ok(response);
+        }
+        finally
+        {
+            foreach (UploadFileModel file in uploadFiles)
+            {
+                await file.Content.DisposeAsync();
+            }
+        }
     }
 
     public async Task<IResult> GetLastDrawAsync()

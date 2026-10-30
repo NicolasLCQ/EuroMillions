@@ -1,0 +1,129 @@
+.section {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 1.6rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  color: #061026;
+  background: var(--brand);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.tableShell {
+  width: 100%;
+  max-height: min(52vh, 480px);
+  overflow: auto;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  background: rgba(7, 14, 32, 0.44);
+}
+
+.statisticsTable {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.statisticsTable th,
+.statisticsTable td {
+  padding: 0.55rem 0.75rem;
+  text-align: right;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(145, 174, 255, 0.14);
+}
+
+.statisticsTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(15, 25, 52, 0.96);
+  box-shadow: 0 1px 0 rgba(145, 174, 255, 0.18);
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.statisticsTable th:first-child .sortButton {
+  justify-content: flex-start;
+}
+
+.sortIndicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  color: #061026;
+  background: var(--brand);
+  font-size: 0.88rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.statisticsTable th:first-child,
+.statisticsTable td:first-child {
+  text-align: left;
+}
+
+.statisticsTable tbody tr:hover {
+  background: rgba(111, 177, 255, 0.08);
+}
+
+.statisticsTable tbody tr:last-child th,
+.statisticsTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.drawItem {
+  width: 34px;
+  height: 34px;
+}
+
+@media (max-width: 720px) {
+  .tableShell {
+    max-height: 58vh;
+  }
+
+  .statisticsTable th,
+  .statisticsTable td {
+    padding: 0.5rem 0.65rem;
+  }
+}
