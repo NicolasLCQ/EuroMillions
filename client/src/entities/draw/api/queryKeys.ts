@@ -4,4 +4,5 @@ export const apiQueryKeys = {
   lastDraw: ['lastDraw'],
   nextDrawDate: ['nextDrawDate'],
   nextDrawEstimatedJackpot: ['nextDrawEstimatedJackpot'],
+  statistics: ['statistics'],
 } as const;

@@ -1,6 +1,7 @@
 import {DrawsPage} from '@/pages/draws';
 import {HomePage} from '@/pages/home';
 import {NotFoundPage} from '@/pages/not-found';
+import {StatisticsPage} from '@/pages/statistics';
 import {UpdateDrawsPage} from '@/pages/update-draws';
 import {config} from '@/shared/config';
 import {ROUTES} from '@/shared/routes';
@@ -18,7 +19,7 @@ const rootNavigationLinks = [
   },
   {
     text: 'Statistics',
-    link: '',
+    link: ROUTES.statistics,
   },
   {
     text: 'Upload',
@@ -39,6 +40,7 @@ const rootRouteObject: RouteObject = {
     redirectOnHomePageByDefaultConfiguration,
     {path: ROUTES.home, element: <HomePage />},
     {path: ROUTES.draws, element: <DrawsPage />},
+    {path: ROUTES.statistics, element: <StatisticsPage />},
     {path: ROUTES.updateDraws, element: <UpdateDrawsPage />},
     {path: '*', element: <NotFoundPage />},
   ],
