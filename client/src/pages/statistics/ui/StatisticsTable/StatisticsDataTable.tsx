@@ -1,11 +1,12 @@
-import {flexRender, type Table} from '@tanstack/react-table';
+import {sortableTableFeatures} from '@/shared/lib/table';
+import {flexRender, type RowData, type Table} from '@tanstack/react-table';
 import styles from './StatisticsTable.module.css';
 
-interface StatisticsDataTableProps<TData> {
-  table: Table<TData>;
+interface StatisticsDataTableProps<TData extends RowData> {
+  table: Table<typeof sortableTableFeatures, TData>;
 }
 
-function StatisticsDataTable<TData>({table}: StatisticsDataTableProps<TData>) {
+function StatisticsDataTable<TData extends RowData>({table}: StatisticsDataTableProps<TData>) {
   return (
     <table className={styles.statisticsTable}>
       <thead>
