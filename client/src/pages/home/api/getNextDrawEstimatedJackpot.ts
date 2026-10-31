@@ -1,5 +1,5 @@
-import {fdjFetch} from '@/shared/api/fdj';
-import type {IFdjMoneyAmount, IGetFdjDrawsResponse} from '../model/IGetFdjDrawsResponse';
+import {fdjFetch} from '@/shared/api';
+import type {IFdjMoneyAmount, IGetFdjDrawsResponse} from './IGetFdjDrawsResponse';
 
 const EURO_MILLIONS_GAME_NAME = 'euromillions';
 const EURO_CURRENCY = 'EUR';

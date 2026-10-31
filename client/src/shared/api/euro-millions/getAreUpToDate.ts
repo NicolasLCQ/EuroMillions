@@ -1,9 +1,8 @@
-import {euroMillionsFetch} from '@/shared/api/euro-millions';
-import type {IAreUpToDateResponse} from '../model/IAreUpToDateResponse';
-import {drawApiRoutes} from './routes';
+import {euroMillionsFetch} from './euroMillionsClient';
+import type {IAreUpToDateResponse} from './drawFreshness';
 
 export const getAreUpToDate = async (): Promise<IAreUpToDateResponse | null> => {
-  const httpResponse = await euroMillionsFetch(drawApiRoutes.areUpToDate, {
+  const httpResponse = await euroMillionsFetch('/draws/areuptodate', {
     method: 'GET',
   });
 

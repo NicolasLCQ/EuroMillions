@@ -1,5 +1,5 @@
 import styles from './NextDrawComponent.module.css';
-import type {IFdjMoneyAmount} from '@/entities/draw';
+import type {IFdjMoneyAmount} from '../../api/IGetFdjDrawsResponse';
 import {TextComponent} from '@/shared/ui/text';
 import {TitleComponent} from '@/shared/ui/title';
 

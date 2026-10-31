@@ -5,3 +5,5 @@ export const config = {
   ...appConfig,
   APPLICATION_VERSION: packageJson.version,
 };
+
+export {ROUTES} from './routes';

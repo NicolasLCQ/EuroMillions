@@ -1,9 +1,8 @@
-import {euroMillionsFetch} from '@/shared/api/euro-millions';
-import type {IGetStatisticsResponse} from '../model/IGetStatisticsResponse';
-import {drawApiRoutes} from './routes';
+import {euroMillionsFetch} from '@/shared/api';
+import type {IGetStatisticsResponse} from './statisticsResponse';
 
 export const getStatistics = async (): Promise<IGetStatisticsResponse> => {
-  const httpResponse = await euroMillionsFetch(drawApiRoutes.statistics, {
+  const httpResponse = await euroMillionsFetch('/statistics', {
     method: 'GET',
   });
 

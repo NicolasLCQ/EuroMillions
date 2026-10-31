@@ -1,9 +1,8 @@
-import {euroMillionsFetch} from '@/shared/api/euro-millions';
-import type {IDraw} from '../model/IDraw';
-import {drawApiRoutes} from './routes';
+import {euroMillionsFetch} from '@/shared/api';
+import type {IDraw} from '@/shared/api';
 
 export const getLastDraw = async (): Promise<IDraw | null> => {
-  const httpResponse = await euroMillionsFetch(drawApiRoutes.last, {
+  const httpResponse = await euroMillionsFetch('/draws/lastdraw', {
     method: 'GET',
   });
 

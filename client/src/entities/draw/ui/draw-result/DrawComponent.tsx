@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './DrawComponent.module.css';
 import BallComponent from './BallComponents/BallComponent';
 import StarComponent from './StarComponents/StarComponent';
-import type {IDrawResult} from '../../model/IDrawResult';
+import type {IDrawResult} from '@/shared/api';
 
 export interface DrawComponentsProps {
   Draw: IDrawResult;

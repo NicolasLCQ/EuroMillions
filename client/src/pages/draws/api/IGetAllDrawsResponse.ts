@@ -1,4 +1,4 @@
-import type {IDraw} from './IDraw';
+import type {IDraw} from '@/shared/api';
 
 export interface IGetAllDrawsResponse {
   draws: IDraw[];

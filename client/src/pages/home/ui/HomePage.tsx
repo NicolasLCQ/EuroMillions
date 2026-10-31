@@ -1,6 +1,9 @@
-import {useAreUpToDateQuery, useLastDrawQuery, useNextDrawDateQuery, useNextDrawEstimatedJackpotQuery} from '@/entities/draw';
+import {useAreUpToDateQuery} from '@/shared/api';
+import {useLastDrawQuery} from '../api/useLastDrawQuery';
+import {useNextDrawDateQuery} from '../api/useNextDrawDateQuery';
+import {useNextDrawEstimatedJackpotQuery} from '../api/useNextDrawEstimatedJackpotQuery';
 import {useNavigate} from 'react-router-dom';
-import {ROUTES} from '@/shared/routes';
+import {ROUTES} from '@/shared/config';
 import {PageTitleComponent} from '@/shared/ui/page-title';
 import IsUpToDateComponent from './IsUpToDate/IsUpToDateComponent';
 import LastDrawComponent from './LastDraw/LastDrawComponent';

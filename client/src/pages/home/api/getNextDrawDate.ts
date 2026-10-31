@@ -1,9 +1,8 @@
-import {euroMillionsFetch} from '@/shared/api/euro-millions';
-import type {IGetNextDrawDateResponse} from '../model/IGetNextDrawDateResponse';
-import {drawApiRoutes} from './routes';
+import {euroMillionsFetch} from '@/shared/api';
+import type {IGetNextDrawDateResponse} from './IGetNextDrawDateResponse';
 
 export const getNextDrawDate = async (): Promise<IGetNextDrawDateResponse | null> => {
-  const httpResponse = await euroMillionsFetch(drawApiRoutes.nextDate, {
+  const httpResponse = await euroMillionsFetch('/draws/nextdrawdate', {
     method: 'GET',
   });
 

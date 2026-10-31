@@ -1,6 +1,7 @@
+import type {IDraw} from '@/shared/api';
 import {useMemo, useState} from 'react';
 import {flexRender, useTable, type ColumnDef, type SortingState, type Updater} from '@tanstack/react-table';
-import {BallComponent, StarComponent, type IDraw} from '@/entities/draw';
+import {BallComponent, StarComponent} from '@/entities/draw';
 import {sortableTableFeatures} from '@/shared/lib/table';
 import styles from './DrawsTable.module.css';
 

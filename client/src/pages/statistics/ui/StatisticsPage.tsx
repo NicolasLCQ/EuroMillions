@@ -1,6 +1,6 @@
-import {useStatisticsQuery} from '@/entities/draw';
 import {PageTitleComponent} from '@/shared/ui/page-title';
 import {TextComponent} from '@/shared/ui/text';
+import {useStatisticsQuery} from '../api/useStatisticsQuery';
 import StatisticsTable from './StatisticsTable/StatisticsTable';
 import styles from './StatisticsPage.module.css';
 

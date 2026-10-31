@@ -1,4 +1,4 @@
-import {euroMillionsFetch} from '@/shared/api/euro-millions';
+import {euroMillionsFetch} from '@/shared/api';
 
 const UPLOAD_FILES_ROUTE = '/draws/upload';
 
