@@ -1,5 +1,5 @@
 import type {IDraw} from '@/shared/api';
-import {DrawComponent} from '@/entities/draw';
+import DrawComponent from './DrawComponent';
 import {TextComponent} from '@/shared/ui/text';
 import {TitleComponent} from '@/shared/ui/title';
 import styles from './LastDrawComponent.module.css';
