@@ -1,4 +1,4 @@
-import {useAllDrawsQuery} from '@/entities/draw';
+import {useAllDrawsQuery} from '../api/useAllDrawsQuery';
 import {PageTitleComponent} from '@/shared/ui/page-title';
 import {TextComponent} from '@/shared/ui/text';
 import DrawsTable from './DrawsTable/DrawsTable';

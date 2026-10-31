@@ -1,1 +1,0 @@
-export {euroMillionsFetch} from './euroMillionsClient';

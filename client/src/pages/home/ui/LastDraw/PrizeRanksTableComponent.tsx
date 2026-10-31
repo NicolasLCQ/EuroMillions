@@ -1,4 +1,4 @@
-import type {IDrawPrizeRank} from '@/entities/draw';
+import type {IDrawPrizeRank} from '@/shared/api';
 import styles from './LastDrawComponent.module.css';
 
 const formatNumber = (value: number) => new Intl.NumberFormat('fr-FR').format(value);

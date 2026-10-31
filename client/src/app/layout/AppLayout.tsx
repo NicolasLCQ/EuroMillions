@@ -1,6 +1,7 @@
 import {Outlet} from 'react-router-dom';
-import {NavBar, type INavBarComponentLink} from '@/widgets/primary-navigation';
-import {Header} from '@/widgets/site-header';
+import NavBar from './primary-navigation/NavBar';
+import type {INavBarComponentLink} from './primary-navigation/NavBarComponent';
+import Header from './site-header/Header';
 import styles from './AppLayout.module.css';
 
 export interface AppLayoutProps {

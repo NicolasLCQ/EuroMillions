@@ -1,4 +1,4 @@
-import type {IDrawAdditionalGames} from '@/entities/draw';
+import type {IDrawAdditionalGames} from '@/shared/api';
 import {TextComponent} from '@/shared/ui/text';
 import styles from './LastDrawComponent.module.css';
 

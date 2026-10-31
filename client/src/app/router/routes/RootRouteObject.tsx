@@ -4,7 +4,7 @@ import {NotFoundPage} from '@/pages/not-found';
 import {StatisticsPage} from '@/pages/statistics';
 import {UpdateDrawsPage} from '@/pages/update-draws';
 import {config} from '@/shared/config';
-import {ROUTES} from '@/shared/routes';
+import {ROUTES} from '@/shared/config';
 import {Navigate, type RouteObject} from 'react-router-dom';
 import AppLayout from '../../layout/AppLayout';
 

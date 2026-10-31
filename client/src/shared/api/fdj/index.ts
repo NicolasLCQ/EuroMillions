@@ -1,1 +1,0 @@
-export {fdjFetch} from './fdjClient';

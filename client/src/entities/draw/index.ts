@@ -1,16 +1,2 @@
-export {apiQueryKeys} from './api/queryKeys';
-export {useAllDrawsQuery} from './api/useAllDrawsQuery';
-export {useAreUpToDateQuery} from './api/useAreUpToDateQuery';
-export {useLastDrawQuery} from './api/useLastDrawQuery';
-export {useNextDrawDateQuery} from './api/useNextDrawDateQuery';
-export {useNextDrawEstimatedJackpotQuery} from './api/useNextDrawEstimatedJackpotQuery';
-export {useStatisticsQuery} from './api/useStatisticsQuery';
-export type {IDraw} from './model/IDraw';
-export type {IDrawAdditionalGames} from './model/IDrawAdditionalGames';
-export type {IDrawPrizeRank} from './model/IDrawPrizeRank';
-export type {IDrawResult} from './model/IDrawResult';
-export type {IBallStatistics, IDrawItemStatistics, IGetStatisticsResponse, IStarStatistics} from './model/IGetStatisticsResponse';
-export type {IFdjMoneyAmount} from './model/IGetFdjDrawsResponse';
-export {default as DrawComponent} from './ui/draw-result/DrawComponent';
-export {default as BallComponent} from './ui/draw-result/BallComponents/BallComponent';
-export {default as StarComponent} from './ui/draw-result/StarComponents/StarComponent';
+export {default as BallComponent} from './ui/ball/BallComponent';
+export {default as StarComponent} from './ui/star/StarComponent';

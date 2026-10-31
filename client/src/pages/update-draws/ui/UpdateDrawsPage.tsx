@@ -1,6 +1,7 @@
-import {apiQueryKeys, useAreUpToDateQuery} from '@/entities/draw';
-import {UploadFileComponent, useUploadFilesMutation} from '@/features/import-draw-history';
-import {useUpdateAutomaticallyMutation} from '@/features/sync-draw-history';
+import {drawFreshnessQueryKey, useAreUpToDateQuery} from '@/shared/api';
+import UploadFileComponent from './UploadFileComponent';
+import {useUploadFilesMutation} from '../api/useUploadFilesMutation';
+import {useUpdateAutomaticallyMutation} from '../api/useUpdateAutomaticallyMutation';
 import {useQueryClient} from '@tanstack/react-query';
 import {ButtonComponents} from '@/shared/ui/button';
 import {useNotification} from '@/shared/ui/notification';
@@ -17,7 +18,7 @@ function UpdateDrawsPage() {
   const getAreUpToDateQueryResult = useAreUpToDateQuery();
 
   const refreshAreUpToDateStatus = async () => {
-    await queryClient.invalidateQueries({queryKey: apiQueryKeys.areUpToDate});
+    await queryClient.invalidateQueries({queryKey: drawFreshnessQueryKey});
   };
 
   const uploadFilesMutation = useUploadFilesMutation({

@@ -1,8 +1,9 @@
-import {BallComponent, StarComponent, type IBallStatistics, type IStarStatistics} from '@/entities/draw';
+import {BallComponent, StarComponent} from '@/entities/draw';
 import {sortableTableFeatures} from '@/shared/lib/table';
 import {TitleComponent} from '@/shared/ui/title';
 import {useTable, type ColumnDef, type SortingState} from '@tanstack/react-table';
 import {useMemo, useState} from 'react';
+import type {IBallStatistics, IStarStatistics} from '../../api/statisticsResponse';
 import StatisticsDataTable from './StatisticsDataTable';
 import styles from './StatisticsTable.module.css';
 
