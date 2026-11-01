@@ -1,5 +1,5 @@
-export {default as ButtonComponents, type ButtonComponentsProps} from './ButtonComponent.tsx';
+export {default as ButtonComponents, type ButtonComponentsProps} from './ButtonComponent';
 export {
   default as DeleteButtonGlyphIconComponent,
   type DeleteButtonGlyphIconComponentProps,
-} from './DeleteButtonComponents/DeleteButtonGlyphIconComponent';
+} from './DeleteButtonGlyphIcon/DeleteButtonGlyphIconComponent';

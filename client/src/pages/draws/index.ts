@@ -1,1 +1,1 @@
-export {default as DrawsPage} from './ui/DrawsPage';
+export {default as DrawsPage} from './ui/DrawsPage/DrawsPage';

@@ -1,6 +1,6 @@
 import {Outlet} from 'react-router-dom';
 import NavBar from './primary-navigation/NavBar';
-import type {INavBarComponentLink} from './primary-navigation/NavBarComponent';
+import type {INavBarComponentLink} from './primary-navigation/NavBarComponent/NavBarComponent';
 import Header from './site-header/Header';
 import styles from './AppLayout.module.css';
 

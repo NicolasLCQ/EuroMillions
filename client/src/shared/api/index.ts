@@ -1,6 +1,6 @@
-export {euroMillionsFetch} from './euro-millions/euroMillionsClient';
-export {useAreUpToDateQuery} from './euro-millions/useAreUpToDateQuery';
-export {drawFreshnessQueryKey, type IAreUpToDateResponse} from './euro-millions/drawFreshness';
+export {euroMillionsFetch} from './euroMillionsClient';
+export {useAreUpToDateQuery} from './hooks/euro-millions/useAreUpToDateQuery';
+export {drawFreshnessQueryKey, type IAreUpToDateResponse} from './endpoints/euro-millions/drawFreshness';
 export type {
   IDraw,
   IDrawResult,
@@ -8,4 +8,4 @@ export type {
   IDrawAdditionalGames,
   IDrawPrizeRank,
   IDrawPrizeRanks,
-} from './euro-millions/drawResponse';
+} from './endpoints/euro-millions/drawResponse';

@@ -1,1 +1,1 @@
-export {default as UpdateDrawsPage} from './ui/UpdateDrawsPage';
+export {default as UpdateDrawsPage} from './ui/UpdateDrawsPage/UpdateDrawsPage';

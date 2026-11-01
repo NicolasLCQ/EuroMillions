@@ -1,5 +1,5 @@
 import {useEffect, useState, type PropsWithChildren} from 'react';
-import GlobalNotificationComponent from './GlobalNotificationComponent';
+import GlobalNotificationComponent from './GlobalNotification/GlobalNotificationComponent';
 import {NotificationContext} from './notificationContext';
 
 type NotificationType = 'success' | 'error';

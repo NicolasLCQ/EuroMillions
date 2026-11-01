@@ -1,4 +1,4 @@
-import NavBarComponent, {type INavBarComponentLink} from './NavBarComponent';
+import NavBarComponent, {type INavBarComponentLink} from './NavBarComponent/NavBarComponent';
 
 export interface INavBarProps {
   textAndLinks: INavBarComponentLink[];
