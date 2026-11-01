@@ -1,4 +1,4 @@
-import {fdjFetch} from '@/shared/api';
+import {fdjFetch} from './fdjClient';
 import type {IFdjMoneyAmount, IGetFdjDrawsResponse} from './IGetFdjDrawsResponse';
 
 const EURO_MILLIONS_GAME_NAME = 'euromillions';
