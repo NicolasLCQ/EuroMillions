@@ -69,6 +69,14 @@ public class DrawResources(IDrawUseCases drawUseCases)
         return Results.Ok(response);
     }
 
+    public async Task<IResult> GetNextDrawEstimatedJackpotAsync(CancellationToken cancellationToken)
+    {
+        EstimatedJackpotModel? jackpot = await drawUseCases.GetNextDrawEstimatedJackpotAsync(cancellationToken);
+        return jackpot is null
+            ? Results.Text("null", "application/json")
+            : Results.Ok(jackpot.ToEstimatedJackpotResponseViewModel());
+    }
+
     public async Task<IResult> UpdateAutomaticallyAsync()
     {
         UploadResponseViewModel uploadResponse = (await drawUseCases.UpdateAutomaticallyAsync()).ToUploadResponseViewModel();

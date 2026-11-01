@@ -23,6 +23,12 @@ public static class DrawRoutes
         );
 
         drawsGroup.MapGet(
+            "/nextdrawestimatedjackpot",
+            async ([FromServices] DrawResources drawResources, CancellationToken cancellationToken) =>
+                await drawResources.GetNextDrawEstimatedJackpotAsync(cancellationToken)
+        );
+
+        drawsGroup.MapGet(
             "/areuptodate",
             async ([FromServices] DrawResources drawResources) => await drawResources.AreDrawsUpToDateAsync()
         );

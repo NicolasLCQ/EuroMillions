@@ -1,16 +1,8 @@
-import {fdjFetch} from '../fdjClient';
-import type {IFdjMoneyAmount, IGetFdjDrawsResponse} from './IGetFdjDrawsResponse';
+import {euroMillionsFetch} from '@/shared/api';
+import type {IGetNextDrawEstimatedJackpotResponse} from './IGetNextDrawEstimatedJackpotResponse';
 
-const EURO_MILLIONS_GAME_NAME = 'euromillions';
-const EURO_CURRENCY = 'EUR';
-
-export const getNextDrawEstimatedJackpot = async (): Promise<IFdjMoneyAmount | null> => {
-  const searchParams = new URLSearchParams({
-    game_name: EURO_MILLIONS_GAME_NAME,
-    current: 'true',
-  });
-
-  const httpResponse = await fdjFetch(`/draws?${searchParams.toString()}`, {
+export const getNextDrawEstimatedJackpot = async (): Promise<IGetNextDrawEstimatedJackpotResponse | null> => {
+  const httpResponse = await euroMillionsFetch('/draws/nextdrawestimatedjackpot', {
     method: 'GET',
   });
 
@@ -18,11 +10,5 @@ export const getNextDrawEstimatedJackpot = async (): Promise<IFdjMoneyAmount | n
     throw new Error(`GetNextDrawEstimatedJackpot failed with status ${httpResponse.status}`);
   }
 
-  const drawInfos = (await httpResponse.json()) as IGetFdjDrawsResponse;
-
-  const jackpot = drawInfos
-    .find((drawInfo) => drawInfo.is_current)
-    ?.estimated_jackpot.find((estimatedJackpot) => estimatedJackpot.currency === EURO_CURRENCY);
-
-  return jackpot ?? null;
+  return (await httpResponse.json()) as IGetNextDrawEstimatedJackpotResponse | null;
 };

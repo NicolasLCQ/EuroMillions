@@ -62,6 +62,7 @@ public class Program
             }
         );
         builder.Services.AddTransient<IDrawHistorySource, FdjDrawHistorySource>();
+        builder.Services.AddHttpClient<IDrawJackpotSource, FdjDrawJackpotSource>();
         builder.Services.AddTransient<IDrawUseCases, DrawUseCases>();
         builder.Services.AddTransient<DrawResources>();
         builder.Services.AddTransient<StatisticsResources>();
