@@ -10,7 +10,7 @@ export const getStatisticsNumber = (statistic: Statistics) => ('ball' in statist
 export function useStatisticsTable(statistics: Statistics[], columns: ColumnDef<typeof sortableTableFeatures, Statistics>[]) {
   const [sorting, setSorting] = useState<SortingState>([{id: 'number', desc: false}]);
 
-  const table = useTable({
+  return useTable({
     features: sortableTableFeatures,
     data: statistics,
     columns,
@@ -18,6 +18,4 @@ export function useStatisticsTable(statistics: Statistics[], columns: ColumnDef<
     state: {sorting},
     onSortingChange: setSorting,
   });
-
-  return table;
 }
