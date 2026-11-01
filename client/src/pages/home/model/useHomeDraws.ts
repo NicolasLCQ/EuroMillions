@@ -2,6 +2,7 @@ import {useAreUpToDateQuery} from '@/shared/api';
 import {useLastDrawQuery} from '../api/hooks/useLastDrawQuery';
 import {useNextDrawDateQuery} from '../api/hooks/useNextDrawDateQuery';
 import {useNextDrawEstimatedJackpotQuery} from '../api/hooks/useNextDrawEstimatedJackpotQuery';
+import {formatDrawDate, formatJackpotAmount} from './nextDrawPresentation';
 
 export function useHomeDraws() {
   const getLastDrawQueryResult = useLastDrawQuery();
@@ -25,8 +26,10 @@ export function useHomeDraws() {
     isError,
     hasData: !!getAreUpToDateQueryResult.data && !!getNextDrawQueryResult.data,
     areUpToDate,
-    nextDrawDate,
-    estimatedJackpot,
+    nextDrawDate: nextDrawDate ? formatDrawDate(nextDrawDate) : undefined,
+    estimatedJackpot: estimatedJackpot
+      ? {amount: formatJackpotAmount(estimatedJackpot), currency: estimatedJackpot.currency}
+      : null,
     lastDraw: getLastDrawQueryResult.data,
   };
 }

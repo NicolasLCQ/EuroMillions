@@ -18,7 +18,7 @@ function HomePage() {
     <div className={styles.homePage}>
       <PageTitleComponent>Home Page</PageTitleComponent>
       <IsUpToDateComponent isUpToDate={areUpToDate} onClick={goToUploadPage} />
-      <NextDrawComponent Date={nextDrawDate} estimatedJackpot={estimatedJackpot} />
+      <NextDrawComponent date={nextDrawDate} estimatedJackpot={estimatedJackpot} />
       <LastDrawComponent Draw={lastDraw} />
     </div>
   );

@@ -8,5 +8,6 @@ namespace EuroMillions.Application.UseCases;
 public partial class DrawUseCases(
     ICsvAdapter csvAdapter,
     IDrawRepository drawRepository,
-    IDrawHistorySource drawHistorySource
+    IDrawHistorySource drawHistorySource,
+    IDrawJackpotSource drawJackpotSource
 ) : IDrawUseCases {}
